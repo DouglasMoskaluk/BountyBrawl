@@ -42,4 +42,12 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void Fire2(CallbackContext context)
+    {
+        if(player != null)
+        {
+            player.Fire2(context.ReadValue<float>());
+        }
+    }
+
 }

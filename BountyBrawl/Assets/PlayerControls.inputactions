@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Fire1",
                     "type": "Button",
                     "id": "74ed17ff-7e73-4f30-ae1c-7ce3ea5fad1b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Fire2",
+                    "type": "Button",
+                    "id": "86aa9648-c9b9-4598-a1fe-d6cb65bcf110",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -140,7 +149,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire",
+                    "action": "Fire1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c19d9cf2-0b1f-4c99-b69f-b9603053f48e",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

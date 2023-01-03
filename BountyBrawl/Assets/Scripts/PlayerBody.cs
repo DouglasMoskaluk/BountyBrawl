@@ -7,28 +7,29 @@ public class PlayerBody : MonoBehaviour
     [SerializeField]
     [Tooltip("Manipulates the speed of the player")] private float moveSpeed = 3f;
     [SerializeField]
-    private float headSpeed = 8f; // Speed of the heads
+    private int health = 100; // health of player
 
     private Rigidbody2D playerRB;
 
     private Vector2 inputVector = Vector2.zero; //Direction for movement
     private Vector3 facingVector = Vector2.zero; //Direction for where the gun should face
     private float fire1 = 0f;
+    private float fire2 = 0f;
 
 
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
     [SerializeField] private Transform playerHead; //The head of the player
     [SerializeField] private GameObject playerHand; //The hand of the player
 
-    private PlayerWeapon weapon; //The weapon the player is using
-    private bool usingDefault;
+    [HideInInspector]
+    public bool weapon; //If player is using a pickupable weapon
 
-    [SerializeField] private int playerIndex = 0;
+    [SerializeField] private int playerIndex = 0; 
 
     private void Awake()
     {
-        usingDefault = false;
         playerRB = GetComponent<Rigidbody2D>();
+        weapon = false;
     }
 
     public void SetInputVector(Vector2 direction)
@@ -46,6 +47,11 @@ public class PlayerBody : MonoBehaviour
         fire1 = click1;
     }
 
+    public void Fire2(float click2)
+    {
+        fire1 = click2;
+    }
+
     public int GetPlayerIndex()
     {
         return playerIndex;
@@ -53,21 +59,18 @@ public class PlayerBody : MonoBehaviour
 
     private void Update()
     {
-        if (GetComponentInChildren<PlayerWeapon>() == null){
+        //Switch with default weapon instead of hand
+        if (weapon == false){
             playerHand.SetActive(true);
         }else{
             playerHand.SetActive(false);
         } //Turns on or off hand depending on if the player has a weapon
 
-        if (fire1 != 0)
+        if (weapon == true)
         {
-            if (GetComponentInChildren<PlayerWeapon>() != null)
-            {
-                weapon = GetComponentInChildren<PlayerWeapon>();
-                playerHand.SetActive(false);
-                weapon.Shoot1(fire1);
-            }
-          
+            //weapon = GetComponentInChildren<PlayerWeapon>();
+            playerHand.SetActive(false);
+            //weapon.Shoot1(fire1);
         }
 
         Facing();
@@ -79,7 +82,6 @@ public class PlayerBody : MonoBehaviour
         inputVector = inputVector.normalized;
 
         playerRB.velocity = inputVector * moveSpeed;
-
 
     }
 
@@ -111,5 +113,7 @@ public class PlayerBody : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     } //Facing
+
+    public float getFire1() { return fire1; }
     
 }

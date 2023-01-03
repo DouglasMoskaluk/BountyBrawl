@@ -105,6 +105,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 74ed17ff-7e73-4f30-ae1c-7ce3ea5fad1b
     m_ActionName: PlayerMovement/Fire[/SwitchProControllerHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 86aa9648-c9b9-4598-a1fe-d6cb65bcf110
+    m_ActionName: PlayerMovement/Fire2[/DualShock4GamepadHID/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
