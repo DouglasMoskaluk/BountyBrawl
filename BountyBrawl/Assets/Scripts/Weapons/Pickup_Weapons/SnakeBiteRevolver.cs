@@ -19,7 +19,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     [Tooltip("The sprite when player is holding the weapon")]
     [SerializeField] Sprite holding;
 
-    private bool canFire = true; //Make sure the player can;
+    private bool canFire = true; //Make sure the player can attack
 
     private PlayerBody player;
 
