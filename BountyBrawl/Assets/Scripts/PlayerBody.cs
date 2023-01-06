@@ -16,14 +16,14 @@ public class PlayerBody : MonoBehaviour
     private float fire1 = 0f; //Players primary fire input
     private float fire2 = 0f; //Players secondary fire input
     private bool canMove; //Whether the player can move or not
+    private float nowThrow = 0f; //When the player has chosen to throw his weapon
 
 
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
     [SerializeField] private Transform playerHead; //The head of the player
     [SerializeField] private GameObject defaultWeapon; //The default weapon of the player
 
-    [HideInInspector]
-    public bool weapon; //If player is using a pickupable weapon
+    private bool weapon; //If player is using a pickupable weapon
 
     [SerializeField] private int playerIndex = 0; 
 
@@ -97,6 +97,11 @@ public class PlayerBody : MonoBehaviour
 
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
 
+    public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon
+    public void ChangeWeapon(bool change) { weapon = change; } //If player has picked up weapon
+
+    public float getThrow() { return nowThrow; } //Get if the player has chosen to throw his weapon
+
     public void SetInputVector(Vector2 direction)
     {
         inputVector = direction;
@@ -116,8 +121,13 @@ public class PlayerBody : MonoBehaviour
 
     public void Fire2(float click2)
     {
-        fire1 = click2;
+        fire2 = click2;
     } //Get players secondary fire input
+
+    public void Throw(float circle)
+    {
+        nowThrow = circle;
+    }
 
     public int GetPlayerIndex()
     {

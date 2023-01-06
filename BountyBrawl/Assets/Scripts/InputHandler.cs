@@ -50,4 +50,12 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void Throw(CallbackContext context)
+    {
+        if(player != null)
+        {
+            player.Throw(context.ReadValue<float>());
+        }
+    }
+
 }

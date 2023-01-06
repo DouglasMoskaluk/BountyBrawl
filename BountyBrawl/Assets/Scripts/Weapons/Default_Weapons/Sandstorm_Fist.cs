@@ -20,6 +20,13 @@ public class Sandstorm_Fist : MonoBehaviour
 
     private Vector2 traj; //Trajectory of the dash
 
+    private BoxCollider2D attack;
+
+    private void OnEnable()
+    {
+        attack = gameObject.GetComponent<BoxCollider2D>(); //Get the damage area
+    }
+
     private void OnDisable()
     {
         player.ChangeMove(true);
@@ -46,6 +53,7 @@ public class Sandstorm_Fist : MonoBehaviour
     {
         if (canFire)
         {
+            attack.enabled = true;
             canFire = false;
             isDashing = true;
             player.ChangeMove(false); //Player cannot move while dashing
@@ -68,5 +76,6 @@ public class Sandstorm_Fist : MonoBehaviour
         yield return new WaitForSeconds(time);
         isDashing = false;
         player.ChangeMove(true);
+        attack.enabled = false;
     } //When the player is done dashing
 }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1422997465680654307}
   - component: {fileID: 1422997465680654304}
   - component: {fileID: 1422997465680654305}
+  - component: {fileID: 3225895148060678808}
+  - component: {fileID: 3981973998159291145}
   m_Layer: 0
   m_Name: SnakeBiteRevolver
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422997465680654333}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawn: {fileID: 1422997466252591532}
-  bullet: {fileID: 0}
+  bullet: {fileID: 5745134554719988575, guid: 31786191faf72574c8004370348a7ed4, type: 3}
   bulletTime: 0.2
   ammo: 20
   holding: {fileID: 21300000, guid: 8bcf4b9fd82d8c04e897d3c85eb2699b, type: 3}
@@ -118,7 +120,7 @@ BoxCollider2D:
   m_Offset: {x: 1.5417991, y: -0.678368}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.57908255, y: 0.44068798}
     oldSize: {x: 10.8, y: 10.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -128,6 +130,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0835986, y: 2.6379168}
   m_EdgeRadius: 0
+--- !u!114 &3225895148060678808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422997465680654333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1a7337ab8b5a34dad95f4ec495888e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwSpeed: 60
+  throwTime: 0.5
+  rotationSpeed: 1000
+--- !u!50 &3981973998159291145
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422997465680654333}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1422997466252591535
 GameObject:
   m_ObjectHideFlags: 0
