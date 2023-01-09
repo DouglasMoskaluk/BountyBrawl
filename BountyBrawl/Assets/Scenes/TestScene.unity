@@ -345,7 +345,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 2055119095}
   playerHead: {fileID: 508981968}
   defaultWeapon: {fileID: 447774250}
-  playerIndex: 0
+  playerIndex: 1
 --- !u!212 &412174306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 1929533139}
   playerHead: {fileID: 1597382175}
   defaultWeapon: {fileID: 1254629364}
-  playerIndex: 1
+  playerIndex: 0
 --- !u!212 &888641974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1157,8 +1157,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1254629368}
   - component: {fileID: 1254629367}
-  - component: {fileID: 1254629366}
   - component: {fileID: 1254629365}
+  - component: {fileID: 1254629366}
   m_Layer: 0
   m_Name: Katana
   m_TagString: Untagged
@@ -1201,12 +1201,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254629364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4936b5096df21934da722e286ab1c229, type: 3}
+  m_Script: {fileID: 11500000, guid: 73b6e17d057495e4fba970d6a4e3ecc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fistTime: 0.2
-  dashTime: 1
-  dashSpeed: 60
+  slashCooldown: 5
+  slashSpeed: 0.5
   player: {fileID: 888641973}
 --- !u!212 &1254629367
 SpriteRenderer:
