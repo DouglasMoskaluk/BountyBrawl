@@ -12,7 +12,8 @@ public class PlayerBody : MonoBehaviour
     private Rigidbody2D playerRB;
 
     private Vector2 inputVector = Vector2.zero; //Direction for movement
-    private Vector3 facingVector = Vector2.zero; //Direction for where the gun should face
+    private Vector2 facingVector = Vector2.zero; //Direction for where the gun should face
+    private Vector2 lastFacing; //Last trajectory of the player before letting go of right stick
     private float fire1 = 0f; //Players primary fire input
     private float fire2 = 0f; //Players secondary fire input
     private bool canMove; //Whether the player can move or not
@@ -64,8 +65,12 @@ public class PlayerBody : MonoBehaviour
 
     }
 
+    /*
+     * This method moves the direction of the weapon and head of the player based on the right stick input
+     */ 
     private void Facing()
     {
+        //If the stick is moving in the left direction
         if (facingVector.x < -0.1)
         {
             float angle = facingVector.x + facingVector.y * -90;
@@ -74,19 +79,35 @@ public class PlayerBody : MonoBehaviour
             if (angle < 20f && angle > -40f)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 180, -angle);
+            }else if(angle >= 20f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 180, -20);
+            }
+            else if (angle <= -40f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 180, 40);
             }
 
             transform.rotation = Quaternion.Euler(0f, 180, 0f);
         }
 
+        //If the stick is moving in the right direction
         else if (facingVector.x > 0.1)
         {
             float angle = facingVector.x + facingVector.y * 90;
             weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle);
 
-            if (angle < 20f && angle > -40f)
+            if (angle < 40f && angle > -20f)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
+            else if (angle >= 40f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 0f, 40);
+            }
+            else if (angle <= -20f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 0f, -20);
             }
 
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -102,6 +123,8 @@ public class PlayerBody : MonoBehaviour
 
     public float getThrow() { return nowThrow; } //Get if the player has chosen to throw his weapon
 
+    public Vector2 getLastFacing() { return lastFacing; }
+
     public void SetInputVector(Vector2 direction)
     {
         inputVector = direction;
@@ -110,6 +133,10 @@ public class PlayerBody : MonoBehaviour
     public void SetFacingVector(Vector2 face)
     {
         facingVector = face;
+        if(facingVector != Vector2.zero)
+        {
+            lastFacing = facingVector;
+        }
     } //For the right stick representing where to face
 
     public Vector2 GetFacing() { return facingVector; }
