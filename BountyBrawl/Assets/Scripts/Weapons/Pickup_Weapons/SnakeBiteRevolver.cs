@@ -25,17 +25,15 @@ public class SnakeBiteRevolver : MonoBehaviour
 
     private bool canUse = true; // If the weapon can currently be used
 
-    private bool thrown = false; // If the player has thrown the weapon
-
     private PlayerBody player;
+
+    private BoxCollider2D weaponBody;
 
     private Throw nowThrow;
 
-    private BoxCollider2D box;
-
     private void Awake()
     {
-        box = GetComponent<BoxCollider2D>();
+        weaponBody = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         start = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
@@ -44,7 +42,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.getFire1() != 0 && ammo > 0 && !thrown)
+            if (player.getFire1() != 0 && ammo > 0)
             {
                 Shoot1();
             } //shoot gun if there is ammo and if player is holding the tringger
@@ -112,14 +110,13 @@ public class SnakeBiteRevolver : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = start; //Reset the sprite
         player.ChangeWeapon(false); //Set player back to default weapon
+        weaponBody.isTrigger = false; //Make it a physical collider
         transform.parent = null; //Unparent the weapon
-        thrown = true;
-        box.isTrigger = false;
-        Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
-        yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
-        thrown = false;
-        box.isTrigger = true;
+
+        Vector2 traj = transform.position - player.transform.position; //Get the trajectory of the bullet
+        yield return nowThrow.Cooldown(traj); //Wait till the throwing motion is over
         player = null; //sets the player to null to wait for next player
         canUse = true; //Weapon is back to being pickupable
+        weaponBody.isTrigger = true; 
     } //Called when the weapon is being thrown
 }

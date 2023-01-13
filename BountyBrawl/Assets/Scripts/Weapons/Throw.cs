@@ -12,8 +12,6 @@ public class Throw : MonoBehaviour
 
     private Vector2 traj;
 
-    private GameObject player; //The player that threw the weapon
-
     // Update is called once per frame
     void Update()
     {
@@ -25,9 +23,8 @@ public class Throw : MonoBehaviour
         }
     }
 
-    public IEnumerator Cooldown(Vector2 direction, GameObject play)
+    public IEnumerator Cooldown(Vector2 direction)
     {
-        player = play;
         isThrown = true;
         traj = direction;
         yield return new WaitForSeconds(throwTime);
@@ -35,14 +32,6 @@ public class Throw : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     } //When the weapon has done being thrown
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //If the weapon collides with a player other than the player that threw the weapon
-        if (collision.gameObject != player && collision.transform.tag == "Player")
-        {
-            isThrown = false;
-            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            StopAllCoroutines();
-        }
-    }
+
+    //collision detection for when it hits a wall...
 }

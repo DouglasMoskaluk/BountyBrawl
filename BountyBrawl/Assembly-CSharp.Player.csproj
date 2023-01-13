@@ -58,11 +58,10 @@
     <Compile Include="Assets\Scripts\Bullets\SnakeBiteRevolver_Bullet.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\SnakeBiteRevolver.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
-    <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Nagakome_Katana.cs" />
     <Compile Include="Assets\Scripts\Weapons\Throw.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Sandstorm_Fist.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Nagakome_Katana.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
