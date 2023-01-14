@@ -34,11 +34,16 @@ public class Throw : MonoBehaviour
     } //When the weapon has done being thrown
 
 
-    //collision detection for when it hits a wall...
+    //collision detection for when it hits a wall and player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //If the weapon collides with a player other than the player that threw the weapon
         if (collision.gameObject != player && collision.transform.tag == "Player")
+        {
+            isThrown = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            StopAllCoroutines();
+        }else if(collision.transform.tag == "Wall")
         {
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

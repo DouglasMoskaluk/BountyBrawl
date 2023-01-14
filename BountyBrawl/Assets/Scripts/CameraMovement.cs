@@ -34,7 +34,7 @@ public class CameraMovement : MonoBehaviour
     //Finds the greatest x distance between all players
     private float GetGreatestXDistance()
     {
-        var bounds = new Bounds(players[0].transform.position, Vector3.zero);
+        var bounds = new Bounds(Vector3.zero, Vector3.zero);
 
         for(int i = 0; i < players.Length; i++)
         {
@@ -47,13 +47,13 @@ public class CameraMovement : MonoBehaviour
     //Finds the greatest y distance between all players
     private float GetGreatestYDistance()
     {
-        var bounds = new Bounds(players[0].transform.position, Vector3.zero);
+        var bounds = new Bounds(Vector3.zero, Vector3.zero);
 
         for (int i = 0; i < players.Length; i++)
         {
             bounds.Encapsulate(players[i].transform.position);
         }
 
-        return bounds.size.y;
+        return bounds.size.y * 2;
     }
 }

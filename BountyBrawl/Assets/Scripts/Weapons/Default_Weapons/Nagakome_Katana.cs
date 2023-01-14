@@ -8,7 +8,7 @@ public class Nagakome_Katana : MonoBehaviour
     [SerializeField] private float slashCooldown = 3f;
 
     [Tooltip("Speed at which the slashes happen")]
-    [SerializeField] private float slashSpeed = 0.5f;
+    [SerializeField] private float slashSpeed = 1f;
 
     private BoxCollider2D attack;
 
@@ -25,7 +25,7 @@ public class Nagakome_Katana : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.getFire1() != 0)
+            if (player.getFire1() != 0 && canFire)
             {
                 Shoot1();
             }
@@ -34,13 +34,9 @@ public class Nagakome_Katana : MonoBehaviour
 
     private void Shoot1()
     {
-        if (canFire)
-        {
-            canFire = false;
-
-            StartCoroutine(Cooldown(slashCooldown));
-            StartCoroutine(Slash(slashSpeed));
-        } //If player can dash then do stop player from moving and 
+        canFire = false;
+        player.UsingDefault(true);
+        StartCoroutine(Slash(slashSpeed));
     }
 
     IEnumerator Cooldown(float time)
@@ -52,11 +48,13 @@ public class Nagakome_Katana : MonoBehaviour
     IEnumerator Slash(float time)
     {
         attack.enabled = true;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.05f);
         attack.enabled = false;
         yield return new WaitForSeconds(time);
         attack.enabled = true;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.05f);
         attack.enabled = false;
+        player.UsingDefault(false);
+        StartCoroutine(Cooldown(slashCooldown));
     } //When the player can use the dash again
 }

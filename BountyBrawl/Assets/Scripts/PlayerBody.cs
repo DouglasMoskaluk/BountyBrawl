@@ -19,11 +19,13 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private Transform playerHead; //The head of the player
     [SerializeField] private GameObject defaultWeapon; //The default weapon of the player
     private bool weapon; //If player is using a pickupable weapon
+    private bool useDefault; //If player has fired their default weapon
     [SerializeField] private int playerIndex = 0;
     private void Awake()
     {
         playerRB = GetComponent<Rigidbody2D>();
         weapon = false;
+        useDefault = false;
         canMove = true;
     }
     private void Update()
@@ -62,7 +64,17 @@ public class PlayerBody : MonoBehaviour
         if (facingVector.x < -0.1)
         {
             float angle = facingVector.x + facingVector.y * -90;
-            weaponHolder.rotation = Quaternion.Euler(0f, 180, -angle);
+
+            if (weapon || useDefault) //if using a pickupable weapon
+            {
+                weaponHolder.rotation = Quaternion.Euler(0f, 180, -angle); //Rotates weapon around player
+            }
+            else
+            {
+                weaponHolder.rotation = Quaternion.Euler(0f, 180, 0f);
+            }
+
+
             if (angle < 20f && angle > -40f)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 180, -angle);
@@ -83,21 +95,28 @@ public class PlayerBody : MonoBehaviour
         else if (facingVector.x > 0.1)
         {
             float angle = facingVector.x + facingVector.y * 90;
-            weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle);
 
-            if (angle < 20f && angle > -40f)
-                if (angle < 40f && angle > -20f)
-                {
-                    playerHead.rotation = Quaternion.Euler(0f, 0f, angle);
-                }
-                else if (angle >= 40f)
-                {
-                    playerHead.rotation = Quaternion.Euler(0f, 0f, 40);
-                }
-                else if (angle <= -20f)
-                {
-                    playerHead.rotation = Quaternion.Euler(0f, 0f, -20);
-                }
+            if (weapon || useDefault)
+            {
+                weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle); //Rotates weapon around player
+            }
+            else
+            {
+                weaponHolder.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+
+            if (angle < 40f && angle > -20f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
+            else if (angle >= 40f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 0f, 40);
+            }
+            else if (angle <= -20f)
+            {
+                playerHead.rotation = Quaternion.Euler(0f, 0f, -20);
+            }
 
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
@@ -105,7 +124,14 @@ public class PlayerBody : MonoBehaviour
     public float getFire1() { return fire1; } //Gets when the player inputs the primary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
     public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon
+    
+    public void UsingDefault(bool def) { useDefault = def; } //Once the default weapon is fired
     public void ChangeWeapon(bool change) { weapon = change; } //If player has picked up weapon
+
+    public void damagePlayer(int damage)
+    {
+        health -= damage;
+    }
 
     public float getThrow() { return nowThrow; } //Get if the player has chosen to throw his weapon
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sandstorm_Fist : MonoBehaviour
 {
     [Tooltip("The time required before fists can be used again")]
-    [SerializeField] private float fistTime = 5f;
+    [SerializeField] private float fistTime = 4f;
 
     [Tooltip("How long the character will dash")]
     [SerializeField] private float dashTime = 1f;
@@ -56,11 +56,11 @@ public class Sandstorm_Fist : MonoBehaviour
             attack.enabled = true;
             canFire = false;
             isDashing = true;
+            player.UsingDefault(true);
             player.ChangeMove(false); //Player cannot move while dashing
 
             traj = player.GetFacing(); //Get the trajectory of the dash
 
-            StartCoroutine(Cooldown(fistTime));
             StartCoroutine(Dash(dashTime));
         } //If player can dash then do stop player from moving and 
     }
@@ -74,7 +74,9 @@ public class Sandstorm_Fist : MonoBehaviour
     IEnumerator Dash(float time)
     {
         yield return new WaitForSeconds(time);
+        StartCoroutine(Cooldown(fistTime));
         isDashing = false;
+        player.UsingDefault(false);
         player.ChangeMove(true);
         attack.enabled = false;
     } //When the player is done dashing
