@@ -13,6 +13,8 @@ public class Sandstorm_Fist : MonoBehaviour
     [Tooltip("How fast the character will dash")]
     [SerializeField] private float dashSpeed = 60f;
 
+    [SerializeField] private float damage = 6f;
+
     [SerializeField] private PlayerBody player; //This is the player
 
     private bool canFire = true; //Make sure the player can dash
@@ -25,6 +27,11 @@ public class Sandstorm_Fist : MonoBehaviour
     private void OnEnable()
     {
         attack = gameObject.GetComponent<BoxCollider2D>(); //Get the damage area
+        player.UsingDefault(false);
+        player.ChangeMove(true);
+        attack.enabled = false;
+        StopAllCoroutines();
+        canFire = true;
     }
 
     private void OnDisable()
@@ -80,4 +87,12 @@ public class Sandstorm_Fist : MonoBehaviour
         player.ChangeMove(true);
         attack.enabled = false;
     } //When the player is done dashing
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject != player && other.transform.tag == "Player")
+        {
+            other.GetComponent<PlayerBody>().damagePlayer(damage);
+        }
+    }
 }

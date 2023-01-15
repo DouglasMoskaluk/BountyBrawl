@@ -5,7 +5,7 @@ public class PlayerBody : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Manipulates the speed of the player")] private float moveSpeed = 3f;
-    [SerializeField] private int health = 100; // health of player
+    [SerializeField] private float health = 100; // health of player
     private Rigidbody2D playerRB;
 
     private Vector2 inputVector = Vector2.zero; //Direction for movement
@@ -132,7 +132,7 @@ public class PlayerBody : MonoBehaviour
 
     public void EmeraldHammer(bool slam) { hammer = slam; } //Just for emeralds slam
 
-    public void damagePlayer(int damage)
+    public void damagePlayer(float damage)
     {
         health -= damage;
     }

@@ -16,6 +16,8 @@ public class Emerald_Hammer : MonoBehaviour
     [Tooltip("Bottom angle of the hammer")]
     [SerializeField] private float bottomAngle = -45f;
 
+    [SerializeField] private float damage = 19;
+
     private CircleCollider2D attack;
 
     [SerializeField] private PlayerBody player; //This is the player
@@ -32,6 +34,20 @@ public class Emerald_Hammer : MonoBehaviour
     private void Awake()
     {
         attack = GetComponent<CircleCollider2D>();
+    }
+
+    private void OnEnable()
+    {
+        canFire = true;
+    }
+
+    private void OnDisable()
+    {
+        attack.enabled = false;
+        slamming = false;
+        currTime = 0f;
+        player.EmeraldHammer(false);
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -94,5 +110,13 @@ public class Emerald_Hammer : MonoBehaviour
         yield return new WaitForSeconds(time);
         canFire = true;
     } //When the player can use the dash again
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject != player && other.transform.tag == "Player")
+        {
+            other.GetComponent<PlayerBody>().damagePlayer(damage);
+        }
+    }
 
 }

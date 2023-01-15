@@ -10,6 +10,8 @@ public class Greed_Knife : MonoBehaviour
     [Tooltip("Speed at which the slashes happen")]
     [SerializeField] private float slashSpeed = 0.3f;
 
+    [SerializeField] private float damage = 2f;
+
     private BoxCollider2D attack;
 
     [SerializeField] private PlayerBody player; //This is the player
@@ -19,6 +21,18 @@ public class Greed_Knife : MonoBehaviour
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
+    }
+
+    private void OnEnable()
+    {
+        canFire = true;
+    }
+
+    private void OnDisable()
+    {
+        attack.enabled = false;
+        player.UsingDefault(false);
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -70,7 +84,7 @@ public class Greed_Knife : MonoBehaviour
     {
         if (collision.gameObject != player && collision.transform.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerBody>().damagePlayer(10);
+            collision.gameObject.GetComponent<PlayerBody>().damagePlayer(damage);
         }
     }
 }

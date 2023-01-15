@@ -14,11 +14,26 @@ public class Nagakome_Katana : MonoBehaviour
 
     [SerializeField] private PlayerBody player; //This is the player
 
+    [SerializeField] private float damage = 9;
+
     private bool canFire = true; //Make sure the player can attack
+
 
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
+    }
+
+    private void OnEnable()
+    {
+        canFire = true;
+    }
+
+    private void OnDisable()
+    {
+        attack.enabled = false;
+        player.UsingDefault(false);
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -57,4 +72,12 @@ public class Nagakome_Katana : MonoBehaviour
         player.UsingDefault(false);
         StartCoroutine(Cooldown(slashCooldown));
     } //When the player can use the dash again
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject != player && other.transform.tag == "Player")
+        {
+            other.GetComponent<PlayerBody>().damagePlayer(damage);
+        }
+    }
 }
