@@ -421,7 +421,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 879350385}
   playerHead: {fileID: 1742069887}
   defaultWeapon: {fileID: 1220530508}
-  playerIndex: 0
+  playerIndex: 1
 --- !u!212 &147186566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 2055119095}
   playerHead: {fileID: 508981968}
   defaultWeapon: {fileID: 447774250}
-  playerIndex: 2
+  playerIndex: 3
 --- !u!212 &412174306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1271,8 +1271,8 @@ GameObject:
   m_Component:
   - component: {fileID: 491880561}
   - component: {fileID: 491880560}
-  - component: {fileID: 491880559}
   - component: {fileID: 491880558}
+  - component: {fileID: 491880559}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -1289,14 +1289,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 491880557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f71568f4b8616f428cbfeb07f41711b, type: 3}
+  m_Script: {fileID: 11500000, guid: 80418fc6c3f5a4140829f9a04d976244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabCooldown: 1.5
-  slashSpeed: 0.3
+  hammerCooldown: 5
+  slamSpeed: 1
+  topAngle: 140
+  bottomAngle: -45
   player: {fileID: 2068640316}
---- !u!61 &491880559
-BoxCollider2D:
+  weaponHolder: {fileID: 522300657}
+--- !u!58 &491880559
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1308,19 +1311,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.585141, y: -2.0156345}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.8, y: 10.8}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 8.801193, y: 2.5911827}
-  m_EdgeRadius: 0
+  m_Radius: 11.724239
 --- !u!212 &491880560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2053,7 +2046,7 @@ MonoBehaviour:
   weaponHolder: {fileID: 1929533139}
   playerHead: {fileID: 1597382175}
   defaultWeapon: {fileID: 1254629364}
-  playerIndex: 1
+  playerIndex: 2
 --- !u!212 &888641974
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private GameObject defaultWeapon; //The default weapon of the player
     private bool weapon; //If player is using a pickupable weapon
     private bool useDefault; //If player has fired their default weapon
+    private bool hammer; //Specifically for Emerald when she is using her hammer
     [SerializeField] private int playerIndex = 0;
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class PlayerBody : MonoBehaviour
         weapon = false;
         useDefault = false;
         canMove = true;
+        hammer = false;
     }
     private void Update()
     {
@@ -69,7 +71,7 @@ public class PlayerBody : MonoBehaviour
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, -angle); //Rotates weapon around player
             }
-            else
+            else if(!useDefault || !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, 0f);
             }
@@ -100,7 +102,7 @@ public class PlayerBody : MonoBehaviour
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle); //Rotates weapon around player
             }
-            else
+            else if(!useDefault && !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
@@ -127,6 +129,8 @@ public class PlayerBody : MonoBehaviour
     
     public void UsingDefault(bool def) { useDefault = def; } //Once the default weapon is fired
     public void ChangeWeapon(bool change) { weapon = change; } //If player has picked up weapon
+
+    public void EmeraldHammer(bool slam) { hammer = slam; } //Just for emeralds slam
 
     public void damagePlayer(int damage)
     {

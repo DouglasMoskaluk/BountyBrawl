@@ -14,7 +14,7 @@ public class Greed_Knife : MonoBehaviour
 
     [SerializeField] private PlayerBody player; //This is the player
 
-    private bool canFire = true; //Make sure the player can dash
+    private bool canFire = true; //Make sure the player can attack
 
     private void Awake()
     {
