@@ -75,9 +75,13 @@ public class Nagakome_Katana : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject != player && other.transform.tag == "Player")
+        if (other.gameObject != player && other.tag == "Player")
         {
             other.GetComponent<PlayerBody>().damagePlayer(damage);
+        }
+        else if (other.tag == "Enemy")
+        {
+            other.GetComponent<Enemy>().DamageEnemy(damage);
         }
     }
 }

@@ -785,7 +785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 235}
+  m_AnchoredPosition: {x: 0, y: 464}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &233263296
@@ -835,8 +835,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -2172,7 +2172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &631079458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3428,7 +3428,10 @@ MonoBehaviour:
   enemy: {fileID: 2827886038910366198, guid: 7567bcfda6a148d40afa9a6b98fb668f, type: 3}
   numEnemies: 5
   enemyTimer: 60
+  boxTimer: 60
   timer: {fileID: 233263296}
+  enemyDamageIncrease: 4
+  enemyHealthIncrease: 10
 --- !u!1 &1597382174
 GameObject:
   m_ObjectHideFlags: 0

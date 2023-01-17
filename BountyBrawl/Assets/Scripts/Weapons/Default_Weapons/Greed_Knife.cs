@@ -80,11 +80,15 @@ public class Greed_Knife : MonoBehaviour
         StartCoroutine(Cooldown(stabCooldown));
     } //When the player can use the dash again
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject != player && collision.transform.tag == "Player")
+        if (other.gameObject != player && other.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerBody>().damagePlayer(damage);
+            other.gameObject.GetComponent<PlayerBody>().damagePlayer(damage);
+        }
+        else if (other.tag == "Enemy")
+        {
+            other.GetComponent<Enemy>().DamageEnemy(damage);
         }
     }
 }

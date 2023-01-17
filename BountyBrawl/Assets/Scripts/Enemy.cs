@@ -11,10 +11,20 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float enemySpeed = 2f;
 
+    [SerializeField] private float baseDamage = 5f;
+
+    [SerializeField] private float baseHealth = 30f;
+
+    [SerializeField] private float currDamage;
+    [SerializeField] private float currHealth;
+
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         players = FindObjectsOfType<PlayerBody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,12 +44,22 @@ public class Enemy : MonoBehaviour
                 target = player.gameObject;
             }
         }
+
+        if(currHealth <= 0f)
+        {
+            Death();
+        }
         
     }
 
     private void FixedUpdate()
     {
-        transform.position += transform.right * enemySpeed * Time.deltaTime;
+        if (target != null)
+        {
+            Vector3 direction = target.transform.position - transform.position;
+            direction.Normalize();
+            rb.MovePosition(transform.position + (direction * enemySpeed * Time.deltaTime));
+        }
     }
 
     private void LateUpdate()
@@ -47,12 +67,28 @@ public class Enemy : MonoBehaviour
 
         if (target != null)
         {
-            Vector2 face = target.transform.position - transform.position; //Get 2d position of mouse position
-            float angle = Mathf.Atan2(face.y, face.x) * Mathf.Rad2Deg; //Get angle of where to face
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward); //Get the rotation based on angle
-            transform.rotation = rotation;
+            Vector2 face = target.transform.position - transform.position; //Get 2d position of the player
+            
+            if(face.x > 0.1)
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
         }
 
     }
 
+    private void Death()
+    {
+        Destroy(gameObject);
+    }
+
+    public void AddDamage(float add){ currDamage += add + baseDamage; } //Adds more damage each time enemy is spawned
+    
+    public void AddHealth(float add) { currHealth += add + baseHealth; } //Adds more health each time enemy is spawned
+
+    public void DamageEnemy(float damage) { currHealth -= damage; }
 }
