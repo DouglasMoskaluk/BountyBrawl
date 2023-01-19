@@ -95,7 +95,7 @@ public class Sandstorm_Fist : MonoBehaviour
             other.GetComponent<PlayerBody>().damagePlayer(damage);
         }else if(other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().DamageEnemy(damage);
+            other.GetComponent<TheLost>().DamageEnemy(damage);
         }
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("Manipulates the speed of the player")] private float moveSpeed = 3f;
+    [Tooltip("Manipulates the walk speed of the player")] private float walkSpeed = 5f;
+    [SerializeField]
+    [Tooltip("Manipulates the run speed of the player")] private float runSpeed = 9f;
     [SerializeField] private float health = 100; // health of player
     private Rigidbody2D playerRB;
 
@@ -50,8 +52,17 @@ public class PlayerBody : MonoBehaviour
     {
         if (canMove)
         {
-            inputVector = inputVector.normalized;
-            playerRB.velocity = inputVector * moveSpeed;
+
+            if (inputVector.magnitude < 0.9f)
+            {
+                playerRB.velocity = inputVector.normalized * walkSpeed;
+            }
+            else if (inputVector.magnitude > 0.9f)
+            {
+                playerRB.velocity = inputVector.normalized * runSpeed;
+            }
+            
+            
             Facing();
         }
 

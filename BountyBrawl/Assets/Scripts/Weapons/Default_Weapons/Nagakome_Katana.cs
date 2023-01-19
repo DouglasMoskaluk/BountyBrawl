@@ -81,7 +81,7 @@ public class Nagakome_Katana : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().DamageEnemy(damage);
+            other.GetComponent<TheLost>().DamageEnemy(damage);
         }
     }
 }
