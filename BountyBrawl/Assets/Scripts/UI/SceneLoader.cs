@@ -23,7 +23,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     
-    IEnumerator TheAssEater5000(int index)
+    IEnumerator TheAssEater5000(int index) //Loading screen
     {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + index);
@@ -39,9 +39,16 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(TheAssEater5000(2));
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        PauseScript.isPaused = false;
     }
 
     public void QuitGame()

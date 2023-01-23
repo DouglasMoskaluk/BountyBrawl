@@ -58,4 +58,11 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void Pause(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.Pause(context.ReadValue<float>());
+        }
+    }
 }

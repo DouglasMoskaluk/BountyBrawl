@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
+
+    GameObject UIPauseMenu; //Pause menu on canvas
+
     [SerializeField]
     [Tooltip("Manipulates the walk speed of the player")] private float walkSpeed = 5f;
     [SerializeField]
@@ -15,6 +18,7 @@ public class PlayerBody : MonoBehaviour
     private Vector2 lastFacing; //Last trajectory of the player before letting go of right stick
     private float fire1 = 0f; //Players primary fire input
     private float fire2 = 0f; //Players secondary fire input
+    private float pause = 0f; //players pause input
     private bool canMove; //Whether the player can move or not
     private float nowThrow = 0f; //When the player has chosen to throw his weapon
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
@@ -26,6 +30,7 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private int playerIndex = 0;
     private void Awake()
     {
+        UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
         playerRB = GetComponent<Rigidbody2D>();
         weapon = false;
         useDefault = false;
@@ -47,6 +52,12 @@ public class PlayerBody : MonoBehaviour
         {
             defaultWeapon.SetActive(false);
         }
+
+        if(getPause() != 0)
+        {
+            Debug.Log("PRessed pause");
+           UIPauseMenu.GetComponent<PauseScript>().PressedPause();
+        } //checks if player has pressed the pause menu button and toggles it
     }
     private void FixedUpdate()
     {
@@ -150,6 +161,8 @@ public class PlayerBody : MonoBehaviour
 
     public float getThrow() { return nowThrow; } //Get if the player has chosen to throw his weapon
 
+    public float getPause() { return pause; } //Gets when the player inputs the pause button
+
     public Vector2 getLastFacing() { return lastFacing; }
 
     public void SetInputVector(Vector2 direction)
@@ -177,6 +190,10 @@ public class PlayerBody : MonoBehaviour
     public void Throw(float circle)
     {
         nowThrow = circle;
+    }
+    public void Pause(float start)
+    {
+        pause = start;
     }
     public int GetPlayerIndex()
     {
