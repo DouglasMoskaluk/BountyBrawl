@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField]
+    GameObject loadingScreenobj;
+    int loadTime;
 
-    //public float randomNumber;
     public void Start()
     {
-        //float randomNumber = Random.Range(2, 8);
+
     }
 
     public void PlayGame()
@@ -25,7 +27,8 @@ public class SceneLoader : MonoBehaviour
     
     IEnumerator TheAssEater5000(int index) //Loading screen
     {
-        yield return new WaitForSeconds(5);
+        loadTime = loadingScreenobj.GetComponent<LoadingScreen>().randTime;
+        yield return new WaitForSeconds(loadTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + index);
     }
 
@@ -36,6 +39,7 @@ public class SceneLoader : MonoBehaviour
 
     public void Map2()
     {
+
         StartCoroutine(TheAssEater5000(2));
     }
 
