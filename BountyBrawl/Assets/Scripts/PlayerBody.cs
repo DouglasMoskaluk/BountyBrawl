@@ -24,6 +24,8 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
     [SerializeField] private Transform playerHead; //The head of the player
     [SerializeField] private GameObject defaultWeapon; //The default weapon of the player
+    [SerializeField] private float downAngle = 20f; // The down head angle of the player
+    [SerializeField] private float upAngle = -40f; // The up head angle of the player
     private bool weapon; //If player is using a pickupable weapon
     private bool useDefault; //If player has fired their default weapon
     private bool hammer; //Specifically for Emerald when she is using her hammer
@@ -99,17 +101,17 @@ public class PlayerBody : MonoBehaviour
             }
 
 
-            if (angle < 20f && angle > -40f)
+            if (angle < upAngle && angle > downAngle)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 180, -angle);
             }
-            else if (angle >= 20f)
+            else if (angle >= upAngle)
             {
-                playerHead.rotation = Quaternion.Euler(0f, 180, -20);
+                playerHead.rotation = Quaternion.Euler(0f, 180, -upAngle);
             }
-            else if (angle <= -40f)
+            else if (angle <= downAngle)
             {
-                playerHead.rotation = Quaternion.Euler(0f, 180, 40);
+                playerHead.rotation = Quaternion.Euler(0f, 180, -downAngle);
             }
 
             transform.rotation = Quaternion.Euler(0f, 180, 0f);
@@ -129,17 +131,17 @@ public class PlayerBody : MonoBehaviour
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
 
-            if (angle < 40f && angle > -20f)
+            if (angle < -downAngle && angle > -upAngle)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 0f, angle);
             }
-            else if (angle >= 40f)
+            else if (angle >= -downAngle)
             {
-                playerHead.rotation = Quaternion.Euler(0f, 0f, 40);
+                playerHead.rotation = Quaternion.Euler(0f, 0f, -downAngle);
             }
-            else if (angle <= -20f)
+            else if (angle <= -upAngle)
             {
-                playerHead.rotation = Quaternion.Euler(0f, 0f, -20);
+                playerHead.rotation = Quaternion.Euler(0f, 0f, -upAngle);
             }
 
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
