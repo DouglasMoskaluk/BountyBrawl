@@ -62,7 +62,7 @@ public class InputHandler : MonoBehaviour
     {
         if (player != null)
         {
-            player.Pause(context.ReadValue<float>());
+            player.Pause(context.performed);
         }
     }
 }

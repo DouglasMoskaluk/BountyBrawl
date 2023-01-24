@@ -9,6 +9,9 @@ public class SceneLoader : MonoBehaviour
     GameObject loadingScreenobj;
     int loadTime;
 
+    [SerializeField]
+    GameObject pauseMenu;
+
     public void Start()
     {
 
@@ -46,6 +49,8 @@ public class SceneLoader : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        pauseMenu.GetComponent<PauseScript>().ResumeGame();
+        Debug.Log("Restart");
     }
 
     public void MainMenu()
@@ -60,4 +65,9 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit");
     }    
+
+    public void TestScene()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

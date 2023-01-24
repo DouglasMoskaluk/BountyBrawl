@@ -30,16 +30,13 @@ public class PauseScript : MonoBehaviour
 
     public void PressedPause()
     {
-        Debug.Log("Pause SCripts");
         if (isPaused)
         {
             ResumeGame();
-            Debug.Log("2");
         }
         else
         {
             PauseGame();
-            Debug.Log("1");
         }
     }
 

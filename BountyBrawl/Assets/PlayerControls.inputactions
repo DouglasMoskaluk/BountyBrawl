@@ -206,17 +206,6 @@
                 },
                 {
                     "name": "",
-                    "id": "531558fe-3fb4-4815-a34e-f76eb6987e41",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6a05c76f-36ba-4321-ab80-d24710eb9249",
                     "path": "<Gamepad>/start",
                     "interactions": "",
@@ -228,8 +217,8 @@
                 },
                 {
                     "name": "",
-                    "id": "a4953868-03dd-491a-b9e8-bf06c2ce9b94",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "f3f48372-ff04-4000-8848-c8bdf38b8cd6",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

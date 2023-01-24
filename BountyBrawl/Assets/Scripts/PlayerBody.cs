@@ -18,7 +18,7 @@ public class PlayerBody : MonoBehaviour
     private Vector2 lastFacing; //Last trajectory of the player before letting go of right stick
     private float fire1 = 0f; //Players primary fire input
     private float fire2 = 0f; //Players secondary fire input
-    private float pause = 0f; //players pause input
+    private bool pause = false; //players pause input
     private bool canMove; //Whether the player can move or not
     private float nowThrow = 0f; //When the player has chosen to throw his weapon
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
@@ -54,12 +54,7 @@ public class PlayerBody : MonoBehaviour
         {
             defaultWeapon.SetActive(false);
         }
-
-        if(getPause() != 0)
-        {
-            Debug.Log("PRessed pause");
-           UIPauseMenu.GetComponent<PauseScript>().PressedPause();
-        } //checks if player has pressed the pause menu button and toggles it
+        
     }
     private void FixedUpdate()
     {
@@ -78,6 +73,14 @@ public class PlayerBody : MonoBehaviour
             
             Facing();
         }
+
+        
+
+        if (getPause() == true)
+        {
+           
+            UIPauseMenu.GetComponent<PauseScript>().PressedPause();
+        } //checks if player has pressed the pause menu button and toggles it
 
     }
 
@@ -163,7 +166,7 @@ public class PlayerBody : MonoBehaviour
 
     public float getThrow() { return nowThrow; } //Get if the player has chosen to throw his weapon
 
-    public float getPause() { return pause; } //Gets when the player inputs the pause button
+    public bool getPause() {return pause; } //Gets when the player inputs the pause button
 
     public Vector2 getLastFacing() { return lastFacing; }
 
@@ -193,7 +196,7 @@ public class PlayerBody : MonoBehaviour
     {
         nowThrow = circle;
     }
-    public void Pause(float start)
+    public void Pause(bool start)
     {
         pause = start;
     }
