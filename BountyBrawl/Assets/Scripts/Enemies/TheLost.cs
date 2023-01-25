@@ -22,14 +22,14 @@ public class TheLost : MonoBehaviour
 
     private void OnEnable()
     {
-        players = FindObjectsOfType<PlayerBody>();
-        rb = GetComponent<Rigidbody2D>();
+        currDamage = baseDamage;
+        currHealth = baseHealth;
     }
 
     private void Awake()
     {
-        currDamage = baseDamage;
-        currHealth = baseHealth;
+        players = FindObjectsOfType<PlayerBody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -88,7 +88,7 @@ public class TheLost : MonoBehaviour
 
     private void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void AddDamage(float add){ currDamage += add; } //Adds more damage each time enemy is spawned

@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
+    <Compile Include="Assets\Scripts\Enemies\PoisonArea.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

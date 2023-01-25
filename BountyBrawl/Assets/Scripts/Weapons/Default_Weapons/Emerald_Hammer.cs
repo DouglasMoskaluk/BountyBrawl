@@ -119,7 +119,14 @@ public class Emerald_Hammer : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
-            other.GetComponent<TheLost>().DamageEnemy(damage);
+            if (other.GetComponent<TheLost>() != null)
+            {
+                other.GetComponent<TheLost>().DamageEnemy(damage);
+            }
+            else
+            {
+                other.GetComponent<TheEater>().DamageEnemy(damage);
+            }
         }
     }
 

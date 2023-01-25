@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement_Small : MonoBehaviour
 {
-    private GameObject[] players;
+    private List<GameObject> players;
 
     private Camera cam;
 
@@ -20,7 +20,15 @@ public class CameraMovement_Small : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        players = new List<GameObject>();
+
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject p in allPlayers)
+        {
+            players.Add(p);
+        }
+
         cam = GetComponent<Camera>();
     }
 
@@ -36,7 +44,7 @@ public class CameraMovement_Small : MonoBehaviour
     {
         var bounds = new Bounds(Vector3.zero, Vector3.zero);
 
-        for(int i = 0; i < players.Length; i++)
+        for(int i = 0; i < players.Count; i++)
         {
             bounds.Encapsulate(players[i].transform.position);
         }
@@ -49,11 +57,15 @@ public class CameraMovement_Small : MonoBehaviour
     {
         var bounds = new Bounds(Vector3.zero, Vector3.zero);
 
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < players.Count; i++)
         {
             bounds.Encapsulate(players[i].transform.position);
         }
 
         return bounds.size.y * 2;
     }
+
+    public void AddEater(GameObject eater) { players.Add(eater); }
+
+    public void DeleteEater() { players.RemoveAt(players.Count - 1); }
 }

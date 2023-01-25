@@ -58,13 +58,12 @@ public class Sandstorm_Fist : MonoBehaviour
 
     private void Shoot1()
     {
-        if (canFire)
+        if (canFire && player.GetFacing() != Vector2.zero)
         {
             attack.enabled = true;
             canFire = false;
             isDashing = true;
             player.UsingDefault(true);
-            player.ChangeMove(false); //Player cannot move while dashing
 
             traj = player.GetFacing(); //Get the trajectory of the dash
 
@@ -80,6 +79,8 @@ public class Sandstorm_Fist : MonoBehaviour
 
     IEnumerator Dash(float time)
     {
+        yield return new WaitForSeconds(0.1f);
+        player.ChangeMove(false); //Player cannot move while dashing
         yield return new WaitForSeconds(time);
         StartCoroutine(Cooldown(fistTime));
         isDashing = false;
@@ -93,9 +94,17 @@ public class Sandstorm_Fist : MonoBehaviour
         if (other.gameObject != player && other.tag == "Player")
         {
             other.GetComponent<PlayerBody>().damagePlayer(damage);
-        }else if(other.tag == "Enemy")
+        }
+        if(other.tag == "Enemy")
         {
-            other.GetComponent<TheLost>().DamageEnemy(damage);
+            if (other.GetComponent<TheLost>() != null)
+            {
+                other.GetComponent<TheLost>().DamageEnemy(damage);
+            }
+            else
+            {
+                other.GetComponent<TheEater>().DamageEnemy(damage);
+            }
         }
     }
 }

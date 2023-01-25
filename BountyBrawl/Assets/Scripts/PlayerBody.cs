@@ -78,7 +78,6 @@ public class PlayerBody : MonoBehaviour
 
         if (getPause() == true)
         {
-           
             UIPauseMenu.GetComponent<PauseScript>().PressedPause();
         } //checks if player has pressed the pause menu button and toggles it
 
@@ -98,12 +97,12 @@ public class PlayerBody : MonoBehaviour
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, -angle); //Rotates weapon around player
             }
-            else if(!useDefault || !hammer)
+            else if (!useDefault || !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, 0f);
             }
 
-
+            //Change head rotation
             if (angle < upAngle && angle > downAngle)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 180, -angle);
@@ -129,11 +128,12 @@ public class PlayerBody : MonoBehaviour
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle); //Rotates weapon around player
             }
-            else if(!useDefault && !hammer)
+            else if (!useDefault && !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
 
+            //Change head rotation
             if (angle < -downAngle && angle > -upAngle)
             {
                 playerHead.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -150,6 +150,8 @@ public class PlayerBody : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     } //Facing
+
+
     public float getFire1() { return fire1; } //Gets when the player inputs the primary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
     public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon

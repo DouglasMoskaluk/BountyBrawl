@@ -43,32 +43,45 @@ public class EventManager : MonoBehaviour
 
     private float tempTimer;
 
+    private GameObject boss;
+
+    private bool minibossInUse; //If the eater is a miniboss stop spawning enemies
+
     private void Awake()
     {
         tempTimer = enemyTimer;
         canSpawn = true;
         tempSp = 0;
+        minibossInUse = false;
     }
 
     private void Update()
     {
-        if(enemyTimer > 0)
+        //Stop spawning enemies when the eater is a miniboss
+        if (!minibossInUse)
         {
-            enemyTimer -= Time.deltaTime;
-            timer.text = System.Convert.ToString((int)enemyTimer);
-        }
-        else
-        {
-            enemyTimer = tempTimer;
-            SpawnEnemies();
-
-            if(numSpawn >= miniboss) //If the eater will become a miniboss
+            //Counter goes down to spawn enemies
+            if (enemyTimer > 0)
             {
-                currEater.IsMiniboss();
+                enemyTimer -= Time.deltaTime;
+                timer.text = System.Convert.ToString((int)enemyTimer);
             }
+
+            //Timer is done so spawn enemies
             else
             {
-                Destroy(currEater.gameObject); //Turn off eater
+                enemyTimer = tempTimer;
+                SpawnEnemies();
+
+                if (numSpawn >= miniboss) //If the eater will become a miniboss
+                {
+                    currEater.IsMiniboss();
+                    minibossInUse = true;
+                }
+                else
+                {
+                    currEater.gameObject.SetActive(false); //Turn off eater
+                }
             }
         }
 
@@ -76,7 +89,8 @@ public class EventManager : MonoBehaviour
         {
             canSpawn = false;
             tempSp = (int)Random.Range(0f, enemySP.Length - 1);
-            currEater = Instantiate(eater, enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
+
+            currEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
             currEater.gameObject.SetActive(true);  //Turn on eater
         }
     }
@@ -90,14 +104,16 @@ public class EventManager : MonoBehaviour
         {
             //gets the position for enemy spawn and makes sure enemies aren't stuck on eachother
             Vector3 spawn = new Vector3(enemySP[tempSp].position.x + i/1.2f, enemySP[tempSp].position.y - i/ 1.2f, 0f);
-            TheLost minion = Instantiate(lost, spawn, Quaternion.identity).GetComponent<TheLost>();
+            TheLost minion = ObjectPooler.Instance.SpawnFromPool("Lost", spawn, Quaternion.identity).GetComponent<TheLost>();
 
             //Increases the losts damage and health each time they are spawned
             minion.AddDamage(enemyDamageIncrease * numSpawn);
             minion.AddHealth(enemyHealthIncrease * numSpawn);
-            minion.gameObject.SetActive(true);
         }
         canSpawn = true; //Can spawn the eater for the next event
         numSpawn++; //Adds 1 to number of spawns each time enemies are spawned
     }
+
+    public void MinibossDead() { minibossInUse = false; }
+    
 }

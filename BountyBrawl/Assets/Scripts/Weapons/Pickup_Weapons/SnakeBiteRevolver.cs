@@ -57,7 +57,7 @@ public class SnakeBiteRevolver : MonoBehaviour
             canFire = false;
             Vector2 traj = bulletSpawn.position - transform.position; //Get the trajectory of the bullet
             traj.Normalize();
-            GameObject bulletGO = GameObject.Instantiate(bullet.gameObject, bulletSpawn.position, transform.rotation);
+            GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver_Bullet", bulletSpawn.position, transform.rotation);
             SnakeBiteRevolver_Bullet bull = bulletGO.GetComponent<SnakeBiteRevolver_Bullet>();
             bull.Fire(traj); //Pass the trajectory to the Fire method in the bullet script component
             bulletGO.SetActive(true);

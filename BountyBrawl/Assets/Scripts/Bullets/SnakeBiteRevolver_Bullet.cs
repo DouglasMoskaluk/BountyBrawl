@@ -10,6 +10,18 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
 
     private Vector3 direction;
 
+    private float tempLifeTime;
+
+    private void Awake()
+    {
+        tempLifeTime = lifeTime;
+    }
+
+    private void OnEnable()
+    {
+        lifeTime = tempLifeTime;
+    }
+
     private void Start()
     {
         bulletGO = gameObject.GetComponent<Rigidbody2D>();
@@ -23,7 +35,7 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
 
         if((lifeTime -= Time.deltaTime) < 0)
         {
-            Object.Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
 
@@ -39,7 +51,7 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
