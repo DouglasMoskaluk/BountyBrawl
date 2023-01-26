@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheEater.cs" />
     <Compile Include="Assets\Scripts\PlayerBody.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Nagakome_Katana.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingRotate.cs" />
+    <Compile Include="Assets\Scripts\Enemies\PoisonArea.cs" />
     <Compile Include="Assets\Scripts\CameraMovement_Small.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Emerald_Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Greed_Knife.cs" />
@@ -74,8 +76,6 @@
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
-    <Compile Include="Assets\Scripts\Enemies\PoisonArea.cs" />
-    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -325,6 +325,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -796,6 +799,18 @@
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{F45B79DA-C0A7-789E-39A6-124246C705A0}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{D31BF578-7894-2F60-D581-563D8AECAB92}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{5CC390AC-19FF-A5B3-910B-ACED71410EF5}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{1234FD23-7DC6-3768-8079-2BEC357E362E}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

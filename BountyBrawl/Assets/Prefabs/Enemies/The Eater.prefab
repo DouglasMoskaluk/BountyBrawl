@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6204562347717549525}
   - component: {fileID: -412707967287723565}
   - component: {fileID: 3744556953203775244}
+  - component: {fileID: 1620047151121055963}
   m_Layer: 0
   m_Name: The Eater
   m_TagString: Enemy
@@ -101,7 +102,7 @@ MonoBehaviour:
   minion: {fileID: 2827886038910366198, guid: 7567bcfda6a148d40afa9a6b98fb668f, type: 3}
   boss: {fileID: 21300000, guid: 279f0d3188571c145b0422ace8d19c6e, type: 3}
   numMinions: 4
-  enemySpeed: 4
+  enemySpeed: 500
   baseDamage: 20
   baseHealth: 500
   minionSpawn: 30
@@ -110,6 +111,7 @@ MonoBehaviour:
   poisonEndSize: {x: 1, y: 1, z: 1}
   speedOfPoisonGrowth: 0.5
   currHealth: 0
+  nextWayPointDistance: 10
 --- !u!50 &-412707967287723565
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +125,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -157,6 +159,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.6338673, y: 11.773657}
   m_EdgeRadius: 0
+--- !u!114 &1620047151121055963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586029154252866078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &3549073982540561260
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +259,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: fc5df2977c2427d43b73db0597c10060, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

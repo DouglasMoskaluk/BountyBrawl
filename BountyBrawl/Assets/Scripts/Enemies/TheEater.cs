@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class TheEater : MonoBehaviour
 {
@@ -9,13 +10,11 @@ public class TheEater : MonoBehaviour
     private float distance;
     private GameObject target;
 
-    [SerializeField] private GameObject minion;
-
     [SerializeField] private Sprite boss;
 
     [SerializeField] private int numMinions = 4;
 
-    [SerializeField] private float enemySpeed = 4f;
+    [SerializeField] private float enemySpeed = 500f;
 
     [SerializeField] private float baseDamage = 20f;
 
@@ -52,6 +51,15 @@ public class TheEater : MonoBehaviour
     private Sprite harbringer;
 
 
+    [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
+    [SerializeField] private float nextWayPointDistance = 10f;
+
+    Path path;
+    private int currWaypoint = 0;
+    private bool reachedEndOfPath = false;
+
+    Seeker seeker;
+
     private void OnEnable()
     {
         poisonStartSize = tempPoisonStart;
@@ -63,7 +71,7 @@ public class TheEater : MonoBehaviour
         //Adds the eater to the camera list 
         if (cam != null)
         {
-            if (cam.GetComponent<CameraMovement_Big>() != null)
+            if (cam.GetComponent<CameraMovement_Big>().isActiveAndEnabled)
             {
                 cam.GetComponent<CameraMovement_Big>().AddEater(this.gameObject);
             }
@@ -80,7 +88,7 @@ public class TheEater : MonoBehaviour
         //deletes the eater form the list 
         if (cam != null)
         {
-            if (cam.GetComponent<CameraMovement_Big>() != null)
+            if (cam.GetComponent<CameraMovement_Big>().isActiveAndEnabled)
             {
                 cam.GetComponent<CameraMovement_Big>().DeleteEater();
             }
@@ -110,6 +118,28 @@ public class TheEater : MonoBehaviour
         tempTimer = minionSpawn; //Saves default time for minion spawn
         tempPoisonStart = poisonStartSize; //Saves default start size of poison area
         tempPoisonEnd = poisonEndSize; //Saves default end size of poison area
+
+        seeker = GetComponent<Seeker>();
+
+        //Finds closest player to chase
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        distance = float.PositiveInfinity;
+
+        foreach (var player in players)
+        {
+            float dist = Vector3.Distance(player.transform.position, transform.position);
+
+            if (dist < distance)
+            {
+                distance = dist;
+                target = player.gameObject;
+            }
+        }
+        seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
     }
 
 
@@ -152,16 +182,44 @@ public class TheEater : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+        //Moves eater along the path
         if (target != null && isMiniboss)
         {
-            Vector3 direction = target.transform.position - transform.position;
-            direction.Normalize();
-            rb.MovePosition(transform.position + (direction * enemySpeed * Time.deltaTime));
+            if (path == null)
+                return;
+
+            if (currWaypoint >= path.vectorPath.Count)
+            {
+                reachedEndOfPath = true;
+                return;
+            }
+            else
+            {
+                reachedEndOfPath = false;
+            }
+
+            //Moves enemy towards closest player
+            if (target != null)
+            {
+                Vector2 direction = ((Vector2)path.vectorPath[currWaypoint] - rb.position).normalized;
+                Vector2 force = direction * enemySpeed * Time.deltaTime;
+
+                rb.AddForce(force);
+
+                float dist = Vector2.Distance(rb.position, path.vectorPath[currWaypoint]);
+
+                if (dist < nextWayPointDistance)
+                {
+                    currWaypoint++;
+                }
+            }
         }
 
+        //changes poison area size
         if (isMiniboss)
         {
-            //Change size of poison area
+            //Change size of poison area over time
             if (poisonArea.localScale.x < poisonEndSize.x) {
                 Vector3 temp = poisonArea.localScale;
                 temp.x += Time.deltaTime * speedOfPoisonGrowth;
@@ -212,6 +270,15 @@ public class TheEater : MonoBehaviour
         poisonArea.gameObject.SetActive(true);
 
     } //If the eater is now a miniboss
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currWaypoint = 0;
+        }
+    }
 
     private void Death()
     {
