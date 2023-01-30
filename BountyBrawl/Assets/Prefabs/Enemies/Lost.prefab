@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2647884491627059751}
   m_Layer: 0
   m_Name: Lost
-  m_TagString: Enemy
+  m_TagString: Lost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

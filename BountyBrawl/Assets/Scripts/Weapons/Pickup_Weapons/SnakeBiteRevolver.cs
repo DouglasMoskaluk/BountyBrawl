@@ -5,8 +5,6 @@ public class SnakeBiteRevolver : MonoBehaviour
 {
     [Tooltip("Distance the weapon floats from the player")]
     [SerializeField] private Transform bulletSpawn;
-    [Tooltip("The prefab of the bullet to spawn")]
-    [SerializeField] private GameObject bullet;
     [Tooltip("The time required before the next bullet is fired")]
     [SerializeField] private float bulletTime = 0.2f;
     [Tooltip("The amount of ammo the weapon has")]
@@ -34,15 +32,18 @@ public class SnakeBiteRevolver : MonoBehaviour
         nowThrow = GetComponent<Throw>();
         start = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
+
     private void Update()
     {
         if (player != null)
         {
             if (player.getFire1() != 0 && ammo > 0)
+            {
                 if (player.getFire1() != 0 && ammo > 0 && !thrown)
                 {
                     Shoot1();
                 } //shoot gun if there is ammo and if player is holding the tringger
+            }
             if (player.getThrow() != 0)
             {
                 StartCoroutine(Throw());
@@ -59,7 +60,7 @@ public class SnakeBiteRevolver : MonoBehaviour
             traj.Normalize();
             GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver_Bullet", bulletSpawn.position, transform.rotation);
             SnakeBiteRevolver_Bullet bull = bulletGO.GetComponent<SnakeBiteRevolver_Bullet>();
-            bull.Fire(traj); //Pass the trajectory to the Fire method in the bullet script component
+            bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
             bulletGO.SetActive(true);
             StartCoroutine(Cooldown(bulletTime));
         }
@@ -75,6 +76,7 @@ public class SnakeBiteRevolver : MonoBehaviour
                 player.ChangeWeapon(true);
                 gameObject.GetComponent<SpriteRenderer>().sprite = holding;
                 canUse = false;
+
                 //Move weapon in desired position
                 if (collision.transform.right.x >= 0)
                 {
@@ -86,6 +88,7 @@ public class SnakeBiteRevolver : MonoBehaviour
                 }
                 transform.rotation = collision.transform.rotation;
                 transform.parent = collision.GetComponentInChildren<CircleCollider2D>().transform;
+
             }
         }
     }

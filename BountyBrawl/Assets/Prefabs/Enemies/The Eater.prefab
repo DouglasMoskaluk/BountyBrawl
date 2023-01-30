@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1620047151121055963}
   m_Layer: 0
   m_Name: The Eater
-  m_TagString: Enemy
+  m_TagString: Eater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446795283048f374db0e8fd40444b8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minion: {fileID: 2827886038910366198, guid: 7567bcfda6a148d40afa9a6b98fb668f, type: 3}
   boss: {fileID: 21300000, guid: 279f0d3188571c145b0422ace8d19c6e, type: 3}
   numMinions: 4
   enemySpeed: 500

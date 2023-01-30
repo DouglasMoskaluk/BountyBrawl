@@ -13,23 +13,36 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private float health = 100; // health of player
     private Rigidbody2D playerRB;
 
+    //Stick inputs
     private Vector2 inputVector = Vector2.zero; //Direction for movement
     private Vector2 facingVector = Vector2.zero; //Direction for where the gun should face
     private Vector2 lastFacing; //Last trajectory of the player before letting go of right stick
+
+    //Button inputs
     private float fire1 = 0f; //Players primary fire input
     private float fire2 = 0f; //Players secondary fire input
     private bool pause = false; //players pause input
     private bool canMove; //Whether the player can move or not
     private float nowThrow = 0f; //When the player has chosen to throw his weapon
+
+    //Serializables
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
     [SerializeField] private Transform playerHead; //The head of the player
     [SerializeField] private GameObject defaultWeapon; //The default weapon of the player
     [SerializeField] private float downAngle = 20f; // The down head angle of the player
     [SerializeField] private float upAngle = -40f; // The up head angle of the player
+
+    //Default weapon checkers
     private bool weapon; //If player is using a pickupable weapon
     private bool useDefault; //If player has fired their default weapon
     private bool hammer; //Specifically for Emerald when she is using her hammer
+
+    //Multiplayer player index
     [SerializeField] private int playerIndex = 0;
+    [SerializeField] private int character;
+
+
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -151,6 +164,20 @@ public class PlayerBody : MonoBehaviour
         }
     } //Facing
 
+    public IEnumerator Poison(float dam, float interval, float amount)
+    {
+
+        yield return new WaitForSeconds(interval);
+
+        //Goes through each amount of poison and damages the player
+        for(int i = 0; i <= amount - 1; i++)
+        {
+            health -= dam;
+            yield return new WaitForSeconds(interval); //Wait for the next poison interval
+        }
+
+    }
+
 
     public float getFire1() { return fire1; } //Gets when the player inputs the primary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
@@ -206,4 +233,10 @@ public class PlayerBody : MonoBehaviour
     {
         return playerIndex;
     } //Player index for multiple players
+
+    //Gets what character the player is playing
+    public int GetPlayerCharacter()
+    {
+        return character;
+    }
 }

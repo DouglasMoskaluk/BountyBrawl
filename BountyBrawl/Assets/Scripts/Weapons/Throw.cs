@@ -6,6 +6,7 @@ public class Throw : MonoBehaviour
     [SerializeField] private float throwSpeed = 60f;
     [SerializeField] private float throwTime = 0.2f; //How long the weapon will be thrown for
     [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float throwDamage = 5f;
     private bool isThrown = false;
 
     private Vector2 traj;
@@ -42,12 +43,32 @@ public class Throw : MonoBehaviour
         {
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            collision.transform.GetComponent<PlayerBody>().damagePlayer(throwDamage);
             StopAllCoroutines();
+
+        //If hit wall then stop weapon
         }else if(collision.transform.tag == "Wall")
         {
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StopAllCoroutines();
+
+        //If collide with lost then damage and stop
+        }else if(collision.transform.tag == "Lost")
+        {
+            isThrown = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            StopAllCoroutines();
+            collision.transform.GetComponent<TheLost>().DamageEnemy(throwDamage);
         }
+        //If collide with eater then damage and stop
+        else if (collision.transform.tag == "Eater")
+        {
+            isThrown = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            StopAllCoroutines();
+            collision.transform.GetComponent<TheEater>().DamageEnemy(throwDamage);
+        }
+
     }
 }

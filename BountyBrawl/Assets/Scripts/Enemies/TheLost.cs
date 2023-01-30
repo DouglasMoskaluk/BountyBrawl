@@ -21,6 +21,8 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private float baseHealth = 30f;
 
+    [SerializeField] private float dashTime = 3f;
+
     [SerializeField] private Sprite dash;
 
     [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
@@ -34,6 +36,7 @@ public class TheLost : MonoBehaviour
 
     private float currDamage;
     private float currHealth;
+    private bool canDash;
 
     private Rigidbody2D rb;
 
@@ -44,6 +47,7 @@ public class TheLost : MonoBehaviour
     {
         currDamage = baseDamage;
         currHealth = baseHealth;
+        canDash = true;
 
         spriteRenderer.sprite = currSprite;
     }
@@ -125,7 +129,7 @@ public class TheLost : MonoBehaviour
 
             Vector2 force = Vector2.zero;
 
-            if(distance < dashDistance)
+            if(distance < dashDistance && canDash)
             {
                 spriteRenderer.sprite = dash;
                 force = direction * enemyDashSpeed * Time.deltaTime;
@@ -180,6 +184,22 @@ public class TheLost : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "Player" && canDash)
+        {
+            collision.transform.GetComponent<PlayerBody>().damagePlayer(currDamage);
+            canDash = false;
+            StartCoroutine(Cooldown());
+        }
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(dashTime);
+        canDash = true;
+    } //When the lost can dash into players and deal damage
 
     public void AddDamage(float add){ currDamage += add; } //Adds more damage each time enemy is spawned
     
