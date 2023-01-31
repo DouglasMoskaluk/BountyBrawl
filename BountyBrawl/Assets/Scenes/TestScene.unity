@@ -609,7 +609,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 1220530508}
   downAngle: -15
   upAngle: 15
-  playerIndex: 1
+  playerIndex: 2
   character: 2
 --- !u!212 &147186566
 SpriteRenderer:
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 447774250}
   downAngle: -15
   upAngle: 15
-  playerIndex: 0
+  playerIndex: 3
   character: 0
 --- !u!212 &412174306
 SpriteRenderer:
@@ -4368,7 +4368,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 1254629364}
   downAngle: -15
   upAngle: 15
-  playerIndex: 2
+  playerIndex: 1
   character: 1
 --- !u!212 &888641974
 SpriteRenderer:
@@ -9694,7 +9694,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 491880557}
   downAngle: -10
   upAngle: 10
-  playerIndex: 3
+  playerIndex: 0
   character: 3
 --- !u!212 &2068640317
 SpriteRenderer:
