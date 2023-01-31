@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  runSpeed: 9
+  runSpeed: 15
   health: 100
   weaponHolder: {fileID: 879350385}
   playerHead: {fileID: 1742069887}
@@ -2217,7 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  runSpeed: 9
+  runSpeed: 15
   health: 100
   weaponHolder: {fileID: 2055119095}
   playerHead: {fileID: 508981968}
@@ -2486,6 +2486,12 @@ MonoBehaviour:
   fistTime: 4
   dashTime: 1
   dashSpeed: 60
+  dashCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   damage: 6
   player: {fileID: 412174305}
 --- !u!61 &447774254
@@ -2900,7 +2906,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a92661befbdd1d44974010e2c673163, type: 3}
   m_Name: 
@@ -2972,12 +2978,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00f8b523976c8554498662e92fa833ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min: 40
+  min: 50
   max: 5
   zoomSpeed: 70
 --- !u!1 &522300656
@@ -4355,7 +4361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  runSpeed: 9
+  runSpeed: 15
   health: 100
   weaponHolder: {fileID: 1929533139}
   playerHead: {fileID: 1597382175}
@@ -9681,7 +9687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  runSpeed: 9
+  runSpeed: 15
   health: 100
   weaponHolder: {fileID: 522300657}
   playerHead: {fileID: 1961056949}
