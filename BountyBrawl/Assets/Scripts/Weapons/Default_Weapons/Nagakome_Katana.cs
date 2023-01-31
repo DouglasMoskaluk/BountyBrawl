@@ -79,16 +79,13 @@ public class Nagakome_Katana : MonoBehaviour
         {
             other.GetComponent<PlayerBody>().damagePlayer(damage);
         }
-        else if (other.tag == "Enemy")
+        if (other.tag == "Lost")
         {
-            if (other.GetComponent<TheLost>() != null)
-            {
-                other.GetComponent<TheLost>().DamageEnemy(damage);
-            }
-            else
-            {
-                other.GetComponent<TheEater>().DamageEnemy(damage);
-            }
+            other.GetComponent<TheLost>().DamageEnemy(damage);
+        }
+        if (other.tag == "Eater")
+        {
+            other.GetComponent<TheEater>().DamageEnemy(damage);
         }
     }
 }

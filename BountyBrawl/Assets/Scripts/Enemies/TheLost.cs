@@ -34,8 +34,8 @@ public class TheLost : MonoBehaviour
 
     Seeker seeker;
 
-    private float currDamage;
-    private float currHealth;
+    [SerializeField] private float currDamage;
+    [SerializeField] private float currHealth;
     private bool canDash;
 
     private Rigidbody2D rb;

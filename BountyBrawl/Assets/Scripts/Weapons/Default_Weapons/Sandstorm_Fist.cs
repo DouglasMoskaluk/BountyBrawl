@@ -13,6 +13,8 @@ public class Sandstorm_Fist : MonoBehaviour
     [Tooltip("How fast the character will dash")]
     [SerializeField] private float dashSpeed = 60f;
 
+    [SerializeField] private AnimationCurve dashCurve;
+
     [SerializeField] private float damage = 6f;
 
     [SerializeField] private PlayerBody player; //This is the player
@@ -95,16 +97,13 @@ public class Sandstorm_Fist : MonoBehaviour
         {
             other.GetComponent<PlayerBody>().damagePlayer(damage);
         }
-        if(other.tag == "Enemy")
+        if (other.tag == "Lost")
         {
-            if (other.GetComponent<TheLost>() != null)
-            {
-                other.GetComponent<TheLost>().DamageEnemy(damage);
-            }
-            else
-            {
-                other.GetComponent<TheEater>().DamageEnemy(damage);
-            }
+            other.GetComponent<TheLost>().DamageEnemy(damage);
+        }
+        if (other.tag == "Eater") 
+        {
+            other.GetComponent<TheEater>().DamageEnemy(damage);
         }
     }
 }
