@@ -122,7 +122,7 @@ MonoBehaviour:
   speed: 50
   lifeTime: 2
   baseDamage: 10
-  poisonDistance: 5
+  poisonDistance: 30
   poisonDamage: 5
   poisonInterval: 3
   poisonAmount: 3

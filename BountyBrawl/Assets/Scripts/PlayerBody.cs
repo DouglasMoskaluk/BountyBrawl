@@ -6,12 +6,15 @@ public class PlayerBody : MonoBehaviour
 
     GameObject UIPauseMenu; //Pause menu on canvas
 
+    //Player info
     [SerializeField]
     [Tooltip("Manipulates the walk speed of the player")] private float walkSpeed = 5f;
     [SerializeField]
     [Tooltip("Manipulates the run speed of the player")] private float runSpeed = 9f;
     [SerializeField] private float health = 100; // health of player
     private Rigidbody2D playerRB;
+    private SpriteRenderer sprite;
+    private SpriteRenderer headSprite;
 
     //Stick inputs
     private Vector2 inputVector = Vector2.zero; //Direction for movement
@@ -37,20 +40,23 @@ public class PlayerBody : MonoBehaviour
     private bool useDefault; //If player has fired their default weapon
     private bool hammer; //Specifically for Emerald when she is using her hammer
 
-    //Multiplayer player index
+    //Multiplayer player
     [SerializeField] private int playerIndex = 0;
-    [SerializeField] private int character;
+    [SerializeField] private int character; //Holds what type of character player is playing
 
-
+    private float tempSpeed;
 
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
         playerRB = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        headSprite = playerHead.GetComponent<SpriteRenderer>();
         weapon = false;
         useDefault = false;
         canMove = true;
         hammer = false;
+        tempSpeed = runSpeed;
     }
     private void Update()
     {
@@ -172,14 +178,37 @@ public class PlayerBody : MonoBehaviour
         //Goes through each amount of poison and damages the player
         for(int i = 0; i <= amount - 1; i++)
         {
-            health -= dam;
+            damagePlayer(dam);
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
         }
 
     }
 
+    private IEnumerator Hit()
+    {
+        sprite.material.color = Color.red;
+        headSprite.material.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        sprite.material.color = Color.white;
+        headSprite.material.color = Color.white;
+    }
+
+    public IEnumerator Stun(float length)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(length);
+        canMove = true;
+    }
+
+    //slows player in glue
+    public void Slow(float slowness){runSpeed = slowness;}
+
+    //Fixes runspeed after player leaves glue
+    public void ExitGlue() { runSpeed = tempSpeed; }
+
 
     public float getFire1() { return fire1; } //Gets when the player inputs the primary fire
+    public float getFire2() { return fire2; } //Gets when the player inputs the secondary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
     public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon
     
@@ -190,6 +219,7 @@ public class PlayerBody : MonoBehaviour
 
     public void damagePlayer(float damage)
     {
+        StartCoroutine(Hit());
         health -= damage;
     }
 

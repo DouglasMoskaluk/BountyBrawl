@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: c19c65a93f0f29d4aacae9e07beb5daf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -102,7 +102,10 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1422997466252591532}
   bulletTime: 0.2
   ammo: 20
-  holding: {fileID: 21300000, guid: 8bcf4b9fd82d8c04e897d3c85eb2699b, type: 3}
+  holding:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1422997465680654305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5417991, y: -0.678368}
+  m_Offset: {x: -0.5020884, y: -0.678368}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18, y: 18}
+    oldSize: {x: 15, y: 15}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0835986, y: 2.6379168}
+  m_Size: {x: 4.0131197, y: 2.6379168}
   m_EdgeRadius: 0
 --- !u!114 &3225895148060678808
 MonoBehaviour:

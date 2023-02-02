@@ -14,7 +14,7 @@ public class Throw : MonoBehaviour
     private GameObject player; //The player that threw the weapon
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isThrown)
         {
@@ -29,6 +29,7 @@ public class Throw : MonoBehaviour
         player = play;
         isThrown = true;
         traj = direction;
+        transform.position = (Vector2)transform.position + traj.normalized;
         yield return new WaitForSeconds(throwTime);
         isThrown = false;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

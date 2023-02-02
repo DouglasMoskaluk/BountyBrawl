@@ -9,8 +9,8 @@ public class SnakeBiteRevolver : MonoBehaviour
     [SerializeField] private float bulletTime = 0.2f;
     [Tooltip("The amount of ammo the weapon has")]
     [SerializeField] private float ammo = 20f;
-    [Tooltip("The sprite when player is holding the weapon")]
-    [SerializeField] Sprite holding;
+    [Tooltip("The sprites when player is holding the weapon for each individual player")]
+    [SerializeField] Sprite[] holding = new Sprite[4];
     private Sprite start; //The starting sprite before pickup
     private bool canFire = true; //Make sure the player can attack
 
@@ -69,13 +69,29 @@ public class SnakeBiteRevolver : MonoBehaviour
     {
         if (collision.tag == "WeaponHolder" && canUse)
         {
-            player = collision.transform.parent.GetComponent<PlayerBody>();
+            PlayerBody checker = collision.transform.parent.GetComponent<PlayerBody>();
             //If player is not using a weapon
-            if (!player.UsingWeapon())
+            if (!checker.UsingWeapon())
             {
+                player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
-                gameObject.GetComponent<SpriteRenderer>().sprite = holding;
                 canUse = false;
+
+                if (player.GetPlayerCharacter() == 0)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[0];
+                }else if(player.GetPlayerCharacter() == 1)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[1];
+                }
+                else if (player.GetPlayerCharacter() == 2)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[2];
+                }
+                else
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[3];
+                }
 
                 //Move weapon in desired position
                 if (collision.transform.right.x >= 0)
@@ -88,7 +104,6 @@ public class SnakeBiteRevolver : MonoBehaviour
                 }
                 transform.rotation = collision.transform.rotation;
                 transform.parent = collision.GetComponentInChildren<CircleCollider2D>().transform;
-
             }
         }
     }
@@ -106,6 +121,7 @@ public class SnakeBiteRevolver : MonoBehaviour
         thrown = true;
         box.isTrigger = false;
         Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
+
         yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
         thrown = false;
         box.isTrigger = true;

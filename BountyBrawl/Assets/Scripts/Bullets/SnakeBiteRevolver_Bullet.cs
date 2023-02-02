@@ -18,7 +18,7 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
 
     //Weaponry
     [SerializeField] private float baseDamage = 10f; //The base damage of the weapon without poison
-    [SerializeField] private float poisonDistance = 5f; //The distance the player has to be inorder to be poisoned
+    [SerializeField] private float poisonDistance = 30f; //The distance the player has to be inorder to be poisoned
     [SerializeField] private float poisonDamage = 5f; //The damage a player takes each time
     [SerializeField] private float poisonInterval = 3f; //How often the player is damaged by poison
     [SerializeField] private float poisonAmount = 3f; //How many times the poisoned player is damaged
@@ -32,12 +32,12 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
     private void OnEnable()
     {
         lifeTime = tempLifeTime;
-        spawnPos = this.transform.position;
     }
 
     private void Start()
     {
         bulletGO = gameObject.GetComponent<Rigidbody2D>();
+        spawnPos = transform.position;
     }
 
     // Update is called once per frame
@@ -81,7 +81,7 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
             }
             else
             {
-                if(Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance){
+                if (Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance){
                     enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
                 }
                 gameObject.SetActive(false);
