@@ -10,6 +10,7 @@ TagManager:
   - PauseMenu
   - Lost
   - Eater
+  - Slowness
   layers:
   - Default
   - TransparentFX

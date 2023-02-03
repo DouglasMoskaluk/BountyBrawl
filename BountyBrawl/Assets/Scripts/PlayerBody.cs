@@ -196,6 +196,7 @@ public class PlayerBody : MonoBehaviour
     public IEnumerator Stun(float length)
     {
         canMove = false;
+        playerRB.velocity = Vector2.zero;
         yield return new WaitForSeconds(length);
         canMove = true;
     }

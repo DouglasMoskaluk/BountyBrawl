@@ -66,7 +66,8 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             gameObject.SetActive(false);
-        }else if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
+        }
+        else if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
         {
             PlayerBody enemy = collision.GetComponent<PlayerBody>();
 
@@ -87,6 +88,47 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
                 gameObject.SetActive(false);
             }
 
+        }else if(collision.transform.tag == "Lost")
+        {
+            TheLost enemy = collision.GetComponent<TheLost>();
+
+            enemy.DamageEnemy(baseDamage);
+
+            //If player is proficient
+            if (player.GetPlayerCharacter() == 0)
+            {
+                enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                if (Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance)
+                {
+                    enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                }
+                gameObject.SetActive(false);
+            }
+        }
+        else if (collision.transform.tag == "Eater")
+        {
+            TheEater enemy = collision.GetComponent<TheEater>();
+
+            enemy.DamageEnemy(baseDamage);
+
+            //If player is proficient
+            if (player.GetPlayerCharacter() == 0)
+            {
+                enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                if (Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance)
+                {
+                    enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                }
+                gameObject.SetActive(false);
+            }
         }
     }
 }

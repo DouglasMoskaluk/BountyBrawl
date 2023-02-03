@@ -14,7 +14,8 @@ public class WyldsnagShotgun : MonoBehaviour
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
 
-    private Sprite start; //The starting sprite before pickup
+    private Sprite sprite; //The starting sprite before pickup
+    private SpriteRenderer spriteRenderer;
     private bool canFire = true; //Make sure the player can attack
 
     private bool canUse = true; // If the weapon can currently be used
@@ -28,12 +29,20 @@ public class WyldsnagShotgun : MonoBehaviour
 
     private BoxCollider2D box;
 
+    private bool canThrow;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
-        start = gameObject.GetComponent<SpriteRenderer>().sprite;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        sprite = spriteRenderer.sprite;
+    }
+
+    private void OnEnable()
+    {
+        spriteRenderer.sortingOrder = 7;
     }
 
     private void Update()
@@ -51,7 +60,7 @@ public class WyldsnagShotgun : MonoBehaviour
             {
                 if (player.getFire2() != 0 && ammo > 0 && !thrown)
                 {
-                    Shoot1();
+                    Shoot2();
                 } //shoot gun if there is ammo and if player is holding the tringger
             }
             if (player.getThrow() != 0)
@@ -71,14 +80,35 @@ public class WyldsnagShotgun : MonoBehaviour
             {
                 Vector2 traj = trajSpawn[i].position - bulletSpawn.position; //Get the trajectory of the bullet
                 traj.Normalize();
-                GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver_Bullet", bulletSpawn.position, transform.rotation);
-                SnakeBiteRevolver_Bullet bull = bulletGO.GetComponent<SnakeBiteRevolver_Bullet>();
+                GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun_Bullet", bulletSpawn.position, transform.rotation);
+                WyldsnagShotgun_Bullet bull = bulletGO.GetComponent<WyldsnagShotgun_Bullet>();
                 bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
                 bulletGO.SetActive(true);
                 StartCoroutine(Cooldown(bulletTime));
             }
         }
     }
+
+    private void Shoot2()
+    {
+        if (canFire)
+        {
+            ammo -= 2;
+            canFire = false;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Vector2 traj = trajSpawn[i].position - bulletSpawn.position; //Get the trajectory of the bullet
+                traj.Normalize();
+                GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun_GlueBullet", bulletSpawn.position, transform.rotation);
+                WyldsnagShotgun_GlueBullet bull = bulletGO.GetComponent<WyldsnagShotgun_GlueBullet>();
+                bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
+                bulletGO.SetActive(true);
+                StartCoroutine(Cooldown(bulletTime));
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WeaponHolder" && canUse)
@@ -88,6 +118,7 @@ public class WyldsnagShotgun : MonoBehaviour
             if (!checker.UsingWeapon())
             {
                 player = collision.transform.parent.GetComponent<PlayerBody>();
+                spriteRenderer.sortingOrder = 10;
                 player.ChangeWeapon(true);
                 canUse = false;
 
@@ -118,6 +149,8 @@ public class WyldsnagShotgun : MonoBehaviour
                 }
                 transform.rotation = collision.transform.rotation;
                 transform.parent = collision.GetComponentInChildren<CircleCollider2D>().transform;
+
+                canThrow = true;
             }
         }
     }
@@ -128,19 +161,24 @@ public class WyldsnagShotgun : MonoBehaviour
     }
     IEnumerator Throw()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = start; //Reset the sprite
-        player.ChangeWeapon(false); //Set player back to default weapon
-        transform.parent = null; //Unparent the weapon
+        if (canThrow)
+        {
+            canThrow = false;
+            spriteRenderer.sortingOrder = 7;
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
+            player.ChangeWeapon(false); //Set player back to default weapon
+            transform.parent = null; //Unparent the weapon
 
-        thrown = true;
-        box.isTrigger = false;
-        Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
+            thrown = true;
+            box.isTrigger = false;
+            Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
 
-        yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
-        thrown = false;
-        box.isTrigger = true;
-        player = null; //sets the player to null to wait for next player
-        canUse = true; //Weapon is back to being pickupable
-        weaponBody.isTrigger = true;
+            yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
+            thrown = false;
+            box.isTrigger = true;
+            player = null; //sets the player to null to wait for next player
+            canUse = true; //Weapon is back to being pickupable
+            weaponBody.isTrigger = true;
+        }
     } //Called when the weapon is being thrown
 }

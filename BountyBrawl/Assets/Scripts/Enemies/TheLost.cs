@@ -43,11 +43,17 @@ public class TheLost : MonoBehaviour
     private Sprite currSprite;
     private SpriteRenderer spriteRenderer;
 
+    private bool canMove;
+
+    private float tempDefSpeed;
+    private float tempDashSpeed;
+
     private void OnEnable()
     {
         currDamage = baseDamage;
         currHealth = baseHealth;
         canDash = true;
+        canMove = true;
 
         spriteRenderer.sprite = currSprite;
     }
@@ -58,6 +64,9 @@ public class TheLost : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        tempDefSpeed = enemyDefaultSpeed;
+        tempDashSpeed = enemyDashSpeed;
 
         currSprite = spriteRenderer.sprite;
 
@@ -85,8 +94,6 @@ public class TheLost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         distance = float.PositiveInfinity;
 
         foreach(var player in players)
@@ -123,7 +130,7 @@ public class TheLost : MonoBehaviour
         }
 
         //Moves enemy towards closest player by moving on the path
-        if (target != null)
+        if (target != null && canMove)
         {
             Vector2 direction = ((Vector2)path.vectorPath[currWaypoint] - rb.position).normalized;
 
@@ -200,6 +207,43 @@ public class TheLost : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         canDash = true;
     } //When the lost can dash into players and deal damage
+
+    public IEnumerator Poison(float dam, float interval, float amount)
+    {
+
+        yield return new WaitForSeconds(interval);
+
+        //Goes through each amount of poison and damages the player
+        for (int i = 0; i <= amount - 1; i++)
+        {
+            DamageEnemy(dam);
+            yield return new WaitForSeconds(interval); //Wait for the next poison interval
+        }
+
+    }
+
+    public IEnumerator Stun(float length)
+    {
+        canMove = false;
+        rb.velocity = Vector2.zero;
+        yield return new WaitForSeconds(length);
+        canMove = true;
+    }
+
+    //slows player in glue
+    public void Slow(float slowness) 
+    { 
+        enemyDefaultSpeed = slowness;
+        enemyDashSpeed = slowness;
+    }
+
+    //Fixes runspeed after player leaves glue
+    public void ExitGlue() 
+    {
+        enemyDefaultSpeed = tempDefSpeed;
+        enemyDashSpeed = tempDashSpeed;
+    }
+
 
     public void AddDamage(float add){ currDamage += add; } //Adds more damage each time enemy is spawned
     

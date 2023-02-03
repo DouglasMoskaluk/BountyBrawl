@@ -586,7 +586,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &147186565
@@ -607,8 +607,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 879350385}
   playerHead: {fileID: 1742069887}
   defaultWeapon: {fileID: 1220530508}
-  downAngle: -15
-  upAngle: 15
+  downAngle: -30
+  upAngle: 20
   playerIndex: 2
   character: 2
 --- !u!212 &147186566
@@ -1837,6 +1837,12 @@ MonoBehaviour:
   - tag: SnakeBiteRevolver_Bullet
     prefab: {fileID: 5745134554719988575, guid: 31786191faf72574c8004370348a7ed4, type: 3}
     size: 30
+  - tag: WyldsnagShotgun_Bullet
+    prefab: {fileID: 5745134554719988575, guid: de243e2850079b647982367d70a7c32a, type: 3}
+    size: 40
+  - tag: WyldsnagShotgun_GlueBullet
+    prefab: {fileID: 5745134554719988575, guid: 11415d2e13522bf4686c4ad81f57e73f, type: 3}
+    size: 40
 --- !u!4 &362065366
 Transform:
   m_ObjectHideFlags: 0
@@ -2201,7 +2207,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &412174305
@@ -2222,8 +2228,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 2055119095}
   playerHead: {fileID: 508981968}
   defaultWeapon: {fileID: 447774250}
-  downAngle: -15
-  upAngle: 15
+  downAngle: -30
+  upAngle: 20
   playerIndex: 3
   character: 0
 --- !u!212 &412174306
@@ -2648,7 +2654,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.724239
+  m_Radius: 13.1312685
 --- !u!212 &491880560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2814,7 +2820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508981967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.19, z: 0}
+  m_LocalPosition: {x: 0.27, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412174307}
@@ -4345,7 +4351,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &888641973
@@ -4366,8 +4372,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 1929533139}
   playerHead: {fileID: 1597382175}
   defaultWeapon: {fileID: 1254629364}
-  downAngle: -15
-  upAngle: 15
+  downAngle: -30
+  upAngle: 20
   playerIndex: 1
   character: 1
 --- !u!212 &888641974
@@ -7547,7 +7553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597382174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888641975}
@@ -7831,7 +7837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742069886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.11, z: 0}
+  m_LocalPosition: {x: 0.18, y: 1.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 147186567}
@@ -8670,7 +8676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961056948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.18, y: 1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2068640318}
@@ -9672,7 +9678,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &2068640316
@@ -9693,8 +9699,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 522300657}
   playerHead: {fileID: 1961056949}
   defaultWeapon: {fileID: 491880557}
-  downAngle: -10
-  upAngle: 10
+  downAngle: -30
+  upAngle: 20
   playerIndex: 0
   character: 3
 --- !u!212 &2068640317
@@ -9884,26 +9890,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1199802240}
     m_Modifications:
-    - target: {fileID: 1422997465680654304, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
-      propertyPath: holding.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422997465680654304, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
-      propertyPath: holding.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 19d706c8d962093488fc18b3f7a72837, type: 3}
-    - target: {fileID: 1422997465680654304, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
-      propertyPath: holding.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8867bf8fe821f2f45ae3e98c7c47d982, type: 3}
-    - target: {fileID: 1422997465680654304, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
-      propertyPath: holding.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 65d0a58f08b5a46449d28890897a26b3, type: 3}
-    - target: {fileID: 1422997465680654304, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
-      propertyPath: holding.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8a64ef59bd94032449950b54ccef51ab, type: 3}
     - target: {fileID: 1422997465680654306, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
       propertyPath: m_RootOrder
       value: 7

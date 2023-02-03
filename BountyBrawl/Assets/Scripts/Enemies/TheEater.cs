@@ -223,8 +223,8 @@ public class TheEater : MonoBehaviour
             if (poisonArea.localScale.x < poisonEndSize.x) {
                 Vector3 temp = poisonArea.localScale;
                 temp.x += Time.deltaTime * speedOfPoisonGrowth;
-                temp.y += Time.deltaTime * speedOfPoisonGrowth; ;
-                temp.z += Time.deltaTime * speedOfPoisonGrowth; ;
+                temp.y += Time.deltaTime * speedOfPoisonGrowth;
+                temp.z += Time.deltaTime * speedOfPoisonGrowth;
 
                 poisonArea.transform.localScale = temp;
 
@@ -283,6 +283,20 @@ public class TheEater : MonoBehaviour
     private void Death()
     {
         gameObject.SetActive(false);
+    }
+
+    public IEnumerator Poison(float dam, float interval, float amount)
+    {
+
+        yield return new WaitForSeconds(interval);
+
+        //Goes through each amount of poison and damages the player
+        for (int i = 0; i <= amount - 1; i++)
+        {
+            DamageEnemy(dam);
+            yield return new WaitForSeconds(interval); //Wait for the next poison interval
+        }
+
     }
 
     public void DamageEnemy(float damage) { if (isMiniboss) { currHealth -= damage; } }

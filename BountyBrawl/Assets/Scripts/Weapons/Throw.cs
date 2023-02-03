@@ -29,7 +29,7 @@ public class Throw : MonoBehaviour
         player = play;
         isThrown = true;
         traj = direction;
-        transform.position = (Vector2)transform.position + traj.normalized;
+        transform.position = (Vector2)transform.position + traj.normalized * 2;
         yield return new WaitForSeconds(throwTime);
         isThrown = false;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
