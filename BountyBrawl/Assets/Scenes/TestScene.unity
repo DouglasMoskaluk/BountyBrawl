@@ -611,6 +611,7 @@ MonoBehaviour:
   upAngle: 20
   playerIndex: 2
   character: 2
+  animator: {fileID: 0}
 --- !u!212 &147186566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2232,6 +2233,7 @@ MonoBehaviour:
   upAngle: 20
   playerIndex: 3
   character: 0
+  animator: {fileID: 0}
 --- !u!212 &412174306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4300,6 +4302,7 @@ GameObject:
   - component: {fileID: 888641973}
   - component: {fileID: 888641972}
   - component: {fileID: 888641971}
+  - component: {fileID: 888641976}
   m_Layer: 0
   m_Name: Nagakome
   m_TagString: Player
@@ -4374,8 +4377,9 @@ MonoBehaviour:
   defaultWeapon: {fileID: 1254629364}
   downAngle: -30
   upAngle: 20
-  playerIndex: 1
+  playerIndex: 0
   character: 1
+  animator: {fileID: 888641976}
 --- !u!212 &888641974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4443,6 +4447,25 @@ Transform:
   m_Father: {fileID: 246973510}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &888641976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888641970}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64a186a2575a7be4a86d7d91a9e005ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &902925076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,6 +5978,7 @@ GameObject:
   - component: {fileID: 1254629367}
   - component: {fileID: 1254629365}
   - component: {fileID: 1254629366}
+  - component: {fileID: 1254629369}
   m_Layer: 0
   m_Name: Katana
   m_TagString: Untagged
@@ -6004,6 +6028,7 @@ MonoBehaviour:
   slashSpeed: 1
   player: {fileID: 888641973}
   damage: 9
+  animator: {fileID: 1254629369}
 --- !u!212 &1254629367
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6063,12 +6088,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254629364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1929533139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1254629369
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254629364}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69ceeb4a173dec54886bbea935a508f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1291312802
 GameObject:
   m_ObjectHideFlags: 0
@@ -9702,8 +9746,9 @@ MonoBehaviour:
   defaultWeapon: {fileID: 491880557}
   downAngle: -30
   upAngle: 20
-  playerIndex: 0
+  playerIndex: 1
   character: 3
+  animator: {fileID: 0}
 --- !u!212 &2068640317
 SpriteRenderer:
   m_ObjectHideFlags: 0

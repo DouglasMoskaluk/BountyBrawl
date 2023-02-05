@@ -18,6 +18,8 @@ public class Nagakome_Katana : MonoBehaviour
 
     private bool canFire = true; //Make sure the player can attack
 
+    [SerializeField] private Animator animator;
+
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class Nagakome_Katana : MonoBehaviour
     private void OnEnable()
     {
         canFire = true;
+        animator.SetTrigger("Idle");
     }
 
     private void OnDisable()
@@ -62,6 +65,7 @@ public class Nagakome_Katana : MonoBehaviour
 
     IEnumerator Slash(float time)
     {
+        animator.SetBool("Attack", true);
         attack.enabled = true;
         yield return new WaitForSeconds(0.05f);
         attack.enabled = false;
@@ -71,6 +75,8 @@ public class Nagakome_Katana : MonoBehaviour
         attack.enabled = false;
         player.UsingDefault(false);
         StartCoroutine(Cooldown(slashCooldown));
+        animator.SetBool("Attack", false);
+        animator.SetTrigger("Idle");
     } //When the player can use the dash again
 
     private void OnTriggerEnter2D(Collider2D other)

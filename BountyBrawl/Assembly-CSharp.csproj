@@ -57,6 +57,7 @@
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheEater.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\WyldsnagShotgun.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\DeathwhisperShuriken.cs" />
     <Compile Include="Assets\Scripts\PlayerBody.cs" />
     <Compile Include="Assets\Scripts\Bullets\SnakeBiteRevolver_Bullet.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\SnakeBiteRevolver.cs" />
@@ -76,11 +77,10 @@
     <Compile Include="Assets\Scripts\UI\ButtonSelect.cs" />
     <Compile Include="Assets\Scripts\UI\PauseScript.cs" />
     <Compile Include="Assets\Scripts\UI\Sound.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Deathwhisper_Shuriken.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
-    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\DeathwhisperShuriken.cs" />
-    <Compile Include="Assets\Scripts\Bullets\Deathwhisper_Shuriken.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

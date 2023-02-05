@@ -44,6 +44,8 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private int playerIndex = 0;
     [SerializeField] private int character; //Holds what type of character player is playing
 
+    [SerializeField] private Animator animator;
+
     private float tempSpeed;
 
     private void Awake()
@@ -89,6 +91,18 @@ public class PlayerBody : MonoBehaviour
                 playerRB.velocity = inputVector.normalized * runSpeed;
             }
             
+            if(animator != null)
+            {
+                if(inputVector.magnitude != 0)
+                {
+                    animator.SetTrigger("Run");
+                }
+                else
+                {
+                    animator.SetTrigger("Idle");
+                }
+            }
+            
             
             Facing();
         }
@@ -115,10 +129,22 @@ public class PlayerBody : MonoBehaviour
             if (weapon || useDefault) //if using a pickupable weapon
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, -angle); //Rotates weapon around player
+
+                //If using default attack then play attack animation
+                if (useDefault && animator != null)
+                {
+                        animator.SetBool("Attack", true);
+                }
             }
             else if (!useDefault || !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, 0f);
+
+                //Player not using default weapon
+                if (animator != null)
+                {
+                    animator.SetBool("Attack", false);
+                }
             }
 
             //Change head rotation
@@ -146,10 +172,22 @@ public class PlayerBody : MonoBehaviour
             if (weapon || useDefault)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle); //Rotates weapon around player
+
+                //If using default attack then play attack animation
+                if (useDefault && animator != null)
+                {
+                    animator.SetBool("Attack", true);
+                }
             }
             else if (!useDefault && !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+                //Player not using default weapon
+                if (animator != null)
+                {
+                    animator.SetBool("Attack", false);
+                }
             }
 
             //Change head rotation
