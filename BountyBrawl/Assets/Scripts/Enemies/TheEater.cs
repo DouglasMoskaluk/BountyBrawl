@@ -172,6 +172,22 @@ public class TheEater : MonoBehaviour
                 }
             }
 
+            //changes poison area size
+            if (isMiniboss)
+            {
+                //Change size of poison area over time
+                if (poisonArea.localScale.x < poisonEndSize.x)
+                {
+                    Vector3 temp = poisonArea.localScale;
+                    temp.x += Time.deltaTime * speedOfPoisonGrowth;
+                    temp.y += Time.deltaTime * speedOfPoisonGrowth;
+                    temp.z += Time.deltaTime * speedOfPoisonGrowth;
+
+                    poisonArea.transform.localScale = temp;
+
+                }
+            }
+
             //Death
             if (currHealth <= 0f)
             {
@@ -213,21 +229,6 @@ public class TheEater : MonoBehaviour
                 {
                     currWaypoint++;
                 }
-            }
-        }
-
-        //changes poison area size
-        if (isMiniboss)
-        {
-            //Change size of poison area over time
-            if (poisonArea.localScale.x < poisonEndSize.x) {
-                Vector3 temp = poisonArea.localScale;
-                temp.x += Time.deltaTime * speedOfPoisonGrowth;
-                temp.y += Time.deltaTime * speedOfPoisonGrowth;
-                temp.z += Time.deltaTime * speedOfPoisonGrowth;
-
-                poisonArea.transform.localScale = temp;
-
             }
         }
     }

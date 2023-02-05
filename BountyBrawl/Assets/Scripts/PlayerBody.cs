@@ -95,7 +95,7 @@ public class PlayerBody : MonoBehaviour
 
         
 
-        if (getPause() == true)
+        if (getPause() == true && UIPauseMenu != null)
         {
             UIPauseMenu.GetComponent<PauseScript>().PressedPause();
         } //checks if player has pressed the pause menu button and toggles it

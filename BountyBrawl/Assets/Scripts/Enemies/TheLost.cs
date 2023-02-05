@@ -25,6 +25,8 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private Sprite dash;
 
+    [SerializeField] private GameObject aura;
+
     [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
     [SerializeField] private float nextWayPointDistance = 10f;
 
@@ -54,6 +56,7 @@ public class TheLost : MonoBehaviour
         currHealth = baseHealth;
         canDash = true;
         canMove = true;
+        aura.SetActive(false);
 
         spriteRenderer.sprite = currSprite;
     }
@@ -140,9 +143,11 @@ public class TheLost : MonoBehaviour
             {
                 spriteRenderer.sprite = dash;
                 force = direction * enemyDashSpeed * Time.deltaTime;
+                aura.SetActive(true);
             }
             else
             {
+                aura.SetActive(false);
                 spriteRenderer.sprite = currSprite;
                 force = direction * enemyDefaultSpeed * Time.deltaTime;
             }
