@@ -109,9 +109,11 @@ MonoBehaviour:
   stunLength: 1
   glueTime: 5
   glueDamage: 3
-  glueSlowness: 9
+  gluePlayerSlowness: 9
   glueSize: {x: 2, y: 2, z: 1}
   glueGrowSpeed: 10
+  glueLostSlowness: 500
+  glueEaterSlowness: 400
 --- !u!50 &5745134554719988563
 Rigidbody2D:
   serializedVersion: 4

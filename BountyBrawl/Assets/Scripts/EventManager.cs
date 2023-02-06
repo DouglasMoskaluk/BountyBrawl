@@ -9,9 +9,6 @@ public class EventManager : MonoBehaviour
     [SerializeField] private Transform[] enemySP; //Array of all the enemySpawnPoints
 
     [Tooltip("The enemy to be spawned")]
-    [SerializeField] private GameObject lost; //The lost to be spawned
-
-    [Tooltip("The enemy to be spawned")]
     [SerializeField] private GameObject eater; //The enemy to be spawned
 
     [SerializeField] private float numEnemies = 5f;
@@ -38,12 +35,12 @@ public class EventManager : MonoBehaviour
     private int tempSp;
 
     private bool canSpawn;
+    private bool teleport;
 
     TheEater currEater;
+    TheEater teleportEater; //The eater when teleporting
 
     private float tempTimer;
-
-    private GameObject boss;
 
     private bool minibossInUse; //If the eater is a miniboss stop spawning enemies
 
@@ -51,6 +48,7 @@ public class EventManager : MonoBehaviour
     {
         tempTimer = enemyTimer;
         canSpawn = true;
+        teleport = true;
         tempSp = 0;
         minibossInUse = false;
     }
@@ -85,10 +83,18 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        if (Mathf.Round(enemyTimer) <= 10 && canSpawn) //Spawns the eater at the enemy spawn position
+        if(Mathf.Round(enemyTimer) <= 15 && teleport)
+        {
+            teleport = false;
+            tempSp = (int)Random.Range(0f, enemySP.Length - 1);
+            StartCoroutine(Teleport());
+        }
+
+        if (Mathf.Round(enemyTimer) <= 10 && canSpawn) //Spawns the eater at the enemy spawn position as harbringer
         {
             canSpawn = false;
-            tempSp = (int)Random.Range(0f, enemySP.Length - 1);
+
+            StopAllCoroutines();
 
             currEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
             currEater.gameObject.SetActive(true);  //Turn on eater
@@ -111,7 +117,21 @@ public class EventManager : MonoBehaviour
             minion.AddHealth(enemyHealthIncrease * numSpawn);
         }
         canSpawn = true; //Can spawn the eater for the next event
+        teleport = true; //Eater can teleport for the next event
         numSpawn++; //Adds 1 to number of spawns each time enemies are spawned
+    }
+
+    private IEnumerator Teleport()
+    {
+        while (canSpawn)
+        {
+            int teleportLoc = (int)Random.Range(0f, enemySP.Length - 1);
+            teleportEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[teleportLoc].position, Quaternion.identity).GetComponent<TheEater>();
+            yield return new WaitForSeconds(0.5f);
+            teleportEater.gameObject.SetActive(false);
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     public void MinibossDead() { minibossInUse = false; }

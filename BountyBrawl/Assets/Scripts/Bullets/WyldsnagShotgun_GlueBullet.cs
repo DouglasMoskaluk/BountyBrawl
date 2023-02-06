@@ -35,6 +35,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private Vector3 glueSize = new Vector3(2f, 2f, 1f);
     [SerializeField] private float glueGrowSpeed = 3f;
     [SerializeField] private float glueLostSlowness = 500f;
+    [SerializeField] private float glueEaterSlowness = 400f;
 
     private bool glue;
     private BoxCollider2D bullet; //The bullets hitbox
@@ -170,6 +171,26 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 {
                     glueRD.sprite = glueSP;
                 }
+            }else if (collision.transform.tag == "Eater")
+            {
+                TheEater enemy = collision.GetComponent<TheEater>();
+
+                //Damage player by base
+                enemy.DamageEnemy(baseDamage);
+                enemy.StartCoroutine(enemy.Stun(stunLength));
+                StartCoroutine(Dissapear());
+
+                glue = true;
+
+                //If player is proficient
+                if (player.GetPlayerCharacter() == 3)
+                {
+                    glueRD.sprite = acidSP;
+                }
+                else
+                {
+                    glueRD.sprite = glueSP;
+                }
             }
         }
     }
@@ -179,40 +200,42 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
 
         if (glue)
         {
-            //If player is in glue other than shot player
+
+            TheLost tempLost = null;
+            TheEater tempEater = null;
+            PlayerBody enemy = null;
+
+            if (collision.GetComponent<TheLost>() != null)
+            {
+                tempLost = collision.GetComponent<TheLost>();
+                tempLost.Slow(glueLostSlowness);
+            }
+
+            if (collision.GetComponent<TheEater>() != null)
+            {
+                tempEater = collision.GetComponent<TheEater>();
+                tempEater.Slow(glueEaterSlowness);
+            }
+
             if (collision.gameObject.tag == "Player" && collision.gameObject != player.gameObject)
             {
-                collision.GetComponent<PlayerBody>().Slow(gluePlayerSlowness);
 
-                //If player is proficient then make glue deal damage
-                if (player.GetPlayerCharacter() == 3)
-                {
-                    if (damageTickTime > 0)
-                    {
-                        damageTickTime -= Time.deltaTime;
-                    }
-                    else
-                    {
-                        damageTickTime = tempTimer;
-                        collision.GetComponent<PlayerBody>().damagePlayer(glueDamage);
-                    }
-                }
+                enemy = collision.GetComponent<PlayerBody>();
+                enemy.Slow(gluePlayerSlowness);
             }
-            else if (collision.gameObject.tag == "Lost")
-            {
-                collision.GetComponent<TheLost>().Slow(glueLostSlowness);
 
-                if (player.GetPlayerCharacter() == 3)
+            if (player.GetPlayerCharacter() == 3)
+            {
+                if (damageTickTime > 0)
                 {
-                    if (damageTickTime > 0)
-                    {
-                        damageTickTime -= Time.deltaTime;
-                    }
-                    else
-                    {
-                        damageTickTime = tempTimer;
-                        collision.GetComponent<TheLost>().DamageEnemy(glueDamage);
-                    }
+                    damageTickTime -= Time.deltaTime;
+                }
+                else
+                {
+                    damageTickTime = tempTimer;
+                    if(tempLost != null) { tempLost.DamageEnemy(glueDamage); }
+                    if (tempEater != null) { tempEater.DamageEnemy(glueDamage); }
+                    if (enemy != null) { enemy.damagePlayer(glueDamage); }
                 }
             }
 
@@ -227,6 +250,9 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         }else if(collision.gameObject.tag == "Lost")
         {
             collision.GetComponent<TheLost>().ExitGlue();
+        }else if (collision.gameObject.tag == "Eater")
+        {
+            collision.GetComponent<TheEater>().ExitGlue();
         }
     }
 

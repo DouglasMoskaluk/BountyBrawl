@@ -235,7 +235,7 @@ public class TheLost : MonoBehaviour
         canMove = true;
     }
 
-    //slows player in glue
+    //slows Lost in glue
     public void Slow(float slowness) 
     { 
         enemyDefaultSpeed = slowness;

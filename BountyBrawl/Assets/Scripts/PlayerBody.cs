@@ -95,10 +95,11 @@ public class PlayerBody : MonoBehaviour
             {
                 if(inputVector.magnitude != 0)
                 {
-                    animator.SetTrigger("Run");
+                    animator.SetFloat("Run", Mathf.Abs(inputVector.magnitude * runSpeed));
                 }
                 else
                 {
+                    animator.SetFloat("Run", 0f);
                     animator.SetTrigger("Idle");
                 }
             }
@@ -129,22 +130,10 @@ public class PlayerBody : MonoBehaviour
             if (weapon || useDefault) //if using a pickupable weapon
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, -angle); //Rotates weapon around player
-
-                //If using default attack then play attack animation
-                if (useDefault && animator != null)
-                {
-                        animator.SetBool("Attack", true);
-                }
             }
             else if (!useDefault || !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 180, 0f);
-
-                //Player not using default weapon
-                if (animator != null)
-                {
-                    animator.SetBool("Attack", false);
-                }
             }
 
             //Change head rotation
@@ -172,22 +161,10 @@ public class PlayerBody : MonoBehaviour
             if (weapon || useDefault)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle); //Rotates weapon around player
-
-                //If using default attack then play attack animation
-                if (useDefault && animator != null)
-                {
-                    animator.SetBool("Attack", true);
-                }
             }
             else if (!useDefault && !hammer)
             {
                 weaponHolder.rotation = Quaternion.Euler(0f, 0f, 0f);
-
-                //Player not using default weapon
-                if (animator != null)
-                {
-                    animator.SetBool("Attack", false);
-                }
             }
 
             //Change head rotation

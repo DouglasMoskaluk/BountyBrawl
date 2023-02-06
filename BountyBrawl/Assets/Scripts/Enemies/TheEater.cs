@@ -60,6 +60,9 @@ public class TheEater : MonoBehaviour
 
     Seeker seeker;
 
+    private float tempDefSpeed;
+    private bool canMove;
+
     private void OnEnable()
     {
         poisonStartSize = tempPoisonStart;
@@ -80,6 +83,8 @@ public class TheEater : MonoBehaviour
                 cam.GetComponent<CameraMovement_Small>().AddEater(this.gameObject);
             }
         }
+        canMove = true;
+        tempDefSpeed = enemySpeed;
     }
 
     //Replace with onDisable later on
@@ -101,6 +106,7 @@ public class TheEater : MonoBehaviour
         eventM.MinibossDead();
         isMiniboss = false;
         currSprite.sprite = harbringer;
+        body.isTrigger = true;
     }
 
     private void Awake()
@@ -200,7 +206,7 @@ public class TheEater : MonoBehaviour
     {
 
         //Moves eater along the path
-        if (target != null && isMiniboss)
+        if (target != null && isMiniboss && canMove)
         {
             if (path == null)
                 return;
@@ -298,6 +304,26 @@ public class TheEater : MonoBehaviour
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
         }
 
+    }
+
+    public IEnumerator Stun(float length)
+    {
+        canMove = false;
+        rb.velocity = Vector2.zero;
+        yield return new WaitForSeconds(length);
+        canMove = true;
+    }
+
+    //slows Lost in glue
+    public void Slow(float slowness)
+    {
+        enemySpeed = slowness;
+    }
+
+    //Fixes runspeed after player leaves glue
+    public void ExitGlue()
+    {
+        enemySpeed = tempDefSpeed;
     }
 
     public void DamageEnemy(float damage) { if (isMiniboss) { currHealth -= damage; } }
