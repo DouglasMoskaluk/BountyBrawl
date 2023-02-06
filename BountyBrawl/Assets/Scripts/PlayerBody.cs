@@ -245,6 +245,8 @@ public class PlayerBody : MonoBehaviour
 
     public Vector2 getLastFacing() { return lastFacing; }
 
+    public Vector2 getInputVector() { return inputVector; }
+
     public void SetInputVector(Vector2 direction)
     {
         inputVector = direction;

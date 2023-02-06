@@ -6087,13 +6087,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254629364}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.057906166, w: 0.998322}
   m_LocalPosition: {x: 0, y: 0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1929533139}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.639}
 --- !u!95 &1254629369
 Animator:
   serializedVersion: 3
@@ -7564,7 +7564,6 @@ MonoBehaviour:
   - {fileID: 1095735789}
   - {fileID: 1469573922}
   - {fileID: 956829600}
-  lost: {fileID: 2827886038910366198, guid: 7567bcfda6a148d40afa9a6b98fb668f, type: 3}
   eater: {fileID: 1586029154252866078, guid: bed31e327df885341b61e8254ac4a30d, type: 3}
   numEnemies: 5
   enemyTimer: 30

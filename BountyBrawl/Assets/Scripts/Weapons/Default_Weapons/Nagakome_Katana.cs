@@ -47,6 +47,15 @@ public class Nagakome_Katana : MonoBehaviour
             {
                 Shoot1();
             }
+
+            if(player.getInputVector() != Vector2.zero)
+            {
+                animator.SetTrigger("Run");
+            }
+            else
+            {
+                animator.SetTrigger("Idle");
+            }
         }
     }
 
@@ -76,7 +85,6 @@ public class Nagakome_Katana : MonoBehaviour
         player.UsingDefault(false);
         StartCoroutine(Cooldown(slashCooldown));
         animator.SetBool("Attack", false);
-        animator.SetTrigger("Idle");
     } //When the player can use the dash again
 
     private void OnTriggerEnter2D(Collider2D other)
