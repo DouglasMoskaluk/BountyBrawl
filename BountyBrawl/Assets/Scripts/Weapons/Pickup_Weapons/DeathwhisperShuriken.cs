@@ -98,6 +98,7 @@ public class DeathwhisperShuriken : MonoBehaviour
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
                 canUse = false;
+                player.setWeaponIndex(3);
 
                 if (player.GetPlayerCharacter() == 0)
                 {

@@ -83,6 +83,7 @@ public class SnakeBiteRevolver : MonoBehaviour
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
                 canUse = false;
+                player.setWeaponIndex(1);
 
                 if (player.GetPlayerCharacter() == 0)
                 {

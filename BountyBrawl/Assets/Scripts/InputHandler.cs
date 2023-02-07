@@ -65,4 +65,28 @@ public class InputHandler : MonoBehaviour
             player.Pause(context.performed);
         }
     }
+
+    public void RemoveHealth(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.RemoveHealth(context.ReadValue<float>());
+        }
+    }
+
+    public void AddHealth(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.AddHealth(context.ReadValue<float>());
+        }
+    }
+
+    public void Respawn(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.Respawn(context.ReadValue<float>());
+        }
+    }
 }

@@ -27,6 +27,9 @@ public class PlayerBody : MonoBehaviour
     private bool pause = false; //players pause input
     private bool canMove; //Whether the player can move or not
     private float nowThrow = 0f; //When the player has chosen to throw his weapon
+    private float removeHealth = 0f;
+    private float addHealth = 0f;
+    private float respawn = 0f;
 
     //Serializables
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
@@ -40,6 +43,8 @@ public class PlayerBody : MonoBehaviour
     private bool useDefault; //If player has fired their default weapon
     private bool hammer; //Specifically for Emerald when she is using her hammer
 
+    public int weaponIndex;
+
     //Multiplayer player
     [SerializeField] private int playerIndex = 0;
     [SerializeField] private int character; //Holds what type of character player is playing
@@ -47,6 +52,7 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private float tempSpeed;
+    private int lives;
 
     private void Awake()
     {
@@ -59,6 +65,8 @@ public class PlayerBody : MonoBehaviour
         canMove = true;
         hammer = false;
         tempSpeed = runSpeed;
+        weaponIndex = 0;
+        lives = 3;
     }
     private void Update()
     {
@@ -66,6 +74,7 @@ public class PlayerBody : MonoBehaviour
         if (weapon == false)
         {
             defaultWeapon.SetActive(true);
+            setWeaponIndex(0);
         }
         else
         {
@@ -75,10 +84,27 @@ public class PlayerBody : MonoBehaviour
         {
             defaultWeapon.SetActive(false);
         }
+
+
         
     }
     private void FixedUpdate()
     {
+        if (removeHealth != 0)
+        {
+            health = health - 1;
+        }
+        if (addHealth != 0)
+        {
+            health = health + 1;
+        }
+        if(respawn != 0)
+        { 
+           lives = lives - 1;
+            
+        }
+
+
         if (canMove)
         {
 
@@ -120,6 +146,8 @@ public class PlayerBody : MonoBehaviour
     /*
      * This method moves the direction of the weapon and head of the player based on the right stick input
      */
+    
+
     private void Facing()
     {
         //If the stick is moving in the left direction
@@ -243,6 +271,16 @@ public class PlayerBody : MonoBehaviour
 
     public bool getPause() {return pause; } //Gets when the player inputs the pause button
 
+    public int getCharacter() { return character; }
+
+    public void setWeaponIndex(int setWeaponIndex) { weaponIndex = setWeaponIndex; }
+
+    public int getWeaponIndex() { return weaponIndex; }
+
+    public float getHealth() { return health; }
+
+    public int getLives() { return lives; }
+
     public Vector2 getLastFacing() { return lastFacing; }
 
     public Vector2 getInputVector() { return inputVector; }
@@ -277,6 +315,19 @@ public class PlayerBody : MonoBehaviour
     {
         pause = start;
     }
+    public void RemoveHealth(float down)
+    {
+        removeHealth = down;
+    }
+    public void AddHealth(float up)
+    {
+        addHealth = up;
+    }
+    public void Respawn(float left)
+    {
+        respawn = left;
+    }
+
     public int GetPlayerIndex()
     {
         return playerIndex;

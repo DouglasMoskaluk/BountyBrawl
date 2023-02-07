@@ -116,6 +116,7 @@ public class WyldsnagShotgun : MonoBehaviour
                 spriteRenderer.sortingOrder = 10;
                 player.ChangeWeapon(true);
                 canUse = false;
+                player.setWeaponIndex(2);
 
                 if (player.GetPlayerCharacter() == 0)
                 {
