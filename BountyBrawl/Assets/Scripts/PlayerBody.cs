@@ -287,7 +287,14 @@ public class PlayerBody : MonoBehaviour
 
     public void SetInputVector(Vector2 direction)
     {
-        inputVector = direction;
+        if (Time.deltaTime != 0)
+        {
+            inputVector = direction;
+        }
+        else
+        {
+            inputVector = Vector2.zero;
+        }
     } //For the left stick representing the direction of movement
     public void SetFacingVector(Vector2 face)
     {

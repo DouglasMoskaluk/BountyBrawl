@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\SnakeBiteRevolver.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Nagakome_Katana.cs" />
+    <Compile Include="Assets\Scripts\UI\HUDScript.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingRotate.cs" />
     <Compile Include="Assets\Scripts\Enemies\PoisonArea.cs" />
     <Compile Include="Assets\Scripts\CameraMovement_Small.cs" />
