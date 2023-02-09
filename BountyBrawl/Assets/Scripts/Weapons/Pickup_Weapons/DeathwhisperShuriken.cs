@@ -9,6 +9,10 @@ public class DeathwhisperShuriken : MonoBehaviour
     [SerializeField] private float bulletTime = 0.2f;
     [Tooltip("The amount of ammo the weapon has")]
     [SerializeField] private float ammo = 20f;
+    [Tooltip("The amount of shurikens proficiency character can have on screen before return")]
+    [SerializeField] private int profThrown = 5;
+    [Tooltip("The amount of shurikens non-proficiency character can have on screen before return")]
+    [SerializeField] private int nonProfThrown = 3;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
 
@@ -30,6 +34,9 @@ public class DeathwhisperShuriken : MonoBehaviour
     private BoxCollider2D box;
 
     private bool canThrow;
+    private bool returning;
+
+    private int thrownLimit; //The limit of how many shurikens can be thrown before returning
 
     private void Awake()
     {
@@ -37,7 +44,9 @@ public class DeathwhisperShuriken : MonoBehaviour
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        thrownShurikens = new List<GameObject>();
         sprite = spriteRenderer.sprite;
+        returning = false;
     }
     private void OnEnable()
     {
@@ -63,25 +72,61 @@ public class DeathwhisperShuriken : MonoBehaviour
                 StartCoroutine(Throw());
             } //throw weapon if player presses the circle button
         }
+
+        if(thrownShurikens != null && thrownShurikens.Count != 0)
+        {
+            for(int i = 0; i < thrownShurikens.Count; i++)
+            {
+                if(thrownShurikens[i].activeSelf == false)
+                {
+                    thrownShurikens.RemoveAt(i);
+                }
+            }
+        }
+
+        if (returning)
+        {
+            if(thrownShurikens.Count == 0)
+            {
+                returning = false;
+            }
+        }
     }
+
     private void Shoot1()
     {
-        if (canFire)
+
+        if(canFire && thrownShurikens.Count >= thrownLimit)
+        {
+            returning = false;
+            Shoot2();
+        }
+
+        if (canFire && !returning )
         {
             ammo--;
             canFire = false;
             Vector2 traj = bulletSpawn.position - transform.position; //Get the trajectory of the bullet
             traj.Normalize();
-            GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver_Bullet", bulletSpawn.position, transform.rotation);
-            SnakeBiteRevolver_Bullet bull = bulletGO.GetComponent<SnakeBiteRevolver_Bullet>();
+            GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("Deathwhisper_Shuriken", bulletSpawn.position, transform.rotation);
+            Deathwhisper_ShurikenBullet bull = bulletGO.GetComponent<Deathwhisper_ShurikenBullet>();
+            thrownShurikens.Add(bulletGO);
             bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
             bulletGO.SetActive(true);
             StartCoroutine(Cooldown(bulletTime));
         }
+        
+
     }
 
     private void Shoot2()
     {
+        returning = true; //Wait till all shurikens return before shooting again
+        for(int i = 0; i < thrownShurikens.Count; i++)
+        {
+            Deathwhisper_ShurikenBullet returning = thrownShurikens[i].GetComponent<Deathwhisper_ShurikenBullet>();
+            returning.ReturnToPlayer();
+        }
         //Recall the shurikens
     }
 
@@ -105,15 +150,24 @@ public class DeathwhisperShuriken : MonoBehaviour
                     gameObject.GetComponent<SpriteRenderer>().sprite = holding[0];
                 }else if(player.GetPlayerCharacter() == 1)
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[1];
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[0];
                 }
                 else if (player.GetPlayerCharacter() == 2)
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[2];
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[0];
                 }
                 else
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[3];
+                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[0];
+                }
+
+                if(player.getCharacter() == 1)
+                {
+                    thrownLimit = profThrown;
+                }
+                else
+                {
+                    thrownLimit = nonProfThrown;
                 }
 
                 //Move weapon in desired position
@@ -141,6 +195,11 @@ public class DeathwhisperShuriken : MonoBehaviour
     {
         if (canThrow)
         {
+            foreach(GameObject p in thrownShurikens)
+            {
+                p.GetComponent<Deathwhisper_ShurikenBullet>().Thrown();
+            }
+
             canThrow = false;
             spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite

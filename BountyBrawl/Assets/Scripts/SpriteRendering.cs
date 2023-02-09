@@ -13,11 +13,11 @@ public class SpriteRendering : MonoBehaviour
 
     private float timer;
     private float timerMax = 0.1f;
-    private Renderer myRenderer;
+    private Renderer[] myRenderer;
 
     private void Awake()
     {
-        myRenderer = gameObject.GetComponent<Renderer>();
+        myRenderer = GetComponents<Renderer>();
     }
 
     private void LateUpdate()
@@ -26,7 +26,10 @@ public class SpriteRendering : MonoBehaviour
         if (timer <= 0f)
         {
             timer = timerMax;
-            myRenderer.sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
+            foreach (Renderer r in myRenderer)
+            {
+                r.sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
+            }
             if (runOnlyOnce)
             {
                 Destroy(this);

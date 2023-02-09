@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 8731686905524792498}
   - component: {fileID: 5068239350064552395}
   - component: {fileID: 6760041702606594138}
+  - component: {fileID: 931755770727287373}
   m_Layer: 0
   m_Name: WyldsnagShotgun
   m_TagString: Untagged
@@ -229,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71463237
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c73d91af4c0e73e4194b084aa7bcc7ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -331,6 +332,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &931755770727287373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731686905524792494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0
 --- !u!1 &8782498371531809897
 GameObject:
   m_ObjectHideFlags: 0

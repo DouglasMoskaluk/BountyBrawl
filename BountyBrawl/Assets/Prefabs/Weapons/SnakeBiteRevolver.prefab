@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1422997465680654305}
   - component: {fileID: 3225895148060678808}
   - component: {fileID: 3981973998159291145}
+  - component: {fileID: 3772500133512053920}
   m_Layer: 0
   m_Name: SnakeBiteRevolver
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71463237
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c19c65a93f0f29d4aacae9e07beb5daf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -159,7 +160,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1422997465680654333}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -168,8 +169,23 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &3772500133512053920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422997465680654333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0
 --- !u!1 &1422997466252591535
 GameObject:
   m_ObjectHideFlags: 0

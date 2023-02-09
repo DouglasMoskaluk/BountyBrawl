@@ -74,15 +74,15 @@
     <Compile Include="Assets\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\CameraMovement_Big.cs" />
     <Compile Include="Assets\Scripts\Bullets\WyldsnagShotgun_Bullet.cs" />
+    <Compile Include="Assets\Scripts\SpriteRendering.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Sandstorm_Fist.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonSelect.cs" />
     <Compile Include="Assets\Scripts\UI\PauseScript.cs" />
     <Compile Include="Assets\Scripts\UI\Sound.cs" />
-    <Compile Include="Assets\Scripts\Bullets\Deathwhisper_Shuriken.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Deathwhisper_ShurikenBullet.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
-    <Compile Include="Assets\Scripts\SpriteRendering.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
