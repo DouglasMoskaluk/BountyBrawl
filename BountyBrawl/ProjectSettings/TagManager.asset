@@ -11,6 +11,7 @@ TagManager:
   - Lost
   - Eater
   - Slowness
+  - Barrier
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3836386127
+    locked: 0
+  - name: Midground
+    uniqueID: 2889060325
+    locked: 0
+  - name: Foreground
+    uniqueID: 71463237
     locked: 0

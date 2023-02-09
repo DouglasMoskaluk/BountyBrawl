@@ -42,7 +42,7 @@ public class WyldsnagShotgun : MonoBehaviour
 
     private void OnEnable()
     {
-        spriteRenderer.sortingOrder = 7;
+        //spriteRenderer.sortingOrder = 7;
     }
 
     private void Update()
@@ -91,16 +91,13 @@ public class WyldsnagShotgun : MonoBehaviour
             ammo -= 2;
             canFire = false;
 
-            for (int i = 0; i < 5; i++)
-            {
-                Vector2 traj = trajSpawn[i].position - bulletSpawn.position; //Get the trajectory of the bullet
-                traj.Normalize();
-                GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun_GlueBullet", bulletSpawn.position, transform.rotation);
-                WyldsnagShotgun_GlueBullet bull = bulletGO.GetComponent<WyldsnagShotgun_GlueBullet>();
-                bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
-                bulletGO.SetActive(true);
-                StartCoroutine(Cooldown(bulletTime));
-            }
+            Vector2 traj = trajSpawn[0].position - bulletSpawn.position; //Get the trajectory of the bullet
+            traj.Normalize();
+            GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun_GlueBullet", bulletSpawn.position, transform.rotation);
+            WyldsnagShotgun_GlueBullet bull = bulletGO.GetComponent<WyldsnagShotgun_GlueBullet>();
+            bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
+            bulletGO.SetActive(true);
+            StartCoroutine(Cooldown(bulletTime));
         }
     }
 
@@ -113,7 +110,7 @@ public class WyldsnagShotgun : MonoBehaviour
             if (!checker.UsingWeapon())
             {
                 player = collision.transform.parent.GetComponent<PlayerBody>();
-                spriteRenderer.sortingOrder = 10;
+                //spriteRenderer.sortingOrder = 10;
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(2);
@@ -160,7 +157,7 @@ public class WyldsnagShotgun : MonoBehaviour
         if (canThrow)
         {
             canThrow = false;
-            spriteRenderer.sortingOrder = 7;
+            //spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
             transform.parent = null; //Unparent the weapon

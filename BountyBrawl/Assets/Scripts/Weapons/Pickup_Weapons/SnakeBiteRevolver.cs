@@ -39,7 +39,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     }
     private void OnEnable()
     {
-        spriteRenderer.sortingOrder = 7;
+        //spriteRenderer.sortingOrder = 7;
     }
 
     private void Update()
@@ -79,7 +79,7 @@ public class SnakeBiteRevolver : MonoBehaviour
             //If player is not using a weapon
             if (!checker.UsingWeapon())
             {
-                spriteRenderer.sortingOrder = 10;
+                //spriteRenderer.sortingOrder = 10;
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
                 canUse = false;
@@ -127,7 +127,7 @@ public class SnakeBiteRevolver : MonoBehaviour
         if (canThrow)
         {
             canThrow = false;
-            spriteRenderer.sortingOrder = 7;
+            //spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
             transform.parent = null; //Unparent the weapon

@@ -11,7 +11,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private float speed = 50f; //Speed of bullet
     [SerializeField] private float lifeTime = 8f; //Life until it dies
 
-    [SerializeField] private Sprite bulletSP; //The bullet sprite
+    [SerializeField] private Sprite glueShotSP; //The bullet sprite
+    [SerializeField] private Sprite acidShotSP; //The bullet sprite
     [SerializeField] private Sprite glueSP; //The glue sprite
     [SerializeField] private Sprite acidSP; //The acid sprite for Emerald
     private SpriteRenderer glueRD;
@@ -59,14 +60,21 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         glue = false;
         bullet.enabled = true;
         glueZone.enabled = false;
-
-        glueRD.sprite = bulletSP;
     }
 
     private void Start()
     {
         bulletGO = gameObject.GetComponent<Rigidbody2D>();
         spawnPos = transform.position;
+
+        if (player.getCharacter() == 3)
+        {
+            glueRD.sprite = acidShotSP;
+        }
+        else
+        {
+            glueRD.sprite = glueShotSP;
+        }
     }
 
     // Update is called once per frame

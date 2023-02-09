@@ -7,10 +7,11 @@ public class Nagakome_Katana : MonoBehaviour
     [Tooltip("The time required before the slashes can be used again")]
     [SerializeField] private float slashCooldown = 3f;
 
-    [Tooltip("Speed at which the slashes happen")]
-    [SerializeField] private float slashSpeed = 1f;
-
     private BoxCollider2D attack;
+
+    [SerializeField] private int animatorDefSpeed = 1;
+
+    [SerializeField] private int animatorSlashSpeed = 2;
 
     [SerializeField] private PlayerBody player; //This is the player
 
@@ -20,23 +21,37 @@ public class Nagakome_Katana : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    private Quaternion defRotation;
+
 
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
+        animator.speed = animatorDefSpeed;
+        defRotation = transform.rotation;
     }
 
     private void OnEnable()
     {
+        player.UsingDefault(false);
         canFire = true;
+        animator.SetBool("Attack", false);
         animator.SetTrigger("Idle");
+        animator.speed = animatorDefSpeed;
+        transform.rotation = defRotation;
+        animator.keepAnimatorControllerStateOnDisable = true;
     }
 
     private void OnDisable()
     {
+        animator.SetTrigger("Idle");
         attack.enabled = false;
         player.UsingDefault(false);
         StopAllCoroutines();
+        animator.speed = animatorDefSpeed;
+        transform.rotation = defRotation;
+        animator.SetBool("Attack", false);
+
     }
 
     private void Update()
@@ -61,9 +76,11 @@ public class Nagakome_Katana : MonoBehaviour
 
     private void Shoot1()
     {
+        animator.SetBool("Attack", true);
         canFire = false;
+        attack.enabled = true;
         player.UsingDefault(true);
-        StartCoroutine(Slash(slashSpeed));
+        animator.speed = animatorSlashSpeed;
     }
 
     IEnumerator Cooldown(float time)
@@ -72,20 +89,15 @@ public class Nagakome_Katana : MonoBehaviour
         canFire = true;
     } //When the player can use the dash again
 
-    IEnumerator Slash(float time)
+    public void DoneSlashing()
     {
-        animator.SetBool("Attack", true);
-        attack.enabled = true;
-        yield return new WaitForSeconds(0.05f);
-        attack.enabled = false;
-        yield return new WaitForSeconds(time);
-        attack.enabled = true;
-        yield return new WaitForSeconds(0.05f);
-        attack.enabled = false;
         player.UsingDefault(false);
-        StartCoroutine(Cooldown(slashCooldown));
         animator.SetBool("Attack", false);
-    } //When the player can use the dash again
+        StartCoroutine(Cooldown(slashCooldown));
+        animator.speed = animatorDefSpeed;
+        attack.enabled = false;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

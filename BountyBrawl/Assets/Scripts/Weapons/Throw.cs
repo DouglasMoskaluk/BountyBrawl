@@ -48,7 +48,7 @@ public class Throw : MonoBehaviour
             StopAllCoroutines();
 
         //If hit wall then stop weapon
-        }else if(collision.transform.tag == "Wall")
+        }else if(collision.transform.tag == "Barrier" || collision.transform.tag == "Wall")
         {
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

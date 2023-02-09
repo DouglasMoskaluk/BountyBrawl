@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3952927162131909834}
   - component: {fileID: -8479040568488705899}
   - component: {fileID: 4959200901576410764}
+  - component: {fileID: -4666710522149492335}
   m_Layer: 0
   m_Name: WyldsnagShotgun_GlueBullet
   m_TagString: Untagged
@@ -73,9 +74,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingLayerID: 71463237
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3f6333bea91dc954994436fa1dc6eeef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +103,8 @@ MonoBehaviour:
   damageTickTime: 1.5
   speed: 50
   lifeTime: 8
-  bulletSP: {fileID: 21300000, guid: 3f6333bea91dc954994436fa1dc6eeef, type: 3}
+  glueShotSP: {fileID: 21300000, guid: d6ceef77910a5844f830f44811d54b4a, type: 3}
+  acidShotSP: {fileID: 21300000, guid: da69d94d77600b24da8f7f26a357d997, type: 3}
   glueSP: {fileID: 21300000, guid: 5131e5ad48888134684b53e93d506500, type: 3}
   acidSP: {fileID: 21300000, guid: bec2cbe5acfaf1d49ad55c912c749354, type: 3}
   baseDamage: 10
@@ -173,9 +175,9 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingLayerID: -1405906971
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
@@ -284,3 +286,18 @@ CircleCollider2D:
   m_Offset: {x: -0.4697504, y: 0.34163713}
   serializedVersion: 2
   m_Radius: 2.3026714
+--- !u!114 &-4666710522149492335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745134554719988575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: 0
+  runOnlyOnce: 0
