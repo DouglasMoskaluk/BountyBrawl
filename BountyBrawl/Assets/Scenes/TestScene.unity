@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127a7c5b24a06f46a47c1851b2e880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 1548378848}
   walkSpeed: 10
   runSpeed: 20
   health: 100
@@ -2623,6 +2624,12 @@ MonoBehaviour:
   - tag: Deathwhisper_Shuriken
     prefab: {fileID: 5745134554719988575, guid: 32e25c2f3a9cef944928c053ffac6dc1, type: 3}
     size: 40
+  - tag: Ch-ChingRifle_DefBullet
+    prefab: {fileID: 5745134554719988575, guid: 5b7be1718737029439528abf1a3369c3, type: 3}
+    size: 40
+  - tag: Ch-ChingRifle_ClusBullet
+    prefab: {fileID: 5745134554719988575, guid: f77d4aeabc7415641b9b24281324ec90, type: 3}
+    size: 40
 --- !u!4 &362065366
 Transform:
   m_ObjectHideFlags: 0
@@ -3136,6 +3143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127a7c5b24a06f46a47c1851b2e880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 1548378848}
   walkSpeed: 10
   runSpeed: 20
   health: 100
@@ -7229,6 +7237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127a7c5b24a06f46a47c1851b2e880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 1548378848}
   walkSpeed: 10
   runSpeed: 20
   health: 100
@@ -8994,6 +9003,7 @@ Transform:
   - {fileID: 1422997465129695507}
   - {fileID: 1422997466215904933}
   - {fileID: 7899661612224733399}
+  - {fileID: 1409867121}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10824,6 +10834,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395749176}
   m_CullTransparentMesh: 1
+--- !u!1001 &1409867120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1199802240}
+    m_Modifications:
+    - target: {fileID: 8731686905524792494, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_Name
+      value: CH-ChingRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.518871
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2849035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+--- !u!4 &1409867121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8731686905524792497, guid: 77ead7c17d9e8d24a8ad8dffbe9133a6, type: 3}
+  m_PrefabInstance: {fileID: 1409867120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1416978099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11949,7 +12021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1548378849
 Transform:
   m_ObjectHideFlags: 0
@@ -11995,7 +12067,7 @@ MonoBehaviour:
   boxTimer: 60
   timer: {fileID: 233263296}
   enemyDamageIncrease: 4
-  enemyHealthIncrease: 10
+  enemyHealthIncrease: 5
   miniboss: 2
 --- !u!1 &1558755654
 GameObject:
@@ -15284,7 +15356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: 500
+  offset: 0
   runOnlyOnce: 0
 --- !u!1 &1963504605
 GameObject:
@@ -16786,6 +16858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1127a7c5b24a06f46a47c1851b2e880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 1548378848}
   walkSpeed: 10
   runSpeed: 20
   health: 100
@@ -16878,7 +16951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: 1000
+  offset: 1
   runOnlyOnce: 0
 --- !u!1 &2069645484
 GameObject:

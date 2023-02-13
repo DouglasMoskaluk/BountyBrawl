@@ -89,4 +89,12 @@ public class InputHandler : MonoBehaviour
             player.Respawn(context.ReadValue<float>());
         }
     }
+
+    public void ActivateEvent(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.ActivateEvent(context.ReadValue<float>());
+        }
+    }
 }

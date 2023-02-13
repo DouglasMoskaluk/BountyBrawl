@@ -7,7 +7,7 @@ public class SpriteRendering : MonoBehaviour
     [SerializeField]
     private int sortingOrderBase = 5000;
     [SerializeField]
-    private int offset = 0;
+    private int offset = 0; //Put in the negatives to get trail behind bullet
     [SerializeField]
     private bool runOnlyOnce = false;
 
@@ -26,9 +26,17 @@ public class SpriteRendering : MonoBehaviour
         if (timer <= 0f)
         {
             timer = timerMax;
-            foreach (Renderer r in myRenderer)
+
+            for(int i = 0; i < myRenderer.Length; i++)
             {
-                r.sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
+                if(i == 0)
+                {
+                    myRenderer[i].sortingOrder = (int)(sortingOrderBase - transform.position.y - offset*2);
+                }
+                else
+                {
+                    myRenderer[i].sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
+                }
             }
             if (runOnlyOnce)
             {

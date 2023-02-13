@@ -83,6 +83,9 @@
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Ch_ChingRifle.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_DefBullet.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_ClusBullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

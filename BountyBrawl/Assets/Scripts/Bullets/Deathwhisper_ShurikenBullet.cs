@@ -60,7 +60,7 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
     void FixedUpdate()
     {
 
-        if((lifeTime -= Time.deltaTime) < 0 && !returning)
+        if((lifeTime -= Time.deltaTime) < 0 && !returning && !stuck)
         {
             gameObject.SetActive(false);
         }

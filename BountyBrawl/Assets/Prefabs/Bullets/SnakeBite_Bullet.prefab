@@ -165,8 +165,8 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1405906971
-  m_SortingLayer: 2
+  m_SortingLayerID: 71463237
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Time: 0.2
   m_Parameters:
@@ -273,5 +273,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: 0
+  offset: -2
   runOnlyOnce: 0

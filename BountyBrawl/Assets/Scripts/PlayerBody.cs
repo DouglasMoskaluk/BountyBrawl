@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
-
+    [SerializeField] private GameObject eventManager;
     GameObject UIPauseMenu; //Pause menu on canvas
 
     //Player info
@@ -335,6 +335,17 @@ public class PlayerBody : MonoBehaviour
         respawn = left;
     }
 
+    public void ActivateEvent(float activateEvent){
+        if (!eventManager.activeSelf)
+        {
+            eventManager.SetActive(true);
+        }
+        else
+        {
+            eventManager.SetActive(false);
+        }
+    }
+
     public int GetPlayerIndex()
     {
         return playerIndex;
@@ -345,4 +356,5 @@ public class PlayerBody : MonoBehaviour
     {
         return character;
     }
+
 }

@@ -15,6 +15,9 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private Sprite acidShotSP; //The bullet sprite
     [SerializeField] private Sprite glueSP; //The glue sprite
     [SerializeField] private Sprite acidSP; //The acid sprite for Emerald
+    [SerializeField] private Gradient acidBulletTrail;
+    [SerializeField] private Gradient glueBulletTrail;
+
     private SpriteRenderer glueRD;
 
     private Rigidbody2D bulletGO;
@@ -41,6 +44,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     private bool glue;
     private BoxCollider2D bullet; //The bullets hitbox
     private CircleCollider2D glueZone; //The glue hitbox
+    private TrailRenderer trailRenderer;
 
     private float tempTimer;
 
@@ -51,6 +55,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         bullet = GetComponent<BoxCollider2D>();
         glueZone = GetComponent<CircleCollider2D>();
         tempTimer = damageTickTime;
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     private void OnEnable()
@@ -60,6 +65,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         glue = false;
         bullet.enabled = true;
         glueZone.enabled = false;
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     private void Start()
@@ -70,10 +76,12 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         if (player.getCharacter() == 3)
         {
             glueRD.sprite = acidShotSP;
+            trailRenderer.colorGradient = acidBulletTrail;
         }
         else
         {
             glueRD.sprite = glueShotSP;
+            trailRenderer.colorGradient = glueBulletTrail;
         }
     }
 
@@ -100,7 +108,6 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         {
             Vector3 temp = transform.localScale;
             temp.x += Time.deltaTime * glueGrowSpeed;
-            temp.y += Time.deltaTime * glueGrowSpeed;
             temp.z += Time.deltaTime * glueGrowSpeed;
 
             transform.localScale = temp;
@@ -127,6 +134,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 GetComponent<TrailRenderer>().enabled = false;
                 glue = true;
                 StartCoroutine(Dissapear());
+                transform.rotation = Quaternion.identity;
+                transform.localScale = new Vector3(1f, 1.02f, 1f);
 
                 //If player is proficient
                 if (player.GetPlayerCharacter() == 3)
@@ -141,11 +150,13 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             else if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
             {
                 PlayerBody enemy = collision.GetComponent<PlayerBody>();
+                transform.localScale = new Vector3(1f, 1.02f, 1f);
 
                 //Damage player by base
                 enemy.damagePlayer(baseDamage);
                 enemy.StartCoroutine(enemy.Stun(stunLength));
                 StartCoroutine(Dissapear());
+                transform.rotation = Quaternion.identity;
 
                 glue = true;
 
@@ -162,6 +173,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             {
 
                 TheLost enemy = collision.GetComponent<TheLost>();
+                transform.rotation = Quaternion.identity;
+                transform.localScale = new Vector3(1f, 1.02f, 1f);
 
                 //Damage player by base
                 enemy.DamageEnemy(baseDamage);
@@ -182,6 +195,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             }else if (collision.transform.tag == "Eater")
             {
                 TheEater enemy = collision.GetComponent<TheEater>();
+                transform.rotation = Quaternion.identity;
+                transform.localScale = new Vector3(1f,1.02f,1f);
 
                 //Damage player by base
                 enemy.DamageEnemy(baseDamage);
@@ -232,6 +247,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 enemy.Slow(gluePlayerSlowness);
             }
 
+            //Damage player if character who shot is emerald and if enemy is in acid 
             if (player.GetPlayerCharacter() == 3)
             {
                 if (damageTickTime > 0)

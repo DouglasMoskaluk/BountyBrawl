@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DisableEvent",
+                    "type": "Button",
+                    "id": "89131dc6-ec58-421c-85c3-01c86d5d1a68",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -371,6 +380,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Respawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a9119f8-c1cd-4e58-b739-588141249efb",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisableEvent",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

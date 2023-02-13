@@ -201,6 +201,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 446043cd-3cd6-468c-9241-02ce6f6e0d88
     m_ActionName: PlayerMovement/Respawn[/DualShock4GamepadHID/dpad/left]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4633431333342324553}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: ActivateEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 89131dc6-ec58-421c-85c3-01c86d5d1a68
+    m_ActionName: PlayerMovement/DisableEvent[/DualShock4GamepadHID/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
