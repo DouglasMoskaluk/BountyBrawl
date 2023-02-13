@@ -17,12 +17,18 @@ public class CameraMovement_Big : MonoBehaviour
     [Tooltip("Affects the speed of growth. Heigher is slower and lower is faster")]
     [SerializeField] private float zoomSpeed = 70f;
 
+    [SerializeField] private float eaterTeleportLockFOV = 50f;
+
     private float currDist; //distance of the camera
+
+    private bool locking;
 
     // Start is called before the first frame update
     void Start()
     {
         players = new List<GameObject>();
+
+        locking = false;
 
         GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
@@ -38,12 +44,15 @@ public class CameraMovement_Big : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 centerPoint = GetCenterPoint();
-        Vector3 newPosiion = centerPoint;
-        transform.position = newPosiion + new Vector3 (0f,0f,currDist);
+        if (!locking)
+        {
+            Vector3 centerPoint = GetCenterPoint();
+            Vector3 newPosiion = centerPoint;
+            transform.position = newPosiion + new Vector3(0f, 0f, currDist);
 
-        float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance()/2 + GetGreatestYDistance()/2) / zoomSpeed);
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+            float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+        }
     }
 
     Vector3 GetCenterPoint()
@@ -87,4 +96,16 @@ public class CameraMovement_Big : MonoBehaviour
     public void AddEater(GameObject eater) { players.Add(eater); }
 
     public void DeleteEater() { players.RemoveAt(players.Count-1); }
+
+    public void EaterIsTeleporting() 
+    {
+        locking = true;
+        transform.position = new Vector3(0f, 0f, -120f);
+        cam.fieldOfView = eaterTeleportLockFOV;
+    }
+
+    public void EaterIsNotTeleporting()
+    {
+        locking = false;
+    }
 }

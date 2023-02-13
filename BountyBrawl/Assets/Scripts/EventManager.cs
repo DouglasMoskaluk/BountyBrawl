@@ -98,6 +98,7 @@ public class EventManager : MonoBehaviour
 
             currEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
             currEater.gameObject.SetActive(true);  //Turn on eater
+            currEater.IsNotTeleporting();
         }
     }
 
@@ -127,6 +128,7 @@ public class EventManager : MonoBehaviour
         {
             int teleportLoc = (int)Random.Range(0f, enemySP.Length - 1);
             teleportEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[teleportLoc].position, Quaternion.identity).GetComponent<TheEater>();
+            teleportEater.IsTeleporting();
             yield return new WaitForSeconds(0.5f);
             teleportEater.gameObject.SetActive(false);
 

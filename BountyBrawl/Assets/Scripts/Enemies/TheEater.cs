@@ -63,6 +63,9 @@ public class TheEater : MonoBehaviour
     private float tempDefSpeed;
     private bool canMove;
 
+    CameraMovement_Big bigCam;
+    CameraMovement_Small smallCam;
+
     private void OnEnable()
     {
         poisonStartSize = tempPoisonStart;
@@ -76,11 +79,13 @@ public class TheEater : MonoBehaviour
         {
             if (cam.GetComponent<CameraMovement_Big>().isActiveAndEnabled)
             {
-                cam.GetComponent<CameraMovement_Big>().AddEater(this.gameObject);
+                bigCam = cam.GetComponent<CameraMovement_Big>();
+                bigCam.AddEater(this.gameObject);
             }
             else
             {
-                cam.GetComponent<CameraMovement_Small>().AddEater(this.gameObject);
+                smallCam = cam.GetComponent<CameraMovement_Small>();
+                smallCam.AddEater(this.gameObject);
             }
         }
         canMove = true;
@@ -327,4 +332,20 @@ public class TheEater : MonoBehaviour
     }
 
     public void DamageEnemy(float damage) { if (isMiniboss) { currHealth -= damage; } }
+
+    public void IsTeleporting() 
+    {
+        if(bigCam != null)
+        {
+            bigCam.EaterIsTeleporting();
+        }
+    }
+
+    public void IsNotTeleporting() 
+    {
+        if (bigCam != null)
+        {
+            bigCam.EaterIsNotTeleporting();
+        }
+    }
 }
