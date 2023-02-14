@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUDScript : MonoBehaviour
 {
     int characterNum;
-    int weaponNum;
+    // int weaponNum;
     float playerHealth;
     int playerLives;
     float sliderHealth;
@@ -14,17 +14,17 @@ public class HUDScript : MonoBehaviour
     [SerializeField] private GameObject playerCharacter;
 
     // 0 is for melee
-    [SerializeField] private GameObject hammer;
-    [SerializeField] private GameObject fist;
-    [SerializeField] private GameObject katana;
-    [SerializeField] private GameObject knife;
+    //[SerializeField] private GameObject hammer;
+    //[SerializeField] private GameObject fist;
+    //[SerializeField] private GameObject katana;
+    //[SerializeField] private GameObject knife;
 
-    [SerializeField] private GameObject pistol; //1
-    [SerializeField] private GameObject crossbow;
-    [SerializeField] private GameObject railgun;
-    [SerializeField] private GameObject rifle;
-    [SerializeField] private GameObject shotgun; //2
-    [SerializeField] private GameObject shuriken; //3
+    // [SerializeField] private GameObject pistol; //1
+    // [SerializeField] private GameObject crossbow;
+    // [SerializeField] private GameObject railgun;
+    // [SerializeField] private GameObject rifle;
+    // [SerializeField] private GameObject shotgun; //2
+    // [SerializeField] private GameObject shuriken; //3
 
     [SerializeField] private GameObject sandstorm; //0
     [SerializeField] private GameObject nagakome; //1
@@ -44,22 +44,22 @@ public class HUDScript : MonoBehaviour
         if (characterNum == 0)
         {
             sandstorm.SetActive(true);
-            fist.SetActive(true);
+            //fist.SetActive(true);
         }
         if (characterNum == 1)
         {
             nagakome.SetActive(true);
-            katana.SetActive(true);
+            //katana.SetActive(true);
         }
         if (characterNum == 2)
         {
             greed.SetActive(true);
-            knife.SetActive(true);
+            //knife.SetActive(true);
         }
         if (characterNum == 3)
         {
             emerald.SetActive(true);
-            hammer.SetActive(true);
+            //hammer.SetActive(true);
         }
 
     }
@@ -67,24 +67,29 @@ public class HUDScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        weaponNum = playerCharacter.GetComponent<PlayerBody>().getWeaponIndex();
+        //weaponNum = playerCharacter.GetComponent<PlayerBody>().getWeaponIndex();
         playerHealth = playerCharacter.GetComponent<PlayerBody>().getHealth();
         playerLives = playerCharacter.GetComponent<PlayerBody>().getLives();
-        WeaponIcon();
+        //WeaponIcon();
         Hearts();
         HealthBar();
     }
 
     private void HealthBar()
     {
-        sliderHealth = 100 - playerHealth;
+        sliderHealth = playerHealth;
         slider.value = sliderHealth;
+        //if(playerHealth == 0)
+        //{
+        //playerLives--;
+
+        //}
     }
 
 
     private void Hearts()
     {
-        if(playerLives == 3)
+        if (playerLives == 3)
         {
             heart1.SetActive(true);
             heart2.SetActive(true);
@@ -106,8 +111,9 @@ public class HUDScript : MonoBehaviour
 
         }
     }
+}
 
-    private void WeaponIcon()
+   /* private void WeaponIcon()
     {
        if(weaponNum == 0)
         {
@@ -161,3 +167,4 @@ public class HUDScript : MonoBehaviour
     }
 
 }
+   */
