@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTickTime: 1.5
   speed: 50
-  lifeTime: 8
+  lifeTime: 6
   glueShotSP: {fileID: 21300000, guid: d6ceef77910a5844f830f44811d54b4a, type: 3}
   acidShotSP: {fileID: 21300000, guid: da69d94d77600b24da8f7f26a357d997, type: 3}
   glueSP: {fileID: 21300000, guid: 5131e5ad48888134684b53e93d506500, type: 3}

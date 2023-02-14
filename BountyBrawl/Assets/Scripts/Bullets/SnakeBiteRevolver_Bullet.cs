@@ -72,18 +72,34 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
             PlayerBody enemy = collision.GetComponent<PlayerBody>();
 
             //Damage player by base
-            enemy.damagePlayer(baseDamage);
+            enemy.damagePlayer(baseDamage, player);
 
             //If player is proficient
             if (player.GetPlayerCharacter() == 0)
             {
-                enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                if (enemy.IsPoisoned() != null)
+                {
+                    enemy.StopCoroutine(player.IsPoisoned());
+                    enemy.PoisonPlayer(poisonDamage, poisonInterval, poisonAmount, player);
+                }
+                else
+                {
+                    enemy.PoisonPlayer(poisonDamage, poisonInterval, poisonAmount, player);
+                }
                 gameObject.SetActive(false);
             }
             else
             {
                 if (Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance){
-                    enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                    if (enemy.IsPoisoned() != null)
+                    {
+                        enemy.StopCoroutine(enemy.IsPoisoned());
+                        enemy.PoisonPlayer(poisonDamage, poisonInterval, poisonAmount, player);
+                    }
+                    else
+                    {
+                        enemy.PoisonPlayer(poisonDamage, poisonInterval, poisonAmount, player);
+                    }
                 }
                 gameObject.SetActive(false);
             }
@@ -92,19 +108,35 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
         {
             TheLost enemy = collision.GetComponent<TheLost>();
 
-            enemy.DamageEnemy(baseDamage);
+            enemy.DamageEnemy(baseDamage, player);
 
             //If player is proficient
             if (player.GetPlayerCharacter() == 0)
             {
-                enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                if (enemy.IsPoisoned() != null)
+                {
+                    enemy.StopCoroutine(enemy.IsPoisoned());
+                    enemy.PoisonLost(poisonDamage, poisonInterval, poisonAmount, player);
+                }
+                else
+                {
+                    enemy.PoisonLost(poisonDamage, poisonInterval, poisonAmount, player);
+                }
                 gameObject.SetActive(false);
             }
             else
             {
                 if (Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance)
                 {
-                    enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                    if (enemy.IsPoisoned() != null)
+                    {
+                        enemy.StopCoroutine(enemy.IsPoisoned());
+                        enemy.PoisonLost(poisonDamage, poisonInterval, poisonAmount, player);
+                    }
+                    else
+                    {
+                        enemy.PoisonLost(poisonDamage, poisonInterval, poisonAmount, player);
+                    }
                 }
                 gameObject.SetActive(false);
             }
@@ -113,19 +145,35 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
         {
             TheEater enemy = collision.GetComponent<TheEater>();
 
-            enemy.DamageEnemy(baseDamage);
+            enemy.DamageEnemy(baseDamage, player);
 
             //If player is proficient
             if (player.GetPlayerCharacter() == 0)
             {
-                enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                if (enemy.IsPoisoned() != null)
+                {
+                    enemy.StopCoroutine(enemy.IsPoisoned());
+                    enemy.PoisonEater(poisonDamage, poisonInterval, poisonAmount, player);
+                }
+                else
+                {
+                    enemy.PoisonEater(poisonDamage, poisonInterval, poisonAmount, player);
+                }
                 gameObject.SetActive(false);
             }
             else
             {
                 if (Vector3.Distance(enemy.transform.position, spawnPos) <= poisonDistance)
                 {
-                    enemy.StartCoroutine(enemy.Poison(poisonDamage, poisonInterval, poisonAmount));
+                    if (enemy.IsPoisoned() != null)
+                    {
+                        enemy.StopCoroutine(enemy.IsPoisoned());
+                        enemy.PoisonEater(poisonDamage, poisonInterval, poisonAmount, player);
+                    }
+                    else
+                    {
+                        enemy.PoisonEater(poisonDamage, poisonInterval, poisonAmount, player);
+                    }
                 }
                 gameObject.SetActive(false);
             }

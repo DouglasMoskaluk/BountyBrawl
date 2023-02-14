@@ -84,15 +84,15 @@ public class Greed_Knife : MonoBehaviour
     {
         if (other.gameObject != player && other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerBody>().damagePlayer(damage);
+            other.gameObject.GetComponent<PlayerBody>().damagePlayer(damage, player);
         }
         if (other.tag == "Lost")
         {
-            other.GetComponent<TheLost>().DamageEnemy(damage);
+            other.GetComponent<TheLost>().DamageEnemy(damage, player);
         }
         if (other.tag == "Eater")
         {
-            other.GetComponent<TheEater>().DamageEnemy(damage);
+            other.GetComponent<TheEater>().DamageEnemy(damage, player);
         }
     }
 }

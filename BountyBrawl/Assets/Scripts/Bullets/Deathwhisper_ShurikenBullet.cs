@@ -13,8 +13,6 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
 
     private float tempLifeTime;
 
-    private Vector3 spawnPos;
-
     private LineRenderer lineRenderer;
 
     private PlayerBody player; //The player that shot the weapon
@@ -25,6 +23,8 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1000f;
     [SerializeField] private float baseDamage = 10f; //The base damage of the weapon without poison
     [SerializeField] private float baseReturnDMG = 5f; //The normal return damage for characters without proficiency
+    [SerializeField] private Gradient profGradient;
+    [SerializeField] private Gradient nonProfGradient;
 
     private bool returning; //If the shuriken is returning
     private bool stuck; //If the shuriken is stuck on a wall
@@ -47,7 +47,6 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
     private void Start()
     {
         bulletGO = gameObject.GetComponent<Rigidbody2D>();
-        spawnPos = transform.position;
     }
 
     private void Update()
@@ -89,6 +88,15 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
     {
         direction = dir; //assigns given direction to direction variable.
         player = play; //If the player is profficient
+
+        if(player.getCharacter() == 1)
+        {
+            lineRenderer.colorGradient = profGradient;
+        }
+        else
+        {
+            lineRenderer.colorGradient = nonProfGradient;
+        }
     }
 
 
@@ -105,18 +113,18 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
 
             if (returning)
             {
-                if (player.getCharacter() == 3)
+                if (player.getCharacter() == 1)
                 {
-                    enemy.damagePlayer(baseDamage);
+                    enemy.damagePlayer(baseDamage, player);
                 }
                 else
                 {
-                    enemy.damagePlayer(baseReturnDMG);
+                    enemy.damagePlayer(baseReturnDMG, player);
                 }
             }
             else
             {
-                enemy.damagePlayer(baseDamage);
+                enemy.damagePlayer(baseDamage, player);
             }
 
         }
@@ -126,18 +134,18 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
 
             if (returning)
             {
-                if (player.getCharacter() == 3)
+                if (player.getCharacter() == 1)
                 {
-                    enemy.DamageEnemy(baseDamage);
+                    enemy.DamageEnemy(baseDamage, player);
                 }
                 else
                 {
-                    enemy.DamageEnemy(baseReturnDMG);
+                    enemy.DamageEnemy(baseReturnDMG, player);
                 }
             }
             else
             {
-                enemy.DamageEnemy(baseDamage);
+                enemy.DamageEnemy(baseDamage, player);
             }
 
         }
@@ -147,18 +155,18 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
 
             if (returning)
             {
-                if(player.getCharacter() == 3)
+                if(player.getCharacter() == 1)
                 {
-                    enemy.DamageEnemy(baseDamage);
+                    enemy.DamageEnemy(baseDamage, player);
                 }
                 else
                 {
-                    enemy.DamageEnemy(baseReturnDMG);
+                    enemy.DamageEnemy(baseReturnDMG, player);
                 }
             }
             else
             {
-                enemy.DamageEnemy(baseDamage);
+                enemy.DamageEnemy(baseDamage, player);
             }
             //If player is proficient
         }

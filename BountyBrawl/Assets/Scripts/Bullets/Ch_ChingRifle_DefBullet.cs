@@ -68,7 +68,7 @@ public class Ch_ChingRifle_DefBullet : MonoBehaviour
             PlayerBody enemy = collision.GetComponent<PlayerBody>();
 
             //Damage player by base
-            enemy.damagePlayer(baseDamage);
+            enemy.damagePlayer(baseDamage, player);
             gameObject.SetActive(false);
 
 
@@ -76,7 +76,7 @@ public class Ch_ChingRifle_DefBullet : MonoBehaviour
         else if(collision.transform.tag == "Lost")
         {
             TheLost enemy = collision.GetComponent<TheLost>();
-            enemy.DamageEnemy(baseDamage);
+            enemy.DamageEnemy(baseDamage, player);
             gameObject.SetActive(false);
 
         }
@@ -84,7 +84,7 @@ public class Ch_ChingRifle_DefBullet : MonoBehaviour
         {
             TheEater enemy = collision.GetComponent<TheEater>();
 
-            enemy.DamageEnemy(baseDamage);
+            enemy.DamageEnemy(baseDamage, player);
             gameObject.SetActive(false);
         }
     }

@@ -120,12 +120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd998d77e4d7ca458b794141ed4fba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
+  lowSpeedRange: 40
+  highSpeedRange: 70
   silverDamage: 5
   goldDamage: 10
   silverLifeTime: 0.4
   goldLifeTime: 8
-  silverCluster: {fileID: 21300000, guid: 3b68cf2c91e1bb542ae42a42022e4f62, type: 3}
+  silverCluster: {fileID: 21300000, guid: 3fe8aedb22385104c9b48587362d30c2, type: 3}
   goldCluster: {fileID: 21300000, guid: d924c4498ca01b34ba123420fdc3ed9c, type: 3}
   silverBulletTrail:
     serializedVersion: 2

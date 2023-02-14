@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Ch_ChingRifle_ClusBullet : MonoBehaviour
 {
-    [SerializeField] private float speed = 50f; //Speed of bullet
+    [SerializeField] private float lowSpeedRange = 50f; //Low speed of bullet
+    [SerializeField] private float highSpeedRange = 100f; //High speed of bullet
     private Rigidbody2D bulletGO;
 
     private Vector3 direction;
@@ -29,6 +30,8 @@ public class Ch_ChingRifle_ClusBullet : MonoBehaviour
     [SerializeField] private Gradient goldBulletTrail;
     private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
+
+    private float speed;
 
     private void Awake()
     {
@@ -89,6 +92,16 @@ public class Ch_ChingRifle_ClusBullet : MonoBehaviour
     public void Fire(Vector3 dir, PlayerBody play)
     {
         direction = dir; //assigns given direction to direction variable.
+
+        direction.x += Random.Range(1.0f, -1.0f) / 4;
+        direction.y += Random.Range(1.0f, -1.0f) / 4;
+        speed = Random.Range(lowSpeedRange, highSpeedRange);
+
+        float randXPos = transform.position.x + Random.Range(1.0f, -1.0f);
+        float randYPos = transform.position.y + Random.Range(1.0f, -1.0f);
+
+        transform.position = new Vector3(randXPos, randYPos,0f);
+
         player = play; //If the player is profficient
     }
 
@@ -106,11 +119,11 @@ public class Ch_ChingRifle_ClusBullet : MonoBehaviour
             //Damage player by base
             if (player.getCharacter() == 2)
             {
-                enemy.damagePlayer(goldDamage);
+                enemy.damagePlayer(goldDamage, player);
             }
             else
             {
-                enemy.damagePlayer(silverDamage);
+                enemy.damagePlayer(silverDamage, player);
             }
 
             gameObject.SetActive(false);
@@ -121,11 +134,11 @@ public class Ch_ChingRifle_ClusBullet : MonoBehaviour
             TheLost enemy = collision.GetComponent<TheLost>();
             if (player.getCharacter() == 2)
             {
-                enemy.DamageEnemy(goldDamage);
+                enemy.DamageEnemy(goldDamage, player);
             }
             else
             {
-                enemy.DamageEnemy(silverDamage);
+                enemy.DamageEnemy(silverDamage, player);
             }
 
             gameObject.SetActive(false);
@@ -137,11 +150,11 @@ public class Ch_ChingRifle_ClusBullet : MonoBehaviour
 
             if (player.getCharacter() == 2)
             {
-                enemy.DamageEnemy(goldDamage);
+                enemy.DamageEnemy(goldDamage, player);
             }
             else
             {
-                enemy.DamageEnemy(silverDamage);
+                enemy.DamageEnemy(silverDamage, player);
             }
 
             gameObject.SetActive(false);

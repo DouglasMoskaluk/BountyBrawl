@@ -27,6 +27,8 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private GameObject aura;
 
+    [SerializeField] private float moneyEarn = 5;
+
     [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
     [SerializeField] private float nextWayPointDistance = 10f;
 
@@ -50,6 +52,8 @@ public class TheLost : MonoBehaviour
     private float tempDefSpeed;
     private float tempDashSpeed;
 
+    private Coroutine poison;
+
     private void OnEnable()
     {
         currDamage = baseDamage;
@@ -59,6 +63,7 @@ public class TheLost : MonoBehaviour
         aura.SetActive(false);
 
         spriteRenderer.sprite = currSprite;
+        poison = null;
     }
 
     private void Awake()
@@ -201,7 +206,7 @@ public class TheLost : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && canDash)
         {
-            collision.transform.GetComponent<PlayerBody>().damagePlayer(currDamage);
+            collision.transform.GetComponent<PlayerBody>().damagePlayer(currDamage, null);
             canDash = false;
             StartCoroutine(Cooldown());
         }
@@ -213,7 +218,7 @@ public class TheLost : MonoBehaviour
         canDash = true;
     } //When the lost can dash into players and deal damage
 
-    public IEnumerator Poison(float dam, float interval, float amount)
+    public IEnumerator Poison(float dam, float interval, float amount, PlayerBody player)
     {
 
         yield return new WaitForSeconds(interval);
@@ -221,10 +226,17 @@ public class TheLost : MonoBehaviour
         //Goes through each amount of poison and damages the player
         for (int i = 0; i <= amount - 1; i++)
         {
-            DamageEnemy(dam);
+            DamageEnemy(dam, player);
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
         }
 
+        poison = null;
+
+    }
+
+    public void PoisonLost(float dam, float interval, float amount, PlayerBody player)
+    {
+        poison = StartCoroutine(Poison(dam, interval, amount, player));
     }
 
     public IEnumerator Stun(float length)
@@ -254,5 +266,14 @@ public class TheLost : MonoBehaviour
     
     public void AddHealth(float add) { currHealth += add; } //Adds more health each time enemy is spawned
 
-    public void DamageEnemy(float damage) { currHealth -= damage; }
+    public Coroutine IsPoisoned() { return poison; }
+
+    public void DamageEnemy(float damage, PlayerBody player) 
+    { 
+        currHealth -= damage;
+        if (currHealth <= 0)
+        {
+            player.IncreaseMoney(moneyEarn);
+        }
+    }
 }

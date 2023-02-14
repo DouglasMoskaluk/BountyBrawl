@@ -53,6 +53,11 @@ public class CameraMovement_Big : MonoBehaviour
             float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
         }
+        else
+        {
+            float newZoom = Mathf.Lerp(max, min, eaterTeleportLockFOV / zoomSpeed);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+        }
     }
 
     Vector3 GetCenterPoint()
@@ -101,7 +106,7 @@ public class CameraMovement_Big : MonoBehaviour
     {
         locking = true;
         transform.position = new Vector3(0f, 0f, -120f);
-        cam.fieldOfView = eaterTeleportLockFOV;
+        //cam.fieldOfView = eaterTeleportLockFOV;
     }
 
     public void EaterIsNotTeleporting()

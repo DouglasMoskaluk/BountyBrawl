@@ -11,6 +11,7 @@ public class Ch_ChingRifle : MonoBehaviour
     [SerializeField] private float ammo = 20f;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
+    [SerializeField] private int bulletsInCluster = 5;
 
     private Sprite sprite; //The starting sprite before pickup
     private SpriteRenderer spriteRenderer;
@@ -86,13 +87,16 @@ public class Ch_ChingRifle : MonoBehaviour
             ammo -= 4;
             canFire = false;
 
-            Vector2 traj = bulletSpawn.position - player.transform.position; //Get the trajectory of the bullet
-            traj.Normalize();
-            GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle_ClusBullet", bulletSpawn.position, transform.rotation);
-            Ch_ChingRifle_ClusBullet bull = bulletGO.GetComponent<Ch_ChingRifle_ClusBullet>();
-            bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
-            bulletGO.SetActive(true);
-            StartCoroutine(Cooldown(bulletTime));
+            for (int i = 0; i < bulletsInCluster; i++)
+            {
+                Vector2 traj = bulletSpawn.position - player.transform.position; //Get the trajectory of the bullet
+                traj.Normalize();
+                GameObject bulletGO = ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle_ClusBullet", bulletSpawn.position, transform.rotation);
+                Ch_ChingRifle_ClusBullet bull = bulletGO.GetComponent<Ch_ChingRifle_ClusBullet>();
+                bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
+                bulletGO.SetActive(true);
+                StartCoroutine(Cooldown(bulletTime));
+            }
         }
     }
 

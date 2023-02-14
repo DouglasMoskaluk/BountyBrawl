@@ -44,7 +44,7 @@ public class Throw : MonoBehaviour
         {
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            collision.transform.GetComponent<PlayerBody>().damagePlayer(throwDamage);
+            collision.transform.GetComponent<PlayerBody>().damagePlayer(throwDamage, player.GetComponent<PlayerBody>());
             StopAllCoroutines();
 
         //If hit wall then stop weapon
@@ -60,7 +60,7 @@ public class Throw : MonoBehaviour
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StopAllCoroutines();
-            collision.transform.GetComponent<TheLost>().DamageEnemy(throwDamage);
+            collision.transform.GetComponent<TheLost>().DamageEnemy(throwDamage, player.GetComponent<PlayerBody>());
         }
         //If collide with eater then damage and stop
         else if (collision.transform.tag == "Eater")
@@ -68,7 +68,7 @@ public class Throw : MonoBehaviour
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StopAllCoroutines();
-            collision.transform.GetComponent<TheEater>().DamageEnemy(throwDamage);
+            collision.transform.GetComponent<TheEater>().DamageEnemy(throwDamage, player.GetComponent<PlayerBody>());
         }
 
     }

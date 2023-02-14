@@ -29,7 +29,7 @@ public class PoisonArea : MonoBehaviour
             else
             {
                 damageTickTime = tempTimer;
-                collision.GetComponent<PlayerBody>().damagePlayer(damage);
+                collision.GetComponent<PlayerBody>().damagePlayer(damage, null);
             }
         }
     }

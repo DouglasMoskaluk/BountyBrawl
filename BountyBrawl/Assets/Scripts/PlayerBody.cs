@@ -15,6 +15,7 @@ public class PlayerBody : MonoBehaviour
     private Rigidbody2D playerRB;
     private SpriteRenderer sprite;
     private SpriteRenderer headSprite;
+    private float money;
 
     //Stick inputs
     private Vector2 inputVector = Vector2.zero; //Direction for movement
@@ -42,17 +43,19 @@ public class PlayerBody : MonoBehaviour
     private bool weapon; //If player is using a pickupable weapon
     private bool useDefault; //If player has fired their default weapon
     private bool hammer; //Specifically for Emerald when she is using her hammer
+    private Coroutine poison;
 
     public int weaponIndex;
 
     //Multiplayer player
-    [SerializeField] private int playerIndex = 0;
+    [SerializeField] private int playerIndex = 0; //Index for controllers
     [SerializeField] private int character; //Holds what type of character player is playing
 
     [SerializeField] private Animator animator;
 
     private float tempSpeed;
     private int lives;
+    private bool cursed; //If the players will start having their lives
 
     private void Awake()
     {
@@ -66,8 +69,15 @@ public class PlayerBody : MonoBehaviour
         hammer = false;
         tempSpeed = runSpeed;
         weaponIndex = 0;
-        lives = 3;
+        lives = 3;;
+        money = 0;
     }
+
+    private void OnEnable()
+    {
+        poison = null;
+    }
+
     private void Update()
     {
         //Switch with default weapon instead of hand
@@ -213,7 +223,7 @@ public class PlayerBody : MonoBehaviour
         }
     } //Facing
 
-    public IEnumerator Poison(float dam, float interval, float amount)
+    public IEnumerator Poison(float dam, float interval, float amount, PlayerBody player)
     {
 
         yield return new WaitForSeconds(interval);
@@ -221,9 +231,11 @@ public class PlayerBody : MonoBehaviour
         //Goes through each amount of poison and damages the player
         for(int i = 0; i <= amount - 1; i++)
         {
-            damagePlayer(dam);
+            damagePlayer(dam, player);
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
         }
+
+        poison = null;
 
     }
 
@@ -250,22 +262,31 @@ public class PlayerBody : MonoBehaviour
     //Fixes runspeed after player leaves glue
     public void ExitGlue() { runSpeed = tempSpeed; }
 
+    public void damagePlayer(float damage, PlayerBody player)
+    {
+        StartCoroutine(Hit());
+        health -= damage;
+    }
+
+    public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)
+    {
+        poison = StartCoroutine(Poison(dam, interval, amount, player));
+    }
+
+    public Coroutine IsPoisoned() { return poison; }
+
+    public void IncreaseMoney(float income) { money += income; }
 
     public float getFire1() { return fire1; } //Gets when the player inputs the primary fire
     public float getFire2() { return fire2; } //Gets when the player inputs the secondary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
     public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon
+
     
     public void UsingDefault(bool def) { useDefault = def; } //Once the default weapon is fired
     public void ChangeWeapon(bool change) { weapon = change; } //If player has picked up weapon
 
     public void EmeraldHammer(bool slam) { hammer = slam; } //Just for emeralds slam
-
-    public void damagePlayer(float damage)
-    {
-        StartCoroutine(Hit());
-        health -= damage;
-    }
 
     public float getThrow() { return nowThrow; } //Get if the player has chosen to throw his weapon
 

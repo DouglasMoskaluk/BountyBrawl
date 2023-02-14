@@ -30,6 +30,8 @@ public class TheEater : MonoBehaviour
 
     [SerializeField] float speedOfPoisonGrowth = 0.5f;
 
+    [SerializeField] private float moneyEarn = 100;
+
     private EventManager eventM;
 
     private GameObject cam;
@@ -66,6 +68,8 @@ public class TheEater : MonoBehaviour
     CameraMovement_Big bigCam;
     CameraMovement_Small smallCam;
 
+    private Coroutine poison;
+
     private void OnEnable()
     {
         poisonStartSize = tempPoisonStart;
@@ -90,6 +94,7 @@ public class TheEater : MonoBehaviour
         }
         canMove = true;
         tempDefSpeed = enemySpeed;
+        poison = null;
     }
 
     //Replace with onDisable later on
@@ -297,7 +302,7 @@ public class TheEater : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public IEnumerator Poison(float dam, float interval, float amount)
+    public IEnumerator Poison(float dam, float interval, float amount, PlayerBody player)
     {
 
         yield return new WaitForSeconds(interval);
@@ -305,10 +310,17 @@ public class TheEater : MonoBehaviour
         //Goes through each amount of poison and damages the player
         for (int i = 0; i <= amount - 1; i++)
         {
-            DamageEnemy(dam);
+            DamageEnemy(dam, player);
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
         }
 
+        poison = null;
+
+    }
+
+    public void PoisonEater(float dam, float interval, float amount, PlayerBody player)
+    {
+        poison = StartCoroutine(Poison(dam, interval, amount, player));
     }
 
     public IEnumerator Stun(float length)
@@ -331,7 +343,17 @@ public class TheEater : MonoBehaviour
         enemySpeed = tempDefSpeed;
     }
 
-    public void DamageEnemy(float damage) { if (isMiniboss) { currHealth -= damage; } }
+    public void DamageEnemy(float damage, PlayerBody player) 
+    { 
+        if (isMiniboss) 
+        { 
+            currHealth -= damage; 
+            if(currHealth <= 0)
+            {
+                player.IncreaseMoney(moneyEarn);
+            }
+        } 
+    }
 
     public void IsTeleporting() 
     {
@@ -348,4 +370,6 @@ public class TheEater : MonoBehaviour
             bigCam.EaterIsNotTeleporting();
         }
     }
+
+    public Coroutine IsPoisoned() { return poison; }
 }

@@ -3198,8 +3198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80418fc6c3f5a4140829f9a04d976244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slamCooldown: 5
-  slamSpeed: 1
+  slamCooldown: 2
+  slamSpeed: 0.5
   topAngle: 140
   bottomAngle: -45
   damage: 19
@@ -7843,7 +7843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b6e17d057495e4fba970d6a4e3ecc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slashCooldown: 5
+  slashCooldown: 3
   animatorDefSpeed: 1
   animatorSlashSpeed: 2
   player: {fileID: 888641973}

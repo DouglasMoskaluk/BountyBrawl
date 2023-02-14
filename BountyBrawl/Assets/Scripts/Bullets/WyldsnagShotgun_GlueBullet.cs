@@ -9,7 +9,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private float damageTickTime = 1.5f;
 
     [SerializeField] private float speed = 50f; //Speed of bullet
-    [SerializeField] private float lifeTime = 8f; //Life until it dies
+    [SerializeField] private float bulletLifeTime = 1f; //Life until it dies
+    [SerializeField] private float glueLifeTime = 2f; //Life until it dies
 
     [SerializeField] private Sprite glueShotSP; //The bullet sprite
     [SerializeField] private Sprite acidShotSP; //The bullet sprite
@@ -24,11 +25,14 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
 
     private Vector3 direction;
 
-    private float tempLifeTime;
+    private float tempBulletLifeTime;
+    private float tempGlueLifeTime;
 
     private Vector3 spawnPos;
 
     private PlayerBody player; //The player that shot the weapon
+
+    private bool canGlue; 
 
     //Weaponry
     [SerializeField] private float baseDamage = 10f; //The base damage of the weapon without poison
@@ -51,7 +55,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     private void Awake()
     {
         glueRD = GetComponent<SpriteRenderer>();
-        tempLifeTime = lifeTime;
+        tempBulletLifeTime = bulletLifeTime;
+        tempGlueLifeTime = glueLifeTime;
         bullet = GetComponent<BoxCollider2D>();
         glueZone = GetComponent<CircleCollider2D>();
         tempTimer = damageTickTime;
@@ -61,11 +66,13 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     private void OnEnable()
     {
         glueRD.enabled = true;
-        lifeTime = tempLifeTime;
+        bulletLifeTime = tempBulletLifeTime;
+        glueLifeTime = tempGlueLifeTime;
         glue = false;
         bullet.enabled = true;
         glueZone.enabled = false;
         transform.localScale = new Vector3(1f, 1f, 1f);
+        canGlue = true;
     }
 
     private void Start()
@@ -98,7 +105,28 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             bulletGO.velocity = Vector2.zero;
         }
 
-        if((lifeTime -= Time.deltaTime) < 0 && !glue)
+        if((bulletLifeTime -= Time.deltaTime) < 0 && !glue)
+        {
+            if (!canGlue) 
+            {
+                gameObject.SetActive(false);
+            }
+
+            glue = true;
+            transform.rotation = Quaternion.identity;
+            transform.localScale = new Vector3(1f, 1.02f, 1f);
+
+            if (player.GetPlayerCharacter() == 3)
+            {
+                glueRD.sprite = acidSP;
+            }
+            else
+            {
+                glueRD.sprite = glueSP;
+            }
+        }
+
+        if(glue && (glueLifeTime -= Time.deltaTime) < 0)
         {
             gameObject.SetActive(false);
         }
@@ -153,7 +181,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 transform.localScale = new Vector3(1f, 1.02f, 1f);
 
                 //Damage player by base
-                enemy.damagePlayer(baseDamage);
+                enemy.damagePlayer(baseDamage, player);
                 enemy.StartCoroutine(enemy.Stun(stunLength));
                 StartCoroutine(Dissapear());
                 transform.rotation = Quaternion.identity;
@@ -177,7 +205,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 transform.localScale = new Vector3(1f, 1.02f, 1f);
 
                 //Damage player by base
-                enemy.DamageEnemy(baseDamage);
+                enemy.DamageEnemy(baseDamage, player);
                 enemy.StartCoroutine(enemy.Stun(stunLength));
                 StartCoroutine(Dissapear());
 
@@ -199,7 +227,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 transform.localScale = new Vector3(1f,1.02f,1f);
 
                 //Damage player by base
-                enemy.DamageEnemy(baseDamage);
+                enemy.DamageEnemy(baseDamage, player);
                 enemy.StartCoroutine(enemy.Stun(stunLength));
                 StartCoroutine(Dissapear());
 
@@ -214,6 +242,10 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 {
                     glueRD.sprite = glueSP;
                 }
+            }
+            else if (collision.gameObject.tag == "Barrier")
+            {
+                canGlue = false;
             }
         }
     }
@@ -257,9 +289,9 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 else
                 {
                     damageTickTime = tempTimer;
-                    if(tempLost != null) { tempLost.DamageEnemy(glueDamage); }
-                    if (tempEater != null) { tempEater.DamageEnemy(glueDamage); }
-                    if (enemy != null) { enemy.damagePlayer(glueDamage); }
+                    if(tempLost != null) { tempLost.DamageEnemy(glueDamage, player); }
+                    if (tempEater != null) { tempEater.DamageEnemy(glueDamage, player); }
+                    if (enemy != null) { enemy.damagePlayer(glueDamage, player); }
                 }
             }
 
