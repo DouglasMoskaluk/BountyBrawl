@@ -98,17 +98,6 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "c84727dd-c7d2-4d21-ae2e-5dd1adbf62a9",
-                    "path": "<SwitchProControllerHID>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "WASD",
                     "id": "ab641ab7-b376-4874-99e7-5d0076420aa6",
                     "path": "2DVector",
@@ -166,7 +155,7 @@
                 {
                     "name": "",
                     "id": "66fc1bd4-1f3d-48a6-a2a5-85cc319a3912",
-                    "path": "<DualShockGamepad>/leftStick",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -176,19 +165,8 @@
                 },
                 {
                     "name": "",
-                    "id": "882bbf75-947b-42b4-a484-98465e4e2fb6",
-                    "path": "<SwitchProControllerHID>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PlayerFacing",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "45f7f8e2-fac0-4a46-9e7d-a3c103412db6",
-                    "path": "<DualShockGamepad>/rightStick",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
