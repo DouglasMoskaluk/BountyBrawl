@@ -57,6 +57,16 @@ public class PlayerBody : MonoBehaviour
     private int lives;
     private bool cursed; //If the players will start having their lives
 
+    //Knockback
+    private bool knockbacked; //If player is hit with knockback
+    private float knockbackStrength; //Strength of knockback
+    private Vector2 knockbackDir; //Direction of knockback
+
+    //Railgun
+    private bool shielded;
+    [Tooltip("The shield protecting the player")]
+    [SerializeField] private GameObject shield;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -71,6 +81,8 @@ public class PlayerBody : MonoBehaviour
         weaponIndex = 0;
         lives = 3;;
         money = 0;
+        knockbacked = false;
+        shielded = false;
     }
 
     private void OnEnable()
@@ -115,6 +127,7 @@ public class PlayerBody : MonoBehaviour
         }
 
 
+        //Handles player movement
         if (canMove)
         {
 
@@ -144,6 +157,11 @@ public class PlayerBody : MonoBehaviour
             Facing();
         }
 
+        if (knockbacked)
+        {
+            playerRB.velocity = knockbackDir.normalized * knockbackStrength;
+        }
+
         
 
         if (getPause() == true && UIPauseMenu != null)
@@ -156,8 +174,6 @@ public class PlayerBody : MonoBehaviour
     /*
      * This method moves the direction of the weapon and head of the player based on the right stick input
      */
-    
-
     private void Facing()
     {
         //If the stick is moving in the left direction
@@ -256,6 +272,15 @@ public class PlayerBody : MonoBehaviour
         canMove = true;
     }
 
+    public IEnumerator Knocked(float strength, Vector2 dir)
+    {
+        knockbackStrength = strength;
+        knockbacked = true;
+        knockbackDir = dir;
+        yield return new WaitForSeconds(0.1f);
+        knockbacked = false;
+    }
+
     //slows player in glue
     public void Slow(float slowness){runSpeed = slowness;}
 
@@ -264,8 +289,11 @@ public class PlayerBody : MonoBehaviour
 
     public void damagePlayer(float damage, PlayerBody player)
     {
-        StartCoroutine(Hit());
-        health -= damage;
+        if (!shielded)
+        {
+            StartCoroutine(Hit());
+            health -= damage;
+        }
     }
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)
@@ -281,6 +309,20 @@ public class PlayerBody : MonoBehaviour
     public float getFire2() { return fire2; } //Gets when the player inputs the secondary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
     public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon
+
+    public void SetShield(bool set) 
+    { 
+        shielded = set;
+
+        if (set)
+        {
+            shield.gameObject.SetActive(true);
+        }
+        else
+        {
+            shield.gameObject.SetActive(false);
+        }
+    }
 
     
     public void UsingDefault(bool def) { useDefault = def; } //Once the default weapon is fired

@@ -11,7 +11,9 @@ public class Ch_ChingRifle : MonoBehaviour
     [SerializeField] private float ammo = 20f;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
+    [Tooltip("The number of bullets in cluster")]
     [SerializeField] private int bulletsInCluster = 5;
+    [SerializeField] private float knockBackStrength = 30f;
 
     private Sprite sprite; //The starting sprite before pickup
     private SpriteRenderer spriteRenderer;
@@ -37,11 +39,7 @@ public class Ch_ChingRifle : MonoBehaviour
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         sprite = spriteRenderer.sprite;
-    }
-
-    private void OnEnable()
-    {
-        //spriteRenderer.sortingOrder = 7;
+        spriteRenderer.sortingLayerName = "Midground";
     }
 
     private void Update()
@@ -50,12 +48,12 @@ public class Ch_ChingRifle : MonoBehaviour
         {
             if (player.getFire1() != 0 && ammo > 0 && !thrown)
             {
-                    Shoot1(); //shoot gun if there is ammo and if player is holding the tringger
+                Shoot1(); //shoot gun if there is ammo and if player is holding the tringger
             }
             if (player.getFire2() != 0 && ammo >= 2 && !thrown)
             {
-                    Shoot2();
-                    //shoot gun if there is ammo and if player is holding the tringger
+                Shoot2();
+                //shoot gun if there is ammo and if player is holding the tringger
             }
             if (player.getThrow() != 0)
             {
@@ -77,6 +75,7 @@ public class Ch_ChingRifle : MonoBehaviour
             bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
             bulletGO.SetActive(true);
             StartCoroutine(Cooldown(bulletTime));
+            player.StartCoroutine(player.Knocked(knockBackStrength, -traj.normalized));
         }
     }
 
@@ -108,8 +107,8 @@ public class Ch_ChingRifle : MonoBehaviour
             //If player is not using a weapon
             if (!checker.UsingWeapon())
             {
+                spriteRenderer.sortingLayerName = "Foreground";
                 player = collision.transform.parent.GetComponent<PlayerBody>();
-                //spriteRenderer.sortingOrder = 10;
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(2);
@@ -156,7 +155,6 @@ public class Ch_ChingRifle : MonoBehaviour
         if (canThrow)
         {
             canThrow = false;
-            //spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
             transform.parent = null; //Unparent the weapon
@@ -166,6 +164,7 @@ public class Ch_ChingRifle : MonoBehaviour
             Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
 
             yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
+            spriteRenderer.sortingLayerName = "Midground";
             thrown = false;
             box.isTrigger = true;
             player = null; //sets the player to null to wait for next player

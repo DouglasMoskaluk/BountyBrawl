@@ -44,6 +44,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private float glueGrowSpeed = 3f;
     [SerializeField] private float glueLostSlowness = 500f;
     [SerializeField] private float glueEaterSlowness = 400f;
+    private List<GameObject> enemies;
 
     private bool glue;
     private BoxCollider2D bullet; //The bullets hitbox
@@ -61,6 +62,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         glueZone = GetComponent<CircleCollider2D>();
         tempTimer = damageTickTime;
         trailRenderer = GetComponent<TrailRenderer>();
+        enemies = new List<GameObject>();
     }
 
     private void OnEnable()
@@ -73,6 +75,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         glueZone.enabled = false;
         transform.localScale = new Vector3(1f, 1f, 1f);
         canGlue = true;
+        enemies.Clear();
     }
 
     private void Start()
@@ -105,8 +108,10 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             bulletGO.velocity = Vector2.zero;
         }
 
-        if((bulletLifeTime -= Time.deltaTime) < 0 && !glue)
+        //If the bullet is a bullet and not glue
+        if(bulletLifeTime < 0 && !glue)
         {
+            //If bullet is not off map
             if (!canGlue) 
             {
                 gameObject.SetActive(false);
@@ -119,16 +124,62 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             if (player.GetPlayerCharacter() == 3)
             {
                 glueRD.sprite = acidSP;
+                bulletLifeTime = tempBulletLifeTime;
             }
             else
             {
+                bulletLifeTime = tempBulletLifeTime;
                 glueRD.sprite = glueSP;
             }
         }
-
-        if(glue && (glueLifeTime -= Time.deltaTime) < 0)
+        else
         {
+            bulletLifeTime -= Time.deltaTime;
+        }
+
+        //If glue is true
+        if(glue && glueLifeTime < 0)
+        {
+
             gameObject.SetActive(false);
+            glueTime = tempGlueLifeTime;
+        }
+        else
+        {
+            glueTime -= Time.deltaTime;
+
+            if(player.getCharacter() == 3)
+            {
+                //Damages all enemies in the acid
+                if (enemies.Count != 0)
+                {
+                    if (damageTickTime > 0)
+                    {
+                        damageTickTime -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        foreach (GameObject g in enemies)
+                        {
+
+                            if (g.tag == "Player" && g != player.gameObject)
+                            {
+                                g.GetComponent<PlayerBody>().damagePlayer(baseDamage, player);
+                            }
+                            else if (g.tag == "Lost")
+                            {
+                                g.GetComponent<TheLost>().DamageEnemy(baseDamage, player);
+                            }
+                            else if (g.tag == "Eater")
+                            {
+                                g.GetComponent<TheEater>().DamageEnemy(baseDamage, player);
+                            }
+                        }
+
+                        damageTickTime = tempTimer;
+                    }
+                }
+            } 
         }
 
         //Change size of poison area over time
@@ -157,6 +208,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
             bullet.enabled = false;
             glueZone.enabled = true;
 
+            //Hit a wall
             if (collision.gameObject.tag == "Wall")
             {
                 GetComponent<TrailRenderer>().enabled = false;
@@ -175,6 +227,8 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                     glueRD.sprite = glueSP;
                 }
             }
+
+            //Hit a player
             else if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
             {
                 PlayerBody enemy = collision.GetComponent<PlayerBody>();
@@ -185,24 +239,29 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 enemy.StartCoroutine(enemy.Stun(stunLength));
                 StartCoroutine(Dissapear());
                 transform.rotation = Quaternion.identity;
+                enemy.Slow(gluePlayerSlowness);
 
                 glue = true;
 
                 //If player is proficient
                 if (player.GetPlayerCharacter() == 3)
                 {
+                    enemies.Add(collision.gameObject);
                     glueRD.sprite = acidSP;
                 }
                 else
                 {
                     glueRD.sprite = glueSP;
                 }
+
+                //Hit a Lost
             }else if(collision.transform.tag == "Lost")
             {
 
                 TheLost enemy = collision.GetComponent<TheLost>();
                 transform.rotation = Quaternion.identity;
                 transform.localScale = new Vector3(1f, 1.02f, 1f);
+                enemy.Slow(glueLostSlowness);
 
                 //Damage player by base
                 enemy.DamageEnemy(baseDamage, player);
@@ -214,17 +273,21 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 //If player is proficient
                 if (player.GetPlayerCharacter() == 3)
                 {
+                    enemies.Add(collision.gameObject);
                     glueRD.sprite = acidSP;
                 }
                 else
                 {
                     glueRD.sprite = glueSP;
                 }
+
+                //Hit an Eater
             }else if (collision.transform.tag == "Eater")
             {
                 TheEater enemy = collision.GetComponent<TheEater>();
                 transform.rotation = Quaternion.identity;
                 transform.localScale = new Vector3(1f,1.02f,1f);
+                enemy.Slow(glueEaterSlowness);
 
                 //Damage player by base
                 enemy.DamageEnemy(baseDamage, player);
@@ -236,6 +299,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 //If player is proficient
                 if (player.GetPlayerCharacter() == 3)
                 {
+                    enemies.Add(collision.gameObject);
                     glueRD.sprite = acidSP;
                 }
                 else
@@ -243,63 +307,38 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                     glueRD.sprite = glueSP;
                 }
             }
+
+            //Hit outside barrier
             else if (collision.gameObject.tag == "Barrier")
             {
                 canGlue = false;
             }
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-
-        if (glue)
+        else
         {
-
-            TheLost tempLost = null;
-            TheEater tempEater = null;
-            PlayerBody enemy = null;
-
-            if (collision.GetComponent<TheLost>() != null)
+            if (player.getCharacter() == 3)
             {
-                tempLost = collision.GetComponent<TheLost>();
-                tempLost.Slow(glueLostSlowness);
-            }
-
-            if (collision.GetComponent<TheEater>() != null)
-            {
-                tempEater = collision.GetComponent<TheEater>();
-                tempEater.Slow(glueEaterSlowness);
-            }
-
-            if (collision.gameObject.tag == "Player" && collision.gameObject != player.gameObject)
-            {
-
-                enemy = collision.GetComponent<PlayerBody>();
-                enemy.Slow(gluePlayerSlowness);
-            }
-
-            //Damage player if character who shot is emerald and if enemy is in acid 
-            if (player.GetPlayerCharacter() == 3)
-            {
-                if (damageTickTime > 0)
+                if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
                 {
-                    damageTickTime -= Time.deltaTime;
-                }
-                else
+                    collision.GetComponent<PlayerBody>().Slow(gluePlayerSlowness);
+                    enemies.Add(collision.gameObject);
+                }else if(collision.gameObject.tag == "Lost")
                 {
-                    damageTickTime = tempTimer;
-                    if(tempLost != null) { tempLost.DamageEnemy(glueDamage, player); }
-                    if (tempEater != null) { tempEater.DamageEnemy(glueDamage, player); }
-                    if (enemy != null) { enemy.damagePlayer(glueDamage, player); }
+                    collision.GetComponent<TheLost>().Slow(glueLostSlowness);
+                    enemies.Add(collision.gameObject);
+                }else if (collision.gameObject.tag == "Eater")
+                {
+                    collision.GetComponent<TheEater>().Slow(glueEaterSlowness);
+                    enemies.Add(collision.gameObject);
                 }
             }
-
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        enemies.Remove(collision.gameObject);
+
         if(collision.gameObject.tag == "Player" && collision.gameObject != player.gameObject)
         {
             collision.GetComponent<PlayerBody>().ExitGlue();

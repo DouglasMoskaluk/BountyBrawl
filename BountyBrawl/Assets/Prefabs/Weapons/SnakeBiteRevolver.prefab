@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawn: {fileID: 1422997466252591532}
-  bulletTime: 0.2
+  bulletTime: 0.5
   ammo: 20
   holding:
   - {fileID: 21300000, guid: 19d706c8d962093488fc18b3f7a72837, type: 3}
@@ -150,6 +150,7 @@ MonoBehaviour:
   throwTime: 0.5
   rotationSpeed: 1000
   throwDamage: 5
+  knockbackStrength: 40
 --- !u!50 &3981973998159291145
 Rigidbody2D:
   serializedVersion: 4

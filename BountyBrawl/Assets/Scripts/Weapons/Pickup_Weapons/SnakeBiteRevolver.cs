@@ -36,10 +36,7 @@ public class SnakeBiteRevolver : MonoBehaviour
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         sprite = spriteRenderer.sprite;
-    }
-    private void OnEnable()
-    {
-        //spriteRenderer.sortingOrder = 7;
+        spriteRenderer.sortingLayerName = "Midground";
     }
 
     private void Update()
@@ -79,7 +76,7 @@ public class SnakeBiteRevolver : MonoBehaviour
             //If player is not using a weapon
             if (!checker.UsingWeapon())
             {
-                //spriteRenderer.sortingOrder = 10;
+                spriteRenderer.sortingLayerName = "Foreground";
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
                 canUse = false;
@@ -127,7 +124,6 @@ public class SnakeBiteRevolver : MonoBehaviour
         if (canThrow)
         {
             canThrow = false;
-            //spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
             transform.parent = null; //Unparent the weapon
@@ -137,6 +133,7 @@ public class SnakeBiteRevolver : MonoBehaviour
             Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
 
             yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
+            spriteRenderer.sortingLayerName = "Midground";
             thrown = false;
             box.isTrigger = true;
             player = null; //sets the player to null to wait for next player

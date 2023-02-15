@@ -65,11 +65,13 @@
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Nagakome_Katana.cs" />
     <Compile Include="Assets\Scripts\UI\HUDScript.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingRotate.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_ClusBullet.cs" />
     <Compile Include="Assets\Scripts\Enemies\PoisonArea.cs" />
     <Compile Include="Assets\Scripts\CameraMovement_Small.cs" />
     <Compile Include="Assets\Scripts\Bullets\WyldsnagShotgun_GlueBullet.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Emerald_Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Greed_Knife.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_DefBullet.cs" />
     <Compile Include="Assets\Scripts\Weapons\Throw.cs" />
     <Compile Include="Assets\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\CameraMovement_Big.cs" />
@@ -78,14 +80,14 @@
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Sandstorm_Fist.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonSelect.cs" />
     <Compile Include="Assets\Scripts\UI\PauseScript.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Ch_ChingRifle.cs" />
     <Compile Include="Assets\Scripts\UI\Sound.cs" />
     <Compile Include="Assets\Scripts\Bullets\Deathwhisper_ShurikenBullet.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
-    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Ch_ChingRifle.cs" />
-    <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_DefBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_ClusBullet.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Railgun_Bullet.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Railgun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

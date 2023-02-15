@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 107998d7933b8794fb75e3080008cfc6, type: 3}
   - {fileID: 21300000, guid: 7f775533a779c874b8195548e95fcecb, type: 3}
   bulletsInCluster: 5
+  knockBackStrength: 30
 --- !u!114 &5068239350064552395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
   throwTime: 0.5
   rotationSpeed: 1000
   throwDamage: 5
+  knockbackStrength: 40
 --- !u!50 &6760041702606594138
 Rigidbody2D:
   serializedVersion: 4

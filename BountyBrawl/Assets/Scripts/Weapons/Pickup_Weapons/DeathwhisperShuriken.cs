@@ -47,6 +47,7 @@ public class DeathwhisperShuriken : MonoBehaviour
         thrownShurikens = new List<GameObject>();
         sprite = spriteRenderer.sprite;
         returning = false;
+        spriteRenderer.sortingLayerName = "Midground";
     }
     private void OnEnable()
     {
@@ -139,7 +140,7 @@ public class DeathwhisperShuriken : MonoBehaviour
             //If player is not using a weapon
             if (!checker.UsingWeapon())
             {
-                spriteRenderer.sortingOrder = 10;
+                spriteRenderer.sortingLayerName = "Foreground";
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
                 canUse = false;
@@ -195,7 +196,7 @@ public class DeathwhisperShuriken : MonoBehaviour
     {
         if (canThrow)
         {
-            foreach(GameObject p in thrownShurikens)
+            foreach (GameObject p in thrownShurikens)
             {
                 p.GetComponent<Deathwhisper_ShurikenBullet>().Thrown();
             }
@@ -211,6 +212,7 @@ public class DeathwhisperShuriken : MonoBehaviour
             Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
 
             yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
+            spriteRenderer.sortingLayerName = "Midground";
             thrown = false;
             box.isTrigger = true;
             player = null; //sets the player to null to wait for next player

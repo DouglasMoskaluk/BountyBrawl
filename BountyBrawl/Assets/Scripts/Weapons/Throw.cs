@@ -7,11 +7,13 @@ public class Throw : MonoBehaviour
     [SerializeField] private float throwTime = 0.2f; //How long the weapon will be thrown for
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float throwDamage = 5f;
+    [SerializeField] private float knockbackStrength = 40f;
     private bool isThrown = false;
 
     private Vector2 traj;
 
     private GameObject player; //The player that threw the weapon
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -42,13 +44,17 @@ public class Throw : MonoBehaviour
         //If the weapon collides with a player other than the player that threw the weapon
         if (collision.gameObject != player && collision.transform.tag == "Player")
         {
+            PlayerBody enemy = collision.transform.GetComponent<PlayerBody>();
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            collision.transform.GetComponent<PlayerBody>().damagePlayer(throwDamage, player.GetComponent<PlayerBody>());
+            enemy.damagePlayer(throwDamage, player.GetComponent<PlayerBody>());
+            enemy.StartCoroutine(enemy.Knocked(knockbackStrength, traj.normalized));
+            GetComponent<BoxCollider2D>().isTrigger = true;
             StopAllCoroutines();
 
-        //If hit wall then stop weapon
-        }else if(collision.transform.tag == "Barrier" || collision.transform.tag == "Wall")
+            //If hit wall then stop weapon
+        }
+        else if(collision.transform.tag == "Barrier" || collision.transform.tag == "Wall")
         {
             isThrown = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

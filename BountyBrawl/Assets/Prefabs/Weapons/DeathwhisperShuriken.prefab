@@ -182,6 +182,7 @@ MonoBehaviour:
   throwTime: 0.5
   rotationSpeed: 1000
   throwDamage: 5
+  knockbackStrength: 40
 --- !u!50 &6503481176204239544
 Rigidbody2D:
   serializedVersion: 4

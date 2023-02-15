@@ -38,6 +38,7 @@ public class WyldsnagShotgun : MonoBehaviour
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         sprite = spriteRenderer.sprite;
+        spriteRenderer.sortingLayerName = "Midground";
     }
 
     private void OnEnable()
@@ -109,8 +110,8 @@ public class WyldsnagShotgun : MonoBehaviour
             //If player is not using a weapon
             if (!checker.UsingWeapon())
             {
+                spriteRenderer.sortingLayerName = "Foreground";
                 player = collision.transform.parent.GetComponent<PlayerBody>();
-                //spriteRenderer.sortingOrder = 10;
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(2);
@@ -157,7 +158,6 @@ public class WyldsnagShotgun : MonoBehaviour
         if (canThrow)
         {
             canThrow = false;
-            //spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
             transform.parent = null; //Unparent the weapon
@@ -167,6 +167,7 @@ public class WyldsnagShotgun : MonoBehaviour
             Vector2 traj = player.getLastFacing(); //Get the trajectory of the bullet
 
             yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
+            spriteRenderer.sortingLayerName = "Midground";
             thrown = false;
             box.isTrigger = true;
             player = null; //sets the player to null to wait for next player
