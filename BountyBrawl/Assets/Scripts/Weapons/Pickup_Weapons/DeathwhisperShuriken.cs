@@ -15,6 +15,7 @@ public class DeathwhisperShuriken : MonoBehaviour
     [SerializeField] private int nonProfThrown = 3;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
+    [SerializeField] private float lifeTime = 20f;
 
     private List<GameObject> thrownShurikens; //Holds all the shurikens that have been fired
 
@@ -37,6 +38,8 @@ public class DeathwhisperShuriken : MonoBehaviour
     private bool returning;
 
     private int thrownLimit; //The limit of how many shurikens can be thrown before returning
+    private float tempLifeTime;
+    private float maxAmmo;
 
     private void Awake()
     {
@@ -48,10 +51,14 @@ public class DeathwhisperShuriken : MonoBehaviour
         sprite = spriteRenderer.sprite;
         returning = false;
         spriteRenderer.sortingLayerName = "Midground";
+        tempLifeTime = lifeTime;
+        maxAmmo = ammo;
     }
+
     private void OnEnable()
     {
-        spriteRenderer.sortingOrder = 7;
+        lifeTime = tempLifeTime;
+        ammo = maxAmmo;
     }
 
     private void Update()
@@ -90,6 +97,19 @@ public class DeathwhisperShuriken : MonoBehaviour
             if(thrownShurikens.Count == 0)
             {
                 returning = false;
+            }
+        }
+
+        if (spriteRenderer.sortingLayerName == "Midground")
+        {
+            if (lifeTime < 0)
+            {
+                lifeTime = tempLifeTime;
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                lifeTime -= Time.deltaTime;
             }
         }
     }
@@ -218,6 +238,12 @@ public class DeathwhisperShuriken : MonoBehaviour
             player = null; //sets the player to null to wait for next player
             canUse = true; //Weapon is back to being pickupable
             weaponBody.isTrigger = true;
+
+            if (ammo <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+
         } //Called when the weapon is being thrown
     }
 }

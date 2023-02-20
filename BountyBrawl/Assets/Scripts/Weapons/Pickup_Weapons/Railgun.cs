@@ -10,6 +10,7 @@ public class Railgun : MonoBehaviour
     [SerializeField] private float playerSlowness = 10f;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
+    [SerializeField] private float lifeTime = 20f;
 
     private Sprite sprite; //The starting sprite before pickup
     private SpriteRenderer spriteRenderer;
@@ -29,6 +30,7 @@ public class Railgun : MonoBehaviour
     private bool canThrow;
     private bool canShoot;
     private float tempTimer;
+    private float tempLifeTime;
 
     private void Awake()
     {
@@ -41,11 +43,13 @@ public class Railgun : MonoBehaviour
         spriteRenderer.sortingLayerName = "Midground";
         firing = false;
         tempTimer = timer;
+        tempLifeTime = lifeTime;
     }
 
     private void OnEnable()
     {
         timer = tempTimer;
+        lifeTime = tempLifeTime;
     }
 
     private void Update()
@@ -81,6 +85,19 @@ public class Railgun : MonoBehaviour
         if (firing)
         {
             timer -= Time.deltaTime;
+        }
+
+        if (spriteRenderer.sortingLayerName == "Midground")
+        {
+            if (lifeTime < 0)
+            {
+                lifeTime = tempLifeTime;
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                lifeTime -= Time.deltaTime;
+            }
         }
     }
 
@@ -160,6 +177,12 @@ public class Railgun : MonoBehaviour
             player = null; //sets the player to null to wait for next player
             canUse = true; //Weapon is back to being pickupable
             weaponBody.isTrigger = true;
+
+            if (timer <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+
         } //Called when the weapon is being thrown
     }
 

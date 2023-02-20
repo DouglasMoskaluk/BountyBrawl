@@ -12,6 +12,8 @@ TagManager:
   - Eater
   - Slowness
   - Barrier
+  - Bullet
+  - Special Bullet
   layers:
   - Default
   - TransparentFX

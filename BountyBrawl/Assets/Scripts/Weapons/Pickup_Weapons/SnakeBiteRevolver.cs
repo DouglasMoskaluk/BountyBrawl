@@ -11,6 +11,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     [SerializeField] private float ammo = 20f;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
+    [SerializeField] private float lifeTime = 20f;
 
     private Sprite sprite; //The starting sprite before pickup
     private SpriteRenderer spriteRenderer;
@@ -28,6 +29,8 @@ public class SnakeBiteRevolver : MonoBehaviour
     private BoxCollider2D box;
 
     private bool canThrow;
+    private float tempLifeTime;
+    private float maxAmmo;
 
     private void Awake()
     {
@@ -37,6 +40,14 @@ public class SnakeBiteRevolver : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         sprite = spriteRenderer.sprite;
         spriteRenderer.sortingLayerName = "Midground";
+        tempLifeTime = lifeTime;
+        maxAmmo = ammo;
+    }
+
+    private void OnEnable()
+    {
+        lifeTime = tempLifeTime;
+        ammo = maxAmmo;
     }
 
     private void Update()
@@ -51,6 +62,19 @@ public class SnakeBiteRevolver : MonoBehaviour
             {
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
+        }
+
+        if (spriteRenderer.sortingLayerName == "Midground")
+        {
+            if (lifeTime < 0)
+            {
+                lifeTime = tempLifeTime;
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                lifeTime -= Time.deltaTime;
+            }
         }
     }
     private void Shoot1()
@@ -139,6 +163,12 @@ public class SnakeBiteRevolver : MonoBehaviour
             player = null; //sets the player to null to wait for next player
             canUse = true; //Weapon is back to being pickupable
             weaponBody.isTrigger = true;
+
+            if (ammo <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+
         } //Called when the weapon is being thrown
     }
 }

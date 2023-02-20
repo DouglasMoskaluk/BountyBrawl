@@ -30,6 +30,9 @@ public class EventManager : MonoBehaviour
     [Tooltip("The number of times events until the Eater becomes a miniboss")]
     [SerializeField] private int miniboss = 4;
 
+    [Tooltip("These will hold all the weapon box spawn points")]
+    [SerializeField] private WeaponBox[] weaponBoxes; //Array of all the weapon box spawn points
+
     private int numSpawn = 0; //The number of times a group of enemies have spawned
 
     private int tempSp;
@@ -41,8 +44,10 @@ public class EventManager : MonoBehaviour
     TheEater teleportEater; //The eater when teleporting
 
     private float tempTimer;
+    private float tempBoxTimer;
 
     private bool minibossInUse; //If the eater is a miniboss stop spawning enemies
+    private int checker = 0;
 
     private void Awake()
     {
@@ -51,6 +56,7 @@ public class EventManager : MonoBehaviour
         teleport = true;
         tempSp = 0;
         minibossInUse = false;
+        tempBoxTimer = boxTimer;
     }
 
     private void Update()
@@ -99,6 +105,31 @@ public class EventManager : MonoBehaviour
             currEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
             currEater.gameObject.SetActive(true);  //Turn on eater
             currEater.IsNotTeleporting();
+        }
+
+        if (boxTimer < 0)
+        {
+            boxTimer = tempBoxTimer;
+            int whichBox = (int)Random.Range(0f, weaponBoxes.Length);
+
+            while (weaponBoxes[whichBox].isActiveAndEnabled)
+            {
+                checker++;
+                whichBox = (int)Random.Range(0f, weaponBoxes.Length);
+
+                if(checker >= 20)
+                {
+                    checker = 0;
+                    boxTimer = tempBoxTimer;
+                    break;
+                }
+            }
+
+            weaponBoxes[whichBox].gameObject.SetActive(true);
+        }
+        else
+        {
+            boxTimer -= Time.deltaTime;
         }
     }
 
