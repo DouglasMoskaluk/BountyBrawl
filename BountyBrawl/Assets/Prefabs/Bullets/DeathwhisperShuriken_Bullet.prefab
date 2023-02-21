@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6506676699684934996}
   m_Layer: 0
   m_Name: DeathwhisperShuriken_Bullet
-  m_TagString: Undefined
+  m_TagString: Special Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

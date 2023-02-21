@@ -122,6 +122,7 @@ public class Railgun : MonoBehaviour
                 canUse = false;
                 player.setWeaponIndex(1);
                 player.Slow(playerSlowness);
+                lifeTime = tempLifeTime;
 
                 if (player.GetPlayerCharacter() == 0)
                 {

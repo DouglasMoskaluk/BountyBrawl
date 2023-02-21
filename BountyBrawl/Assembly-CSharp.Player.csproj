@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponBox.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheEater.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\WyldsnagShotgun.cs" />
@@ -88,7 +89,8 @@
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\Bullets\Railgun_Bullet.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
-    <Compile Include="Assets\Scripts\Weapons\WeaponBox.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Crossbow.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Crossbow_Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
