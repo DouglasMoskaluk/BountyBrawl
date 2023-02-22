@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 4872184155839484336}
   - component: {fileID: 7517173053920193301}
   - component: {fileID: 7142501891528062306}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lightning_Bullet
   m_TagString: Special Bullet
   m_Icon: {fileID: 0}

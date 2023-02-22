@@ -1192,10 +1192,6 @@ PrefabInstance:
       propertyPath: timer
       value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 7517173053920193301, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
 --- !u!4 &206616021 stripped
@@ -2560,6 +2556,9 @@ MonoBehaviour:
     size: 10
   - tag: DeathWhisperShuriken
     prefab: {fileID: 9132263526496906828, guid: ec1d8f0b70b54304e8fd9b480ddb3339, type: 3}
+    size: 10
+  - tag: Crossbow
+    prefab: {fileID: 1422997465680654333, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
     size: 10
   - tag: Railgun
     prefab: {fileID: 1422997465680654333, guid: af16622ba85989344ad50f66ce951a26, type: 3}

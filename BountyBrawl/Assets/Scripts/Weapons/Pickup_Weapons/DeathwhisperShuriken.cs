@@ -165,6 +165,7 @@ public class DeathwhisperShuriken : MonoBehaviour
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(3);
+                lifeTime = tempLifeTime;
 
                 if (player.GetPlayerCharacter() == 0)
                 {

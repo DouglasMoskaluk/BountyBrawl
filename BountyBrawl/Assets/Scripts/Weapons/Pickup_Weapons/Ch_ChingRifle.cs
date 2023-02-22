@@ -136,6 +136,7 @@ public class Ch_ChingRifle : MonoBehaviour
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(2);
+                lifeTime = tempLifeTime;
 
                 if (player.GetPlayerCharacter() == 0)
                 {

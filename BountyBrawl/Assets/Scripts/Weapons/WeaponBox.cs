@@ -71,6 +71,7 @@ public class WeaponBox : MonoBehaviour
             }
             else if (weapon == 4) //Spawn rare weapon 2
             {
+                ObjectPooler.Instance.SpawnFromPool("Crossbow", transform.position, transform.rotation);
                 gameObject.SetActive(false);
             }
             else //Spawn rare weapon 3

@@ -105,6 +105,7 @@ public class SnakeBiteRevolver : MonoBehaviour
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(1);
+                lifeTime = tempLifeTime;
 
                 if (player.GetPlayerCharacter() == 0)
                 {

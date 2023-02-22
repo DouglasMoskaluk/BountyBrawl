@@ -65,7 +65,7 @@ public class Crossbow_Bullet : MonoBehaviour
         boxCollider.size = spriteRenderer.size;
         boxCollider.offset = new Vector2((spriteRenderer.size.x / 2), 0);
 
-        if(enemies.Count != 0)
+        if (enemies.Count != 0)
         {
             //Increase damage
             if (currDamage <= fullDamage)
@@ -112,47 +112,29 @@ public class Crossbow_Bullet : MonoBehaviour
             currDamage = baseDamage;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, spriteRenderer.size.x / 2);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, fullLength / 2);
         Debug.DrawRay(transform.position, transform.right * hit.distance, Color.red);
 
         if (hit.transform != null && hit.transform.tag == "Wall") //If the raycast has hit something and its tag is wall
         {
 
-            if (hit.distance <= fullLength / 2)
+            if (hit.distance <= fullLength)
             {
                 beamLength = hit.distance * 2;
-                hitObstacle = true;
             }
         }
-        else if (hit.transform == null)
+        else
         {
-            Debug.Log("nohit");
             beamLength = fullLength;
-            hitObstacle = false;
         }
     }
 
     void FixedUpdate()
     {
-        /*
-        Vector2 direction = transform.position - gun.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, fullLength);
 
-        Debug.DrawRay(transform.position, direction, Color.red);
-
-        if (hit.collider.tag == "Wall") //If the raycast has hit something and its tag is wall
+        if (speed < beamLength)
         {
-            Debug.Log("hit");
-            Debug.Log(hit.distance);
-        }
-        */
-
-        if (spriteRenderer.size.x < beamLength)
-        {
-            if (!hitObstacle)
-            {
-                speed += growSpeed * Time.deltaTime;
-            }
+            speed += growSpeed * Time.deltaTime;
             spriteRenderer.size = new Vector2(speed, spriteRenderer.size.y);
         }
         else
