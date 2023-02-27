@@ -3,8 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+
 public class TheLost : MonoBehaviour
 {
+    [System.Serializable]
+    public class Type
+    {
+        public string name;
+        public Sprite walkSprite;
+        public Sprite runSprite;
+        public string weaponDrop;
+    }
+
+    public List<Type> types;
 
     private PlayerBody[] players;
     private float distance;
@@ -13,6 +24,10 @@ public class TheLost : MonoBehaviour
     [SerializeField] private float enemyDefaultSpeed = 600f;
 
     [SerializeField] private float enemyDashSpeed = 900f;
+
+    [SerializeField] private float dropTypeChance = 40f; //The chance of the lost dropping the weapon type weapon
+    [SerializeField] private float dontDropChance = 70f; //The chance of the lost dropping nothing
+    [SerializeField] private float commonDropChance = 80f; //The chance of the lost dropping common weapon
 
     [Tooltip("How close player must be for dashing")]
     [SerializeField] private float dashDistance = 15f;
@@ -52,19 +67,12 @@ public class TheLost : MonoBehaviour
     private float tempDefSpeed;
     private float tempDashSpeed;
 
+    private string lostTypeName;
+
     private Coroutine poison;
 
-    private void OnEnable()
-    {
-        currDamage = baseDamage;
-        currHealth = baseHealth;
-        canDash = true;
-        canMove = true;
-        aura.SetActive(false);
-
-        spriteRenderer.sprite = currSprite;
-        poison = null;
-    }
+    private int weapon; //The weapon the lost will drop on death
+    private string dropChanceWeapon; //The weapon the type of lost is highly likely to drop
 
     private void Awake()
     {
@@ -76,10 +84,29 @@ public class TheLost : MonoBehaviour
         tempDefSpeed = enemyDefaultSpeed;
         tempDashSpeed = enemyDashSpeed;
 
-        currSprite = spriteRenderer.sprite;
-
         //Finds closest player to chase
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        //types = new List<Type>();
+    }
+
+    private void OnEnable()
+    {
+        currDamage = baseDamage;
+        currHealth = baseHealth;
+        canDash = true;
+        canMove = true;
+        aura.SetActive(false);
+
+        int lostType = (int) Random.Range(0f, types.Count);
+
+        lostTypeName = types[lostType].name;
+        dropChanceWeapon = types[lostType].weaponDrop;
+        currSprite = types[lostType].walkSprite;
+        dash = types[lostType].runSprite;
+
+        spriteRenderer.sprite = currSprite;
+        poison = null;
     }
 
     void UpdatePath() 
@@ -199,7 +226,73 @@ public class TheLost : MonoBehaviour
 
     private void Death()
     {
+        int notDrop = (int)Random.Range(1f, 101f);
+
+        //If lost will drop weapon
+        if (notDrop >= dontDropChance)
+        {
+
+            int chance = (int)Random.Range(1f, 101f);
+
+            //drop common weapon
+            if (chance <= commonDropChance)
+            {
+                weapon = (int)Random.Range(0f, 3f);
+            }
+            else //Drop rare weapon
+            {
+                weapon = (int)Random.Range(3f, 7f);
+            }
+
+            if (lostTypeName == "Default")
+            {
+                spawnWeapon();
+            }
+            else
+            {
+                int typeChance = (int)Random.Range(1f, 101f);
+                
+                //Dropping the higher chance weapon from the lost type
+                if (typeChance <= dropTypeChance)
+                {
+                    ObjectPooler.Instance.SpawnFromPool(dropChanceWeapon, transform.position, transform.rotation);
+                }
+                else
+                {
+                    spawnWeapon();
+                }
+            }
+        }
+
         gameObject.SetActive(false);
+    }
+
+    private void spawnWeapon()
+    {
+        if (weapon == 0) //Spawn common weapon 1
+        {
+            ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver", transform.position, transform.rotation);
+        }
+        else if (weapon == 1) //Spawn common weapon 2
+        {
+            ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun", transform.position, transform.rotation);
+        }
+        else if (weapon == 2)//Spawn common weapon 3
+        {
+            ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle", transform.position, transform.rotation);
+        }
+        else if (weapon == 3) //Spawn rare weapon 1
+        {
+            ObjectPooler.Instance.SpawnFromPool("DeathWhisperShuriken", transform.position, transform.rotation);
+        }
+        else if (weapon == 4) //Spawn rare weapon 2
+        {
+            ObjectPooler.Instance.SpawnFromPool("DeathWhisperShuriken", transform.position, transform.rotation);
+        }
+        else //Spawn rare weapon 3
+        {
+            ObjectPooler.Instance.SpawnFromPool("Railgun", transform.position, transform.rotation);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

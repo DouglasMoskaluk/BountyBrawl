@@ -219,14 +219,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482c48bdd42c1e448a7ff6bffe83fb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  types:
+  - name: Default
+    walkSprite: {fileID: 21300000, guid: cfc42ac6b900ee640b95313ec4c1155e, type: 3}
+    runSprite: {fileID: 21300000, guid: 3ba05279ba7d2114d974ef87909e17a7, type: 3}
+    weaponDrop: 
+  - name: Pelt
+    walkSprite: {fileID: 21300000, guid: 5ac7e4a126235004697e60b9af0e1a5f, type: 3}
+    runSprite: {fileID: 21300000, guid: 3971f199aaa8ac548bbc53f6d92525c0, type: 3}
+    weaponDrop: SnakeBiteRevolver
+  - name: Vines
+    walkSprite: {fileID: 21300000, guid: 3269714d4d8884b46b9d978a4a7d4b66, type: 3}
+    runSprite: {fileID: 21300000, guid: ce45b02bdb3ccd243924c6b8f56bdd7e, type: 3}
+    weaponDrop: WyldsnagShotgun
+  - name: Bomber
+    walkSprite: {fileID: 21300000, guid: 6d9bc7a8e9d6c0e4e9128bdea27f2ba4, type: 3}
+    runSprite: {fileID: 21300000, guid: 9688bba62f9374444840284928227178, type: 3}
+    weaponDrop: Ch-ChingRifle
+  - name: Ronin
+    walkSprite: {fileID: 21300000, guid: 4a43d3cb2e8d80145bf7f1f143474e4d, type: 3}
+    runSprite: {fileID: 21300000, guid: ff7c3c3ada83d8a4b89eb9419c957c83, type: 3}
+    weaponDrop: DeathWhisperShuriken
+  - name: Wizard
+    walkSprite: {fileID: 21300000, guid: 709f5f0f24c4eb94383d37714101956a, type: 3}
+    runSprite: {fileID: 21300000, guid: 6675bc1c480b4ed4698dee9a6dea74d1, type: 3}
+    weaponDrop: Crossbow
+  - name: Cyborg
+    walkSprite: {fileID: 21300000, guid: b1a0869f92c34ef4e99b863f4e572cd7, type: 3}
+    runSprite: {fileID: 21300000, guid: bf4c63e4b22e3de4890854e0e4f85b93, type: 3}
+    weaponDrop: Railgun
   enemyDefaultSpeed: 600
   enemyDashSpeed: 900
+  dropTypeChance: 40
+  dontDropChance: 70
+  commonDropChance: 80
   dashDistance: 15
   baseDamage: 5
   baseHealth: 10
   dashTime: 3
   dash: {fileID: 21300000, guid: 3ba05279ba7d2114d974ef87909e17a7, type: 3}
   aura: {fileID: 3044958533242302434}
+  moneyEarn: 5
   nextWayPointDistance: 3
   currDamage: 0
   currHealth: 0

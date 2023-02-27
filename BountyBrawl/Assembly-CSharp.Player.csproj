@@ -87,10 +87,10 @@
     <Compile Include="Assets\Scripts\Bullets\Deathwhisper_ShurikenBullet.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
+    <Compile Include="Assets\Scripts\Bullets\Crossbow_Bullet.cs" />
     <Compile Include="Assets\Scripts\Bullets\Railgun_Bullet.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Crossbow.cs" />
-    <Compile Include="Assets\Scripts\Bullets\Crossbow_Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
