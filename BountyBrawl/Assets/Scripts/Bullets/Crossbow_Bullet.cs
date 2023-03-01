@@ -87,7 +87,7 @@ public class Crossbow_Bullet : MonoBehaviour
             }
             else
             {
-                foreach (GameObject g in enemies)
+                foreach (GameObject g in enemies.ToArray())
                 {
 
                     if (g.tag == "Player" && g != player.gameObject)

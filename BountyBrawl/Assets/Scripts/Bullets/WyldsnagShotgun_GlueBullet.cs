@@ -10,7 +10,6 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
 
     [SerializeField] private float speed = 50f; //Speed of bullet
     [SerializeField] private float bulletLifeTime = 1f; //Life until it dies
-    [SerializeField] private float glueLifeTime = 2f; //Life until it dies
 
     [SerializeField] private Sprite glueShotSP; //The bullet sprite
     [SerializeField] private Sprite acidShotSP; //The bullet sprite
@@ -57,7 +56,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     {
         glueRD = GetComponent<SpriteRenderer>();
         tempBulletLifeTime = bulletLifeTime;
-        tempGlueLifeTime = glueLifeTime;
+        tempGlueLifeTime = glueTime;
         bullet = GetComponent<BoxCollider2D>();
         glueZone = GetComponent<CircleCollider2D>();
         tempTimer = damageTickTime;
@@ -69,7 +68,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     {
         glueRD.enabled = true;
         bulletLifeTime = tempBulletLifeTime;
-        glueLifeTime = tempGlueLifeTime;
+        glueTime = tempGlueLifeTime;
         glue = false;
         bullet.enabled = true;
         glueZone.enabled = false;
@@ -138,7 +137,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
         }
 
         //If glue is true
-        if(glue && glueLifeTime < 0)
+        if(glue && glueTime <= 0)
         {
 
             gameObject.SetActive(false);
@@ -330,6 +329,21 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 {
                     collision.GetComponent<TheEater>().Slow(glueEaterSlowness);
                     enemies.Add(collision.gameObject);
+                }
+            }
+            else
+            {
+                if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
+                {
+                    collision.GetComponent<PlayerBody>().Slow(gluePlayerSlowness);
+                }
+                else if (collision.gameObject.tag == "Lost")
+                {
+                    collision.GetComponent<TheLost>().Slow(glueLostSlowness);
+                }
+                else if (collision.gameObject.tag == "Eater")
+                {
+                    collision.GetComponent<TheEater>().Slow(glueEaterSlowness);
                 }
             }
         }

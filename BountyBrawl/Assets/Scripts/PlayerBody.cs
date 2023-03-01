@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
     [SerializeField] private GameObject eventManager;
+    [SerializeField] private Transform spawnPoint;
     GameObject UIPauseMenu; //Pause menu on canvas
 
     //Player info
@@ -83,11 +84,6 @@ public class PlayerBody : MonoBehaviour
         money = 0;
         knockbacked = false;
         shielded = false;
-    }
-
-    private void OnEnable()
-    {
-        poison = null;
     }
 
     private void Update()
@@ -241,7 +237,8 @@ public class PlayerBody : MonoBehaviour
 
     public IEnumerator Poison(float dam, float interval, float amount, PlayerBody player)
     {
-
+        sprite.material.color = Color.green;
+        headSprite.material.color = Color.green;
         yield return new WaitForSeconds(interval);
 
         //Goes through each amount of poison and damages the player
@@ -251,17 +248,11 @@ public class PlayerBody : MonoBehaviour
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
         }
 
-        poison = null;
-
-    }
-
-    private IEnumerator Hit()
-    {
-        sprite.material.color = Color.red;
-        headSprite.material.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
+
+        poison = null;
+
     }
 
     public IEnumerator Stun(float length)
@@ -293,7 +284,60 @@ public class PlayerBody : MonoBehaviour
         {
             StartCoroutine(Hit());
             health -= damage;
+
+            if(health <= 0)
+            {
+                if (cursed)
+                {
+                    lives--;
+                }
+
+                if(lives >= 0)
+                {
+                    StartCoroutine(Resurrect());
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+
+            }
         }
+    }
+
+    //player is hit by something
+    private IEnumerator Hit()
+    {
+        sprite.material.color = Color.red;
+        headSprite.material.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        if (poison == null)
+        {
+            sprite.material.color = Color.white;
+            headSprite.material.color = Color.white;
+        }
+        else
+        {
+            sprite.material.color = Color.green;
+            headSprite.material.color = Color.green;
+        }
+    }
+
+    private IEnumerator Resurrect()
+    {
+        yield return new WaitForSeconds(0.1f);
+        transform.position = spawnPoint.position;
+        poison = null;
+        knockbacked = false;
+        shielded = false;
+        weapon = false;
+        useDefault = false;
+        canMove = true;
+        hammer = false;
+        weaponIndex = 0;
+        health = 100;
+        sprite.material.color = Color.white;
+        headSprite.material.color = Color.white;
     }
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)
@@ -419,5 +463,7 @@ public class PlayerBody : MonoBehaviour
     {
         return character;
     }
+
+    public void Curse() { cursed = true; }
 
 }

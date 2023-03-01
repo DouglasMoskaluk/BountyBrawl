@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3744556953203775244}
   - component: {fileID: 1620047151121055963}
   - component: {fileID: 8161332820433369174}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: The Eater
   m_TagString: Eater
   m_Icon: {fileID: 0}
@@ -104,12 +104,13 @@ MonoBehaviour:
   numMinions: 4
   enemySpeed: 500
   baseDamage: 20
-  baseHealth: 500
+  baseHealth: 300
   minionSpawn: 30
   poisonArea: {fileID: 5105054926456606923}
   poisonStartSize: {x: 0, y: 0, z: 0}
   poisonEndSize: {x: 1, y: 1, z: 1}
   speedOfPoisonGrowth: 0.5
+  moneyEarn: 100
   currHealth: 0
   nextWayPointDistance: 10
 --- !u!50 &-412707967287723565

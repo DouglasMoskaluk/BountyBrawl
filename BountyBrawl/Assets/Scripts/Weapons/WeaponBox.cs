@@ -12,25 +12,21 @@ public class WeaponBox : MonoBehaviour
 
     private WeaponBox[] weaponBoxes;
 
-    private bool hit;
+    private int hit;
 
     private void Awake()
     {
         numSpawn = 0;
         weaponBoxes = FindObjectsOfType<WeaponBox>();
-        hit = false;
+        hit = 1;
     }
-
-    private void OnDisable()
-    {
-        hit = false;
-    }
-
 
     private void OnEnable()
     {
+        hit = 1;
+
         //Increase number of weapon spawns for each weapon box
-        foreach(WeaponBox p in weaponBoxes)
+        foreach (WeaponBox p in weaponBoxes)
         {
             p.IncreaseWeaponBox();
         }
@@ -55,10 +51,11 @@ public class WeaponBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!hit)
+        if (collision.tag == "Bullet" || collision.tag == "Special Bullet")
         {
-            hit = true;
-            if (collision.tag == "Bullet" || collision.tag == "Special Bullet")
+                hit--;
+
+            if (hit == 0)
             {
                 if (weapon == 0) //Spawn common weapon 1
                 {

@@ -33,6 +33,8 @@ public class EventManager : MonoBehaviour
     [Tooltip("These will hold all the weapon box spawn points")]
     [SerializeField] private WeaponBox[] weaponBoxes; //Array of all the weapon box spawn points
 
+    [SerializeField] private float graphScanUpdate = 1f;
+
     private int numSpawn = 0; //The number of times a group of enemies have spawned
 
     private int tempSp;
@@ -51,6 +53,8 @@ public class EventManager : MonoBehaviour
 
     private AstarPath astar;
 
+    private float tempGraph;
+
     private void Awake()
     {
         tempTimer = enemyTimer;
@@ -60,6 +64,7 @@ public class EventManager : MonoBehaviour
         minibossInUse = false;
         tempBoxTimer = boxTimer;
         astar = FindObjectOfType<AstarPath>();
+        tempGraph = graphScanUpdate;
     }
 
     private void Update()
@@ -134,11 +139,16 @@ public class EventManager : MonoBehaviour
         {
             boxTimer -= Time.deltaTime;
         }
-    }
 
-    private void LateUpdate()
-    {
-        astar.Scan();
+        if(graphScanUpdate <= 0)
+        {
+            astar.Scan();
+            graphScanUpdate = tempGraph;
+        }
+        else
+        {
+            graphScanUpdate -= Time.deltaTime;
+        }
     }
 
 

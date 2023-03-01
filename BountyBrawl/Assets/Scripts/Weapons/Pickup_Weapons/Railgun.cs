@@ -80,6 +80,22 @@ public class Railgun : MonoBehaviour
             {
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
+
+            //Drops weapon if player dies
+            if(player.getHealth() <= 0)
+            {
+                player.ExitGlue();
+                player.SetShield(false);
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
+                player.ChangeWeapon(false); //Set player back to default weapon
+                transform.parent = null; //Unparent the weapon
+                spriteRenderer.sortingLayerName = "Midground";
+                thrown = false;
+                box.isTrigger = true;
+                player = null; //sets the player to null to wait for next player
+                canUse = true; //Weapon is back to being pickupable
+                weaponBody.isTrigger = true;
+            }
         }
 
         if (firing)

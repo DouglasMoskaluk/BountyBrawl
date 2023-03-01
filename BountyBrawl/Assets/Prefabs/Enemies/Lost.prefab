@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065451532757704020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.39, y: -0.23, z: 0}
+  m_LocalPosition: {x: -0.34, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7675826452862742069}
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2507673, y: -0.014507398}
+  m_Offset: {x: 0.22125709, y: 0.24124575}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1607858, y: 0.15750861}
+  m_Size: {x: 2.9933896, y: 4.0456514}
   m_EdgeRadius: 0
 --- !u!1 &3044958533242302434
 GameObject:
@@ -222,13 +222,13 @@ GameObject:
   - component: {fileID: 2595213334828957096}
   - component: {fileID: 2647884491627059751}
   - component: {fileID: 182124880182068164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lost
   m_TagString: Lost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7675826452862742069
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
     runSprite: {fileID: 21300000, guid: bf4c63e4b22e3de4890854e0e4f85b93, type: 3}
     weaponDrop: Railgun
   enemyDefaultSpeed: 600
-  enemyDashSpeed: 900
+  enemyDashSpeed: 1200
   dropTypeChance: 40
   dontDropChance: 70
   commonDropChance: 80
@@ -386,7 +386,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047469616, y: -0.24308741}
+  m_Offset: {x: -0.13599944, y: -0.07586408}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.50199836, y: 0.22422066}
@@ -397,7 +397,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7401438, y: 5.008671}
+  m_Size: {x: 2.3537035, y: 3.3511753}
   m_EdgeRadius: 0
 --- !u!114 &2647884491627059751
 MonoBehaviour:
@@ -416,17 +416,17 @@ MonoBehaviour:
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 1
+    exactEndPoint: 2
     useRaycasting: 0
     mask:
       serializedVersion: 2
       m_Bits: 4294967295
-    useGraphRaycasting: 0
+    useGraphRaycasting: 1
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: -3
+    value: -1
 --- !u!114 &182124880182068164
 MonoBehaviour:
   m_ObjectHideFlags: 0

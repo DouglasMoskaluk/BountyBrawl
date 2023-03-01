@@ -299,6 +299,14 @@ public class TheEater : MonoBehaviour
 
     private void Death()
     {
+
+        PlayerBody[] players = FindObjectsOfType<PlayerBody>();
+
+        foreach(PlayerBody p in players)
+        {
+            p.Curse();
+        }
+
         gameObject.SetActive(false);
     }
 
