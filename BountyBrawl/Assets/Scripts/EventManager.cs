@@ -49,6 +49,8 @@ public class EventManager : MonoBehaviour
     private bool minibossInUse; //If the eater is a miniboss stop spawning enemies
     private int checker = 0;
 
+    private AstarPath astar;
+
     private void Awake()
     {
         tempTimer = enemyTimer;
@@ -57,6 +59,7 @@ public class EventManager : MonoBehaviour
         tempSp = 0;
         minibossInUse = false;
         tempBoxTimer = boxTimer;
+        astar = FindObjectOfType<AstarPath>();
     }
 
     private void Update()
@@ -131,6 +134,11 @@ public class EventManager : MonoBehaviour
         {
             boxTimer -= Time.deltaTime;
         }
+    }
+
+    private void LateUpdate()
+    {
+        astar.Scan();
     }
 
 

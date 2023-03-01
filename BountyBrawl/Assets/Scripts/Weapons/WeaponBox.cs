@@ -12,10 +12,18 @@ public class WeaponBox : MonoBehaviour
 
     private WeaponBox[] weaponBoxes;
 
+    private bool hit;
+
     private void Awake()
     {
         numSpawn = 0;
         weaponBoxes = FindObjectsOfType<WeaponBox>();
+        hit = false;
+    }
+
+    private void OnDisable()
+    {
+        hit = false;
     }
 
 
@@ -47,42 +55,46 @@ public class WeaponBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet" || collision.tag == "Special Bullet")
+        if (!hit)
         {
-            if (weapon == 0) //Spawn common weapon 1
+            hit = true;
+            if (collision.tag == "Bullet" || collision.tag == "Special Bullet")
             {
-                ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver", transform.position, transform.rotation);
-                gameObject.SetActive(false);
-            }
-            else if (weapon == 1) //Spawn common weapon 2
-            {
-                ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun", transform.position, transform.rotation);
-                gameObject.SetActive(false);
-            }
-            else if (weapon == 2)//Spawn common weapon 3
-            {
-                ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle", transform.position, transform.rotation);
-                gameObject.SetActive(false);
-            }
-            else if (weapon == 3) //Spawn rare weapon 1
-            {
-                ObjectPooler.Instance.SpawnFromPool("DeathWhisperShuriken", transform.position, transform.rotation);
-                gameObject.SetActive(false);
-            }
-            else if (weapon == 4) //Spawn rare weapon 2
-            {
-                ObjectPooler.Instance.SpawnFromPool("Crossbow", transform.position, transform.rotation);
-                gameObject.SetActive(false);
-            }
-            else //Spawn rare weapon 3
-            {
-                ObjectPooler.Instance.SpawnFromPool("Railgun", transform.position, transform.rotation);
-                gameObject.SetActive(false);
-            }
+                if (weapon == 0) //Spawn common weapon 1
+                {
+                    ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver", transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+                }
+                else if (weapon == 1) //Spawn common weapon 2
+                {
+                    ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun", transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+                }
+                else if (weapon == 2)//Spawn common weapon 3
+                {
+                    ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle", transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+                }
+                else if (weapon == 3) //Spawn rare weapon 1
+                {
+                    ObjectPooler.Instance.SpawnFromPool("DeathWhisperShuriken", transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+                }
+                else if (weapon == 4) //Spawn rare weapon 2
+                {
+                    ObjectPooler.Instance.SpawnFromPool("Crossbow", transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+                }
+                else //Spawn rare weapon 3
+                {
+                    ObjectPooler.Instance.SpawnFromPool("Railgun", transform.position, transform.rotation);
+                    gameObject.SetActive(false);
+                }
 
-            if (collision.tag != "Special Bullet")
-            {
-                collision.gameObject.SetActive(false);
+                if (collision.tag != "Special Bullet")
+                {
+                    collision.gameObject.SetActive(false);
+                }
             }
         }
     }
