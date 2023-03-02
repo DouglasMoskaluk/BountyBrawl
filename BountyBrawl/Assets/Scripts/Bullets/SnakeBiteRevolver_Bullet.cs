@@ -6,6 +6,8 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 50f; //Speed of bullet
     [SerializeField] private float lifeTime = 8f; //Life until it dies
+    [SerializeField] private Sprite nonProf; //Not proficiency bullet
+    [SerializeField] private Sprite prof; //proficiency bullet
     private Rigidbody2D bulletGO;
 
     private Vector3 direction;
@@ -15,6 +17,8 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
     private Vector3 spawnPos;
 
     private PlayerBody player; //The player that shot the weapon
+    private SpriteRenderer spriteRenderer;
+    private TrailRenderer trailRenderer;
 
     //Weaponry
     [SerializeField] private float baseDamage = 10f; //The base damage of the weapon without poison
@@ -23,10 +27,15 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
     [SerializeField] private float poisonInterval = 3f; //How often the player is damaged by poison
     [SerializeField] private float poisonAmount = 3f; //How many times the poisoned player is damaged
 
+    [SerializeField] private Gradient nonProfBulletTrail;
+    [SerializeField] private Gradient profBulletTrail;
+
 
     private void Awake()
     {
         tempLifeTime = lifeTime;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     private void OnEnable()
@@ -58,6 +67,17 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
     {
         direction = dir; //assigns given direction to direction variable.
         player = play; //If the player is profficient
+
+        if (player.GetPlayerCharacter() == 0)
+        {
+            spriteRenderer.sprite = prof;
+            trailRenderer.colorGradient = profBulletTrail;
+        }
+        else
+        {
+            spriteRenderer.sprite = nonProf;
+            trailRenderer.colorGradient = nonProfBulletTrail;
+        }
     }
 
 

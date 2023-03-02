@@ -7,8 +7,10 @@ public class Greed_Knife : MonoBehaviour
     [Tooltip("The time required before the slashes can be used again")]
     [SerializeField] private float stabCooldown = 1.5f;
 
-    [Tooltip("Speed at which the slashes happen")]
-    [SerializeField] private float slashSpeed = 0.3f;
+    [SerializeField] private int animatorDefSpeed = 1;
+
+    [Tooltip("Speed of slashes")]
+    [SerializeField] private int animatorSlashSpeed = 2;
 
     [SerializeField] private float damage = 2f;
 
@@ -17,10 +19,14 @@ public class Greed_Knife : MonoBehaviour
     [SerializeField] private PlayerBody player; //This is the player
 
     private bool canFire = true; //Make sure the player can attack
+    private Animator animator;
+    private Quaternion defRotation;
 
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
+        defRotation = transform.rotation;
     }
 
     private void OnEnable()
@@ -33,6 +39,9 @@ public class Greed_Knife : MonoBehaviour
         attack.enabled = false;
         player.UsingDefault(false);
         StopAllCoroutines();
+        animator.speed = animatorDefSpeed;
+        transform.rotation = defRotation;
+        animator.SetBool("Attack", false);
     }
 
     private void Update()
@@ -43,41 +52,40 @@ public class Greed_Knife : MonoBehaviour
             {
                 Shoot1();
             }
+
+            if (player.getInputVector() != Vector2.zero)
+            {
+                animator.SetTrigger("Run");
+            }
+            else
+            {
+                animator.SetTrigger("Idle");
+            }
         }
     }
 
     private void Shoot1()
     {
+        animator.SetBool("Attack", true);
         canFire = false;
+        attack.enabled = true;
         player.UsingDefault(true);
-        StartCoroutine(Slash(slashSpeed));
+        animator.speed = animatorSlashSpeed;
+    }
+
+    public void DoneSlashing()
+    {
+        player.UsingDefault(false);
+        animator.SetBool("Attack", false);
+        StartCoroutine(Cooldown(stabCooldown));
+        animator.speed = animatorDefSpeed;
+        attack.enabled = false;
     }
 
     IEnumerator Cooldown(float time)
     {
         yield return new WaitForSeconds(time);
         canFire = true;
-    } //When the player can use the dash again
-
-    IEnumerator Slash(float time)
-    {
-        attack.enabled = true;
-        yield return new WaitForSeconds(0.05f);
-        attack.enabled = false;
-        yield return new WaitForSeconds(time);
-        attack.enabled = true;
-        yield return new WaitForSeconds(0.05f);
-        attack.enabled = false;
-        yield return new WaitForSeconds(time);
-        attack.enabled = true;
-        yield return new WaitForSeconds(0.05f);
-        attack.enabled = false;
-        yield return new WaitForSeconds(time);
-        attack.enabled = true;
-        yield return new WaitForSeconds(0.05f);
-        attack.enabled = false;
-        player.UsingDefault(false);
-        StartCoroutine(Cooldown(stabCooldown));
     } //When the player can use the dash again
 
     private void OnTriggerEnter2D(Collider2D other)
