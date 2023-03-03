@@ -7,7 +7,6 @@ public class Crossbow : MonoBehaviour
     [SerializeField] private Crossbow_Bullet beam;
     [Tooltip("The use timer")]
     [SerializeField] private float timer = 2f;
-    [SerializeField] private float playerSlowness = 10f;
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
     [SerializeField] private float lifeTime = 20f;

@@ -163,7 +163,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
 
                             if (g.tag == "Player" && g != player.gameObject)
                             {
-                                g.GetComponent<PlayerBody>().damagePlayer(baseDamage, player);
+                                g.GetComponent<PlayerBody>().damagePlayer(glueDamage, player);
                             }
                             else if (g.tag == "Lost")
                             {
