@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Crossbow
+  m_Controller: {fileID: 9100000, guid: 3538f6cff2ae4f94fb957bc0b930ce39, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 2c4b0fe1832197040bd2e24352789948, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4faef79bb263d984791ab184a3e62fdb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0309e6b5b900ce9498d0f916201b472d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f2d600aafd18a7c498c271d87124f310, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e8a0bc6384432854fa01c8d71c35a726, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aafb876ad32f8444c89f0a4448d5e698, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 82981a744ccbcc345b62b3a17b23e976, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 366ba1aa499fafa4aae88fc801251de1, type: 2}

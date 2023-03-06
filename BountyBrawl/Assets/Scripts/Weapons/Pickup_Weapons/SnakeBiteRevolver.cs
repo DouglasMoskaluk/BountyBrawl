@@ -32,12 +32,15 @@ public class SnakeBiteRevolver : MonoBehaviour
     private float tempLifeTime;
     private float maxAmmo;
 
+    private Animator animator;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
         sprite = spriteRenderer.sprite;
         spriteRenderer.sortingLayerName = "Midground";
         tempLifeTime = lifeTime;
@@ -46,6 +49,9 @@ public class SnakeBiteRevolver : MonoBehaviour
 
     private void OnEnable()
     {
+        animator.applyRootMotion = false;
+        animator.SetTrigger("Idle");
+        animator.SetBool("Fire1", false);
         lifeTime = tempLifeTime;
         ammo = maxAmmo;
     }
@@ -60,6 +66,10 @@ public class SnakeBiteRevolver : MonoBehaviour
             }
             if (player.getThrow() != 0)
             {
+                animator.applyRootMotion = true;
+                animator.SetTrigger("Idle");
+                animator.SetBool("Fire1", false);
+                animator.SetBool("Reload", false);
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
         }
@@ -89,9 +99,20 @@ public class SnakeBiteRevolver : MonoBehaviour
             SnakeBiteRevolver_Bullet bull = bulletGO.GetComponent<SnakeBiteRevolver_Bullet>();
             bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
             bulletGO.SetActive(true);
+            animator.SetBool("Fire1", true);
             StartCoroutine(Cooldown(bulletTime));
         }
     }
+
+    public void Idle()
+    {
+        animator.applyRootMotion = true;
+        animator.SetBool("Fire1", false);
+        animator.SetTrigger("Idle");
+    }
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WeaponHolder" && canUse)

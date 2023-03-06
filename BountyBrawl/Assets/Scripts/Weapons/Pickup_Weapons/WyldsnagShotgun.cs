@@ -34,12 +34,15 @@ public class WyldsnagShotgun : MonoBehaviour
     private float tempLifeTime;
     private float maxAmmo;
 
+    private Animator animator;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
         sprite = spriteRenderer.sprite;
         spriteRenderer.sortingLayerName = "Midground";
         tempLifeTime = lifeTime;
@@ -48,8 +51,10 @@ public class WyldsnagShotgun : MonoBehaviour
 
     private void OnEnable()
     {
+        ReloadEnd();
         lifeTime = tempLifeTime;
         ammo = maxAmmo;
+        animator.applyRootMotion = true;
     }
 
     private void Update()
@@ -67,6 +72,7 @@ public class WyldsnagShotgun : MonoBehaviour
             }
             if (player.getThrow() != 0)
             {
+                animator.applyRootMotion = true;
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
 
@@ -107,6 +113,7 @@ public class WyldsnagShotgun : MonoBehaviour
         {
             ammo--;
             canFire = false;
+            animator.SetBool("Fire1", true);
 
             for (int i = 0; i < 5; i++)
             {
@@ -127,6 +134,7 @@ public class WyldsnagShotgun : MonoBehaviour
         {
             ammo -= 2;
             canFire = false;
+            animator.SetBool("Fire2", true);
 
             Vector2 traj = trajSpawn[0].position - bulletSpawn.position; //Get the trajectory of the bullet
             traj.Normalize();
@@ -136,6 +144,23 @@ public class WyldsnagShotgun : MonoBehaviour
             bulletGO.SetActive(true);
             StartCoroutine(Cooldown(bulletTime));
         }
+    }
+
+    public void ReloadStart()
+    {
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Fire2", false);
+        animator.SetBool("Reload", true);
+        animator.applyRootMotion = false;
+    }
+
+    public void ReloadEnd()
+    {
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Fire2", false);
+        animator.SetBool("Reload", false);
+        animator.SetTrigger("Idle");
+        animator.applyRootMotion = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

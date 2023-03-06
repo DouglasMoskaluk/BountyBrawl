@@ -31,12 +31,15 @@ public class Crossbow : MonoBehaviour
     private float tempTimer;
     private float tempLifeTime;
 
+    private Animator animator;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
         sprite = spriteRenderer.sprite;
         canShoot = true;
         spriteRenderer.sortingLayerName = "Midground";
@@ -47,6 +50,8 @@ public class Crossbow : MonoBehaviour
 
     private void OnEnable()
     {
+        Idle();
+        animator.enabled = false;
         timer = tempTimer;
         lifeTime = tempLifeTime;
     }
@@ -61,6 +66,8 @@ public class Crossbow : MonoBehaviour
                 beam.Deactivation(false);
                 beam.gameObject.SetActive(true);
                 firing = true;
+                animator.SetBool("Fire1", true);
+                animator.enabled = true;
                 Shoot1();//shoot gun if there is ammo and if player is holding the trigger
             }
             else
@@ -75,6 +82,8 @@ public class Crossbow : MonoBehaviour
             }
             if (player.getThrow() != 0)
             {
+                Idle();
+                animator.enabled = true;
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
 
@@ -83,7 +92,7 @@ public class Crossbow : MonoBehaviour
             {
                 player.ExitGlue();
                 player.SetShield(false);
-                gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
+                spriteRenderer.sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon
                 spriteRenderer.sortingLayerName = "Midground";
@@ -120,6 +129,28 @@ public class Crossbow : MonoBehaviour
         beam.Fire(player); //Pass the player   
     }
 
+    public void Fire2()
+    {
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Fire2", true);
+    }
+
+    public void Idle()
+    {
+        animator.SetTrigger("Idle");
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Fire2", false);
+        animator.SetBool("Reload", false);
+        animator.enabled = false;
+    }
+
+    public void Reload()
+    {
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Fire2", false);
+        animator.SetBool("Reload", true);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WeaponHolder" && canUse)
@@ -129,6 +160,7 @@ public class Crossbow : MonoBehaviour
             if (!checker.UsingWeapon())
             {
                 spriteRenderer.sortingLayerName = "Foreground";
+                animator.enabled = false;
 
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
@@ -138,18 +170,18 @@ public class Crossbow : MonoBehaviour
 
                 if (player.GetPlayerCharacter() == 0)
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[0];
+                    spriteRenderer.sprite = holding[0];
                 }else if(player.GetPlayerCharacter() == 1)
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[1];
+                    spriteRenderer.sprite = holding[1];
                 }
                 else if (player.GetPlayerCharacter() == 2)
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[2];
+                    spriteRenderer.sprite = holding[2];
                 }
                 else
                 {
-                    gameObject.GetComponent<SpriteRenderer>().sprite = holding[3];
+                    spriteRenderer.sprite = holding[3];
                 }
 
                 //Move weapon in desired position

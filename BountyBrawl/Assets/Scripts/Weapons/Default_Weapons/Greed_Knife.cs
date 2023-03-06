@@ -32,6 +32,13 @@ public class Greed_Knife : MonoBehaviour
     private void OnEnable()
     {
         canFire = true;
+        player.UsingDefault(false);
+        canFire = true;
+        animator.SetBool("Attack", false);
+        animator.SetTrigger("Idle");
+        animator.speed = animatorDefSpeed;
+        transform.rotation = defRotation;
+        animator.keepAnimatorControllerStateOnDisable = true;
     }
 
     private void OnDisable()
@@ -41,7 +48,6 @@ public class Greed_Knife : MonoBehaviour
         StopAllCoroutines();
         animator.speed = animatorDefSpeed;
         transform.rotation = defRotation;
-        animator.SetBool("Attack", false);
     }
 
     private void Update()

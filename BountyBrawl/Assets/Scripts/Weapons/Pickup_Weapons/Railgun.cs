@@ -32,6 +32,8 @@ public class Railgun : MonoBehaviour
     private float tempTimer;
     private float tempLifeTime;
 
+    [SerializeField] private Animator animator;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
@@ -41,6 +43,7 @@ public class Railgun : MonoBehaviour
         sprite = spriteRenderer.sprite;
         canShoot = true;
         spriteRenderer.sortingLayerName = "Midground";
+        beam.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Midground";
         firing = false;
         tempTimer = timer;
         tempLifeTime = lifeTime;
@@ -48,6 +51,9 @@ public class Railgun : MonoBehaviour
 
     private void OnEnable()
     {
+        animator.SetTrigger("Idle");
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Reload", false);
         timer = tempTimer;
         lifeTime = tempLifeTime;
     }
@@ -61,6 +67,7 @@ public class Railgun : MonoBehaviour
             {
                 beam.Deactivation(false);
                 beam.gameObject.SetActive(true);
+                animator.SetBool("Fire1", true);
                 firing = true;
                 player.SetShield(true);
                 Shoot1();//shoot gun if there is ammo and if player is holding the tringger
@@ -69,6 +76,7 @@ public class Railgun : MonoBehaviour
             {
                 player.SetShield(false);
                 beam.Deactivation(true);
+                Reload();
 
                 if (firing == true)
                 {
@@ -78,6 +86,9 @@ public class Railgun : MonoBehaviour
             }
             if (player.getThrow() != 0)
             {
+                animator.SetTrigger("Idle");
+                animator.SetBool("Fire1", false);
+                animator.SetBool("Reload", false);
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
 
@@ -90,6 +101,7 @@ public class Railgun : MonoBehaviour
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon
                 spriteRenderer.sortingLayerName = "Midground";
+                beam.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Midground";
                 thrown = false;
                 box.isTrigger = true;
                 player = null; //sets the player to null to wait for next player
@@ -123,6 +135,18 @@ public class Railgun : MonoBehaviour
         beam.Fire(player); //Pass the player   
     }
 
+    public void Reload()
+    {
+        animator.SetBool("Reload", true);
+        animator.SetBool("Fire1", false);
+    }
+
+    public void FinishReload()
+    {
+        animator.SetBool("Reload", false);
+        animator.SetTrigger("Idle");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WeaponHolder" && canUse)
@@ -132,6 +156,7 @@ public class Railgun : MonoBehaviour
             if (!checker.UsingWeapon())
             {
                 spriteRenderer.sortingLayerName = "Foreground";
+                beam.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
 
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
@@ -189,6 +214,7 @@ public class Railgun : MonoBehaviour
 
             yield return nowThrow.Cooldown(traj, player.gameObject); //Wait till the throwing motion is over
             spriteRenderer.sortingLayerName = "Midground";
+            beam.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Midground";
             thrown = false;
             box.isTrigger = true;
             player = null; //sets the player to null to wait for next player

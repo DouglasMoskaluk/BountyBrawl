@@ -34,6 +34,7 @@ public class Ch_ChingRifle : MonoBehaviour
     private bool canThrow;
     private float tempLifeTime;
     private float maxAmmo;
+    private Animator animator;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class Ch_ChingRifle : MonoBehaviour
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
         sprite = spriteRenderer.sprite;
         spriteRenderer.sortingLayerName = "Midground";
         tempLifeTime = lifeTime;
@@ -50,6 +52,7 @@ public class Ch_ChingRifle : MonoBehaviour
     private void OnEnable()
     {
         lifeTime = tempLifeTime;
+        Idle();
     }
 
     private void Update()
@@ -67,6 +70,7 @@ public class Ch_ChingRifle : MonoBehaviour
             }
             if (player.getThrow() != 0)
             {
+                Idle();
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
 
@@ -107,6 +111,7 @@ public class Ch_ChingRifle : MonoBehaviour
         {
             ammo--;
             canFire = false;
+            animator.SetBool("Fire1", true);
 
             Vector2 traj = bulletSpawn.position - player.transform.position; //Get the trajectory of the bullet
             traj.Normalize();
@@ -126,6 +131,8 @@ public class Ch_ChingRifle : MonoBehaviour
             ammo -= 4;
             canFire = false;
 
+            animator.SetBool("Fire2", true);
+
             for (int i = 0; i < bulletsInCluster; i++)
             {
                 Vector2 traj = bulletSpawn.position - player.transform.position; //Get the trajectory of the bullet
@@ -134,9 +141,16 @@ public class Ch_ChingRifle : MonoBehaviour
                 Ch_ChingRifle_ClusBullet bull = bulletGO.GetComponent<Ch_ChingRifle_ClusBullet>();
                 bull.Fire(traj, player); //Pass the trajectory to the Fire method in the bullet script component
                 bulletGO.SetActive(true);
-                StartCoroutine(Cooldown(bulletTime));
+                StartCoroutine(Cooldown(bulletTime * 5f));
             }
         }
+    }
+
+    public void Idle()
+    {
+        animator.SetBool("Fire1", false);
+        animator.SetBool("Fire2", false);
+        animator.SetTrigger("Idle");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

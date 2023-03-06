@@ -125,7 +125,7 @@ MonoBehaviour:
   silverDamage: 5
   goldDamage: 10
   silverLifeTime: 0.4
-  goldLifeTime: 8
+  goldLifeTime: 2
   silverCluster: {fileID: 8912661155526624610, guid: 3b68cf2c91e1bb542ae42a42022e4f62, type: 3}
   goldCluster: {fileID: -6947737421493803727, guid: d924c4498ca01b34ba123420fdc3ed9c, type: 3}
   silverBulletTrail:

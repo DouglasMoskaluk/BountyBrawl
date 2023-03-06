@@ -57,6 +57,7 @@ public class PlayerBody : MonoBehaviour
     private float tempSpeed;
     private int lives;
     private bool cursed; //If the players will start having their lives
+    private bool dead; //If player is dead
 
     //Knockback
     private bool knockbacked; //If player is hit with knockback
@@ -281,7 +282,7 @@ public class PlayerBody : MonoBehaviour
 
     public void damagePlayer(float damage, PlayerBody player)
     {
-        if (!shielded)
+        if (!shielded && !dead)
         {
             StartCoroutine(Hit());
             health -= damage;
@@ -302,6 +303,10 @@ public class PlayerBody : MonoBehaviour
     private IEnumerator Death()
     {
         yield return new WaitForSeconds(0.1f);
+        dead = true;
+        playerRB.velocity = Vector2.zero;
+        sprite.material.color = Color.white;
+        headSprite.material.color = Color.white;
         canMove = false;
         animator.SetTrigger("Death");
         animator.SetBool("Attacking", false);
@@ -346,6 +351,7 @@ public class PlayerBody : MonoBehaviour
     //Respawns player with stats
     private void Respawn()
     {
+        dead = false;
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
         animator.SetBool("Respawn", false);
@@ -382,7 +388,10 @@ public class PlayerBody : MonoBehaviour
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)
     {
-        poison = StartCoroutine(Poison(dam, interval, amount, player));
+        if (!dead)
+        {
+            poison = StartCoroutine(Poison(dam, interval, amount, player));
+        }
     }
 
     public Coroutine IsPoisoned() { return poison; }
