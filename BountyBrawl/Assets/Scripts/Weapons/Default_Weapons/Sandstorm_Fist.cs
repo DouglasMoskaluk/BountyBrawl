@@ -69,6 +69,7 @@ public class Sandstorm_Fist : MonoBehaviour
 
             traj = player.GetFacing(); //Get the trajectory of the dash
 
+            player.StartAttack();
             StartCoroutine(Dash(dashTime));
         } //If player can dash then do stop player from moving and 
     }
@@ -85,6 +86,7 @@ public class Sandstorm_Fist : MonoBehaviour
         player.ChangeMove(false); //Player cannot move while dashing
         yield return new WaitForSeconds(time);
         StartCoroutine(Cooldown(fistTime));
+        player.EndAttack();
         isDashing = false;
         player.UsingDefault(false);
         player.ChangeMove(true);

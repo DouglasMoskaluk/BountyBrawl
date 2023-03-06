@@ -56,6 +56,7 @@ public class Emerald_Hammer : MonoBehaviour
         {
             if (player.getFire1() != 0 && canFire)
             {
+                player.StartAttack();
                 StartCoroutine(Shoot1());
             }
         }

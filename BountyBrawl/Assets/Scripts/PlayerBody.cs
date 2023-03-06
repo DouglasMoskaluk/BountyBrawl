@@ -96,6 +96,7 @@ public class PlayerBody : MonoBehaviour
         }
         else
         {
+            animator.SetBool("Attacking", false);
             defaultWeapon.SetActive(false);
         } //Turns on or off hand depending on if the player has a weapon
         if (weapon == true)
@@ -285,24 +286,27 @@ public class PlayerBody : MonoBehaviour
             StartCoroutine(Hit());
             health -= damage;
 
-            if(health <= 0)
+            if(health <= 0 && weaponHolder.gameObject.activeSelf)
             {
+                StartCoroutine(Death());
+
                 if (cursed)
                 {
                     lives--;
                 }
 
-                if(lives >= 0)
-                {
-                    StartCoroutine(Resurrect());
-                }
-                else
-                {
-                    gameObject.SetActive(false);
-                }
-
             }
         }
+    }
+
+    private IEnumerator Death()
+    {
+        yield return new WaitForSeconds(0.1f);
+        canMove = false;
+        animator.SetTrigger("Death");
+        animator.SetBool("Attacking", false);
+        weaponHolder.gameObject.SetActive(false);
+        headSprite.gameObject.SetActive(false);
     }
 
     //player is hit by something
@@ -323,9 +327,30 @@ public class PlayerBody : MonoBehaviour
         }
     }
 
-    private IEnumerator Resurrect()
+    //Moves player to respawn poisition and respawns if they have lives
+    private void MoveToRespawn()
     {
-        yield return new WaitForSeconds(0.1f);
+        transform.position = spawnPoint.position;
+
+        if (lives >= 0)
+        {
+            animator.SetBool("Respawn", true);
+
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    //Respawns player with stats
+    private void Respawn()
+    {
+        sprite.material.color = Color.white;
+        headSprite.material.color = Color.white;
+        animator.SetBool("Respawn", false);
+        weaponHolder.gameObject.SetActive(true);
+        headSprite.gameObject.SetActive(true);
         transform.position = spawnPoint.position;
         poison = null;
         knockbacked = false;
@@ -336,8 +361,23 @@ public class PlayerBody : MonoBehaviour
         hammer = false;
         weaponIndex = 0;
         health = 100;
-        sprite.material.color = Color.white;
-        headSprite.material.color = Color.white;
+    }
+
+    public void StartAttack()
+    {
+        //If player is not sandstorm then get rid of the head
+        if (character != 0)
+        {
+            headSprite.gameObject.SetActive(false);
+        }
+        animator.SetBool("Attacking", true);
+    }
+
+    public void EndAttack()
+    {
+        headSprite.gameObject.SetActive(true);
+        animator.SetBool("Attacking", false);
+        animator.SetTrigger("Idle");
     }
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)

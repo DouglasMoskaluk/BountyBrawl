@@ -1,0 +1,384 @@
+fileFormatVersion: 2
+guid: df69f2c75bef1d04996039cca09b6351
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7961675596520088876
+    second: prismofpower_shoot_0
+  - first:
+      213: -3913397106705999050
+    second: prismofpower_shoot_1
+  - first:
+      213: -4743193893071419359
+    second: prismofpower_shoot_2
+  - first:
+      213: 532799932810659830
+    second: prismofpower_shoot_3
+  - first:
+      213: 594756278798130021
+    second: prismofpower_shoot_4
+  - first:
+      213: -6587580131318702410
+    second: prismofpower_shoot_5
+  - first:
+      213: 5642649115767485897
+    second: prismofpower_shoot_6
+  - first:
+      213: 1517894334613002715
+    second: prismofpower_shoot_7
+  - first:
+      213: 4779560566176440402
+    second: prismofpower_shoot_8
+  - first:
+      213: 893123212552554896
+    second: prismofpower_shoot_9
+  - first:
+      213: 603694937107420702
+    second: prismofpower_shoot_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 3
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: prismofpower_shoot_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 23
+        width: 21
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25e973b5cd8d7e60800000000000000
+      internalID: 7961675596520088876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 24
+        width: 21
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b5fb5c012d0b9c0800000000000000
+      internalID: -3913397106705999050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 25
+        width: 17
+        height: 9
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1280da6e84acc2eb0800000000000000
+      internalID: -4743193893071419359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 23
+        width: 13
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7088b47b2e46700800000000000000
+      internalID: 532799932810659830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_4
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 25
+        width: 5
+        height: 9
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b12b53faff04800800000000000000
+      internalID: 594756278798130021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_5
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 26
+        width: 4
+        height: 7
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bed357e5c63494a0800000000000000
+      internalID: -6587580131318702410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_6
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 24
+        width: 10
+        height: 11
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c53e798977be4e40800000000000000
+      internalID: 5642649115767485897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_7
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 23
+        width: 12
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd99f2dead4a01510800000000000000
+      internalID: 1517894334613002715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_8
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 23
+        width: 8
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25069610309645240800000000000000
+      internalID: 4779560566176440402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_9
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 17
+        width: 4
+        height: 24
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 099c9d074d2056c00800000000000000
+      internalID: 893123212552554896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prismofpower_shoot_10
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 29
+        width: 2
+        height: 1
+      alignment: 9
+      pivot: {x: 0.2, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e165df6c851c06800800000000000000
+      internalID: 603694937107420702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

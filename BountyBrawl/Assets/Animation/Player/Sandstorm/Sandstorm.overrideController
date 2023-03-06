@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sandstorm
+  m_Controller: {fileID: 9100000, guid: 64a186a2575a7be4a86d7d91a9e005ad, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: abc7a8b50550d5c438cc6cdabcbeaef7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: adf0cd36ca5b7c446aceaff32e069416, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: efb205dcb0530f9469b8b4e2228f6bb1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6291d417c721d244e96fa7c352d33a30, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1d9c06f08f117994bbefabffe8355f51, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b8a4414e22e4b6946a5186895ddd1236, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c7ced37079180794eb24b9bb7093cdbd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 08dbc5476e680d64a97696f1938d3322, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5432bb8bda8e88442be467134cda144d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2d59b0d937086fd4db32fce9abb66353, type: 2}
