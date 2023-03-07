@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -352,6 +353,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      nagakome_respawn_6: 163937591537829461
+      nagakome_respawn_2: -662478428180279551
+      nagakome_respawn_3: 6722043938943831419
+      nagakome_respawn_5: -122385261782206534
+      nagakome_respawn_4: -8016249963622107401
+      nagakome_respawn_0: 8583309396189717410
+      nagakome_respawn_1: 1161230705513755293
+      nagakome_respawn_9: 2581201893591356118
+      nagakome_respawn_7: -8903579307897075644
+      nagakome_respawn_8: 8891875943671922408
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
