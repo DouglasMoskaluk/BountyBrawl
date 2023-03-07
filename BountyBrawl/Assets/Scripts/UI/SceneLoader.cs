@@ -55,7 +55,7 @@ public class SceneLoader : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1f;
         PauseScript.isPaused = false;
     }
