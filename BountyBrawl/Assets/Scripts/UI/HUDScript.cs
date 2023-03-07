@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HUDScript : MonoBehaviour
     // int weaponNum;
     float playerHealth;
     int playerLives;
+    float playerMoney;
     float sliderHealth;
 
     [SerializeField] private GameObject playerCharacter;
@@ -35,6 +37,8 @@ public class HUDScript : MonoBehaviour
     [SerializeField] private GameObject heart2;
 
     [SerializeField] private Slider slider;
+
+    public TMP_Text moneyText;
 
     // Start is called before the first frame update
     void Start()
@@ -70,9 +74,16 @@ public class HUDScript : MonoBehaviour
         //weaponNum = playerCharacter.GetComponent<PlayerBody>().getWeaponIndex();
         playerHealth = playerCharacter.GetComponent<PlayerBody>().getHealth();
         playerLives = playerCharacter.GetComponent<PlayerBody>().getLives();
+        playerMoney = playerCharacter.GetComponent<PlayerBody>().getMoney();
         //WeaponIcon();
         Hearts();
         HealthBar();
+        Money();
+    }
+
+    private void Money()
+    {
+        moneyText.text = playerMoney.ToString();
     }
 
     private void HealthBar()

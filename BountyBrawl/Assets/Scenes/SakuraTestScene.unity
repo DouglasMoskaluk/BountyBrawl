@@ -3334,6 +3334,7 @@ MonoBehaviour:
   heart1: {fileID: 987297141}
   heart2: {fileID: 479283218}
   slider: {fileID: 796036892}
+  moneyText: {fileID: 1181754681}
 --- !u!1 &395951141
 GameObject:
   m_ObjectHideFlags: 0
@@ -6059,7 +6060,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1405243181}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
@@ -11745,7 +11746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1405243180
 Transform:
   m_ObjectHideFlags: 0
@@ -13532,6 +13533,7 @@ MonoBehaviour:
   heart1: {fileID: 327650860}
   heart2: {fileID: 44697222}
   slider: {fileID: 1744570090}
+  moneyText: {fileID: 2126324582}
 --- !u!1 &1707304301
 GameObject:
   m_ObjectHideFlags: 0
@@ -14607,6 +14609,7 @@ MonoBehaviour:
   heart1: {fileID: 284968321}
   heart2: {fileID: 822706890}
   slider: {fileID: 983431391}
+  moneyText: {fileID: 451954705}
 --- !u!1 &1836605893
 GameObject:
   m_ObjectHideFlags: 0
@@ -14996,6 +14999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878793460}
+  - component: {fileID: 1878793461}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -15021,6 +15025,22 @@ Transform:
   m_Father: {fileID: 689722337}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1878793461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878793459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c864e85de80b485478de109c8e31e020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sand: {fileID: 741229552}
+  nag: {fileID: 1855386842}
+  greed: {fileID: 654661419}
+  emr: {fileID: 1604702279}
 --- !u!1 &1883184508
 GameObject:
   m_ObjectHideFlags: 0
@@ -15806,6 +15826,7 @@ MonoBehaviour:
   heart1: {fileID: 707321850}
   heart2: {fileID: 461977777}
   slider: {fileID: 1913395142}
+  moneyText: {fileID: 1836605895}
 --- !u!1 &1933843537
 GameObject:
   m_ObjectHideFlags: 0

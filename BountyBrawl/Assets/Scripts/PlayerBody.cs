@@ -69,6 +69,8 @@ public class PlayerBody : MonoBehaviour
     [Tooltip("The shield protecting the player")]
     [SerializeField] private GameObject shield;
 
+   
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -85,6 +87,8 @@ public class PlayerBody : MonoBehaviour
         money = 0;
         knockbacked = false;
         shielded = false;
+
+        
     }
 
     private void Update()
@@ -433,6 +437,7 @@ public class PlayerBody : MonoBehaviour
 
     public int getWeaponIndex() { return weaponIndex; }
 
+    public float getMoney() { return money; }
     public float getHealth() { return health; }
 
     public int getLives() { return lives; }
@@ -507,12 +512,18 @@ public class PlayerBody : MonoBehaviour
         return playerIndex;
     } //Player index for multiple players
 
+    public void SetPlayerIndex(int index)
+    {
+        playerIndex = index;
+    }
+
     //Gets what character the player is playing
     public int GetPlayerCharacter()
     {
         return character;
     }
 
+    public bool getDead() { return dead; }
     public void Curse() { cursed = true; }
 
 }

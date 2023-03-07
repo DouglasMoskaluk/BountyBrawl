@@ -811,7 +811,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 3
   character: 2
   animator: {fileID: 147186569}
   shield: {fileID: 1619643162}
@@ -881,7 +881,7 @@ Transform:
   - {fileID: 879350385}
   - {fileID: 1619643165}
   m_Father: {fileID: 246973510}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &147186568
 MonoBehaviour:
@@ -1967,6 +1967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246973510}
+  - component: {fileID: 246973511}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -1985,13 +1986,29 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 412174307}
   - {fileID: 888641975}
-  - {fileID: 147186567}
   - {fileID: 2068640318}
+  - {fileID: 412174307}
+  - {fileID: 147186567}
   m_Father: {fileID: 1199802240}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &246973511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246973509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c864e85de80b485478de109c8e31e020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sand: {fileID: 412174303}
+  nag: {fileID: 888641970}
+  greed: {fileID: 147186562}
+  emr: {fileID: 2068640313}
 --- !u!1 &247630258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,7 +3117,7 @@ Transform:
   - {fileID: 2055119095}
   - {fileID: 1330929041}
   m_Father: {fileID: 246973510}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &412174308
 BoxCollider2D:
@@ -5785,6 +5802,7 @@ MonoBehaviour:
   heart1: {fileID: 1826231021}
   heart2: {fileID: 181742351}
   slider: {fileID: 1904240633}
+  moneyText: {fileID: 1035207822}
 --- !u!1 &861150950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6141,7 +6159,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 1
+  playerIndex: 0
   character: 1
   animator: {fileID: 888641976}
   shield: {fileID: 1383004610}
@@ -6211,7 +6229,7 @@ Transform:
   - {fileID: 1929533139}
   - {fileID: 1383004611}
   m_Father: {fileID: 246973510}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &888641976
 Animator:
@@ -6495,7 +6513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &918596982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6587,6 +6605,7 @@ MonoBehaviour:
   heart1: {fileID: 163814188}
   heart2: {fileID: 1033371184}
   slider: {fileID: 1952586081}
+  moneyText: {fileID: 1667616033}
 --- !u!1 &926125035
 GameObject:
   m_ObjectHideFlags: 0
@@ -7626,6 +7645,7 @@ MonoBehaviour:
   heart1: {fileID: 1836493830}
   heart2: {fileID: 1059399996}
   slider: {fileID: 116403862}
+  moneyText: {fileID: 1694905961}
 --- !u!1 &1033371184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8153,6 +8173,7 @@ MonoBehaviour:
   heart1: {fileID: 1768744392}
   heart2: {fileID: 721293318}
   slider: {fileID: 2104143349}
+  moneyText: {fileID: 2130321977}
 --- !u!1 &1199802239
 GameObject:
   m_ObjectHideFlags: 0
@@ -14698,7 +14719,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 3
+  playerIndex: 1
   character: 3
   animator: {fileID: 2068640320}
   shield: {fileID: 1337738815}
@@ -14769,7 +14790,7 @@ Transform:
   - {fileID: 1337738816}
   - {fileID: 933852471}
   m_Father: {fileID: 246973510}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2068640319
 MonoBehaviour:
