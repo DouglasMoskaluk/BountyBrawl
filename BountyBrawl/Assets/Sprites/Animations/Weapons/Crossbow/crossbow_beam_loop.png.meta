@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -232,6 +233,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      crossbow_beam_loop_1: 699756881664895106
+      crossbow_beam_loop_2: -7496073709948727302
+      crossbow_beam_loop_4: -7596130763107563447
+      crossbow_beam_loop_3: 6249429706723346957
+      crossbow_beam_loop_0: -8520092163489324142
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
