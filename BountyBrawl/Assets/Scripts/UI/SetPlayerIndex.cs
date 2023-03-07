@@ -58,6 +58,7 @@ public class SetPlayerIndex : MonoBehaviour
             greed.GetComponent<PlayerBody>().SetPlayerIndex(0);
         }
         Debug.Log(p1char);
+        Debug.Log(p2char);
         ///
 
         if (p2char == 0)
