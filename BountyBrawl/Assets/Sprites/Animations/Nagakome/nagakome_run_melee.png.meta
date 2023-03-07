@@ -36,7 +36,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -209,11 +208,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      nagakome_run_melee_3: -2695001564458873338
-      nagakome_run_melee_1: -5284098906375134137
-      nagakome_run_melee_2: -1179285205648024172
-      nagakome_run_melee_0: -2569587096356675756
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

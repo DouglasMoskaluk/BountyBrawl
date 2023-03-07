@@ -36,7 +36,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -209,11 +208,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      emerald_idle_body_2: 7559183728640657502
-      emerald_idle_body_3: 2962373497828670393
-      emerald_idle_body_0: 8949876639471782438
-      emerald_idle_body_1: -7764566255428465572
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

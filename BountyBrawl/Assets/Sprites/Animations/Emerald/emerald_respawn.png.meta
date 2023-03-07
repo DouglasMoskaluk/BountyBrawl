@@ -54,7 +54,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -353,17 +352,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      emerald_respawn_2: 6607742122236446230
-      emerald_respawn_3: 5369766159862230373
-      emerald_respawn_9: 1586144429849621128
-      emerald_respawn_7: 2332885421103814569
-      emerald_respawn_0: 3374072182697068432
-      emerald_respawn_6: -1492021598983204463
-      emerald_respawn_1: 5729180966951856385
-      emerald_respawn_4: -314435153363132153
-      emerald_respawn_8: -6729918509106915917
-      emerald_respawn_5: -8120908127297114047
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

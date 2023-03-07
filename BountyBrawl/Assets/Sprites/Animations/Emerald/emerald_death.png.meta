@@ -87,7 +87,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -617,28 +616,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      emerald_death_8: -6736662784170516497
-      emerald_death_2: -508338064012552260
-      emerald_death_0: 4001923549032499234
-      emerald_death_3: -8927321359064830076
-      emerald_death_10: 2710054092382031901
-      emerald_death_18: 8281440438420055987
-      emerald_death_15: -8506084179246352163
-      emerald_death_20: -3194330410870858289
-      emerald_death_13: 274931957158855330
-      emerald_death_4: -4016106408879037199
-      emerald_death_14: -1124723282599664659
-      emerald_death_11: -1426752766660313104
-      emerald_death_16: -3207725664579447037
-      emerald_death_5: -2602683674210814767
-      emerald_death_19: -8675500799562313707
-      emerald_death_7: -4076099706920077036
-      emerald_death_9: -4045143519108303711
-      emerald_death_17: -6737584992567393385
-      emerald_death_6: -2577315888814533340
-      emerald_death_1: -7078562517746927056
-      emerald_death_12: 7993226232478714881
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

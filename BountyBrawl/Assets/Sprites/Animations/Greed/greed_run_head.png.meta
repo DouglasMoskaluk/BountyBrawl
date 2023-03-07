@@ -36,7 +36,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -209,11 +208,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      greed_run_head_2: 6981494281605189103
-      greed_run_head_3: -1295299766307625188
-      greed_run_head_1: 7101743827435035466
-      greed_run_head_0: -9063808684039553107
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

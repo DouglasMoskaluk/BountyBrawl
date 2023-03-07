@@ -48,7 +48,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -305,15 +304,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      emerald_jump_2: 3638781326558104971
-      emerald_jump_4: 8383941055728644449
-      emerald_jump_3: -4273679516322950850
-      emerald_jump_0: -7831103530507315441
-      emerald_jump_7: -2407958456948089143
-      emerald_jump_1: 4763351477416045242
-      emerald_jump_6: -2258179182320116580
-      emerald_jump_5: 7600759504927879101
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

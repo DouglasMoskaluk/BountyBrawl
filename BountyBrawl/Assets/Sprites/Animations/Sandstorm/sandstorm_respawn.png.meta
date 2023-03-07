@@ -54,7 +54,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -353,17 +352,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sandstorm_respawn_3: 8924734848784331270
-      sandstorm_respawn_4: 4772923651495485987
-      sandstorm_respawn_9: -2296582531975787479
-      sandstorm_respawn_7: -7160245956646430384
-      sandstorm_respawn_1: 7716030651523392089
-      sandstorm_respawn_6: -7385035691276587098
-      sandstorm_respawn_0: 5528780013541408334
-      sandstorm_respawn_8: -7599901955049303197
-      sandstorm_respawn_5: 3460317841268470500
-      sandstorm_respawn_2: 2092811079722114720
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
