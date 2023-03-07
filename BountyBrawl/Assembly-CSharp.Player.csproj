@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\Demo.cs" />
     <Compile Include="Assets\Scripts\SpriteRendering.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Sandstorm_Fist.cs" />
+    <Compile Include="Assets\Scripts\UI\SetPlayerIndex.cs" />
+    <Compile Include="Assets\Scripts\UI\ButtonHighlight.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonSelect.cs" />
     <Compile Include="Assets\Scripts\UI\PauseScript.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Ch_ChingRifle.cs" />
