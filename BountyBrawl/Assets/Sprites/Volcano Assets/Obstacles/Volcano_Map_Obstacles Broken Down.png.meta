@@ -90,6 +90,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -472,6 +473,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Volcano_Map_Obstacles_14: -3413261740325856823
+      Volcano_Map_Obstacles Broken Down_0: 8875139494597188156
+      Volcano_Map_Obstacles_15: 5751105607591229399
+      Volcano_Map_Obstacles_6: -3032142235164354283
+      Volcano_Map_Obstacles Broken Down_2: -194442164997358232
+      Volcano_Map_Obstacles_13: -6133763257577809245
+      Volcano_Map_Obstacles Broken Down_1: -6850390785509193924
+      Volcano_Map_Obstacles Broken Down_3: 8639741904933747690
+      Volcano_Map_Obstacles_1: -5073563657690296323
+      Volcano_Map_Obstacles_17: 1131200413008621982
+      Volcano_Map_Obstacles_5: 2134978743887386606
+      Volcano_Map_Obstacles_10: -5371625606409601167
+      Volcano_Map_Obstacles_4: 5709561911183162097
+      Volcano_Map_Obstacles_11: -3255281447201091940
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

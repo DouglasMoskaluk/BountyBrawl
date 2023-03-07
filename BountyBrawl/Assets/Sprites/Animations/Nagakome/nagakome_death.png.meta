@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -616,6 +617,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      nagakome_death_4: -1952153502167653286
+      nagakome_death_3: -8307095686314560565
+      nagakome_death_1: -3759633411129067873
+      nagakome_death_5: 585445778316857174
+      nagakome_death_9: -3275649660295910981
+      nagakome_death_17: 7337769668343276147
+      nagakome_death_0: -4501880790784391824
+      nagakome_death_8: 4800496238136990398
+      nagakome_death_14: -2038728938359164122
+      nagakome_death_13: 5491503337658233146
+      nagakome_death_15: 5449520140724818553
+      nagakome_death_10: -2538774618270784313
+      nagakome_death_18: -6876140568258883280
+      nagakome_death_6: 4545905671878262737
+      nagakome_death_16: 2886978087099993885
+      nagakome_death_7: 5005879146610897030
+      nagakome_death_12: 3018923106111937966
+      nagakome_death_2: -5438739635546473864
+      nagakome_death_11: -6011467292883689320
+      nagakome_death_19: 3242781230578750889
+      nagakome_death_20: -5672798429804434255
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

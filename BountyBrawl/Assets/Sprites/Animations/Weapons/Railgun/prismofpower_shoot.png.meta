@@ -57,6 +57,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -376,6 +377,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      prismofpower_shoot_6: 5642649115767485897
+      prismofpower_shoot_3: 532799932810659830
+      prismofpower_shoot_4: 594756278798130021
+      prismofpower_shoot_5: -6587580131318702410
+      prismofpower_shoot_7: 1517894334613002715
+      prismofpower_shoot_10: 603694937107420702
+      prismofpower_shoot_2: -4743193893071419359
+      prismofpower_shoot_8: 4779560566176440402
+      prismofpower_shoot_0: 7961675596520088876
+      prismofpower_shoot_1: -3913397106705999050
+      prismofpower_shoot_9: 893123212552554896
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

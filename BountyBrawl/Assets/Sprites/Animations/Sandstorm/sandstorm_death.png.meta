@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -616,6 +617,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      sandstorm_death_5: 8943492035945725210
+      sandstorm_death_7: 861813490859418531
+      sandstorm_death_1: -5340950882852959937
+      sandstorm_death_18: -597845778997954101
+      sandstorm_death_2: 5937249169163856929
+      sandstorm_death_15: 3297985399248919928
+      sandstorm_death_14: -6372326261554959981
+      sandstorm_death_20: -3092634310753341881
+      sandstorm_death_11: -2117012450908707687
+      sandstorm_death_10: -9056851099978115498
+      sandstorm_death_6: 3859555472592082458
+      sandstorm_death_16: -6684381818160800310
+      sandstorm_death_4: -6846577453738794576
+      sandstorm_death_8: 6400962581567728643
+      sandstorm_death_19: 8036832746070618694
+      sandstorm_death_13: -8381664467443826428
+      sandstorm_death_17: 5764844246373909405
+      sandstorm_death_0: -488925159518221739
+      sandstorm_death_3: 3493302005637904801
+      sandstorm_death_12: 6032797261609771570
+      sandstorm_death_9: 451816560829888389
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

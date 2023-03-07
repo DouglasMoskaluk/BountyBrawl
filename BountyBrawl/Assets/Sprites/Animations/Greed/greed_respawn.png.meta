@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -352,6 +353,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      greed_respawn_0: 41876857989045109
+      greed_respawn_6: 8115569009970548764
+      greed_respawn_4: 5948150010865330671
+      greed_respawn_8: -8918086589092614576
+      greed_respawn_5: -390371312239187771
+      greed_respawn_1: 6296739449769983750
+      greed_respawn_9: -7952427057954799362
+      greed_respawn_7: 8064938668268665931
+      greed_respawn_2: -2757965980137188340
+      greed_respawn_3: 4695947449079193480
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
