@@ -354,10 +354,12 @@ public class TheEater : MonoBehaviour
     public void DamageEnemy(float damage, PlayerBody player) 
     { 
         if (isMiniboss) 
-        { 
+        {
+            player.gameObject.GetComponent<StatTracker>().IncreaseEnemyDamage(damage);
             currHealth -= damage; 
             if(currHealth <= 0)
             {
+                player.gameObject.GetComponent<StatTracker>().IncreaseEaterKills();
                 player.IncreaseMoney(moneyEarn);
             }
         } 

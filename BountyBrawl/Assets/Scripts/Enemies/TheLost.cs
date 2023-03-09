@@ -362,10 +362,13 @@ public class TheLost : MonoBehaviour
     public Coroutine IsPoisoned() { return poison; }
 
     public void DamageEnemy(float damage, PlayerBody player) 
-    { 
+    {
+        player.gameObject.GetComponent<StatTracker>().IncreaseEnemyDamage(damage);
+
         currHealth -= damage;
         if (currHealth <= 0)
         {
+            player.gameObject.GetComponent<StatTracker>().IncreaseLostKills();
             player.IncreaseMoney(moneyEarn);
         }
     }

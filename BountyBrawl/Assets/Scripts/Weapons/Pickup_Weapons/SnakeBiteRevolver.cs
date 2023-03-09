@@ -91,6 +91,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     {
         if (canFire)
         {
+            animator.applyRootMotion = false;
             ammo--;
             canFire = false;
             Vector2 traj = bulletSpawn.position - transform.position; //Get the trajectory of the bullet

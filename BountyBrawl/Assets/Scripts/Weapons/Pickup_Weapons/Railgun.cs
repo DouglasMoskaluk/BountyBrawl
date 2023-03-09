@@ -65,12 +65,7 @@ public class Railgun : MonoBehaviour
 
             if (player.getFire1() != 0 && timer > 0 && !thrown && canShoot)
             {
-                beam.Deactivation(false);
-                beam.gameObject.SetActive(true);
                 animator.SetBool("Fire1", true);
-                firing = true;
-                player.SetShield(true);
-                Shoot1();//shoot gun if there is ammo and if player is holding the tringger
             }
             else
             {
@@ -97,6 +92,7 @@ public class Railgun : MonoBehaviour
             {
                 player.ExitGlue();
                 player.SetShield(false);
+                player.UsingRailgun(false);
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon
@@ -129,6 +125,15 @@ public class Railgun : MonoBehaviour
         }
     }
 
+    public void DoneCharging()
+    {
+        beam.Deactivation(false);
+        beam.gameObject.SetActive(true);
+        firing = true;
+        player.SetShield(true);
+        Shoot1();//shoot gun if there is ammo and if player is holding the trigger
+    }
+
     private void Shoot1()
     {
         beam.gameObject.SetActive(true);
@@ -159,6 +164,7 @@ public class Railgun : MonoBehaviour
                 beam.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
 
                 player = collision.transform.parent.GetComponent<PlayerBody>();
+                player.UsingRailgun(true);
                 player.ChangeWeapon(true);
                 canUse = false;
                 player.setWeaponIndex(1);
@@ -203,6 +209,7 @@ public class Railgun : MonoBehaviour
         {
             player.ExitGlue();
             player.SetShield(false);
+            player.UsingRailgun(false);
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon

@@ -734,6 +734,7 @@ GameObject:
   - component: {fileID: 147186563}
   - component: {fileID: 147186568}
   - component: {fileID: 147186569}
+  - component: {fileID: 147186570}
   m_Layer: 0
   m_Name: Greed
   m_TagString: Player
@@ -917,6 +918,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &147186570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147186562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currMoney: 0
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &149773215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2946,7 @@ GameObject:
   - component: {fileID: 412174308}
   - component: {fileID: 412174309}
   - component: {fileID: 412174310}
+  - component: {fileID: 412174311}
   m_Layer: 0
   m_Name: Sandstorm
   m_TagString: Player
@@ -3109,6 +3130,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &412174311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412174303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currMoney: 0
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &416290061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,9 +3688,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slamCooldown: 2
-  slamSpeed: 0.5
-  topAngle: 140
-  bottomAngle: -45
   damage: 19
   player: {fileID: 2068640316}
   weaponHolder: {fileID: 522300657}
@@ -6011,6 +6048,7 @@ GameObject:
   - component: {fileID: 888641972}
   - component: {fileID: 888641971}
   - component: {fileID: 888641976}
+  - component: {fileID: 888641978}
   - component: {fileID: 888641977}
   m_Layer: 0
   m_Name: Nagakome
@@ -6089,7 +6127,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 1
   character: 1
   animator: {fileID: 888641976}
   shield: {fileID: 1383004610}
@@ -6195,6 +6233,25 @@ MonoBehaviour:
   sortingOrderBase: 5000
   offset: 0
   runOnlyOnce: 0
+--- !u!114 &888641978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888641970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currMoney: 0
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &902925076
 GameObject:
   m_ObjectHideFlags: 0
@@ -8584,7 +8641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: -2
+  offset: 0
   runOnlyOnce: 0
 --- !u!1 &1288111411
 GameObject:
@@ -14426,6 +14483,7 @@ GameObject:
   - component: {fileID: 2068640314}
   - component: {fileID: 2068640319}
   - component: {fileID: 2068640320}
+  - component: {fileID: 2068640321}
   m_Layer: 0
   m_Name: Emerald
   m_TagString: Player
@@ -14503,7 +14561,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 1
+  playerIndex: 0
   character: 3
   animator: {fileID: 2068640320}
   shield: {fileID: 1337738815}
@@ -14610,6 +14668,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2068640321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068640313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currMoney: 0
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &2074939344
 GameObject:
   m_ObjectHideFlags: 0
