@@ -23,7 +23,7 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private float enemyDefaultSpeed = 600f;
 
-    [SerializeField] private float enemyDashSpeed = 900f;
+    [SerializeField] private float enemyDashSpeed = 30f;
 
     [SerializeField] private float dropTypeChance = 40f; //The chance of the lost dropping the weapon type weapon
     [SerializeField] private float dontDropChance = 70f; //The chance of the lost dropping nothing
@@ -36,7 +36,7 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private float baseHealth = 30f;
 
-    [SerializeField] private float dashTime = 3f;
+    [SerializeField] private float dashTime = 1f;
 
     [SerializeField] private Sprite dash;
 
@@ -74,6 +74,10 @@ public class TheLost : MonoBehaviour
     private int weapon; //The weapon the lost will drop on death
     private string dropChanceWeapon; //The weapon the type of lost is highly likely to drop
 
+    //For dashing
+    private bool dashing;
+    private Vector2 targetPos;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
@@ -86,8 +90,6 @@ public class TheLost : MonoBehaviour
 
         //Finds closest player to chase
         InvokeRepeating("UpdatePath", 0f, .5f);
-
-        //types = new List<Type>();
     }
 
     private void OnEnable()
@@ -95,6 +97,7 @@ public class TheLost : MonoBehaviour
         currDamage = baseDamage;
         currHealth = baseHealth;
         canDash = true;
+        dashing = false;
         canMove = true;
         aura.SetActive(false);
 
@@ -115,12 +118,15 @@ public class TheLost : MonoBehaviour
 
         foreach (var player in players)
         {
-            float dist = Vector3.Distance(player.transform.position, transform.position);
-
-            if (dist < distance)
+            if (player.isActiveAndEnabled)
             {
-                distance = dist;
-                target = player.gameObject;
+                float dist = Vector3.Distance(player.transform.position, transform.position);
+
+                if (dist < distance)
+                {
+                    distance = dist;
+                    target = player.gameObject;
+                }
             }
         }
         seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
@@ -133,12 +139,15 @@ public class TheLost : MonoBehaviour
 
         foreach(var player in players)
         {
-            float dist = Vector3.Distance(player.transform.position, transform.position);
-
-            if(dist < distance)
+            if (player.isActiveAndEnabled)
             {
-                distance = dist;
-                target = player.gameObject;
+                float dist = Vector3.Distance(player.transform.position, transform.position);
+
+                if (dist < distance)
+                {
+                    distance = dist;
+                    target = player.gameObject;
+                }
             }
         }
 
@@ -174,18 +183,32 @@ public class TheLost : MonoBehaviour
             if(distance < dashDistance && canDash)
             {
                 spriteRenderer.sprite = dash;
-                force = direction * enemyDashSpeed * Time.deltaTime;
+                targetPos = target.transform.position - transform.position;
+                dashing = true;
+                canDash = false;
+                force = Vector2.zero;
                 aura.SetActive(true);
+                StartCoroutine(Cooldown());
+            }
+            else 
+            {
+                if (!dashing)
+                {
+                    aura.SetActive(false);
+                    spriteRenderer.sprite = currSprite;
+                    force = direction * enemyDefaultSpeed * Time.deltaTime;
+                }
+            }
+
+            if (!dashing)
+            {
+                rb.AddForce(force);
             }
             else
             {
-                aura.SetActive(false);
-                spriteRenderer.sprite = currSprite;
-                force = direction * enemyDefaultSpeed * Time.deltaTime;
+                rb.velocity = targetPos.normalized * enemyDashSpeed;
+                return;
             }
-
-
-            rb.AddForce(force);
 
             float dist = Vector2.Distance(rb.position, path.vectorPath[currWaypoint]);
 
@@ -297,16 +320,20 @@ public class TheLost : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.transform.tag == "Player" && canDash)
+        if(collision.transform.tag == "Player" && dashing)
         {
-            collision.transform.GetComponent<PlayerBody>().damagePlayer(currDamage, null);
             canDash = false;
+            dashing = false;
+            rb.velocity = Vector2.zero;
+            collision.transform.GetComponent<PlayerBody>().damagePlayer(currDamage, null);
             StartCoroutine(Cooldown());
         }
     }
 
     IEnumerator Cooldown()
     {
+        yield return new WaitForSeconds(dashTime);
+        dashing = false;
         yield return new WaitForSeconds(dashTime);
         canDash = true;
     } //When the lost can dash into players and deal damage

@@ -816,6 +816,9 @@ MonoBehaviour:
   character: 2
   animator: {fileID: 147186569}
   shield: {fileID: 1619643162}
+  moneyLost: 20
+  poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
+  hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
 --- !u!212 &147186566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3002,6 +3005,9 @@ MonoBehaviour:
   character: 0
   animator: {fileID: 412174310}
   shield: {fileID: 1330929038}
+  moneyLost: 20
+  poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
+  hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
 --- !u!212 &412174306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4035,7 +4041,7 @@ MonoBehaviour:
   min: 50
   max: 5
   zoomSpeed: 70
-  eaterTeleportLockFOV: 50
+  eaterTeleportLockFOV: 70
 --- !u!1 &522300656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,6 +6137,9 @@ MonoBehaviour:
   character: 1
   animator: {fileID: 888641976}
   shield: {fileID: 1383004610}
+  moneyLost: 20
+  poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
+  hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
 --- !u!212 &888641974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14565,6 +14574,9 @@ MonoBehaviour:
   character: 3
   animator: {fileID: 2068640320}
   shield: {fileID: 1337738815}
+  moneyLost: 20
+  poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
+  hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
 --- !u!212 &2068640317
 SpriteRenderer:
   m_ObjectHideFlags: 0

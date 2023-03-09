@@ -77,6 +77,9 @@ public class PlayerBody : MonoBehaviour
     //Stat Tracking
     private StatTracker statTracker;
 
+    [SerializeField] private Color poisoned;
+    [SerializeField] private Color hit;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -133,7 +136,11 @@ public class PlayerBody : MonoBehaviour
         if(respawn != 0)
         { 
            lives = lives - 1;
-            
+        }
+
+        if (dead)
+        {
+            playerRB.velocity = Vector2.zero;
         }
 
 
@@ -268,8 +275,8 @@ public class PlayerBody : MonoBehaviour
 
     public IEnumerator Poison(float dam, float interval, float amount, PlayerBody player)
     {
-        sprite.material.color = Color.green;
-        headSprite.material.color = Color.green;
+        sprite.material.color = poisoned;
+        headSprite.material.color = poisoned;
         yield return new WaitForSeconds(interval);
 
         //Goes through each amount of poison and damages the player
@@ -316,15 +323,23 @@ public class PlayerBody : MonoBehaviour
             StartCoroutine(Hit());
             health -= damage;
 
-            player.gameObject.GetComponent<StatTracker>().IncreasePlayerDamage(damage);
+            if (player != null)
+            {
+                player.gameObject.GetComponent<StatTracker>().IncreasePlayerDamage(damage);
+            }
 
             if(health <= 0 && weaponHolder.gameObject.activeSelf)
             {
+                
+
                 float tempMoney = money * (moneyLost / 100);
                 IncreaseMoney(-tempMoney);
 
-                player.IncreaseMoney(tempMoney);
-                player.gameObject.GetComponent<StatTracker>().IncreasePlayerKills();
+                if (player != null)
+                {
+                    player.IncreaseMoney(tempMoney);
+                    player.gameObject.GetComponent<StatTracker>().IncreasePlayerKills();
+                }
                 StartCoroutine(Death());
 
                 if (cursed)
@@ -354,8 +369,8 @@ public class PlayerBody : MonoBehaviour
     //player is hit by something
     private IEnumerator Hit()
     {
-        sprite.material.color = Color.red;
-        headSprite.material.color = Color.red;
+        sprite.material.color = hit;
+        headSprite.material.color = hit;
         yield return new WaitForSeconds(0.5f);
         if (poison == null)
         {
@@ -364,8 +379,8 @@ public class PlayerBody : MonoBehaviour
         }
         else
         {
-            sprite.material.color = Color.green;
-            headSprite.material.color = Color.green;
+            sprite.material.color = poisoned;
+            headSprite.material.color = poisoned;
         }
     }
 
@@ -374,7 +389,7 @@ public class PlayerBody : MonoBehaviour
     {
         transform.position = spawnPoint.position;
 
-        if (lives >= 0)
+        if (lives > 0)
         {
             animator.SetBool("Respawn", true);
 
