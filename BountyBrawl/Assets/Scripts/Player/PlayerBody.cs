@@ -65,10 +65,7 @@ public class PlayerBody : MonoBehaviour
     private Vector2 knockbackDir; //Direction of knockback
 
     //Railgun
-    private bool shielded;
     private bool railgun;
-    [Tooltip("The shield protecting the player")]
-    [SerializeField] private GameObject shield;
 
     //Money
     [Tooltip("% amount of money lost on player killed")]
@@ -96,7 +93,6 @@ public class PlayerBody : MonoBehaviour
         lives = 3;;
         money = 0;
         knockbacked = false;
-        shielded = false;
         railgun = false;
 
         
@@ -318,7 +314,7 @@ public class PlayerBody : MonoBehaviour
 
     public void damagePlayer(float damage, PlayerBody player)
     {
-        if (!shielded && !dead)
+        if (!dead)
         {
             StartCoroutine(Hit());
             health -= damage;
@@ -330,8 +326,8 @@ public class PlayerBody : MonoBehaviour
 
             if(health <= 0 && weaponHolder.gameObject.activeSelf)
             {
-                
 
+                dead = true;
                 float tempMoney = money * (moneyLost / 100);
                 IncreaseMoney(-tempMoney);
 
@@ -355,7 +351,6 @@ public class PlayerBody : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         StopAllCoroutines();
-        dead = true;
         canMove = false;
         playerRB.velocity = Vector2.zero;
         sprite.material.color = Color.white;
@@ -369,18 +364,22 @@ public class PlayerBody : MonoBehaviour
     //player is hit by something
     private IEnumerator Hit()
     {
-        sprite.material.color = hit;
-        headSprite.material.color = hit;
-        yield return new WaitForSeconds(0.5f);
-        if (poison == null)
+
+        if (!dead)
         {
-            sprite.material.color = Color.white;
-            headSprite.material.color = Color.white;
-        }
-        else
-        {
-            sprite.material.color = poisoned;
-            headSprite.material.color = poisoned;
+            sprite.material.color = hit;
+            headSprite.material.color = hit;
+            yield return new WaitForSeconds(0.5f);
+            if (poison == null)
+            {
+                sprite.material.color = Color.white;
+                headSprite.material.color = Color.white;
+            }
+            else
+            {
+                sprite.material.color = poisoned;
+                headSprite.material.color = poisoned;
+            }
         }
     }
 
@@ -412,7 +411,6 @@ public class PlayerBody : MonoBehaviour
         transform.position = spawnPoint.position;
         poison = null;
         knockbacked = false;
-        shielded = false;
         weapon = false;
         useDefault = false;
         canMove = true;
@@ -464,21 +462,6 @@ public class PlayerBody : MonoBehaviour
     public float getFire2() { return fire2; } //Gets when the player inputs the secondary fire
     public void ChangeMove(bool change) { canMove = change; } //Changes whether the player can move or not
     public bool UsingWeapon() { return weapon; } //If player is currently using a picked up weapon
-
-    public void SetShield(bool set) 
-    { 
-        shielded = set;
-
-        if (set)
-        {
-            shield.gameObject.SetActive(true);
-        }
-        else
-        {
-            shield.gameObject.SetActive(false);
-        }
-    }
-
     
     public void UsingDefault(bool def) { useDefault = def; } //Once the default weapon is fired
     public void ChangeWeapon(bool change) {

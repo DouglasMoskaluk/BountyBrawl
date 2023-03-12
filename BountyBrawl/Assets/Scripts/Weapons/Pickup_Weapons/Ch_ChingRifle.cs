@@ -78,7 +78,6 @@ public class Ch_ChingRifle : MonoBehaviour
             if (player.getHealth() <= 0)
             {
                 player.ExitGlue();
-                player.SetShield(false);
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon

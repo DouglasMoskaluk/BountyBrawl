@@ -33,6 +33,9 @@ public class Railgun : MonoBehaviour
     private float tempLifeTime;
 
     [SerializeField] private Animator animator;
+    private bool used; //If the railgun has been used
+
+    private CameraShake cameraShaking;
 
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class Railgun : MonoBehaviour
         box = GetComponent<BoxCollider2D>();
         nowThrow = GetComponent<Throw>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        cameraShaking = FindObjectOfType<CameraShake>();
         sprite = spriteRenderer.sprite;
         canShoot = true;
         spriteRenderer.sortingLayerName = "Midground";
@@ -56,6 +60,7 @@ public class Railgun : MonoBehaviour
         animator.SetBool("Reload", false);
         timer = tempTimer;
         lifeTime = tempLifeTime;
+        used = false;
     }
 
     private void Update()
@@ -63,14 +68,16 @@ public class Railgun : MonoBehaviour
         if (player != null)
         {
 
-            if (player.getFire1() != 0 && timer > 0 && !thrown && canShoot)
+            if (player.getFire1() != 0 && timer > 0 && !thrown && canShoot || used && timer > 0)
             {
                 animator.SetBool("Fire1", true);
+                player.UsingRailgun(true);
+                used = true;
             }
             else
             {
-                player.SetShield(false);
                 beam.Deactivation(true);
+                player.UsingRailgun(false);
                 Reload();
 
                 if (firing == true)
@@ -91,8 +98,8 @@ public class Railgun : MonoBehaviour
             if(player.getHealth() <= 0)
             {
                 player.ExitGlue();
-                player.SetShield(false);
                 player.UsingRailgun(false);
+                used = false;
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon
@@ -130,12 +137,12 @@ public class Railgun : MonoBehaviour
         beam.Deactivation(false);
         beam.gameObject.SetActive(true);
         firing = true;
-        player.SetShield(true);
         Shoot1();//shoot gun if there is ammo and if player is holding the trigger
     }
 
     private void Shoot1()
     {
+        cameraShaking.StartCoroutine(cameraShaking.Shake(timer, 1.0f));
         beam.gameObject.SetActive(true);
         beam.Fire(player); //Pass the player   
     }
@@ -164,9 +171,9 @@ public class Railgun : MonoBehaviour
                 beam.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
 
                 player = collision.transform.parent.GetComponent<PlayerBody>();
-                player.UsingRailgun(true);
                 player.ChangeWeapon(true);
                 canUse = false;
+                used = false;
                 player.setWeaponIndex(1);
                 player.Slow(playerSlowness);
                 lifeTime = tempLifeTime;
@@ -208,8 +215,8 @@ public class Railgun : MonoBehaviour
         if (canThrow)
         {
             player.ExitGlue();
-            player.SetShield(false);
             player.UsingRailgun(false);
+            used = false;
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
@@ -237,4 +244,6 @@ public class Railgun : MonoBehaviour
     }
 
     public void SetCanFire(bool can) { canShoot = can; }
+
+    public void SetUsed(bool change) { used = change; }
 }
