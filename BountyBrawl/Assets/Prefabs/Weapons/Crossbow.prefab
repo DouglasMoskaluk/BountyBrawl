@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beam: {fileID: 7142501891528062306}
-  timer: 18
+  timer: 10
   holding:
   - {fileID: 21300000, guid: 831acf7ccad215242814cf3b411be73a, type: 3}
   - {fileID: 21300000, guid: 6ccc4482fff325a4aad9dc2f6ef79199, type: 3}
@@ -330,10 +330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7889e47b650bd5e4cb1aa9ae5cea633b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTickTime: 1
+  damageTickTime: 0.2
   growSpeed: 100
-  baseDamage: 10
-  fullDamage: 30
+  baseDamage: 1
+  fullDamage: 20
   damageIncrease: 4
   damageIncreaseTime: 0.5
   currDamage: 0

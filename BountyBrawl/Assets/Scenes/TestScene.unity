@@ -1861,8 +1861,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 0
+  m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -3481,7 +3481,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  damage: 6
+  damage: 15
   player: {fileID: 412174305}
 --- !u!61 &447774254
 BoxCollider2D:
@@ -4557,7 +4557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8fa52ebab7c9d864e94ec736fe02ba29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18d46f72f465af84991ac4c9324e3ead, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8188,7 +8188,7 @@ MonoBehaviour:
   stabCooldown: 1.5
   animatorDefSpeed: 1
   animatorSlashSpeed: 2
-  damage: 2
+  damage: 4
   player: {fileID: 147186565}
 --- !u!61 &1220530510
 BoxCollider2D:
@@ -8561,7 +8561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b6e17d057495e4fba970d6a4e3ecc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slashCooldown: 3
+  slashCooldown: 1.5
   animatorDefSpeed: 1
   animatorSlashSpeed: 2
   player: {fileID: 888641973}
@@ -10217,7 +10217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1548378849
 Transform:
   m_ObjectHideFlags: 0
@@ -10586,7 +10586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 659010dbbf077164daeb9fc020da5fee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18d46f72f465af84991ac4c9324e3ead, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -10893,7 +10893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42abedeb23abbe946a103af1e91aa807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18d46f72f465af84991ac4c9324e3ead, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -13032,7 +13032,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd3cdfb9337524541b3ddfd0fa16b34f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18d46f72f465af84991ac4c9324e3ead, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

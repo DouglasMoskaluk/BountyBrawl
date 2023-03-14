@@ -69,7 +69,7 @@ public class PlayerBody : MonoBehaviour
 
     //Money
     [Tooltip("% amount of money lost on player killed")]
-    [SerializeField] private int moneyLost = 20;
+    [SerializeField] private float moneyLost = 20;
 
     //Stat Tracking
     private StatTracker statTracker;
@@ -120,6 +120,10 @@ public class PlayerBody : MonoBehaviour
             defaultWeapon.SetActive(false);
         }
 
+        if (dead)
+        {
+            canMove = false;
+        }
 
         
     }
@@ -332,7 +336,7 @@ public class PlayerBody : MonoBehaviour
             {
 
                 dead = true;
-                float tempMoney = money * (moneyLost / 100);
+                int tempMoney = (int) (money * (moneyLost / 100));
                 IncreaseMoney(-tempMoney);
 
                 if (player != null)

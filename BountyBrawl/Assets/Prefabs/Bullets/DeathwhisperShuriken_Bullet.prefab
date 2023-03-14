@@ -124,8 +124,8 @@ MonoBehaviour:
   returnSpeed: 100
   lifeTime: 3
   rotationSpeed: 1000
-  baseDamage: 7
-  baseReturnDMG: 5
+  baseDamage: 10
+  baseReturnDMG: 7
   profGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0.1847806, b: 1, a: 0.23529412}

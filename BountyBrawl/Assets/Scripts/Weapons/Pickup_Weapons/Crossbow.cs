@@ -76,7 +76,7 @@ public class Crossbow : MonoBehaviour
 
                 if (firing == true)
                 {
-                    canShoot = false;
+                    canShoot = true;
                     firing = false;
                 }
             }

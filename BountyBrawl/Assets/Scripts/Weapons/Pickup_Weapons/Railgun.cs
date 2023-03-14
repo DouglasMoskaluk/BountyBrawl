@@ -82,11 +82,11 @@ public class Railgun : MonoBehaviour
 
                 if (firing == true)
                 {
-                    canShoot = false;
+                    canShoot = true;
                     firing = false;
                 }
             }
-            if (player.getThrow() != 0)
+            if (player.getThrow() != 0 && !firing)
             {
                 animator.SetBool("Fire1", false);
                 animator.SetBool("Reload", false);

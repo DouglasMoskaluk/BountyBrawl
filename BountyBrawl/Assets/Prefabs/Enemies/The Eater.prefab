@@ -104,7 +104,7 @@ MonoBehaviour:
   numMinions: 4
   enemySpeed: 500
   baseDamage: 20
-  baseHealth: 300
+  baseHealth: 150
   minionSpawn: 30
   poisonArea: {fileID: 5105054926456606923}
   poisonStartSize: {x: 0, y: 0, z: 0}

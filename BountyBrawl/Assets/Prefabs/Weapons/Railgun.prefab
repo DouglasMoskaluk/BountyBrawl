@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTickTime: 1
   growSpeed: 250
-  baseDamage: 10
+  baseDamage: 40
   fullLength: 400
 --- !u!114 &1270937640912364625
 MonoBehaviour:
