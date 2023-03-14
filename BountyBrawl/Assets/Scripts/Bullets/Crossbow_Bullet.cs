@@ -192,6 +192,11 @@ public class Crossbow_Bullet : MonoBehaviour
             //Damage eater by base
             enemy.DamageEnemy(baseDamage, player);
         }
+        else if (collision.tag == "Box")
+        {
+            WeaponBox box = collision.GetComponent<WeaponBox>();
+            player.IncreaseMoney(box.GetMoney());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -6,6 +6,7 @@ public class WeaponBox : MonoBehaviour
 {
     [SerializeField] private float commonDropChance = 70; //Common weapon drop chance once rares can be spawned
     [SerializeField] private int numTillRare = 3; //Number of weapon boxes needing to be spawned until rare weapons spawn
+    [SerializeField] private float moneyGiven = 5;
 
     private int numSpawn; //number of times weapon boxes have spawned
     public int weapon; //The weapon to be spawned
@@ -97,4 +98,6 @@ public class WeaponBox : MonoBehaviour
     }
 
     public void IncreaseWeaponBox() { numSpawn++; }
+
+    public float GetMoney() { return moneyGiven; }
 }

@@ -170,6 +170,11 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
             }
             //If player is proficient
         }
+        else if (collision.tag == "Box")
+        {
+            WeaponBox box = collision.GetComponent<WeaponBox>();
+            player.IncreaseMoney(box.GetMoney());
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)

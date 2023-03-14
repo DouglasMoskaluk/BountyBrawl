@@ -142,7 +142,7 @@ public class Railgun : MonoBehaviour
 
     private void Shoot1()
     {
-        cameraShaking.StartCoroutine(cameraShaking.Shake(timer, 1.0f));
+        cameraShaking.StartCoroutine(cameraShaking.Shake(timer, 0.5f));
         beam.gameObject.SetActive(true);
         beam.Fire(player); //Pass the player   
     }

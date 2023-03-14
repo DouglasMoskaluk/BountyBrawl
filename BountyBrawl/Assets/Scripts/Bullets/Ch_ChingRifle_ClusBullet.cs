@@ -159,5 +159,10 @@ public class Ch_ChingRifle_ClusBullet : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+        else if (collision.tag == "Box")
+        {
+            WeaponBox box = collision.GetComponent<WeaponBox>();
+            player.IncreaseMoney(box.GetMoney());
+        }
     }
 }

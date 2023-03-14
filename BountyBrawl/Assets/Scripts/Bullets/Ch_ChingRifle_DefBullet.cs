@@ -87,5 +87,10 @@ public class Ch_ChingRifle_DefBullet : MonoBehaviour
             enemy.DamageEnemy(baseDamage, player);
             gameObject.SetActive(false);
         }
+        else if (collision.tag == "Box")
+        {
+            WeaponBox box = collision.GetComponent<WeaponBox>();
+            player.IncreaseMoney(box.GetMoney());
+        }
     }
 }

@@ -306,6 +306,11 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                     glueRD.sprite = glueSP;
                 }
             }
+            else if (collision.tag == "Box")
+            {
+                WeaponBox box = collision.GetComponent<WeaponBox>();
+                player.IncreaseMoney(box.GetMoney());
+            }
 
             //Hit outside barrier
             else if (collision.gameObject.tag == "Barrier")

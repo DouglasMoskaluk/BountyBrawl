@@ -73,6 +73,7 @@ public class PlayerBody : MonoBehaviour
 
     //Stat Tracking
     private StatTracker statTracker;
+    [SerializeField] private float startMoney = 50f;
 
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
@@ -94,8 +95,11 @@ public class PlayerBody : MonoBehaviour
         money = 0;
         knockbacked = false;
         railgun = false;
+    }
 
-        
+    private void Start()
+    {
+        IncreaseMoney(startMoney);
     }
 
     private void Update()
