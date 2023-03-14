@@ -13,6 +13,17 @@ public class SceneLoader : MonoBehaviour
     GameObject pauseMenu;
 
     int winner;
+    [SerializeField]
+    GameObject podSand;
+
+    [SerializeField]
+    GameObject podJap;
+
+    [SerializeField]
+    GameObject podEmr;
+
+    [SerializeField]
+    GameObject podGreek;
 
     bool map1;
     bool map2;
@@ -131,7 +142,30 @@ public class SceneLoader : MonoBehaviour
 
     public void SetWinner(int number)
     {
-        winner = number;
+        if (winner == 0)
+        {
+            
+        }
+
+        if (winner == 1)
+        {
+            podJap.SetActive(true);
+        }
+
+        if (winner == 2)
+        {
+            podEmr.SetActive(true);
+        }
+
+        if (winner == 3)
+        {
+            podGreek.SetActive(true);
+        }
+
+        if (winner == 4)
+        {
+            podSand.SetActive(true);
+        }
     }
 
 

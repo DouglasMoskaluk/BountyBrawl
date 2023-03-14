@@ -59,4 +59,9 @@ public class StatTracker : MonoBehaviour
     {
         enemyDamage += inEnemyDam;
     }
+
+    public float GetCurrMoney()
+    {
+        return currMoney;
+    }
 }

@@ -121,6 +121,8 @@ public class SetPlayerIndex : MonoBehaviour
     void Update()
     {
        
+
+
         if (nag.GetComponent<PlayerBody>().getDead() == true)
         {
             nagDead = true;
@@ -139,36 +141,78 @@ public class SetPlayerIndex : MonoBehaviour
         }
 
         ///
+
         if (nagDead == true && sandDead == true && emrDead == true && greedDead == true)
         {
-            SceneManager.LoadScene(3);
+            info.GetComponent<SceneLoader>().SetWinner(0);
         }
-
         ///
+
         if (nagDead == true && sandDead == true && emrDead == true) //greed
         {
-            info.GetComponent<SceneLoader>().SetWinner(3);
-            SceneManager.LoadScene(3);
+            float JapMoney = nag.GetComponent<StatTracker>().GetCurrMoney();
+            float EmrMoney = emr.GetComponent<StatTracker>().GetCurrMoney();
+            float SandMoney = sand.GetComponent<StatTracker>().GetCurrMoney();
+            float GreekMoney = greed.GetComponent<StatTracker>().GetCurrMoney();
+
+            ReturnMoney(JapMoney, EmrMoney, SandMoney, GreekMoney);
+            
         }
         if (nagDead == true && sandDead == true && greedDead == true) //emr
         {
-            info.GetComponent<SceneLoader>().SetWinner(2);
-            SceneManager.LoadScene(3);
+            float JapMoney = nag.GetComponent<StatTracker>().GetCurrMoney();
+            float EmrMoney = emr.GetComponent<StatTracker>().GetCurrMoney();
+            float SandMoney = sand.GetComponent<StatTracker>().GetCurrMoney();
+            float GreekMoney = greed.GetComponent<StatTracker>().GetCurrMoney();
+
+            ReturnMoney(JapMoney, EmrMoney, SandMoney, GreekMoney);
+
 
         }
         if (nagDead == true  && emrDead == true && greedDead == true) ///sand
         {
-            info.GetComponent<SceneLoader>().SetWinner(4);
-            SceneManager.LoadScene(3);
+            float JapMoney = nag.GetComponent<StatTracker>().GetCurrMoney();
+            float EmrMoney = emr.GetComponent<StatTracker>().GetCurrMoney();
+            float SandMoney = sand.GetComponent<StatTracker>().GetCurrMoney();
+            float GreekMoney = greed.GetComponent<StatTracker>().GetCurrMoney();
+
+            ReturnMoney(JapMoney, EmrMoney, SandMoney, GreekMoney);
+
         }
         if (sandDead == true && emrDead == true && greedDead == true) ///nag
         {
-            info.GetComponent<SceneLoader>().SetWinner(1);
-            SceneManager.LoadScene(3);
+            float JapMoney = nag.GetComponent<StatTracker>().GetCurrMoney();
+            float EmrMoney = emr.GetComponent<StatTracker>().GetCurrMoney();
+            float SandMoney = sand.GetComponent<StatTracker>().GetCurrMoney();
+            float GreekMoney = greed.GetComponent<StatTracker>().GetCurrMoney();
+
+            ReturnMoney(JapMoney, EmrMoney, SandMoney, GreekMoney);
+
         }
 
 
 
 
+    }
+
+    public void ReturnMoney(float one, float two, float three, float four)
+    {
+
+        if (one > two && two > three && three > four)
+        {
+            info.GetComponent<SceneLoader>().SetWinner(1);
+        }
+        if (two > one && one > three && three > four)
+        {
+            info.GetComponent<SceneLoader>().SetWinner(2);
+        }
+        if (three > two && two > one && one > four)
+        {
+            info.GetComponent<SceneLoader>().SetWinner(3);
+        }
+        if (four > two && two > three && three > one)
+        {
+            info.GetComponent<SceneLoader>().SetWinner(4);
+        }
     }
 }
