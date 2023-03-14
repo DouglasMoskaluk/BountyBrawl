@@ -146,7 +146,7 @@ public class Crossbow_Bullet : MonoBehaviour
         {
             gun.Reload();
             enemies.Clear();
-            gun.SetCanFire(false);
+            gun.SetCanFire(true);
             spriteRenderer.size = new Vector2(spriteRenderer.size.x, Mathf.Lerp(spriteRenderer.size.y, 0f, 0.5f));
 
             if(spriteRenderer.size.y < 0.1f)

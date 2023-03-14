@@ -88,9 +88,9 @@ public class Railgun : MonoBehaviour
             }
             if (player.getThrow() != 0)
             {
-                animator.SetTrigger("Idle");
                 animator.SetBool("Fire1", false);
                 animator.SetBool("Reload", false);
+                animator.SetTrigger("Idle");
                 StartCoroutine(Throw());
             } //throw gun if player presses the circle button
 
@@ -100,6 +100,11 @@ public class Railgun : MonoBehaviour
                 player.ExitGlue();
                 player.UsingRailgun(false);
                 used = false;
+                canShoot = true;
+                animator.SetBool("Fire1", false);
+                animator.SetBool("Reload", false);
+                animator.SetTrigger("Idle");
+
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon
@@ -176,7 +181,6 @@ public class Railgun : MonoBehaviour
                 used = false;
                 player.setWeaponIndex(1);
                 player.Slow(playerSlowness);
-                lifeTime = tempLifeTime;
 
                 if (player.GetPlayerCharacter() == 0)
                 {

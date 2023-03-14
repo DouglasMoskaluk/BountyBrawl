@@ -69,7 +69,7 @@ public class PlayerBody : MonoBehaviour
 
     //Money
     [Tooltip("% amount of money lost on player killed")]
-    [SerializeField] private float moneyLost = 20f;
+    [SerializeField] private int moneyLost = 20;
 
     //Stat Tracking
     private StatTracker statTracker;

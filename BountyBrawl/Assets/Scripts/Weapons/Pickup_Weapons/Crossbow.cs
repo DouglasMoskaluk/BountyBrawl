@@ -70,7 +70,7 @@ public class Crossbow : MonoBehaviour
                 animator.enabled = true;
                 Shoot1();//shoot gun if there is ammo and if player is holding the trigger
             }
-            else
+            else if (player.getFire1() == 0 || timer < 0 || thrown || !canShoot)
             {
                 beam.Deactivation(true);
 
@@ -91,15 +91,20 @@ public class Crossbow : MonoBehaviour
             if (player.getHealth() <= 0)
             {
                 player.ExitGlue();
-                spriteRenderer.sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
+                player = null; //sets the player to null to wait for next player
+                beam.Deactivation(true);
                 transform.parent = null; //Unparent the weapon
-                spriteRenderer.sortingLayerName = "Midground";
                 thrown = false;
                 box.isTrigger = true;
-                player = null; //sets the player to null to wait for next player
                 canUse = true; //Weapon is back to being pickupable
+                spriteRenderer.sprite = sprite; //Reset the sprite
                 weaponBody.isTrigger = true;
+                spriteRenderer.sortingLayerName = "Midground";
+
+                Idle();
+                animator.enabled = true;
+                canShoot = true;
             }
         }
 
@@ -136,10 +141,10 @@ public class Crossbow : MonoBehaviour
 
     public void Idle()
     {
-        animator.SetTrigger("Idle");
         animator.SetBool("Fire1", false);
         animator.SetBool("Fire2", false);
         animator.SetBool("Reload", false);
+        animator.SetTrigger("Idle");
         animator.enabled = false;
     }
 
@@ -164,8 +169,9 @@ public class Crossbow : MonoBehaviour
                 player = collision.transform.parent.GetComponent<PlayerBody>();
                 player.ChangeWeapon(true);
                 canUse = false;
+                thrown = false;
+                canShoot = true;
                 player.setWeaponIndex(1);
-                lifeTime = tempLifeTime;
 
                 if (player.GetPlayerCharacter() == 0)
                 {
