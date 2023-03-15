@@ -78,6 +78,8 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
 
+    private BoxCollider2D boxCollider;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -85,6 +87,7 @@ public class PlayerBody : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         headSprite = playerHead.GetComponent<SpriteRenderer>();
         statTracker = GetComponent<StatTracker>();
+        boxCollider = GetComponent<BoxCollider2D>();
         weapon = false;
         useDefault = false;
         canMove = true;
@@ -334,7 +337,7 @@ public class PlayerBody : MonoBehaviour
 
             if(health <= 0 && weaponHolder.gameObject.activeSelf)
             {
-
+                boxCollider.enabled = false;
                 dead = true;
                 int tempMoney = (int) (money * (moneyLost / 100));
                 IncreaseMoney(-tempMoney);
@@ -411,12 +414,14 @@ public class PlayerBody : MonoBehaviour
     private void Respawn()
     {
         dead = false;
+        boxCollider.enabled = true;
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
         animator.SetBool("Respawn", false);
         weaponHolder.gameObject.SetActive(true);
         headSprite.gameObject.SetActive(true);
         transform.position = spawnPoint.position;
+        runSpeed = tempSpeed;
         poison = null;
         knockbacked = false;
         weapon = false;

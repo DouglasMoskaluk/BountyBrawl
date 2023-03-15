@@ -64,7 +64,7 @@ public class SnakeBiteRevolver : MonoBehaviour
             {
                 Shoot1();//shoot gun if there is ammo and if player is holding the tringger
             }
-            if (player.getThrow() != 0)
+            if (player.getThrow() != 0 || ammo <= 0 && player.getFire1() != 0)
             {
                 animator.applyRootMotion = true;
                 animator.SetTrigger("Idle");

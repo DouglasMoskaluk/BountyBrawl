@@ -7,6 +7,13 @@ public class CameraShake : MonoBehaviour
     //Holds origin position
     private Vector2 origin;
 
+    private bool shake;
+
+    private void Awake()
+    {
+        shake = true;
+    }
+
     public IEnumerator Shake(float duration, float magnitude)
     {
 
@@ -14,6 +21,7 @@ public class CameraShake : MonoBehaviour
 
         while (elapsed < duration)
         {
+            if (!shake) break;
             origin = transform.localPosition;
 
             float x = Random.Range(-1f, 1f) * magnitude + origin.x;
@@ -26,4 +34,6 @@ public class CameraShake : MonoBehaviour
         }
         transform.localPosition = origin;
     }
+
+    public void setShake(bool will) { shake = will; }
 }

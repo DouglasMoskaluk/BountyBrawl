@@ -86,7 +86,7 @@ public class Railgun : MonoBehaviour
                     firing = false;
                 }
             }
-            if (player.getThrow() != 0 && !firing)
+            if (player.getThrow() != 0 && !firing || timer <= 0 && player.getFire1() != 0)
             {
                 animator.SetBool("Fire1", false);
                 animator.SetBool("Reload", false);
@@ -97,10 +97,13 @@ public class Railgun : MonoBehaviour
             //Drops weapon if player dies
             if(player.getHealth() <= 0)
             {
+                cameraShaking.setShake(false);
                 player.ExitGlue();
                 player.UsingRailgun(false);
+                beam.Deactivation(true);
                 used = false;
                 canShoot = true;
+                firing = false;
                 animator.SetBool("Fire1", false);
                 animator.SetBool("Reload", false);
                 animator.SetTrigger("Idle");
@@ -147,6 +150,7 @@ public class Railgun : MonoBehaviour
 
     private void Shoot1()
     {
+        cameraShaking.setShake(true);
         cameraShaking.StartCoroutine(cameraShaking.Shake(timer, 0.5f));
         beam.gameObject.SetActive(true);
         beam.Fire(player); //Pass the player   

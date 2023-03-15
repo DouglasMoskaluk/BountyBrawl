@@ -169,7 +169,7 @@ MonoBehaviour:
   stunLength: 1
   glueTime: 5
   glueDamage: 3
-  gluePlayerSlowness: 9
+  gluePlayerSlowness: 11
   glueSize: {x: 2, y: 2, z: 1}
   glueGrowSpeed: 10
   glueLostSlowness: 500

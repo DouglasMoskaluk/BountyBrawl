@@ -60,14 +60,14 @@ public class Sandstorm_Fist : MonoBehaviour
 
     private void Shoot1()
     {
-        if (canFire && player.GetFacing() != Vector2.zero)
+        if (canFire && player.getLastFacing() != Vector2.zero)
         {
             attack.enabled = true;
             canFire = false;
             isDashing = true;
             player.UsingDefault(true);
 
-            traj = player.GetFacing(); //Get the trajectory of the dash
+            traj = player.getLastFacing(); //Get the trajectory of the dash
 
             player.StartAttack();
             StartCoroutine(Dash(dashTime));
@@ -106,6 +106,15 @@ public class Sandstorm_Fist : MonoBehaviour
         if (other.tag == "Eater") 
         {
             other.GetComponent<TheEater>().DamageEnemy(damage, player);
+        }
+        if(other.tag == "Box")
+        {
+            StartCoroutine(Cooldown(fistTime));
+            player.EndAttack();
+            isDashing = false;
+            player.UsingDefault(false);
+            player.ChangeMove(true);
+            attack.enabled = false;
         }
     }
 }

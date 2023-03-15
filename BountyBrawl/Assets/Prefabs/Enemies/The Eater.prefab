@@ -101,16 +101,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 21300000, guid: 279f0d3188571c145b0422ace8d19c6e, type: 3}
-  numMinions: 4
-  enemySpeed: 500
+  numMinions: 5
+  enemySpeed: 800
   baseDamage: 20
   baseHealth: 150
-  minionSpawn: 30
+  minionSpawn: 15
   poisonArea: {fileID: 5105054926456606923}
   poisonStartSize: {x: 0, y: 0, z: 0}
   poisonEndSize: {x: 1, y: 1, z: 1}
   speedOfPoisonGrowth: 0.5
-  moneyEarn: 100
+  moneyEarn: 50
   currHealth: 0
   nextWayPointDistance: 10
 --- !u!50 &-412707967287723565

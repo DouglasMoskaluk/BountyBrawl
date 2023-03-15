@@ -70,7 +70,7 @@ public class WyldsnagShotgun : MonoBehaviour
                     Shoot2();
                     //shoot gun if there is ammo and if player is holding the tringger
             }
-            if (player.getThrow() != 0)
+            if (player.getThrow() != 0 || ammo <= 0 && player.getFire1() != 0)
             {
                 animator.applyRootMotion = true;
                 StartCoroutine(Throw());
@@ -79,7 +79,6 @@ public class WyldsnagShotgun : MonoBehaviour
             //Drops weapon if player dies
             if (player.getHealth() <= 0)
             {
-                player.ExitGlue();
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
                 player.ChangeWeapon(false); //Set player back to default weapon
                 transform.parent = null; //Unparent the weapon

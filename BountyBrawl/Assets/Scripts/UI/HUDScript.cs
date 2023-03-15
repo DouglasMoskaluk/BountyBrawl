@@ -37,6 +37,9 @@ public class HUDScript : MonoBehaviour
     [SerializeField] private GameObject heart2;
 
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject health;
+    [SerializeField] private float healthHeight = 5f; //How high the health will float on the player
+    [SerializeField] private float healthSize = 0.3f;
 
     public TMP_Text moneyText;
 
@@ -66,6 +69,11 @@ public class HUDScript : MonoBehaviour
             //hammer.SetActive(true);
         }
 
+        if(health != null)
+        {
+            health.transform.localScale *= healthSize;
+        }
+
     }
 
     // Update is called once per frame
@@ -79,6 +87,13 @@ public class HUDScript : MonoBehaviour
         Hearts();
         HealthBar();
         Money();
+
+        if(health != null)
+        {
+            Vector2 playerPos = playerCharacter.transform.position;
+
+            health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + healthHeight));
+        }
     }
 
     private void Money()

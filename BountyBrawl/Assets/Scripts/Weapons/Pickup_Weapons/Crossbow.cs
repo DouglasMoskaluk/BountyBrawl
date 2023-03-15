@@ -80,7 +80,7 @@ public class Crossbow : MonoBehaviour
                     firing = false;
                 }
             }
-            if (player.getThrow() != 0)
+            if (player.getThrow() != 0 || timer <= 0 && player.getFire1() != 0)
             {
                 Idle();
                 animator.enabled = true;
@@ -90,10 +90,10 @@ public class Crossbow : MonoBehaviour
             //Drops weapon if player dies
             if (player.getHealth() <= 0)
             {
-                player.ExitGlue();
                 player.ChangeWeapon(false); //Set player back to default weapon
                 player = null; //sets the player to null to wait for next player
                 beam.Deactivation(true);
+                firing = false;
                 transform.parent = null; //Unparent the weapon
                 thrown = false;
                 box.isTrigger = true;
@@ -209,7 +209,6 @@ public class Crossbow : MonoBehaviour
     {
         if (canThrow)
         {
-            player.ExitGlue();
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon
