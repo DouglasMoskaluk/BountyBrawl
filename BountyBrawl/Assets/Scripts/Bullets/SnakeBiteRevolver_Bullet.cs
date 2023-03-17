@@ -99,14 +99,13 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
             {
                 if (enemy.IsPoisoned() != null)
                 {
-                    enemy.StopCoroutine(player.IsPoisoned());
+                    enemy.StopCoroutine(enemy.IsPoisoned());
                     enemy.PoisonPlayer(poisonDamage, poisonInterval, poisonAmount, player);
                 }
                 else
                 {
                     enemy.PoisonPlayer(poisonDamage, poisonInterval, poisonAmount, player);
                 }
-                gameObject.SetActive(false);
             }
             else
             {
@@ -123,8 +122,10 @@ public class SnakeBiteRevolver_Bullet : MonoBehaviour
                 }
                 gameObject.SetActive(false);
             }
+            gameObject.SetActive(false);
 
-        }else if(collision.transform.tag == "Lost")
+        }
+        else if(collision.transform.tag == "Lost")
         {
             TheLost enemy = collision.GetComponent<TheLost>();
 

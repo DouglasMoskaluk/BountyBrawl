@@ -80,6 +80,11 @@ public class PlayerBody : MonoBehaviour
 
     private BoxCollider2D boxCollider;
 
+    //Gold drop particle
+    [SerializeField] private ParticleSystem goldDrop;
+
+    [SerializeField] AudioSource playerDamage;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -328,6 +333,7 @@ public class PlayerBody : MonoBehaviour
         if (!dead)
         {
             StartCoroutine(Hit());
+            if (playerDamage != null) { playerDamage.Play(); } //play damage sound if there is one
             health -= damage;
 
             if (player != null)
@@ -370,6 +376,11 @@ public class PlayerBody : MonoBehaviour
         animator.SetBool("Attacking", false);
         weaponHolder.gameObject.SetActive(false);
         headSprite.gameObject.SetActive(false);
+
+        if(goldDrop != null)
+        {
+            goldDrop.Play();
+        }
     }
 
     //player is hit by something

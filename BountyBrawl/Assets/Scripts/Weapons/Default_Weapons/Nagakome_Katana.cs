@@ -23,6 +23,8 @@ public class Nagakome_Katana : MonoBehaviour
 
     private Quaternion defRotation;
 
+    [SerializeField] private AudioSource swinging;
+    [SerializeField] private AudioClip[] soundClips;
 
     private void Awake()
     {
@@ -34,7 +36,8 @@ public class Nagakome_Katana : MonoBehaviour
     private void OnEnable()
     {
         player.UsingDefault(false);
-        canFire = true;
+        canFire = false;
+        StartCoroutine(Cooldown(0.5f));
         animator.SetBool("Attack", false);
         animator.SetTrigger("Idle");
         animator.speed = animatorDefSpeed;
@@ -88,6 +91,13 @@ public class Nagakome_Katana : MonoBehaviour
         yield return new WaitForSeconds(time);
         canFire = true;
     } //When the player can use the dash again
+
+    public void PlayRandSound()
+    {
+        int rand = (int)Random.Range(0f, soundClips.Length);
+        swinging.clip = soundClips[rand];
+        swinging.Play();
+    }
 
     public void DoneSlashing()
     {

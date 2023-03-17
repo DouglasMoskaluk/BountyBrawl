@@ -26,6 +26,8 @@ public class Sandstorm_Fist : MonoBehaviour
 
     private BoxCollider2D attack;
 
+    [SerializeField] private AudioSource dash;
+
     private void OnEnable()
     {
         attack = gameObject.GetComponent<BoxCollider2D>(); //Get the damage area
@@ -33,7 +35,8 @@ public class Sandstorm_Fist : MonoBehaviour
         player.ChangeMove(true);
         attack.enabled = false;
         StopAllCoroutines();
-        canFire = true;
+        canFire = false;
+        StartCoroutine(Cooldown(0.5f));
     }
 
     private void OnDisable()
@@ -45,8 +48,9 @@ public class Sandstorm_Fist : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.getFire1() != 0)
+            if (player.getFire1() != 0 && isActiveAndEnabled)
             {
+                dash.Play();
                 Shoot1();
             }
         }

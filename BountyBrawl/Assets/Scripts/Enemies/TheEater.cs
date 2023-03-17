@@ -147,12 +147,15 @@ public class TheEater : MonoBehaviour
 
         foreach (var player in players)
         {
-            float dist = Vector3.Distance(player.transform.position, transform.position);
-
-            if (dist < distance)
+            if (player.isActiveAndEnabled)
             {
-                distance = dist;
-                target = player.gameObject;
+                float dist = Vector3.Distance(player.transform.position, transform.position);
+
+                if (dist < distance)
+                {
+                    distance = dist;
+                    target = player.gameObject;
+                }
             }
         }
         seeker.StartPath(rb.position, target.transform.position, OnPathComplete);

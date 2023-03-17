@@ -55,6 +55,7 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private float currDamage;
     [SerializeField] private float currHealth;
+
     private bool canDash;
 
     private Rigidbody2D rb;
@@ -78,6 +79,10 @@ public class TheLost : MonoBehaviour
     private bool dashing;
     private Vector2 targetPos;
 
+    private bool dead;
+
+    [SerializeField] private ParticleSystem goldDrop;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
@@ -99,6 +104,7 @@ public class TheLost : MonoBehaviour
         canDash = true;
         dashing = false;
         canMove = true;
+        dead = false;
         aura.SetActive(false);
 
         int lostType = (int) Random.Range(0f, types.Count);
@@ -153,9 +159,17 @@ public class TheLost : MonoBehaviour
 
         if(currHealth <= 0f)
         {
-            Death();
+            StartCoroutine(Particles());
         }
         
+    }
+
+    private IEnumerator Particles()
+    {
+        dead = true;
+        goldDrop.Play();
+        yield return new WaitForSeconds(1f);
+        Death();
     }
 
     private void FixedUpdate()
@@ -200,14 +214,18 @@ public class TheLost : MonoBehaviour
                 }
             }
 
-            if (!dashing)
+            if (!dashing && !dead)
             {
                 rb.AddForce(force);
             }
-            else
+            else if (dashing && !dead)
             {
                 rb.velocity = targetPos.normalized * enemyDashSpeed;
                 return;
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
             }
 
             float dist = Vector2.Distance(rb.position, path.vectorPath[currWaypoint]);

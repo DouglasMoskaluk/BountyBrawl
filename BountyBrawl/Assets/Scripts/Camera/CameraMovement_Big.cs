@@ -19,9 +19,14 @@ public class CameraMovement_Big : MonoBehaviour
 
     [SerializeField] private float eaterTeleportLockFOV = 50f;
 
+    [SerializeField] private int cameraXLock = 35;
+    [SerializeField] private int cameraYLock = 20;
+
     private float currDist; //distance of the camera
 
     private bool locking;
+    private float newX;
+    private float newY;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +54,19 @@ public class CameraMovement_Big : MonoBehaviour
             Vector3 centerPoint = GetCenterPoint();
             Vector3 newPosiion = centerPoint;
 
-            float newX = Mathf.Lerp(transform.position.x, newPosiion.x, 0.5f);
-            float newY = Mathf.Lerp(transform.position.y, newPosiion.y, 0.5f);
+            newX = Mathf.Lerp(transform.position.x, newPosiion.x, 0.5f);
+            newY = Mathf.Lerp(transform.position.y, newPosiion.y, 0.5f);
 
-            transform.position = new Vector3(newX, newY, 0f) + new Vector3(0f, 0f, currDist);
+            //Move Y
+            if (newY > -cameraYLock && newY < cameraYLock)
+            {
+                transform.position = new Vector3(transform.position.x, newY, 0f) + new Vector3(0f, 0f, currDist);
+            }
+            //Move X
+            if (newX > -cameraXLock && newX < cameraXLock)
+            {
+                transform.position = new Vector3(newX, transform.position.y, 0f) + new Vector3(0f, 0f, currDist);
+            }
 
             float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);

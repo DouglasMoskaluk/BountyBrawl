@@ -22,6 +22,9 @@ public class Greed_Knife : MonoBehaviour
     private Animator animator;
     private Quaternion defRotation;
 
+    [SerializeField] private AudioSource swinging;
+    [SerializeField] private AudioClip[] soundClips;
+
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
@@ -33,7 +36,8 @@ public class Greed_Knife : MonoBehaviour
     {
         canFire = true;
         player.UsingDefault(false);
-        canFire = true;
+        canFire = false;
+        StartCoroutine(Cooldown(0.5f));
         animator.SetBool("Attack", false);
         animator.SetTrigger("Idle");
         animator.speed = animatorDefSpeed;
@@ -77,6 +81,13 @@ public class Greed_Knife : MonoBehaviour
         attack.enabled = true;
         player.UsingDefault(true);
         animator.speed = animatorSlashSpeed;
+    }
+
+    public void PlayRandSound()
+    {
+        int rand = (int)Random.Range(0f, soundClips.Length);
+        swinging.clip = soundClips[rand];
+        swinging.Play();
     }
 
     public void DoneSlashing()

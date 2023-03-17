@@ -52,6 +52,7 @@ public class SnakeBiteRevolver : MonoBehaviour
         animator.applyRootMotion = false;
         animator.SetTrigger("Idle");
         animator.SetBool("Fire1", false);
+        animator.keepAnimatorControllerStateOnDisable = true;
         lifeTime = tempLifeTime;
         ammo = maxAmmo;
     }

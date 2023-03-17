@@ -22,6 +22,8 @@ public class Emerald_Hammer : MonoBehaviour
     private float currAngle;
     private float currTime;
 
+    [SerializeField] private AudioSource banging;
+    [SerializeField] private AudioClip[] soundClips;
     private void Awake()
     {
         attack = GetComponent<CircleCollider2D>();
@@ -29,7 +31,8 @@ public class Emerald_Hammer : MonoBehaviour
 
     private void OnEnable()
     {
-        canFire = true;
+        canFire = false;
+        StartCoroutine(Cooldown(0.5f));
     }
 
     private void OnDisable()
@@ -51,6 +54,11 @@ public class Emerald_Hammer : MonoBehaviour
                 Shoot1();
             }
         }
+        if (slamming && attack.isActiveAndEnabled)
+        {
+            slamming = false;
+            PlayRandSound();
+        }
 
     }
 
@@ -63,10 +71,17 @@ public class Emerald_Hammer : MonoBehaviour
     }
 
     IEnumerator Cooldown(float time)
-    {
+    { 
         yield return new WaitForSeconds(time);
         canFire = true;
     } //When the player can use the dash again
+
+    public void PlayRandSound()
+    {
+        int rand = (int)Random.Range(0f, soundClips.Length);
+        banging.clip = soundClips[rand];
+        banging.Play();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
