@@ -48,9 +48,8 @@ public class Sandstorm_Fist : MonoBehaviour
     {
         if (player != null)
         {
-            if (player.getFire1() != 0 && isActiveAndEnabled)
+            if (player.getFire1() != 0)
             {
-                dash.Play();
                 Shoot1();
             }
         }
@@ -64,8 +63,9 @@ public class Sandstorm_Fist : MonoBehaviour
 
     private void Shoot1()
     {
-        if (canFire && player.getLastFacing() != Vector2.zero)
+        if (canFire && player.getLastFacing() != Vector2.zero && isActiveAndEnabled)
         {
+            dash.Play();
             attack.enabled = true;
             canFire = false;
             isDashing = true;

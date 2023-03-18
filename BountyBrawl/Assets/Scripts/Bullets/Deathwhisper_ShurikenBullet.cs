@@ -29,6 +29,10 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
     private bool returning; //If the shuriken is returning
     private bool stuck; //If the shuriken is stuck on a wall
 
+    [SerializeField] private AudioSource throwed;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioSource returnSound;
+
     private void Awake()
     {
         tempLifeTime = lifeTime;
@@ -42,6 +46,12 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
         stuck = false;
         returning = false;
         lifeTime = tempLifeTime;
+        throwed.Play();
+    }
+
+    private void OnDisable()
+    {
+        throwed.Stop();
     }
 
     private void Start()
@@ -105,6 +115,8 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
         if (collision.gameObject.tag == "Wall" && !returning)
         {
             bulletGO.velocity = Vector2.zero;
+            throwed.Stop();
+            hit.Play();
             stuck = true;
         }
         else if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
@@ -187,6 +199,10 @@ public class Deathwhisper_ShurikenBullet : MonoBehaviour
 
     public void ReturnToPlayer()
     {
+        if (!returning)
+        {
+            returnSound.Play();
+        }
         stuck = false;
         returning = true;
         bulletGO.velocity = Vector2.zero;

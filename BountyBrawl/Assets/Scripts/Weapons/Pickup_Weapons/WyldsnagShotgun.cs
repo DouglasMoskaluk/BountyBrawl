@@ -36,6 +36,10 @@ public class WyldsnagShotgun : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField] private AudioSource normFire;
+    [SerializeField] private AudioSource altFire;
+    [SerializeField] private AudioSource throwing;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
@@ -109,6 +113,7 @@ public class WyldsnagShotgun : MonoBehaviour
     {
         if (canFire)
         {
+            normFire.Play();
             ammo--;
             canFire = false;
             animator.SetBool("Fire1", true);
@@ -130,6 +135,7 @@ public class WyldsnagShotgun : MonoBehaviour
     {
         if (canFire)
         {
+            altFire.Play();
             ammo -= 2;
             canFire = false;
             animator.SetBool("Fire2", true);
@@ -217,6 +223,7 @@ public class WyldsnagShotgun : MonoBehaviour
     {
         if (canThrow)
         {
+            throwing.Play();
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon

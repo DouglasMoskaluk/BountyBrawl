@@ -36,6 +36,10 @@ public class Ch_ChingRifle : MonoBehaviour
     private float maxAmmo;
     private Animator animator;
 
+    [SerializeField] private AudioSource normFire;
+    [SerializeField] private AudioSource altFire;
+    [SerializeField] private AudioSource throwing;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
@@ -107,6 +111,7 @@ public class Ch_ChingRifle : MonoBehaviour
     {
         if (canFire)
         {
+            normFire.Play();
             ammo--;
             canFire = false;
             animator.SetBool("Fire1", true);
@@ -126,6 +131,7 @@ public class Ch_ChingRifle : MonoBehaviour
     {
         if (canFire)
         {
+            altFire.Play();
             ammo -= 4;
             canFire = false;
 
@@ -207,6 +213,7 @@ public class Ch_ChingRifle : MonoBehaviour
     {
         if (canThrow)
         {
+            throwing.Play();
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon

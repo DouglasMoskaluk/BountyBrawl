@@ -41,6 +41,8 @@ public class DeathwhisperShuriken : MonoBehaviour
     private float tempLifeTime;
     private float maxAmmo;
 
+    [SerializeField] private AudioSource throwing;
+
     private void Awake()
     {
         weaponBody = GetComponent<BoxCollider2D>();
@@ -236,6 +238,7 @@ public class DeathwhisperShuriken : MonoBehaviour
                 p.GetComponent<Deathwhisper_ShurikenBullet>().Thrown();
             }
 
+            throwing.Play();
             canThrow = false;
             spriteRenderer.sortingOrder = 7;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite

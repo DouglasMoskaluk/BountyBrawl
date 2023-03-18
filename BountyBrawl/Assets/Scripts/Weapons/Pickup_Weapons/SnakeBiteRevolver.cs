@@ -33,6 +33,8 @@ public class SnakeBiteRevolver : MonoBehaviour
     private float maxAmmo;
 
     private Animator animator;
+    [SerializeField] private AudioSource normFire;
+    [SerializeField] private AudioSource throwing;
 
     private void Awake()
     {
@@ -92,6 +94,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     {
         if (canFire)
         {
+            normFire.Play();
             animator.applyRootMotion = false;
             ammo--;
             canFire = false;
@@ -171,6 +174,7 @@ public class SnakeBiteRevolver : MonoBehaviour
     {
         if (canThrow)
         {
+            throwing.Play();
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
             player.ChangeWeapon(false); //Set player back to default weapon

@@ -36,6 +36,9 @@ public class Railgun : MonoBehaviour
     private bool used; //If the railgun has been used
 
     private CameraShake cameraShaking;
+    [SerializeField] private AudioSource normFire;
+    [SerializeField] private AudioSource throwing;
+
 
     private void Awake()
     {
@@ -76,6 +79,7 @@ public class Railgun : MonoBehaviour
             }
             else
             {
+                normFire.Stop();
                 beam.Deactivation(true);
                 player.UsingRailgun(false);
                 Reload();
@@ -97,6 +101,7 @@ public class Railgun : MonoBehaviour
             //Drops weapon if player dies
             if(player.getHealth() <= 0)
             {
+                normFire.Stop();
                 cameraShaking.setShake(false);
                 player.ExitGlue();
                 player.UsingRailgun(false);
@@ -142,6 +147,7 @@ public class Railgun : MonoBehaviour
 
     public void DoneCharging()
     {
+        normFire.Play();
         beam.Deactivation(false);
         beam.gameObject.SetActive(true);
         firing = true;
@@ -222,6 +228,8 @@ public class Railgun : MonoBehaviour
     {
         if (canThrow)
         {
+            normFire.Stop();
+            throwing.Play();
             player.ExitGlue();
             player.UsingRailgun(false);
             used = false;
