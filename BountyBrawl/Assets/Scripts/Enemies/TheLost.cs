@@ -13,6 +13,7 @@ public class TheLost : MonoBehaviour
         public Sprite walkSprite;
         public Sprite runSprite;
         public string weaponDrop;
+        public RuntimeAnimatorController animation;
     }
 
     public List<Type> types;
@@ -83,12 +84,15 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private ParticleSystem goldDrop;
 
+    private Animator animator;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
         tempDefSpeed = enemyDefaultSpeed;
         tempDashSpeed = enemyDashSpeed;
@@ -116,6 +120,21 @@ public class TheLost : MonoBehaviour
 
         spriteRenderer.sprite = currSprite;
         poison = null;
+
+        if(types[lostType].animation != null)
+        {
+            animator.runtimeAnimatorController = types[lostType].animation;
+
+            canMove = false;
+            animator.SetBool("Dashing", false);
+            animator.SetTrigger("Spawn");
+
+        }
+        else
+        {
+            canMove = true;
+            animator.runtimeAnimatorController = null;
+        }
     }
 
     void UpdatePath() 
@@ -158,18 +177,20 @@ public class TheLost : MonoBehaviour
         }
 
         if(currHealth <= 0f)
-        {
-            StartCoroutine(Particles());
+        { 
+            if (animator.runtimeAnimatorController != null)
+            {
+                canMove = false;
+                dead = true;
+                goldDrop.Play();
+                animator.SetTrigger("Dead");
+            }
+            else
+            {
+                StartCoroutine(Particles());
+            }
         }
         
-    }
-
-    private IEnumerator Particles()
-    {
-        dead = true;
-        goldDrop.Play();
-        yield return new WaitForSeconds(1f);
-        Death();
     }
 
     private void FixedUpdate()
@@ -188,7 +209,7 @@ public class TheLost : MonoBehaviour
         }
 
         //Moves enemy towards closest player by moving on the path
-        if (target != null && canMove)
+        if (target != null && canMove && !dead)
         {
             Vector2 direction = ((Vector2)path.vectorPath[currWaypoint] - rb.position).normalized;
 
@@ -203,6 +224,11 @@ public class TheLost : MonoBehaviour
                 force = Vector2.zero;
                 aura.SetActive(true);
                 StartCoroutine(Cooldown());
+
+                if(animator.runtimeAnimatorController != null)
+                {
+                    animator.SetBool("Dashing", true);
+                }
             }
             else 
             {
@@ -240,7 +266,7 @@ public class TheLost : MonoBehaviour
     private void LateUpdate()
     {
         //Moves the facing direction
-        if (target != null)
+        if (target != null && !dead)
         {
             Vector2 face = target.transform.position - transform.position; //Get 2d position of the player
             
@@ -265,7 +291,16 @@ public class TheLost : MonoBehaviour
         }
     }
 
-    private void Death()
+    private IEnumerator Particles()
+    {
+        dead = true;
+        goldDrop.Play();
+        yield return new WaitForSeconds(1f);
+        Death();
+    }
+
+    //Lost is killed so figure out what weapon to spawn
+    public void Death()
     {
         int notDrop = (int)Random.Range(1f, 101f);
 
@@ -308,6 +343,7 @@ public class TheLost : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    //Spawn the weapon
     private void spawnWeapon()
     {
         if (weapon == 0) //Spawn common weapon 1
@@ -352,6 +388,13 @@ public class TheLost : MonoBehaviour
     {
         yield return new WaitForSeconds(dashTime);
         dashing = false;
+
+        if (animator.runtimeAnimatorController != null)
+        {
+            animator.SetBool("Dashing", false);
+            animator.SetTrigger("Run");
+        }
+
         yield return new WaitForSeconds(dashTime);
         canDash = true;
     } //When the lost can dash into players and deal damage
@@ -397,6 +440,13 @@ public class TheLost : MonoBehaviour
     {
         enemyDefaultSpeed = tempDefSpeed;
         enemyDashSpeed = tempDashSpeed;
+    }
+
+    public void DoneSpawn()
+    {
+        canMove = true;
+        animator.SetBool("Dashing", false);
+        animator.SetTrigger("Run");
     }
 
 

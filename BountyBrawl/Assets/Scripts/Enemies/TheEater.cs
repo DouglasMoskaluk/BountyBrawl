@@ -279,8 +279,12 @@ public class TheEater : MonoBehaviour
             //gets the position for enemy spawn and makes sure enemies aren't stuck on eachother
             Vector3 spawn = new Vector3(transform.position.x + i / 1.2f, transform.position.y - i / 1.2f, 0f);
             TheLost lost = ObjectPooler.Instance.SpawnFromPool("Lost", spawn, Quaternion.identity).GetComponent<TheLost>();
+
+            lost.AddDamage(eventM.GetDamageIncrease());
+            lost.AddHealth(eventM.GetHealthIncrease());
         }
         numMinions++;
+        eventM.IncreaseNumspawn();
     }
 
     public void IsMiniboss(){

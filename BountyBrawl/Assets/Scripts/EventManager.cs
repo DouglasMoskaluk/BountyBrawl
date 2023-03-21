@@ -186,5 +186,10 @@ public class EventManager : MonoBehaviour
     }
 
     public void MinibossDead() { minibossInUse = false; }
-    
+
+    public float GetDamageIncrease() { return (numSpawn * enemyDamageIncrease); }
+    public float GetHealthIncrease() { return (numSpawn * enemyHealthIncrease); }
+
+    public void IncreaseNumspawn() { numSpawn++; }
+
 }

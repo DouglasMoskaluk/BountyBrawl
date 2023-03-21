@@ -3102,7 +3102,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 1
   character: 0
   animator: {fileID: 412174310}
   moneyLost: 20
@@ -6587,7 +6587,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 1
+  playerIndex: 0
   character: 1
   animator: {fileID: 888641976}
   moneyLost: 20
