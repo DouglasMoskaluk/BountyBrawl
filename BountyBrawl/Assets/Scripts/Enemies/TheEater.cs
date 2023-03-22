@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.UI;
 
 public class TheEater : MonoBehaviour
 {
@@ -56,6 +57,11 @@ public class TheEater : MonoBehaviour
     [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
     [SerializeField] private float nextWayPointDistance = 10f;
 
+    [SerializeField] private float healthHeight = 5f;
+    [SerializeField] private float healthSize = 0.3f;
+    private Slider slider;
+    private GameObject health;
+
     Path path;
     private int currWaypoint = 0;
     private bool reachedEndOfPath = false;
@@ -70,13 +76,48 @@ public class TheEater : MonoBehaviour
 
     private Coroutine poison;
 
+    [SerializeField] private Color poisoned;
+    [SerializeField] private Color hit;
+
+    private void Awake()
+    {
+        players = FindObjectsOfType<PlayerBody>(); //Get players
+        rb = GetComponent<Rigidbody2D>();
+        currSprite = GetComponent<SpriteRenderer>();
+        body = GetComponent<BoxCollider2D>();
+        poisonArea.gameObject.SetActive(false);
+        cam = GameObject.FindGameObjectWithTag("MainCamera"); //get main camera
+        eventM = GameObject.FindGameObjectWithTag("GameController").GetComponent<EventManager>(); //Get the event manager
+        harbringer = currSprite.sprite;
+
+        //Deals with eater health
+        health = GameObject.FindGameObjectWithTag("EaterHealth");
+        slider = health.GetComponentInChildren<Slider>();
+        health.SetActive(false);
+        health.transform.position = Vector3.zero;
+        health.transform.localScale *= healthSize;
+
+        isMiniboss = false;
+        tempTimer = minionSpawn; //Saves default time for minion spawn
+        tempPoisonStart = poisonStartSize; //Saves default start size of poison area
+        tempPoisonEnd = poisonEndSize; //Saves default end size of poison area
+
+        seeker = GetComponent<Seeker>();
+
+        //Finds closest player to chase
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
     private void OnEnable()
     {
+        currSprite.color = Color.white;
         poisonStartSize = tempPoisonStart;
         poisonEndSize = tempPoisonEnd;
         poisonArea.localScale = tempPoisonStart;
         currHealth = baseHealth; //Saves the start health for when it is scaled up
         currDamage = baseDamage; //Saves the start damage for when it is scaled up
+        health.SetActive(false);
+        body.enabled = false;
 
         //Adds the eater to the camera list 
         if (cam != null)
@@ -95,6 +136,7 @@ public class TheEater : MonoBehaviour
         canMove = true;
         tempDefSpeed = enemySpeed;
         poison = null;
+        minionSpawn = tempTimer;
     }
 
     //Replace with onDisable later on
@@ -113,32 +155,14 @@ public class TheEater : MonoBehaviour
             }
         }
 
+        if (health.activeSelf)
+        {
+            health.SetActive(false);
+        }
         eventM.MinibossDead();
         isMiniboss = false;
         currSprite.sprite = harbringer;
         body.isTrigger = true;
-    }
-
-    private void Awake()
-    {
-        players = FindObjectsOfType<PlayerBody>(); //Get players
-        rb = GetComponent<Rigidbody2D>();
-        currSprite = GetComponent<SpriteRenderer>();
-        body = GetComponent<BoxCollider2D>();
-        poisonArea.gameObject.SetActive(false);
-        cam = GameObject.FindGameObjectWithTag("MainCamera"); //get main camera
-        eventM = GameObject.FindGameObjectWithTag("GameController").GetComponent<EventManager>(); //Get the event manager
-        harbringer = currSprite.sprite;
-
-        isMiniboss = false;
-        tempTimer = minionSpawn; //Saves default time for minion spawn
-        tempPoisonStart = poisonStartSize; //Saves default start size of poison area
-        tempPoisonEnd = poisonEndSize; //Saves default end size of poison area
-
-        seeker = GetComponent<Seeker>();
-
-        //Finds closest player to chase
-        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -207,12 +231,22 @@ public class TheEater : MonoBehaviour
                 }
             }
 
+            if(poison != null)
+            {
+                currSprite.color = poisoned;
+            }
+
             //Death
             if (currHealth <= 0f)
             {
                 Death();
             }
 
+            slider.value = currHealth;
+
+            Vector2 eaterPos = transform.position;
+
+            health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + healthHeight));
         }
     }
     private void FixedUpdate()
@@ -290,9 +324,11 @@ public class TheEater : MonoBehaviour
     public void IsMiniboss(){
         poisonArea.GetComponent<PoisonArea>().setDamage(currDamage);
         body.isTrigger = false;
+        body.enabled = true;
         currSprite.sprite = boss;
         isMiniboss = true;
         poisonArea.gameObject.SetActive(true);
+        health.SetActive(true);
 
     } //If the eater is now a miniboss
 
@@ -320,7 +356,6 @@ public class TheEater : MonoBehaviour
 
     public IEnumerator Poison(float dam, float interval, float amount, PlayerBody player)
     {
-
         yield return new WaitForSeconds(interval);
 
         //Goes through each amount of poison and damages the player
@@ -331,6 +366,8 @@ public class TheEater : MonoBehaviour
         }
 
         poison = null;
+
+        currSprite.color = Color.white;
 
     }
 
@@ -364,13 +401,24 @@ public class TheEater : MonoBehaviour
         if (isMiniboss) 
         {
             player.gameObject.GetComponent<StatTracker>().IncreaseEnemyDamage(damage);
-            currHealth -= damage; 
+            currHealth -= damage;
+            StartCoroutine(HitColor());
+
             if(currHealth <= 0)
             {
+                StopAllCoroutines();
+                currSprite.color = Color.white;
                 player.gameObject.GetComponent<StatTracker>().IncreaseEaterKills();
                 player.IncreaseMoney(moneyEarn);
             }
         } 
+    }
+
+    private IEnumerator HitColor()
+    {
+        currSprite.color = hit;
+        yield return new WaitForSeconds(0.2f);
+        currSprite.color = Color.white;
     }
 
     public void IsTeleporting() 

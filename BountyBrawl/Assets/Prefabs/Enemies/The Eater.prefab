@@ -113,6 +113,10 @@ MonoBehaviour:
   moneyEarn: 50
   currHealth: 0
   nextWayPointDistance: 10
+  healthHeight: 5
+  healthSize: 0.3
+  poisoned: {r: 0.10467073, g: 0.6603774, b: 0, a: 1}
+  hit: {r: 1, g: 0.42352942, b: 0.20392157, a: 0.5803922}
 --- !u!50 &-412707967287723565
 Rigidbody2D:
   serializedVersion: 4

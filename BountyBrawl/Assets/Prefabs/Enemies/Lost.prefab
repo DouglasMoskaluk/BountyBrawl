@@ -229,7 +229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7675826452862742069
 Transform:
   m_ObjectHideFlags: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   dashDistance: 15
   baseDamage: 5
   baseHealth: 10
+  maxHealth: 70
   dashTime: 1
   dash: {fileID: 21300000, guid: 3ba05279ba7d2114d974ef87909e17a7, type: 3}
   aura: {fileID: 3044958533242302434}
@@ -383,6 +384,8 @@ MonoBehaviour:
   currDamage: 0
   currHealth: 0
   goldDrop: {fileID: 237761583563541773}
+  poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
+  hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
 --- !u!61 &2595213334828957096
 BoxCollider2D:
   m_ObjectHideFlags: 0

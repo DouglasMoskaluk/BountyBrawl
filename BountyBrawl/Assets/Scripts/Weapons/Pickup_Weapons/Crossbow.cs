@@ -63,6 +63,8 @@ public class Crossbow : MonoBehaviour
     {
         if (player != null)
         {
+            player.maxAmmo = tempTimer;
+            player.currAmmo = timer;
 
             if (player.getFire1() != 0 && timer > 0 && !thrown && canShoot)
             {

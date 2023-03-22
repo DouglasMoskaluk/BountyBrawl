@@ -36,10 +36,15 @@ public class HUDScript : MonoBehaviour
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
 
-    [SerializeField] private Slider slider;
+    [SerializeField] private Slider healthSlider;
     [SerializeField] private GameObject health;
-    [SerializeField] private float healthHeight = 5f; //How high the health will float on the player
-    [SerializeField] private float healthSize = 0.3f;
+
+    [SerializeField] private float sliderHeight = 5f; //How high the health will float on the player
+    [SerializeField] private float sliderSize = 0.3f;
+    [SerializeField] private float sliderXOffset = 60f;
+
+    [SerializeField] private Slider ammoSlider;
+    [SerializeField] private GameObject ammo;
 
     public TMP_Text moneyText;
 
@@ -69,9 +74,10 @@ public class HUDScript : MonoBehaviour
             //hammer.SetActive(true);
         }
 
-        if(health != null)
+        if(health != null && ammo != null)
         {
-            health.transform.localScale *= healthSize;
+            health.transform.localScale *= sliderSize;
+            ammo.transform.localScale *= sliderSize;
         }
 
     }
@@ -88,11 +94,26 @@ public class HUDScript : MonoBehaviour
         HealthBar();
         Money();
 
-        if(health != null)
+        if(health != null && ammo != null)
         {
-            Vector2 playerPos = playerCharacter.transform.position;
+            if (playerCharacter.activeSelf)
+            {
 
-            health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + healthHeight));
+                ammoSlider.maxValue = playerCharacter.GetComponent<PlayerBody>().maxAmmo;
+                ammoSlider.value = playerCharacter.GetComponent<PlayerBody>().currAmmo;
+
+                Vector2 playerPos = playerCharacter.transform.position;
+
+                health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + sliderHeight));
+                health.transform.position += new Vector3(sliderXOffset, 0, 0);
+                ammo.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + sliderHeight));
+                ammo.transform.position -= new Vector3(sliderXOffset, 0, 0);
+            }
+            else
+            {
+                health.SetActive(false);
+                ammo.SetActive(false);
+            }
         }
     }
 
@@ -104,7 +125,7 @@ public class HUDScript : MonoBehaviour
     private void HealthBar()
     {
         sliderHealth = playerHealth;
-        slider.value = sliderHealth;
+        healthSlider.value = sliderHealth;
         //if(playerHealth == 0)
         //{
         //playerLives--;

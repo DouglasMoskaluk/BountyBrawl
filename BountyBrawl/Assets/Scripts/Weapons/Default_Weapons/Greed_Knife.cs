@@ -25,6 +25,8 @@ public class Greed_Knife : MonoBehaviour
     [SerializeField] private AudioSource swinging;
     [SerializeField] private AudioClip[] soundClips;
 
+    private float tempCooldown;
+
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
@@ -43,6 +45,10 @@ public class Greed_Knife : MonoBehaviour
         animator.speed = animatorDefSpeed;
         transform.rotation = defRotation;
         animator.keepAnimatorControllerStateOnDisable = true;
+
+        player.maxAmmo = stabCooldown;
+        tempCooldown = stabCooldown;
+        player.currAmmo = stabCooldown;
     }
 
     private void OnDisable()
@@ -71,6 +77,19 @@ public class Greed_Knife : MonoBehaviour
             {
                 animator.SetTrigger("Idle");
             }
+
+
+            if (player.maxAmmo > stabCooldown)
+            {
+                tempCooldown = stabCooldown;
+                player.maxAmmo = stabCooldown;
+            }
+
+            if (tempCooldown < stabCooldown)
+            {
+                tempCooldown += Time.deltaTime;
+                player.currAmmo = tempCooldown;
+            }
         }
     }
 
@@ -94,6 +113,7 @@ public class Greed_Knife : MonoBehaviour
     {
         player.UsingDefault(false);
         animator.SetBool("Attack", false);
+        tempCooldown = 0;
         StartCoroutine(Cooldown(stabCooldown));
         animator.speed = animatorDefSpeed;
         attack.enabled = false;

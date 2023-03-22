@@ -85,6 +85,9 @@ public class PlayerBody : MonoBehaviour
 
     [SerializeField] AudioSource playerDamage;
 
+    [HideInInspector] public float maxAmmo; //For the ammo slider to determine the max value of the slider
+    [HideInInspector] public float currAmmo; //For the ammo slider to determine the current value of the slider
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui

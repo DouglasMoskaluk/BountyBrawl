@@ -37,6 +37,8 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private float baseHealth = 30f;
 
+    [SerializeField] private float maxHealth = 70;
+
     [SerializeField] private float dashTime = 1f;
 
     [SerializeField] private Sprite dash;
@@ -86,6 +88,11 @@ public class TheLost : MonoBehaviour
 
     private Animator animator;
 
+    private BoxCollider2D hitbox;
+
+    [SerializeField] private Color poisoned;
+    [SerializeField] private Color hit;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
@@ -93,6 +100,7 @@ public class TheLost : MonoBehaviour
         seeker = GetComponent<Seeker>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        hitbox = GetComponent<BoxCollider2D>();
 
         tempDefSpeed = enemyDefaultSpeed;
         tempDashSpeed = enemyDashSpeed;
@@ -105,6 +113,7 @@ public class TheLost : MonoBehaviour
     {
         currDamage = baseDamage;
         currHealth = baseHealth;
+        spriteRenderer.color = Color.white;
         canDash = true;
         dashing = false;
         canMove = true;
@@ -125,6 +134,7 @@ public class TheLost : MonoBehaviour
         {
             animator.runtimeAnimatorController = types[lostType].animation;
 
+            hitbox.enabled = false;
             canMove = false;
             animator.SetBool("Dashing", false);
             animator.SetTrigger("Spawn");
@@ -180,6 +190,7 @@ public class TheLost : MonoBehaviour
         { 
             if (animator.runtimeAnimatorController != null)
             {
+                spriteRenderer.color = Color.white;
                 canMove = false;
                 dead = true;
                 goldDrop.Play();
@@ -187,10 +198,16 @@ public class TheLost : MonoBehaviour
             }
             else
             {
+                spriteRenderer.color = Color.white;
                 StartCoroutine(Particles());
             }
         }
-        
+
+        if (poison != null)
+        {
+            spriteRenderer.color = poisoned;
+        }
+
     }
 
     private void FixedUpdate()
@@ -413,6 +430,8 @@ public class TheLost : MonoBehaviour
 
         poison = null;
 
+        spriteRenderer.color = Color.white;
+
     }
 
     public void PoisonLost(float dam, float interval, float amount, PlayerBody player)
@@ -444,6 +463,7 @@ public class TheLost : MonoBehaviour
 
     public void DoneSpawn()
     {
+        hitbox.enabled = true;
         canMove = true;
         animator.SetBool("Dashing", false);
         animator.SetTrigger("Run");
@@ -452,7 +472,15 @@ public class TheLost : MonoBehaviour
 
     public void AddDamage(float add){ currDamage += add; } //Adds more damage each time enemy is spawned
     
-    public void AddHealth(float add) { currHealth += add; } //Adds more health each time enemy is spawned
+    public void AddHealth(float add) {
+
+        currHealth += add; 
+        if(currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
+    
+    } //Adds more health each time enemy is spawned
 
     public Coroutine IsPoisoned() { return poison; }
 
@@ -461,10 +489,21 @@ public class TheLost : MonoBehaviour
         player.gameObject.GetComponent<StatTracker>().IncreaseEnemyDamage(damage);
 
         currHealth -= damage;
+        StartCoroutine(HitColor());
+
         if (currHealth <= 0)
         {
+            StopAllCoroutines();
+            spriteRenderer.color = Color.white;
             player.gameObject.GetComponent<StatTracker>().IncreaseLostKills();
             player.IncreaseMoney(moneyEarn);
         }
+    }
+
+    private IEnumerator HitColor()
+    {
+        spriteRenderer.color = hit;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
     }
 }

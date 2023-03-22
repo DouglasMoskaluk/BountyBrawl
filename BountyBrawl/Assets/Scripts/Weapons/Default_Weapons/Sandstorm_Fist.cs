@@ -28,6 +28,8 @@ public class Sandstorm_Fist : MonoBehaviour
 
     [SerializeField] private AudioSource dash;
 
+    private float tempCooldown;
+
     private void OnEnable()
     {
         attack = gameObject.GetComponent<BoxCollider2D>(); //Get the damage area
@@ -37,6 +39,10 @@ public class Sandstorm_Fist : MonoBehaviour
         StopAllCoroutines();
         canFire = false;
         StartCoroutine(Cooldown(0.5f));
+
+        player.maxAmmo = fistTime;
+        tempCooldown = fistTime;
+        player.currAmmo = fistTime;
     }
 
     private void OnDisable()
@@ -51,6 +57,18 @@ public class Sandstorm_Fist : MonoBehaviour
             if (player.getFire1() != 0)
             {
                 Shoot1();
+            }
+
+            if(player.maxAmmo > fistTime)
+            {
+                tempCooldown = fistTime;
+                player.maxAmmo = fistTime;
+            }
+
+            if (tempCooldown < fistTime)
+            {
+                tempCooldown += Time.deltaTime;
+                player.currAmmo = tempCooldown;
             }
         }
 
@@ -80,6 +98,7 @@ public class Sandstorm_Fist : MonoBehaviour
 
     IEnumerator Cooldown(float time)
     {
+        tempCooldown = 0;
         yield return new WaitForSeconds(time);
         canFire = true;
     } //When the player can use the dash again

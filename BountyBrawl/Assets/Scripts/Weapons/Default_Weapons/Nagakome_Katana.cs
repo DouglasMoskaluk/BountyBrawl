@@ -26,6 +26,8 @@ public class Nagakome_Katana : MonoBehaviour
     [SerializeField] private AudioSource swinging;
     [SerializeField] private AudioClip[] soundClips;
 
+    private float tempCooldown;
+
     private void Awake()
     {
         attack = GetComponent<BoxCollider2D>();
@@ -43,6 +45,10 @@ public class Nagakome_Katana : MonoBehaviour
         animator.speed = animatorDefSpeed;
         transform.rotation = defRotation;
         animator.keepAnimatorControllerStateOnDisable = true;
+
+        player.maxAmmo = slashCooldown;
+        tempCooldown = slashCooldown;
+        player.currAmmo = slashCooldown;
     }
 
     private void OnDisable()
@@ -74,6 +80,18 @@ public class Nagakome_Katana : MonoBehaviour
             {
                 animator.SetTrigger("Idle");
             }
+
+            if (player.maxAmmo > slashCooldown)
+            {
+                tempCooldown = slashCooldown;
+                player.maxAmmo = slashCooldown;
+            }
+
+            if (tempCooldown < slashCooldown)
+            {
+                tempCooldown += Time.deltaTime;
+                player.currAmmo = tempCooldown;
+            }
         }
     }
 
@@ -103,6 +121,7 @@ public class Nagakome_Katana : MonoBehaviour
     {
         player.UsingDefault(false);
         animator.SetBool("Attack", false);
+        tempCooldown = 0;
         StartCoroutine(Cooldown(slashCooldown));
         animator.speed = animatorDefSpeed;
         attack.enabled = false;

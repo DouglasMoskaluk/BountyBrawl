@@ -65,6 +65,9 @@ public class WyldsnagShotgun : MonoBehaviour
     {
         if (player != null)
         {
+            player.maxAmmo = maxAmmo;
+            player.currAmmo = ammo;
+
             if (player.getFire1() != 0 && ammo > 0 && !thrown)
             {
                     Shoot1(); //shoot gun if there is ammo and if player is holding the tringger
@@ -74,7 +77,7 @@ public class WyldsnagShotgun : MonoBehaviour
                     Shoot2();
                     //shoot gun if there is ammo and if player is holding the tringger
             }
-            if (player.getThrow() != 0 || ammo <= 0 && player.getFire1() != 0)
+            if (player.getThrow() != 0 || ammo <= 0 && player.getFire1() != 0 && canFire)
             {
                 animator.applyRootMotion = true;
                 StartCoroutine(Throw());

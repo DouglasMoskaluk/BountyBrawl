@@ -15,6 +15,7 @@ TagManager:
   - Bullet
   - Special Bullet
   - Box
+  - EaterHealth
   layers:
   - Default
   - TransparentFX

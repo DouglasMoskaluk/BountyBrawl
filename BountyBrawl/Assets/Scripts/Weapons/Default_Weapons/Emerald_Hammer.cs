@@ -24,6 +24,8 @@ public class Emerald_Hammer : MonoBehaviour
 
     [SerializeField] private AudioSource banging;
     [SerializeField] private AudioClip[] soundClips;
+
+    private float tempCooldown;
     private void Awake()
     {
         attack = GetComponent<CircleCollider2D>();
@@ -33,6 +35,9 @@ public class Emerald_Hammer : MonoBehaviour
     {
         canFire = false;
         StartCoroutine(Cooldown(0.5f));
+        player.maxAmmo = slamCooldown;
+        tempCooldown = slamCooldown;
+        player.currAmmo = slamCooldown;
     }
 
     private void OnDisable()
@@ -53,6 +58,23 @@ public class Emerald_Hammer : MonoBehaviour
                 player.StartAttack();
                 Shoot1();
             }
+
+
+            if (player.maxAmmo > slamCooldown)
+            {
+                tempCooldown = slamCooldown;
+                player.maxAmmo = slamCooldown;
+            }
+
+            if (!canFire)
+            {
+                if(tempCooldown < slamCooldown)
+                {
+                    tempCooldown += Time.deltaTime;
+                    player.currAmmo = tempCooldown;
+                }
+            }
+
         }
         if (slamming && attack.isActiveAndEnabled)
         {
@@ -64,6 +86,7 @@ public class Emerald_Hammer : MonoBehaviour
 
     private void Shoot1()
     {
+        tempCooldown = 0;
         canFire = false;
         slamming = true;
         player.EmeraldHammer(true);
