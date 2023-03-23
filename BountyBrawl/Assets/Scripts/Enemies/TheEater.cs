@@ -343,14 +343,6 @@ public class TheEater : MonoBehaviour
 
     private void Death()
     {
-
-        PlayerBody[] players = FindObjectsOfType<PlayerBody>();
-
-        foreach(PlayerBody p in players)
-        {
-            p.Curse();
-        }
-
         gameObject.SetActive(false);
     }
 
@@ -417,7 +409,7 @@ public class TheEater : MonoBehaviour
     private IEnumerator HitColor()
     {
         currSprite.color = hit;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         currSprite.color = Color.white;
     }
 

@@ -105,9 +105,9 @@ public class HUDScript : MonoBehaviour
                 Vector2 playerPos = playerCharacter.transform.position;
 
                 health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + sliderHeight));
-                health.transform.position += new Vector3(sliderXOffset, 0, 0);
+                health.transform.position -= new Vector3(sliderXOffset, 0, 0);
                 ammo.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + sliderHeight));
-                ammo.transform.position -= new Vector3(sliderXOffset, 0, 0);
+                ammo.transform.position += new Vector3(sliderXOffset, 0, 0);
             }
             else
             {

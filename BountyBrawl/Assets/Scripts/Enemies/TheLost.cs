@@ -186,10 +186,11 @@ public class TheLost : MonoBehaviour
             }
         }
 
-        if(currHealth <= 0f)
+        if(currHealth <= 0f && !dead)
         { 
             if (animator.runtimeAnimatorController != null)
             {
+                poison = null;
                 spriteRenderer.color = Color.white;
                 canMove = false;
                 dead = true;
@@ -198,6 +199,7 @@ public class TheLost : MonoBehaviour
             }
             else
             {
+                poison = null;
                 spriteRenderer.color = Color.white;
                 StartCoroutine(Particles());
             }

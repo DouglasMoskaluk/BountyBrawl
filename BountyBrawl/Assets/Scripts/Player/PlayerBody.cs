@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
     [SerializeField] private GameObject eventManager;
-    [SerializeField] private Transform spawnPoint;
+    private Transform spawnPoint;
     GameObject UIPauseMenu; //Pause menu on canvas
 
     //Player info
@@ -106,6 +106,13 @@ public class PlayerBody : MonoBehaviour
         money = 0;
         knockbacked = false;
         railgun = false;
+
+        //Gets the spawnpoint of the player based on player index
+        GameObject[] spawnPoints;
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
+        spawnPoint = spawnPoints[playerIndex].transform;
+
+        transform.position = spawnPoint.position; //Moves player to the spawnpoint
     }
 
     private void Start()

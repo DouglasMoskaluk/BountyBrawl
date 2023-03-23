@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float boxTimer = 60f; //Used later when weapons added
 
     [SerializeField] private TextMeshProUGUI timer;
+    [SerializeField] private GameObject curseTimer;
 
     [Tooltip("The increase of damage for enemies each time they are spawned")]
     [SerializeField] private float enemyDamageIncrease = 4f;
@@ -34,6 +35,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] private WeaponBox[] weaponBoxes; //Array of all the weapon box spawn points
 
     [SerializeField] private float graphScanUpdate = 1f;
+
+    [SerializeField] private float cursedTime = 45;
 
     private int numSpawn = 0; //The number of times a group of enemies have spawned
 
@@ -54,6 +57,7 @@ public class EventManager : MonoBehaviour
     private AstarPath astar;
 
     private float tempGraph;
+    private bool cursed;
 
     private void Awake()
     {
@@ -65,6 +69,7 @@ public class EventManager : MonoBehaviour
         tempBoxTimer = boxTimer;
         astar = FindObjectOfType<AstarPath>();
         tempGraph = graphScanUpdate;
+        cursed = false;
     }
 
     private void Update()
@@ -148,6 +153,25 @@ public class EventManager : MonoBehaviour
         else
         {
             graphScanUpdate -= Time.deltaTime;
+        }
+
+        if (!cursed && cursedTime < 0)
+        {
+            cursed = true;
+
+            curseTimer.SetActive(false);
+
+            PlayerBody[] players = FindObjectsOfType<PlayerBody>();
+
+            foreach (PlayerBody p in players)
+            {
+                p.Curse();
+            }
+        }
+        else if(cursedTime > 0)
+        { 
+            cursedTime -= Time.deltaTime;
+            curseTimer.GetComponent<TextMeshProUGUI>().text = System.Convert.ToString((int)cursedTime);
         }
     }
 
