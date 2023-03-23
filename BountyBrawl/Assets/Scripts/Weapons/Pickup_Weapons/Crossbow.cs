@@ -10,6 +10,7 @@ public class Crossbow : MonoBehaviour
     [Tooltip("The sprites when player is holding the weapon for each individual player")]
     [SerializeField] Sprite[] holding = new Sprite[4];
     [SerializeField] private float lifeTime = 20f;
+    [SerializeField] private GameObject crossbowHead;
 
     private Sprite sprite; //The starting sprite before pickup
     private SpriteRenderer spriteRenderer;
@@ -57,6 +58,7 @@ public class Crossbow : MonoBehaviour
         animator.enabled = false;
         timer = tempTimer;
         lifeTime = tempLifeTime;
+        crossbowHead.SetActive(false);
     }
 
     private void Update()
@@ -73,16 +75,20 @@ public class Crossbow : MonoBehaviour
                     normFire.Play();
                 }
 
-                beam.Deactivation(false);
-                beam.gameObject.SetActive(true);
+                //beam.Deactivation(false);
+                crossbowHead.SetActive(true);
                 firing = true;
-                animator.SetBool("Fire1", true);
+                if (!beam.isActiveAndEnabled)
+                {
+                    animator.SetBool("Fire1", true);
+                }
                 animator.enabled = true;
                 Shoot1();//shoot gun if there is ammo and if player is holding the trigger
             }
             else if (player.getFire1() == 0 || timer < 0 || thrown || !canShoot)
             {
-                beam.Deactivation(true);
+                //beam.Deactivation(true);
+                beam.gameObject.SetActive(false);
 
                 if (firing == true)
                 {
@@ -102,7 +108,7 @@ public class Crossbow : MonoBehaviour
             {
                 player.ChangeWeapon(false); //Set player back to default weapon
                 player = null; //sets the player to null to wait for next player
-                beam.Deactivation(true);
+                //beam.Deactivation(true);
                 firing = false;
                 transform.parent = null; //Unparent the weapon
                 thrown = false;
@@ -115,6 +121,7 @@ public class Crossbow : MonoBehaviour
                 Idle();
                 animator.enabled = true;
                 canShoot = true;
+                crossbowHead.SetActive(false);
             }
         }
 
@@ -139,24 +146,30 @@ public class Crossbow : MonoBehaviour
 
     private void Shoot1()
     {
-        beam.gameObject.SetActive(true);
         beam.Fire(player); //Pass the player   
     }
 
     public void Fire2()
     {
+        beam.gameObject.SetActive(true);
         animator.SetBool("Fire1", false);
         animator.SetBool("Fire2", true);
     }
 
     public void Idle()
     {
+        crossbowHead.SetActive(false);
         animator.SetBool("Fire1", false);
         animator.SetBool("Fire2", false);
         animator.SetBool("Reload", false);
         animator.SetTrigger("Idle");
         animator.enabled = false;
         normFire.Stop();
+
+        if (!thrown)
+        {
+            crossbowHead.SetActive(true);
+        }
     }
 
     public void Reload()
@@ -174,6 +187,7 @@ public class Crossbow : MonoBehaviour
             //If player is not using a weapon
             if (!checker.UsingWeapon())
             {
+                crossbowHead.SetActive(true);
                 spriteRenderer.sortingLayerName = "Foreground";
                 animator.enabled = false;
 
@@ -220,6 +234,7 @@ public class Crossbow : MonoBehaviour
     {
         if (canThrow)
         {
+            crossbowHead.SetActive(false);
             normFire.Stop();
             throwing.Play();
             canThrow = false;

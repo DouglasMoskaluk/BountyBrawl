@@ -155,7 +155,7 @@ public class TheEater : MonoBehaviour
             }
         }
 
-        if (health.activeSelf)
+        if (health != null && health.activeSelf)
         {
             health.SetActive(false);
         }

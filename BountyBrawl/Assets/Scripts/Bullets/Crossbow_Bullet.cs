@@ -8,7 +8,7 @@ public class Crossbow_Bullet : MonoBehaviour
     [Tooltip("The amoung of time before the player can be damaged again")]
     [SerializeField] private float damageTickTime = 1f;
 
-    [SerializeField] private float growSpeed = 100f; //Grow speed of beam
+    //[SerializeField] private float growSpeed = 100f; //Grow speed of beam
 
     private SpriteRenderer spriteRenderer;
 
@@ -24,7 +24,7 @@ public class Crossbow_Bullet : MonoBehaviour
     [SerializeField] private float damageIncrease = 4f; //The damage increase 
     [SerializeField] private float damageIncreaseTime = 0.5f; //The time until the damage increases
     [SerializeField] private float currDamage;
-    [SerializeField] private float fullLength = 50f; //The full length the beam can grow to
+    //[SerializeField] private float fullLength = 50f; //The full length the beam can grow to
 
     private float tempTimer;
     private float tempDamTimer;
@@ -40,11 +40,19 @@ public class Crossbow_Bullet : MonoBehaviour
 
     private void OnEnable()
     {
-        deactivate = false;
-        spriteRenderer.size = new Vector2(0f, originalYSize);
-        speed = 0f;
+        //deactivate = false;
+        //spriteRenderer.size = new Vector2(0f, originalYSize);
+        //speed = 0f;
         enemies.Clear();
         currDamage = baseDamage;
+    }
+
+    private void OnDisable()
+    {
+        gun.Reload(); 
+        enemies.Clear();
+        gun.SetCanFire(true);
+        damageTickTime = tempTimer;
     }
 
     private void Awake()
@@ -62,8 +70,8 @@ public class Crossbow_Bullet : MonoBehaviour
     private void Update()
     {
 
-        boxCollider.size = spriteRenderer.size;
-        boxCollider.offset = new Vector2((spriteRenderer.size.x / 2), 0);
+        //boxCollider.size = spriteRenderer.size;
+        //boxCollider.offset = new Vector2((spriteRenderer.size.x / 2), 0);
 
         if (enemies.Count != 0)
         {
@@ -112,6 +120,8 @@ public class Crossbow_Bullet : MonoBehaviour
             currDamage = baseDamage;
         }
 
+        /*
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, fullLength / 2);
         Debug.DrawRay(transform.position, transform.right * hit.distance, Color.red);
 
@@ -127,11 +137,12 @@ public class Crossbow_Bullet : MonoBehaviour
         {
             beamLength = fullLength;
         }
+        */
     }
 
     void FixedUpdate()
     {
-
+        /*
         if (speed < beamLength)
         {
             speed += growSpeed * Time.deltaTime;
@@ -156,7 +167,7 @@ public class Crossbow_Bullet : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-
+                */
     }
 
     public void Fire(PlayerBody play)
@@ -204,5 +215,5 @@ public class Crossbow_Bullet : MonoBehaviour
         enemies.Remove(collision.gameObject);
     }
 
-    public void Deactivation(bool act) { deactivate = act; }
+    //public void Deactivation(bool act) { deactivate = act; }
 }

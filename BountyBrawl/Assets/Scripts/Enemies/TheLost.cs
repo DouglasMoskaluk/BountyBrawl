@@ -89,6 +89,7 @@ public class TheLost : MonoBehaviour
     private Animator animator;
 
     private BoxCollider2D hitbox;
+    [SerializeField] private BoxCollider2D avoidBox;
 
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
@@ -135,13 +136,17 @@ public class TheLost : MonoBehaviour
             animator.runtimeAnimatorController = types[lostType].animation;
 
             hitbox.enabled = false;
+            avoidBox.enabled = false;
             canMove = false;
+            animator.SetBool("Dead", false);
             animator.SetBool("Dashing", false);
             animator.SetTrigger("Spawn");
 
         }
         else
         {
+            hitbox.enabled = true;
+            avoidBox.enabled = true;
             canMove = true;
             animator.runtimeAnimatorController = null;
         }
@@ -190,16 +195,21 @@ public class TheLost : MonoBehaviour
         { 
             if (animator.runtimeAnimatorController != null)
             {
+                hitbox.enabled = false;
+                avoidBox.enabled = false;
+                StopAllCoroutines();
                 poison = null;
                 spriteRenderer.color = Color.white;
                 canMove = false;
                 dead = true;
                 goldDrop.Play();
-                animator.SetTrigger("Dead");
+                animator.SetBool("Dashing", false);
+                animator.SetBool("Dead", true);
             }
             else
             {
                 poison = null;
+                dead = true;
                 spriteRenderer.color = Color.white;
                 StartCoroutine(Particles());
             }
@@ -312,7 +322,6 @@ public class TheLost : MonoBehaviour
 
     private IEnumerator Particles()
     {
-        dead = true;
         goldDrop.Play();
         yield return new WaitForSeconds(1f);
         Death();
@@ -408,7 +417,7 @@ public class TheLost : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         dashing = false;
 
-        if (animator.runtimeAnimatorController != null)
+        if (animator.runtimeAnimatorController != null && !dead)
         {
             animator.SetBool("Dashing", false);
             animator.SetTrigger("Run");
@@ -465,10 +474,14 @@ public class TheLost : MonoBehaviour
 
     public void DoneSpawn()
     {
-        hitbox.enabled = true;
-        canMove = true;
-        animator.SetBool("Dashing", false);
-        animator.SetTrigger("Run");
+        if (!dead)
+        {
+            hitbox.enabled = true;
+            avoidBox.enabled = true;
+            canMove = true;
+            animator.SetBool("Dashing", false);
+            animator.SetTrigger("Run");
+        }
     }
 
 
@@ -495,7 +508,7 @@ public class TheLost : MonoBehaviour
 
         if (currHealth <= 0)
         {
-            StopAllCoroutines();
+            poison = null;
             spriteRenderer.color = Color.white;
             player.gameObject.GetComponent<StatTracker>().IncreaseLostKills();
             player.IncreaseMoney(moneyEarn);

@@ -88,6 +88,10 @@ public class PlayerBody : MonoBehaviour
     [HideInInspector] public float maxAmmo; //For the ammo slider to determine the max value of the slider
     [HideInInspector] public float currAmmo; //For the ammo slider to determine the current value of the slider
 
+    //Player skin selection
+    public int playerSkin;
+    [SerializeField] private RuntimeAnimatorController[] skins;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -102,7 +106,7 @@ public class PlayerBody : MonoBehaviour
         hammer = false;
         tempSpeed = runSpeed;
         weaponIndex = 0;
-        lives = 3;;
+        lives = 3;
         money = 0;
         knockbacked = false;
         railgun = false;
@@ -111,6 +115,8 @@ public class PlayerBody : MonoBehaviour
         GameObject[] spawnPoints;
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
         spawnPoint = spawnPoints[playerIndex].transform;
+
+        GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
 
         transform.position = spawnPoint.position; //Moves player to the spawnpoint
     }

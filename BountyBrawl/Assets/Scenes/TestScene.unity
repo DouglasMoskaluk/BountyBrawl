@@ -1030,6 +1030,12 @@ MonoBehaviour:
   playerDamage: {fileID: 147186571}
   maxAmmo: 0
   currAmmo: 0
+  playerSkin: 2
+  skins:
+  - {fileID: 22100000, guid: b47b125b5e6b8e340b96da65fcb17e08, type: 2}
+  - {fileID: 22100000, guid: 8de1b4b3f4e1c89449b0994cae3df7bc, type: 2}
+  - {fileID: 22100000, guid: 4b84686fb753f0f4aad8a365f93777a0, type: 2}
+  - {fileID: 22100000, guid: f784c3cab73e3c3478c634fccd482920, type: 2}
 --- !u!212 &147186566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1123,7 +1129,7 @@ Animator:
   m_GameObject: {fileID: 147186562}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: b47b125b5e6b8e340b96da65fcb17e08, type: 2}
+  m_Controller: {fileID: 22100000, guid: f784c3cab73e3c3478c634fccd482920, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3665,6 +3671,12 @@ MonoBehaviour:
   playerDamage: {fileID: 412174312}
   maxAmmo: 0
   currAmmo: 0
+  playerSkin: 3
+  skins:
+  - {fileID: 22100000, guid: 11a16bfd0cdf4e042ac7ae2a98cea572, type: 2}
+  - {fileID: 22100000, guid: 03b79ee613996854782b294a618a89de, type: 2}
+  - {fileID: 22100000, guid: cad5924e479ee134f9ca311eacafbef7, type: 2}
+  - {fileID: 22100000, guid: 0c807545c3f07f444b5eef4dd1dd7bd1, type: 2}
 --- !u!212 &412174306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3784,7 +3796,7 @@ Animator:
   m_GameObject: {fileID: 412174303}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 11a16bfd0cdf4e042ac7ae2a98cea572, type: 2}
+  m_Controller: {fileID: 22100000, guid: 0c807545c3f07f444b5eef4dd1dd7bd1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7986,6 +7998,12 @@ MonoBehaviour:
   playerDamage: {fileID: 888641979}
   maxAmmo: 0
   currAmmo: 0
+  playerSkin: 3
+  skins:
+  - {fileID: 9100000, guid: 64a186a2575a7be4a86d7d91a9e005ad, type: 2}
+  - {fileID: 22100000, guid: c3a5048584ff3e54daeced3af5361c69, type: 2}
+  - {fileID: 22100000, guid: 33602bed6255909439d549ab87e18d2c, type: 2}
+  - {fileID: 22100000, guid: c87d536d280aae54d89110e0f9e0630b, type: 2}
 --- !u!212 &888641974
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8064,7 +8082,7 @@ Animator:
   m_GameObject: {fileID: 888641970}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 64a186a2575a7be4a86d7d91a9e005ad, type: 2}
+  m_Controller: {fileID: 22100000, guid: c87d536d280aae54d89110e0f9e0630b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10568,6 +10586,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343413768}
     m_Modifications:
+    - target: {fileID: 746005044465814917, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21.83873
+      objectReference: {fileID: 0}
+    - target: {fileID: 746005044465814917, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1415331
+      objectReference: {fileID: 0}
     - target: {fileID: 1422997465680654306, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -18282,6 +18308,12 @@ MonoBehaviour:
   playerDamage: {fileID: 2068640322}
   maxAmmo: 0
   currAmmo: 0
+  playerSkin: 3
+  skins:
+  - {fileID: 22100000, guid: ef18be3cc30d5194a8e017ad32e2f93c, type: 2}
+  - {fileID: 22100000, guid: 106e2031816f3fb4a84f3f7cc5dd77c5, type: 2}
+  - {fileID: 22100000, guid: 580d4afb07ba26d409ae84ee20d8a03f, type: 2}
+  - {fileID: 22100000, guid: 2fe10b266b505b248bf408587d366ebf, type: 2}
 --- !u!212 &2068640317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18376,7 +18408,7 @@ Animator:
   m_GameObject: {fileID: 2068640313}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: ef18be3cc30d5194a8e017ad32e2f93c, type: 2}
+  m_Controller: {fileID: 22100000, guid: 2fe10b266b505b248bf408587d366ebf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
