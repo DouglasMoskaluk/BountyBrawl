@@ -79,6 +79,10 @@ public class TheEater : MonoBehaviour
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
 
+    //Glue and water slowness
+    private bool glued;
+    private bool wet;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>(); //Get players
@@ -118,6 +122,8 @@ public class TheEater : MonoBehaviour
         currDamage = baseDamage; //Saves the start damage for when it is scaled up
         health.SetActive(false);
         body.enabled = false;
+        glued = false;
+        wet = false;
 
         //Adds the eater to the camera list 
         if (cam != null)
@@ -379,13 +385,38 @@ public class TheEater : MonoBehaviour
     //slows Lost in glue
     public void Slow(float slowness)
     {
-        enemySpeed = slowness;
+        if (!glued)
+        {
+            glued = true;
+            enemySpeed -= slowness;
+        }
     }
 
     //Fixes runspeed after player leaves glue
-    public void ExitGlue()
+    public void ExitGlue(float slowness)
     {
-        enemySpeed = tempDefSpeed;
+        if (glued)
+        {
+            glued = false;
+            enemySpeed += slowness;
+        }
+    }
+
+    public void EnterWater(float slowness)
+    {
+        if (!wet)
+        {
+            wet = true;
+            enemySpeed -= slowness;
+        }
+    }
+    public void ExitWater(float slowness)
+    {
+        if (wet)
+        {
+            wet = false;
+            enemySpeed += slowness;
+        }
     }
 
     public void DamageEnemy(float damage, PlayerBody player) 

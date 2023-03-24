@@ -38,10 +38,10 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private float stunLength = 1f; //The length of stun for players hit
     [SerializeField] private float glueTime = 5f; //The amount of time glue will stay in the level
     [SerializeField] private float glueDamage = 3f; //Amount of damage glue gives if player is emerald
-    [SerializeField] private float gluePlayerSlowness = 9f; //How slow the glue will make players
+    [SerializeField] private float gluePlayerSlowness = 5f; //How slow the glue will make players
     [SerializeField] private Vector3 glueSize = new Vector3(2f, 2f, 1f);
     [SerializeField] private float glueGrowSpeed = 3f;
-    [SerializeField] private float glueLostSlowness = 500f;
+    [SerializeField] private float glueLostSlowness = 300f;
     [SerializeField] private float glueEaterSlowness = 400f;
     private List<GameObject> enemies;
 
@@ -200,7 +200,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (!glue)
         {
@@ -325,15 +325,25 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 if (collision.gameObject != player.gameObject && collision.transform.tag == "Player")
                 {
                     collision.GetComponent<PlayerBody>().Slow(gluePlayerSlowness);
-                    enemies.Add(collision.gameObject);
+                    if (!enemies.Contains(collision.gameObject))
+                    {
+                        enemies.Add(collision.gameObject);
+                    }
                 }else if(collision.gameObject.tag == "Lost")
                 {
                     collision.GetComponent<TheLost>().Slow(glueLostSlowness);
-                    enemies.Add(collision.gameObject);
-                }else if (collision.gameObject.tag == "Eater")
+                    if (!enemies.Contains(collision.gameObject))
+                    {
+                        enemies.Add(collision.gameObject);
+                    }
+                }
+                else if (collision.gameObject.tag == "Eater")
                 {
                     collision.GetComponent<TheEater>().Slow(glueEaterSlowness);
-                    enemies.Add(collision.gameObject);
+                    if (!enemies.Contains(collision.gameObject))
+                    {
+                        enemies.Add(collision.gameObject);
+                    }
                 }
             }
             else
@@ -360,13 +370,13 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
 
         if(collision.gameObject.tag == "Player" && collision.gameObject != player.gameObject)
         {
-            collision.GetComponent<PlayerBody>().ExitGlue();
+            collision.GetComponent<PlayerBody>().ExitGlue(gluePlayerSlowness);
         }else if(collision.gameObject.tag == "Lost")
         {
-            collision.GetComponent<TheLost>().ExitGlue();
+            collision.GetComponent<TheLost>().ExitGlue(glueLostSlowness);
         }else if (collision.gameObject.tag == "Eater")
         {
-            collision.GetComponent<TheEater>().ExitGlue();
+            collision.GetComponent<TheEater>().ExitGlue(glueEaterSlowness);
         }
     }
 

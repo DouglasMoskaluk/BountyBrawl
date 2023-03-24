@@ -92,6 +92,10 @@ public class PlayerBody : MonoBehaviour
     public int playerSkin;
     [SerializeField] private RuntimeAnimatorController[] skins;
 
+    //Glue and water slowness
+    private bool glued;
+    private bool wet;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -110,6 +114,8 @@ public class PlayerBody : MonoBehaviour
         money = 0;
         knockbacked = false;
         railgun = false;
+        glued = false;
+        wet = false;
 
         //Gets the spawnpoint of the player based on player index
         GameObject[] spawnPoints;
@@ -149,7 +155,7 @@ public class PlayerBody : MonoBehaviour
             canMove = false;
         }
 
-        
+
     }
     private void FixedUpdate()
     {
@@ -161,9 +167,9 @@ public class PlayerBody : MonoBehaviour
         {
             health = health + 1;
         }
-        if(respawn != 0)
-        { 
-           lives = lives - 1;
+        if (respawn != 0)
+        {
+            lives = lives - 1;
         }
 
         if (dead)
@@ -184,10 +190,10 @@ public class PlayerBody : MonoBehaviour
             {
                 playerRB.velocity = inputVector.normalized * runSpeed;
             }
-            
-            if(animator != null)
+
+            if (animator != null)
             {
-                if(inputVector.magnitude != 0)
+                if (inputVector.magnitude != 0)
                 {
                     animator.SetFloat("Run", Mathf.Abs(inputVector.magnitude * runSpeed));
                 }
@@ -197,8 +203,8 @@ public class PlayerBody : MonoBehaviour
                     animator.SetTrigger("Idle");
                 }
             }
-            
-            
+
+
             Facing();
         }
 
@@ -207,7 +213,7 @@ public class PlayerBody : MonoBehaviour
             playerRB.velocity = knockbackDir.normalized * knockbackStrength;
         }
 
-        
+
 
         if (getPause() == true && UIPauseMenu != null)
         {
@@ -273,7 +279,7 @@ public class PlayerBody : MonoBehaviour
                     weaponHolder.rotation = Quaternion.Euler(0f, 0f, angle); //Rotates weapon around player
                 }
                 else //Slow weaponHolder rotation if the player is using railgun
-                { 
+                {
                     Quaternion weaponHolderRot = Quaternion.Euler(0f, 0f, angle);
                     weaponHolder.rotation = Quaternion.RotateTowards(weaponHolder.rotation, weaponHolderRot, Time.deltaTime * 25f);
                 }
@@ -308,7 +314,7 @@ public class PlayerBody : MonoBehaviour
         yield return new WaitForSeconds(interval);
 
         //Goes through each amount of poison and damages the player
-        for(int i = 0; i <= amount - 1; i++)
+        for (int i = 0; i <= amount - 1; i++)
         {
             damagePlayer(dam, player);
             yield return new WaitForSeconds(interval); //Wait for the next poison interval
@@ -339,10 +345,48 @@ public class PlayerBody : MonoBehaviour
     }
 
     //slows player in glue
-    public void Slow(float slowness){runSpeed = slowness;}
-
+    public void Slow(float slowness) {
+        if (!glued)
+        {
+            glued = true;
+            runSpeed -= slowness;
+        }
+    }
     //Fixes runspeed after player leaves glue
-    public void ExitGlue() { runSpeed = tempSpeed; }
+    public void ExitGlue(float slowness) {
+        if (glued)
+        {
+            glued = false;
+            runSpeed += slowness;
+        }
+    }
+
+    //slow player if using a railgun
+    public void Railgun(float slowness)
+    {
+        runSpeed -= slowness;
+    }
+    public void ExitRailgun(float slowness)
+    {
+        runSpeed += slowness;
+    }
+
+    public void EnterWater(float slowness)
+    {
+        if (!wet)
+        {
+            wet = true;
+            runSpeed -= slowness;
+        }
+    }
+    public void ExitWater(float slowness)
+    {
+        if (wet)
+        {
+            wet = false;
+            runSpeed += slowness;
+        }
+    }
 
     public void damagePlayer(float damage, PlayerBody player)
     {

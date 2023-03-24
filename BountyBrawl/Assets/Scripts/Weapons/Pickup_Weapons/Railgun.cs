@@ -105,7 +105,7 @@ public class Railgun : MonoBehaviour
             {
                 normFire.Stop();
                 cameraShaking.setShake(false);
-                player.ExitGlue();
+                player.ExitRailgun(playerSlowness);
                 player.UsingRailgun(false);
                 beam.Deactivation(true);
                 used = false;
@@ -192,7 +192,7 @@ public class Railgun : MonoBehaviour
                 canUse = false;
                 used = false;
                 player.setWeaponIndex(1);
-                player.Slow(playerSlowness);
+                player.Railgun(playerSlowness);
 
                 if (player.GetPlayerCharacter() == 0)
                 {
@@ -232,7 +232,7 @@ public class Railgun : MonoBehaviour
         {
             normFire.Stop();
             throwing.Play();
-            player.ExitGlue();
+            player.ExitRailgun(playerSlowness);
             player.UsingRailgun(false);
             used = false;
             canThrow = false;

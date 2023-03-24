@@ -94,6 +94,10 @@ public class TheLost : MonoBehaviour
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
 
+    //Glue and water slowness
+    private bool glued;
+    private bool wet;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
@@ -120,6 +124,8 @@ public class TheLost : MonoBehaviour
         canMove = true;
         dead = false;
         aura.SetActive(false);
+        glued = false;
+        wet = false;
 
         int lostType = (int) Random.Range(0f, types.Count);
 
@@ -423,7 +429,7 @@ public class TheLost : MonoBehaviour
             animator.SetTrigger("Run");
         }
 
-        yield return new WaitForSeconds(dashTime);
+        yield return new WaitForSeconds(dashTime*2);
         canDash = true;
     } //When the lost can dash into players and deal damage
 
@@ -460,16 +466,39 @@ public class TheLost : MonoBehaviour
 
     //slows Lost in glue
     public void Slow(float slowness) 
-    { 
-        enemyDefaultSpeed = slowness;
-        enemyDashSpeed = slowness;
+    {
+        if (!glued)
+        {
+            glued = true;
+            enemyDefaultSpeed -= slowness;
+        }
     }
 
     //Fixes runspeed after player leaves glue
-    public void ExitGlue() 
+    public void ExitGlue(float slowness) 
     {
-        enemyDefaultSpeed = tempDefSpeed;
-        enemyDashSpeed = tempDashSpeed;
+        if (glued)
+        {
+            glued = false;
+            enemyDefaultSpeed += slowness;
+        }
+    }
+
+    public void EnterWater(float slowness)
+    {
+        if (!wet)
+        {
+            wet = true;
+            enemyDefaultSpeed -= slowness;
+        }
+    }
+    public void ExitWater(float slowness)
+    {
+        if (wet)
+        {
+            wet = false;
+            enemyDefaultSpeed += slowness;
+        }
     }
 
     public void DoneSpawn()
