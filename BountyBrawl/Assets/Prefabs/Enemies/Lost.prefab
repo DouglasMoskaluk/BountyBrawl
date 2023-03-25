@@ -367,7 +367,7 @@ MonoBehaviour:
     runSprite: {fileID: 21300000, guid: bf4c63e4b22e3de4890854e0e4f85b93, type: 3}
     weaponDrop: Railgun
     animation: {fileID: 0}
-  enemyDefaultSpeed: 600
+  enemyDefaultSpeed: 1000
   enemyDashSpeed: 30
   dropTypeChance: 40
   dontDropChance: 70
