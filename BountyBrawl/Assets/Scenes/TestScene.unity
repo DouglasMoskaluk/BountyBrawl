@@ -1167,7 +1167,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7656aba0aabf25348a198d9d1c4f8aa8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f14371e02c1424d468b439911b63d922, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3932,7 +3932,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e2f925875a9c07548baed0821c1ad517, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f14371e02c1424d468b439911b63d922, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4831,9 +4831,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 522300657}
   banging: {fileID: 491880563}
   soundClips:
-  - {fileID: 8300000, guid: a6aa371173ba7ed4eb68fa80b50e89e9, type: 3}
-  - {fileID: 8300000, guid: e703d1bee1a22c64e84933410ac43fd6, type: 3}
-  - {fileID: 8300000, guid: 6ab14bcdc451e5247a3699bd948fe33f, type: 3}
+  - {fileID: 8300000, guid: 2c7e34beb7528d849a6e97558667599a, type: 3}
+  - {fileID: 8300000, guid: 1413a45200bc01f458fe6dcd41a799d4, type: 3}
 --- !u!58 &491880559
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8233,7 +8232,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5729f353415210f45a758cd1f7631804, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f14371e02c1424d468b439911b63d922, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10684,6 +10683,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343413768}
     m_Modifications:
+    - target: {fileID: -4602370274469512439, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cd4c93e1e1108c542a164531f7a00bb0, type: 3}
     - target: {fileID: 746005044465814917, guid: 227b57a610a4853418f72d5c0722ea1f, type: 3}
       propertyPath: m_LocalScale.x
       value: 21.83873
@@ -12526,6 +12529,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343413768}
     m_Modifications:
+    - target: {fileID: -2955457567767235436, guid: af16622ba85989344ad50f66ce951a26, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34fa4292dcb714e46817a9c371426471, type: 3}
     - target: {fileID: 836987191116240248, guid: af16622ba85989344ad50f66ce951a26, type: 3}
       propertyPath: timer
       value: 2000000
@@ -14509,6 +14516,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 343413768}
     m_Modifications:
+    - target: {fileID: -4207091559778037046, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f2fd206d47f987147a8070fb05c851ba, type: 3}
     - target: {fileID: 1422997465680654304, guid: 9a96a945651f75842812b9fc5803711a, type: 3}
       propertyPath: ammo
       value: 2000000
@@ -16142,6 +16153,10 @@ PrefabInstance:
       propertyPath: lifeTime
       value: 2000000
       objectReference: {fileID: 0}
+    - target: {fileID: 4858477592113918259, guid: 79ce80da2c353864f8e448a922e7583e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d423fa38452552649987cfb676365275, type: 3}
     - target: {fileID: 8731686905524792494, guid: 79ce80da2c353864f8e448a922e7583e, type: 3}
       propertyPath: m_Name
       value: WyldsnagShotgun
@@ -18645,7 +18660,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 41453917417e75e438d9eb6d22d35556, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f14371e02c1424d468b439911b63d922, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
