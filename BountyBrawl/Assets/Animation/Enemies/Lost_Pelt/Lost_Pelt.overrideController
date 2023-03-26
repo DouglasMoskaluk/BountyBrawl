@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lost_Pelt
+  m_Controller: {fileID: 9100000, guid: aa049367d669d5e40911a46e9d9d116f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a76ce538d96cad84da7212c3e211afd2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7d4bb15140d3ca3419823eb838e784e8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: effa89a4a001230478e20edcf8d6cd7c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7bcf91a85f4d508429f3c07fdd96f8a5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a1ebc75ec788a4e4db51c7de27909a95, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 67c4a0431af29d146ae16e8500eba388, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 943ebb7fdd37d6849823c065309b9cab, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 930a1f9a444c6df45b0159972ccf36ad, type: 2}

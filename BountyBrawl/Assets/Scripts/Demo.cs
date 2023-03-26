@@ -22,6 +22,23 @@ public class Demo : MonoBehaviour
         }else if (Keyboard.current.digit3Key.wasPressedThisFrame)
         {
             demoEnemies.SetActive(true);
+        }else if (Keyboard.current.digit4Key.wasPressedThisFrame)
+        {
+            PlayerBody[] players = FindObjectsOfType<PlayerBody>();
+
+            foreach (PlayerBody p in players)
+            {
+                if (p.playerSkin < 3)
+                {
+                    p.playerSkin++;
+                    p.ChangeSkin();
+                }
+                else
+                {
+                    p.playerSkin = 0;
+                    p.ChangeSkin();
+                }
+            }
         }
     }
 }

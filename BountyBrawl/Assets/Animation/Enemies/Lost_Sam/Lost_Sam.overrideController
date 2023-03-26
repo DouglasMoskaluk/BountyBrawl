@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lost_Sam
+  m_Controller: {fileID: 9100000, guid: aa049367d669d5e40911a46e9d9d116f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a76ce538d96cad84da7212c3e211afd2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7f1625d80fcba5b43a5ad7df95595265, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: effa89a4a001230478e20edcf8d6cd7c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0c17735ea45d3d746a05b4b8b3b9ce9e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a1ebc75ec788a4e4db51c7de27909a95, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ad4661d158b9ff443a2ca3ea0ff8fae9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 943ebb7fdd37d6849823c065309b9cab, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81db1409aad58ca4db27ab9979b5d289, type: 2}

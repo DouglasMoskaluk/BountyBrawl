@@ -43,8 +43,6 @@ public class TheLost : MonoBehaviour
 
     [SerializeField] private Sprite dash;
 
-    [SerializeField] private GameObject aura;
-
     [SerializeField] private float moneyEarn = 5;
 
     [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
@@ -123,7 +121,6 @@ public class TheLost : MonoBehaviour
         dashing = false;
         canMove = true;
         dead = false;
-        aura.SetActive(false);
         glued = false;
         wet = false;
 
@@ -257,7 +254,6 @@ public class TheLost : MonoBehaviour
                 dashing = true;
                 canDash = false;
                 force = Vector2.zero;
-                aura.SetActive(true);
                 StartCoroutine(Cooldown());
 
                 if(animator.runtimeAnimatorController != null)
@@ -269,7 +265,6 @@ public class TheLost : MonoBehaviour
             {
                 if (!dashing)
                 {
-                    aura.SetActive(false);
                     spriteRenderer.sprite = currSprite;
                     force = direction * enemyDefaultSpeed * Time.deltaTime;
                 }
@@ -301,7 +296,7 @@ public class TheLost : MonoBehaviour
     private void LateUpdate()
     {
         //Moves the facing direction
-        if (target != null && !dead)
+        if (target != null && !dead && !dashing)
         {
             Vector2 face = target.transform.position - transform.position; //Get 2d position of the player
             
@@ -415,6 +410,12 @@ public class TheLost : MonoBehaviour
             rb.velocity = Vector2.zero;
             collision.transform.GetComponent<PlayerBody>().damagePlayer(currDamage, null);
             StartCoroutine(Cooldown());
+
+            if (animator.runtimeAnimatorController != null && !dead)
+            {
+                animator.SetBool("Dashing", false);
+                animator.SetTrigger("Run");
+            }
         }
     }
 

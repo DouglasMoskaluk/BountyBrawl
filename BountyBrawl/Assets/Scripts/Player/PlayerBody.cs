@@ -227,8 +227,9 @@ public class PlayerBody : MonoBehaviour
      */
     private void Facing()
     {
-        //If the stick is moving in the left direction
-        if (facingVector.x < -0.1)
+
+            //If the stick is moving in the left direction
+            if (facingVector.x < -0.1)
         {
             float angle = facingVector.x + facingVector.y * -90;
 
@@ -652,5 +653,11 @@ public class PlayerBody : MonoBehaviour
 
     public bool getDead() { return dead; }
     public void Curse() { cursed = true; }
+
+    //for milestone demo
+    public void ChangeSkin()
+    {
+        GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
+    }
 
 }
