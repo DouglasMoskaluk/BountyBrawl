@@ -122,8 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowSpeedRange: 40
   highSpeedRange: 70
-  silverDamage: 5
-  goldDamage: 10
+  silverDamage: 3
+  goldDamage: 6
   silverLifeTime: 0.4
   goldLifeTime: 2
   silverCluster: {fileID: 8912661155526624610, guid: 3b68cf2c91e1bb542ae42a42022e4f62, type: 3}

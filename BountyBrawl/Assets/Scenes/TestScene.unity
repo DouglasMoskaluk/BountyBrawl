@@ -8378,8 +8378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Paused
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 186e2f19c597c1140aa39169de29ccba, type: 2}
+  m_sharedMaterial: {fileID: -8425542625404121725, guid: 186e2f19c597c1140aa39169de29ccba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8409,7 +8409,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -10821,7 +10821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f71568f4b8616f428cbfeb07f41711b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stabCooldown: 1.5
+  stabCooldown: 1
   animatorDefSpeed: 1
   animatorSlashSpeed: 2
   damage: 4
@@ -13820,13 +13820,13 @@ MonoBehaviour:
   curseTimer: {fileID: 880956862}
   enemyDamageIncrease: 4
   enemyHealthIncrease: 5
-  miniboss: 2
+  miniboss: 3
   weaponBoxes:
   - {fileID: 224654773}
   - {fileID: 1968432777}
   - {fileID: 2023144828}
   graphScanUpdate: 0.5
-  cursedTime: 45
+  cursedTime: 60
 --- !u!1 &1567886110
 GameObject:
   m_ObjectHideFlags: 0
