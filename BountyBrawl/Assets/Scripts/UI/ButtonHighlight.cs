@@ -7,32 +7,21 @@ using UnityEngine.EventSystems;
 public class ButtonHighlight : MonoBehaviour, ISelectHandler
 {
     [SerializeField]
-    GameObject MeleeActive;
+    GameObject ActiveChar;
     [SerializeField]
-    GameObject ProfActive;
+    GameObject NonActiveChar1;
     [SerializeField]
-    GameObject MeleeDeact;
+    GameObject NonActiveChar2;
     [SerializeField]
-    GameObject ProfDeact;
-    [SerializeField]
-    GameObject MeleeDeact2;
-    [SerializeField]
-    GameObject ProfDeact2;
-    [SerializeField]
-    GameObject MeleeDeact3;
-    [SerializeField]
-    GameObject ProfDeact3;
+    GameObject NonActiveChar3;
+
 
     public void OnSelect(BaseEventData eventData)
     {
-        MeleeActive.SetActive(true);
-        ProfActive.SetActive(true);
-        MeleeDeact.SetActive(false);
-        MeleeDeact2.SetActive(false);
-        MeleeDeact3.SetActive(false);
-        ProfDeact.SetActive(false);
-        ProfDeact2.SetActive(false);
-        ProfDeact3.SetActive(false);
+        ActiveChar.SetActive(true);
+        NonActiveChar1.SetActive(false);
+        NonActiveChar2.SetActive(false);
+        NonActiveChar3.SetActive(false);
     }
 
 }
