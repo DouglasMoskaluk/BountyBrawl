@@ -109,8 +109,8 @@ MonoBehaviour:
   acidSP: {fileID: 21300000, guid: bec2cbe5acfaf1d49ad55c912c749354, type: 3}
   acidBulletTrail:
     serializedVersion: 2
-    key0: {r: 0.015300989, g: 1, b: 0, a: 1}
-    key1: {r: 0.015686275, g: 1, b: 0, a: 1}
+    key0: {r: 0.015300989, g: 1, b: 0, a: 0.54901963}
+    key1: {r: 0.015686275, g: 1, b: 0, a: 0.54901963}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -138,8 +138,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   glueBulletTrail:
     serializedVersion: 2
-    key0: {r: 1, g: 0.9502573, b: 0.61698115, a: 1}
-    key1: {r: 1, g: 0.9490196, b: 0.6156863, a: 1}
+    key0: {r: 1, g: 0.9502573, b: 0.61698115, a: 0.54901963}
+    key1: {r: 1, g: 0.9490196, b: 0.6156863, a: 0.54901963}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -266,8 +266,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-      key1: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.8627451}
+      key0: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 0.54901963}
+      key1: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -283,7 +283,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 43176
+      atime1: 65535
       atime2: 0
       atime3: 0
       atime4: 0

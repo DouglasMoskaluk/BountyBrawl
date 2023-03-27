@@ -83,6 +83,9 @@ public class TheEater : MonoBehaviour
     private bool glued;
     private bool wet;
 
+    private Animator animator;
+    [SerializeField] private ParticleSystem goldDrop;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>(); //Get players
@@ -92,6 +95,7 @@ public class TheEater : MonoBehaviour
         poisonArea.gameObject.SetActive(false);
         cam = GameObject.FindGameObjectWithTag("MainCamera"); //get main camera
         eventM = GameObject.FindGameObjectWithTag("GameController").GetComponent<EventManager>(); //Get the event manager
+        animator = GetComponent<Animator>();
         harbringer = currSprite.sprite;
 
         //Deals with eater health
@@ -143,6 +147,9 @@ public class TheEater : MonoBehaviour
         tempDefSpeed = enemySpeed;
         poison = null;
         minionSpawn = tempTimer;
+
+        animator.SetBool("Dead", false);
+        animator.SetTrigger("Spawn");
     }
 
     //Replace with onDisable later on
@@ -245,7 +252,10 @@ public class TheEater : MonoBehaviour
             //Death
             if (currHealth <= 0f)
             {
-                Death();
+                goldDrop.Play();
+                body.enabled = false;
+                rb.velocity = Vector2.zero;
+                animator.SetBool("Dead", true);
             }
 
             slider.value = currHealth;
@@ -328,6 +338,12 @@ public class TheEater : MonoBehaviour
     }
 
     public void IsMiniboss(){
+        animator.SetTrigger("IsBoss");
+
+    } //If the eater is now a miniboss
+
+    public void DoneBoss()
+    {
         poisonArea.GetComponent<PoisonArea>().setDamage(currDamage);
         body.isTrigger = false;
         body.enabled = true;
@@ -335,8 +351,8 @@ public class TheEater : MonoBehaviour
         isMiniboss = true;
         poisonArea.gameObject.SetActive(true);
         health.SetActive(true);
-
-    } //If the eater is now a miniboss
+        animator.SetTrigger("Chasing");
+    }
 
     void OnPathComplete(Path p)
     {
@@ -347,7 +363,7 @@ public class TheEater : MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
         gameObject.SetActive(false);
     }

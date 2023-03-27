@@ -130,8 +130,8 @@ MonoBehaviour:
   goldCluster: {fileID: -6947737421493803727, guid: d924c4498ca01b34ba123420fdc3ed9c, type: 3}
   silverBulletTrail:
     serializedVersion: 2
-    key0: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 0.54901963}
+    key1: {r: 1, g: 1, b: 1, a: 0.54901963}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -257,8 +257,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.25253645, g: 0, b: 0.2735849, a: 1}
-      key1: {r: 0.51322603, g: 0, b: 0.6226415, a: 1}
+      key0: {r: 0.25253645, g: 0, b: 0.2735849, a: 0.54901963}
+      key1: {r: 0.51322603, g: 0, b: 0.6226415, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

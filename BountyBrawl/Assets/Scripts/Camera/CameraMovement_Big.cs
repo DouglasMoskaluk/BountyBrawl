@@ -73,7 +73,7 @@ public class CameraMovement_Big : MonoBehaviour
         }
         else
         {
-            float newZoom = Mathf.Lerp(max, min, eaterTeleportLockFOV / zoomSpeed);
+            float newZoom = Mathf.Lerp(max, min, eaterTeleportLockFOV);
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
 
             float xTravel = Mathf.Lerp(transform.position.x, 0f, 0.5f);

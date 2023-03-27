@@ -20,7 +20,6 @@ public class Greed_Knife : MonoBehaviour
 
     private bool canFire = true; //Make sure the player can attack
     private Animator animator;
-    private Quaternion defRotation;
 
     [SerializeField] private AudioSource swinging;
     [SerializeField] private AudioClip[] soundClips;
@@ -31,19 +30,17 @@ public class Greed_Knife : MonoBehaviour
     {
         attack = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
-        defRotation = transform.rotation;
     }
 
     private void OnEnable()
     {
-        canFire = true;
         player.UsingDefault(false);
         canFire = false;
         StartCoroutine(Cooldown(0.5f));
         animator.SetBool("Attack", false);
         animator.SetTrigger("Idle");
         animator.speed = animatorDefSpeed;
-        transform.rotation = defRotation;
+
         animator.keepAnimatorControllerStateOnDisable = true;
 
         player.maxAmmo = stabCooldown;
@@ -53,11 +50,12 @@ public class Greed_Knife : MonoBehaviour
 
     private void OnDisable()
     {
+        animator.SetBool("Attack", false);
+        animator.SetTrigger("Idle");
         attack.enabled = false;
         player.UsingDefault(false);
         StopAllCoroutines();
         animator.speed = animatorDefSpeed;
-        transform.rotation = defRotation;
     }
 
     private void Update()
