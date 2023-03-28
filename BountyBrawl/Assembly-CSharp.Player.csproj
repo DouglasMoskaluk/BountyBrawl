@@ -74,8 +74,11 @@
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Emerald_Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Greed_Knife.cs" />
     <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_DefBullet.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuController.cs" />
     <Compile Include="Assets\Scripts\Weapons\Throw.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Railgun.cs" />
+    <Compile Include="Assets\Scripts\UI\ColourSelect.cs" />
+    <Compile Include="Assets\Scripts\UI\CharSelected.cs" />
     <Compile Include="Assets\Scripts\Environment\WaterSlowness.cs" />
     <Compile Include="Assets\Scripts\UI\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement_Big.cs" />
@@ -92,11 +95,14 @@
     <Compile Include="Assets\Scripts\Bullets\Deathwhisper_ShurikenBullet.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheLost.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
+    <Compile Include="Assets\Scripts\SetPlayers.cs" />
     <Compile Include="Assets\Scripts\Bullets\Crossbow_Bullet.cs" />
     <Compile Include="Assets\Scripts\Player\StatTracker.cs" />
     <Compile Include="Assets\Scripts\Bullets\Railgun_Bullet.cs" />
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Crossbow.cs" />
+    <Compile Include="Assets\Scripts\P1setter.cs" />
+    <Compile Include="Assets\Scripts\Environment\LavaMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
