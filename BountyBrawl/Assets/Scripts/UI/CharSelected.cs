@@ -16,10 +16,12 @@ public class CharSelected : MonoBehaviour
     public int playerColour;
     public int playerChar;
 
+
     public void SandGrabColour()
     {
         playerColour = sand.GetComponent<ColourSelect>().GetColour();
         playerChar = 0;
+        
     }
     public void NagGrabColour()
     {
@@ -45,4 +47,9 @@ public class CharSelected : MonoBehaviour
     {
         return playerChar;
     }
+    public void Update()
+    {
+        Debug.Log(playerColour);
+    }
+
 }

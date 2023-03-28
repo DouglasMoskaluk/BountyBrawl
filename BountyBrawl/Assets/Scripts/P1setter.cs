@@ -10,119 +10,103 @@ public class P1setter : MonoBehaviour
     int p1colour;
 
     [SerializeField]
-    GameObject sandreg;
+    GameObject sand;
     [SerializeField]
-    GameObject sandgreen;
+    GameObject emr;
     [SerializeField]
-    GameObject sandblue;
+    GameObject nag;
     [SerializeField]
-    GameObject sandred;
-    [SerializeField]
-    GameObject emrreg;
-    [SerializeField]
-    GameObject emrgreen;
-    [SerializeField]
-    GameObject emrblue;
-    [SerializeField]
-    GameObject emrred;
-    [SerializeField]
-    GameObject nagreg;
-    [SerializeField]
-    GameObject naggreen;
-    [SerializeField]
-    GameObject nagblue;
-    [SerializeField]
-    GameObject nagred;
-    [SerializeField]
-    GameObject greedreg;
-    [SerializeField]
-    GameObject greedgreen;
-    [SerializeField]
-    GameObject greedblue;
-    [SerializeField]
-    GameObject greedred;
+    GameObject greed;
 
     // Start is called before the first frame update
     void Start()
     {
+
         loader = GameObject.Find("MainSceneLoader");
         p1colour = loader.GetComponent<SceneLoader>().GetP1Colour();
         p1char = loader.GetComponent<SceneLoader>().GetP1Char();
 
-        if(p1char == 0)
+        Debug.Log(p1colour);
+        Debug.Log(p1char);
+
+        if (p1char == 0)
         {
+            sand.SetActive(true);
             if(p1colour == 0)
             {
-                sandreg.SetActive(true);
+                sand.GetComponent<PlayerBody>().SetPlayerSkin(0);
             }
             if (p1colour == 1)
             {
-                sandgreen.SetActive(true);
+                sand.GetComponent<PlayerBody>().SetPlayerSkin(1);
             }
             if (p1colour == 2)
             {
-                sandblue.SetActive(true);
+                sand.GetComponent<PlayerBody>().SetPlayerSkin(2);
             }
             if (p1colour == 3)
             {
-                sandred.SetActive(true);
+                sand.GetComponent<PlayerBody>().SetPlayerSkin(3);
             }
         }
         if (p1char == 1)
         {
+            nag.SetActive(true);
             if (p1colour == 0)
             {
-                nagreg.SetActive(true);
+                nag.GetComponent<PlayerBody>().SetPlayerSkin(0);
             }
             if (p1colour == 1)
             {
-                naggreen.SetActive(true);
+                nag.GetComponent<PlayerBody>().SetPlayerSkin(1);
             }
             if (p1colour == 2)
             {
-                nagblue.SetActive(true);
+                nag.GetComponent<PlayerBody>().SetPlayerSkin(2);
             }
             if (p1colour == 3)
             {
-                nagred.SetActive(true);
+                nag.GetComponent<PlayerBody>().SetPlayerSkin(3);
             }
         }
         if (p1char == 2)
         {
+            emr.SetActive(true);
             if (p1colour == 0)
             {
-                emrreg.SetActive(true);
+                emr.GetComponent<PlayerBody>().SetPlayerSkin(0);
             }
             if (p1colour == 1)
             {
-                emrgreen.SetActive(true);
+                emr.GetComponent<PlayerBody>().SetPlayerSkin(1);
             }
             if (p1colour == 2)
             {
-                emrblue.SetActive(true);
+                emr.GetComponent<PlayerBody>().SetPlayerSkin(2);
             }
             if (p1colour == 3)
             {
-                emrred.SetActive(true);
+                emr.GetComponent<PlayerBody>().SetPlayerSkin(3);
             }
         }
         if (p1char == 3)
         {
+            greed.SetActive(true);
             if (p1colour == 0)
             {
-                greedreg.SetActive(true);
+                greed.GetComponent<PlayerBody>().SetPlayerSkin(0);
             }
             if (p1colour == 1)
             {
-                greedgreen.SetActive(true);
+                greed.GetComponent<PlayerBody>().SetPlayerSkin(1);
             }
             if (p1colour == 2)
             {
-                greedblue.SetActive(true);
+                greed.GetComponent<PlayerBody>().SetPlayerSkin(2);
             }
             if (p1colour == 3)
             {
-                greedred.SetActive(true);
+                greed.GetComponent<PlayerBody>().SetPlayerSkin(3);
             }
         }
     }

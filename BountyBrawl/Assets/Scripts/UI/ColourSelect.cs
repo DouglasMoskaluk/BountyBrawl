@@ -10,7 +10,7 @@ public class ColourSelect : MonoBehaviour
     [SerializeField]
     InputActionReference square, triangle;
 
-    private int skinNum;
+    public int skinNum;
 
     [SerializeField]
     public GameObject regular;
@@ -67,6 +67,7 @@ public class ColourSelect : MonoBehaviour
                 green.SetActive(false);
                 blue.SetActive(false);
                 red.SetActive(false);
+                
             }
             if (skinNum == 1)
             {
@@ -89,7 +90,7 @@ public class ColourSelect : MonoBehaviour
                 blue.SetActive(false);
                 red.SetActive(true);
             }
-            Debug.Log(skinNum);
+            
         }
     }
 
@@ -103,6 +104,7 @@ public class ColourSelect : MonoBehaviour
     public int GetColour()
     {
         return skinNum;
+        Debug.Log(skinNum);
     }
 
     public void SetConfirmed()
@@ -110,6 +112,10 @@ public class ColourSelect : MonoBehaviour
         confirmed = true;
     }
 
+    public void Update()
+    {
+        Debug.Log(skinNum);
+    }
 }
 
 

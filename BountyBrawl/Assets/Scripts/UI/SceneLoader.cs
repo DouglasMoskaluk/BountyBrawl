@@ -30,8 +30,9 @@ public class SceneLoader : MonoBehaviour
     int players;
     int confirms;
 
-
+    [SerializeField]
     GameObject P1;
+
     GameObject P2;
     GameObject P3;
     GameObject P4;
@@ -62,32 +63,40 @@ public class SceneLoader : MonoBehaviour
 
     public void Update()
     {
-        if(confirms >= players && confirms != 0)
+        
+        if(confirms == players && confirms != 0)
         {
             if (map1 == true)
             {
+                
                 confirms = 0;
                 map1 = false;
                 map2 = false;
 
-                P1 = GameObject.Find("P1");
+                //P1 = GameObject.Find("P1");
                 P2 = GameObject.Find("P2");
                 P3 = GameObject.Find("P3");
                 P4 = GameObject.Find("P4");
 
+
                 P1Char = P1.GetComponent<CharSelected>().GetPlayerChar();
                 P1Colour = P1.GetComponent<CharSelected>().GetPlayerColour();
-                P2Char = P2.GetComponent<CharSelected>().GetPlayerChar();
-                P2Colour = P2.GetComponent<CharSelected>().GetPlayerColour();
-                P3Char = P3.GetComponent<CharSelected>().GetPlayerChar();
-                P3Colour = P3.GetComponent<CharSelected>().GetPlayerColour();
-                P4Char = P4.GetComponent<CharSelected>().GetPlayerChar();
-                P4Colour = P4.GetComponent<CharSelected>().GetPlayerColour();
+
+                Debug.Log(P1Char);
+                Debug.Log(P1Colour);
+
+                //P2Char = P2.GetComponent<CharSelected>().GetPlayerChar();
+                //P2Colour = P2.GetComponent<CharSelected>().GetPlayerColour();
+                //P3Char = P3.GetComponent<CharSelected>().GetPlayerChar();
+                //P3Colour = P3.GetComponent<CharSelected>().GetPlayerColour();
+                //P4Char = P4.GetComponent<CharSelected>().GetPlayerChar();
+                //P4Colour = P4.GetComponent<CharSelected>().GetPlayerColour();
 
                 StartCoroutine(TheAssEater5000(1));
             }
             if (map2 == true)
             {
+                
                 confirms = 0;
                 map1 = false;
                 map2 = false;
