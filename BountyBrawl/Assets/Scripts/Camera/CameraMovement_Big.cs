@@ -79,7 +79,7 @@ public class CameraMovement_Big : MonoBehaviour
             float xTravel = Mathf.Lerp(transform.position.x, 0f, 0.5f);
             float yTravel = Mathf.Lerp(transform.position.y, 0f, 0.5f);
 
-            transform.position = new Vector3(xTravel, yTravel, -120f);
+            transform.position = new Vector3(xTravel, yTravel, currDist);
         }
     }
 

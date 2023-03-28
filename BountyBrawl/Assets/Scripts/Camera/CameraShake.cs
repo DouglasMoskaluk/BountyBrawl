@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     //Holds origin position
-    private Vector2 origin;
+    private Vector3 origin;
 
     private bool shake;
 
@@ -27,7 +27,7 @@ public class CameraShake : MonoBehaviour
             float x = Random.Range(-1f, 1f) * magnitude + origin.x;
             float y = Random.Range(-1f, 1f) * magnitude + origin.y;
 
-            transform.localPosition = new Vector2(x, y);
+            transform.localPosition = new Vector3(x, y,-120);
 
             elapsed += Time.deltaTime;
             yield return null;

@@ -1708,7 +1708,7 @@ MonoBehaviour:
   health: {fileID: 584238290}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 30
+  sliderXOffset: 20
   ammoSlider: {fileID: 306990085}
   ammo: {fileID: 203386253}
   moneyText: {fileID: 660916472}
@@ -5841,10 +5841,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 146153108}
     m_Modifications:
-    - target: {fileID: 3358428553678439160, guid: 8883a9bbbe8840441a2dfc262d9c4bf3, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3358428553678439162, guid: 8883a9bbbe8840441a2dfc262d9c4bf3, type: 3}
       propertyPath: m_Name
       value: Ash
@@ -8107,7 +8103,7 @@ MonoBehaviour:
   health: {fileID: 1445967293}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 30
+  sliderXOffset: 20
   ammoSlider: {fileID: 535088342}
   ammo: {fileID: 1534828233}
   moneyText: {fileID: 999473539}
@@ -8653,7 +8649,7 @@ MonoBehaviour:
   health: {fileID: 1500545315}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 30
+  sliderXOffset: 20
   ammoSlider: {fileID: 349737174}
   ammo: {fileID: 792635967}
   moneyText: {fileID: 887831479}
@@ -11643,7 +11639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df14c38c693e734b94b8b59bf2ef29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 8
+  scrollSpeed: 2
 --- !u!1 &682172670
 GameObject:
   m_ObjectHideFlags: 0
@@ -24638,7 +24634,7 @@ MonoBehaviour:
   health: {fileID: 412472202}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 30
+  sliderXOffset: 20
   ammoSlider: {fileID: 414670955}
   ammo: {fileID: 1823270378}
   moneyText: {fileID: 521926110}
