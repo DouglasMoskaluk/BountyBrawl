@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class LavaMovement : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
-    private float offset;
-    private Material mat;
+    [SerializeField] private float scrollSpeed = 8f;
+    private Vector3 StartPosition;
 
     private void Awake()
     {
-        mat = GetComponent<Renderer>().material;
+        StartPosition = transform.position;
     }
 
     private void Update()
     {
-        offset += (Time.deltaTime * scrollSpeed) / 10f;
-        mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
+        transform.Translate(Vector3.right * scrollSpeed * Time.deltaTime);
+        if(transform.position.x > 270.9395f)
+        {
+            transform.position = StartPosition;
+        }
     }
 }
