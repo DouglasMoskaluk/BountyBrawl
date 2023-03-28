@@ -9,11 +9,18 @@ public class Demo : MonoBehaviour
     [SerializeField] private GameObject demoWeapons;
     [SerializeField] private GameObject demoEnemies;
     [SerializeField] private GameObject eventManager;
+    private GameObject eater;
 
     // Update is called once per frame
     void Update()
     {
         
+        if(FindObjectOfType<TheEater>() != null && eater == null)
+        {
+            eater = GameObject.FindGameObjectWithTag("Eater");
+        }
+
+
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             if (demoWeaponBox.activeSelf)
@@ -74,6 +81,20 @@ public class Demo : MonoBehaviour
             {
                 eventManager.SetActive(true);
             }
+        }
+        else if (Keyboard.current.digit6Key.wasPressedThisFrame)
+        {
+            if (eater.activeSelf)
+            {
+                eater.SetActive(false);
+            }
+            else
+            {
+                eater.SetActive(true);
+            }
+        }else if (Keyboard.current.digit7Key.wasPressedThisFrame)
+        {
+            eater.GetComponent<TheEater>().IsMiniboss();
         }
     }
 }
