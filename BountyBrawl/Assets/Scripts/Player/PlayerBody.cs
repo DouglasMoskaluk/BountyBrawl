@@ -54,6 +54,7 @@ public class PlayerBody : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+
     private float tempSpeed;
     private int lives;
     private bool cursed; //If the players will start having their lives
@@ -96,6 +97,8 @@ public class PlayerBody : MonoBehaviour
     private bool glued;
     private bool wet;
 
+    private AnimatorOverrideController animatorOverrideController;
+
     private void Awake()
     {
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
@@ -122,7 +125,7 @@ public class PlayerBody : MonoBehaviour
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
         spawnPoint = spawnPoints[playerIndex].transform;
 
-        GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
+       GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
 
         transform.position = spawnPoint.position; //Moves player to the spawnpoint
     }
@@ -130,10 +133,13 @@ public class PlayerBody : MonoBehaviour
     private void Start()
     {
         IncreaseMoney(startMoney);
+
+       
     }
 
     private void Update()
     {
+
         //Switch with default weapon instead of hand
         if (weapon == false)
         {
@@ -660,4 +666,13 @@ public class PlayerBody : MonoBehaviour
         GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
     }
 
+    public int GetPlayerSkin()
+    {
+        return playerSkin;
+    }
+
+    public void SetPlayerSkin(int newSkin)
+    {
+        playerSkin = newSkin;
+    }
 }

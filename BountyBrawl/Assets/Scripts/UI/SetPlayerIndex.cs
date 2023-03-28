@@ -30,11 +30,7 @@ public class SetPlayerIndex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        info = GameObject.Find("MainSceneLoader");
-        p1char = info.GetComponent<SceneLoader>().getP1Char();
-        p2char = info.GetComponent<SceneLoader>().getP2Char();
-        p3char = info.GetComponent<SceneLoader>().getP3Char();
-        p4char = info.GetComponent<SceneLoader>().getP4Char();
+       
 
         nag.GetComponent<PlayerBody>().SetPlayerIndex(-1);
         emr.GetComponent<PlayerBody>().SetPlayerIndex(-1);
