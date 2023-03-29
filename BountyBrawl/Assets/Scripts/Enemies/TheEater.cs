@@ -33,6 +33,8 @@ public class TheEater : MonoBehaviour
 
     [SerializeField] private float moneyEarn = 100;
 
+    [SerializeField] private Transform[] lostSpawnPoints;
+
     private EventManager eventM;
 
     private GameObject cam;
@@ -52,6 +54,7 @@ public class TheEater : MonoBehaviour
     private Rigidbody2D rb;
 
     private Sprite harbringer;
+    private bool teleporting;
 
 
     [Tooltip("How close enemy needs to be from waypoint before creating a new path")]
@@ -97,6 +100,7 @@ public class TheEater : MonoBehaviour
         eventM = GameObject.FindGameObjectWithTag("GameController").GetComponent<EventManager>(); //Get the event manager
         animator = GetComponent<Animator>();
         harbringer = currSprite.sprite;
+        teleporting = true;
 
         //Deals with eater health
         health = GameObject.FindGameObjectWithTag("EaterHealth");
@@ -128,6 +132,7 @@ public class TheEater : MonoBehaviour
         body.enabled = false;
         glued = false;
         wet = false;
+        teleporting = true;
 
         //Adds the eater to the camera list 
         if (cam != null)
@@ -172,10 +177,6 @@ public class TheEater : MonoBehaviour
         {
             health.SetActive(false);
         }
-        eventM.MinibossDead();
-        isMiniboss = false;
-        currSprite.sprite = harbringer;
-        body.isTrigger = true;
     }
 
     void UpdatePath()
@@ -244,7 +245,7 @@ public class TheEater : MonoBehaviour
                 }
             }
 
-            if(poison != null)
+            if (poison != null)
             {
                 currSprite.color = poisoned;
             }
@@ -263,8 +264,12 @@ public class TheEater : MonoBehaviour
             Vector2 eaterPos = transform.position;
 
             health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + healthHeight));
+        }else if (!teleporting)
+        {
+            health.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + healthHeight));
         }
     }
+
     private void FixedUpdate()
     {
 
@@ -321,13 +326,30 @@ public class TheEater : MonoBehaviour
 
     }
 
+    //Spawns the losts around Eater while eater is Chasing
     private void SpawnMinions()
     {
         //Spawns the number of minions as declared as numMinions
         for (int i = 0; i <= numMinions - 1; i++)
         {
+            int randSpawn = (int)Random.Range(0f, lostSpawnPoints.Length);
+            Vector2 direction = lostSpawnPoints[randSpawn].position - transform.position;
+            float spawnDistance = Vector3.Distance(lostSpawnPoints[randSpawn].position, transform.position);
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, spawnDistance, 1 << LayerMask.NameToLayer("Obstacle"));
+
+            //Debug.DrawRay(transform.position, direction, Color.red, 2f);
+            while (hit)
+            {
+                randSpawn = (int)Random.Range(0f, lostSpawnPoints.Length);
+                direction = lostSpawnPoints[randSpawn].position - transform.position;
+                spawnDistance = Vector3.Distance(lostSpawnPoints[randSpawn].position, transform.position);
+
+                hit = Physics2D.Raycast(transform.position, direction, spawnDistance, 1 << LayerMask.NameToLayer("Obstacle"));
+            }
+
             //gets the position for enemy spawn and makes sure enemies aren't stuck on eachother
-            Vector3 spawn = new Vector3(transform.position.x + i / 1.2f, transform.position.y - i / 1.2f, 0f);
+            Vector3 spawn = new Vector3(lostSpawnPoints[randSpawn].position.x, lostSpawnPoints[randSpawn].position.y, 0f);
             TheLost lost = ObjectPooler.Instance.SpawnFromPool("Lost", spawn, Quaternion.identity).GetComponent<TheLost>();
 
             lost.AddDamage(eventM.GetDamageIncrease());
@@ -335,6 +357,38 @@ public class TheEater : MonoBehaviour
         }
         numMinions++;
         eventM.IncreaseNumspawn();
+    }
+
+    //Spawns the losts around Eater while eater is harbringer
+    public bool SpawnHarbringer()
+    {
+        //Spawns the number of minions as declared as numMinions
+        for (int i = 0; i <= numMinions - 1; i++)
+        {
+            int randSpawn = (int)Random.Range(0f, lostSpawnPoints.Length);
+            Vector2 direction = lostSpawnPoints[randSpawn].position - transform.position;
+            float spawnDistance = Vector3.Distance(lostSpawnPoints[randSpawn].position, transform.position);
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, spawnDistance, 1 << LayerMask.NameToLayer("Obstacle"));
+
+            //Debug.DrawRay(transform.position, direction, Color.red, 2f);
+            while (hit)
+            {
+                randSpawn = (int)Random.Range(0f, lostSpawnPoints.Length);
+                direction = lostSpawnPoints[randSpawn].position - transform.position;
+                spawnDistance = Vector3.Distance(lostSpawnPoints[randSpawn].position, transform.position);
+
+                hit = Physics2D.Raycast(transform.position, direction, spawnDistance, 1 << LayerMask.NameToLayer("Obstacle"));
+            }
+
+            //gets the position for enemy spawn and makes sure enemies aren't stuck on eachother
+            Vector3 spawn = new Vector3(lostSpawnPoints[randSpawn].position.x, lostSpawnPoints[randSpawn].position.y, 0f);
+            TheLost lost = ObjectPooler.Instance.SpawnFromPool("Lost", spawn, Quaternion.identity).GetComponent<TheLost>();
+
+            lost.AddDamage(eventM.GetDamageIncrease());
+            lost.AddHealth(eventM.GetHealthIncrease());
+        }
+        return true;
     }
 
     public void IsMiniboss(){
@@ -350,8 +404,9 @@ public class TheEater : MonoBehaviour
         currSprite.sprite = boss;
         isMiniboss = true;
         poisonArea.gameObject.SetActive(true);
-        health.SetActive(true);
         animator.SetTrigger("Chasing");
+        SpawnMinions();
+        slider.GetComponentInChildren<Image>().color = Color.red;
     }
 
     void OnPathComplete(Path p)
@@ -365,6 +420,11 @@ public class TheEater : MonoBehaviour
 
     public void Death()
     {
+        eventM.MinibossDead();
+        isMiniboss = false;
+        currSprite.sprite = harbringer;
+        body.isTrigger = true;
+
         gameObject.SetActive(false);
     }
 
@@ -468,11 +528,29 @@ public class TheEater : MonoBehaviour
         }
     }
 
-    public void IsNotTeleporting() 
+    public void IsNotTeleporting(bool soonBoss) 
     {
         if (bigCam != null)
         {
             bigCam.EaterIsNotTeleporting();
+        }
+        if (soonBoss)
+        {
+            teleporting = false;
+            health.SetActive(true);
+            slider.GetComponentInChildren<Image>().color = Color.white;
+
+            StartCoroutine(GrowSlider());
+        }
+
+    }
+
+    private IEnumerator GrowSlider()
+    {
+        for (float s = 0; s <= 10f; s += Time.deltaTime)
+        {
+            slider.value = Mathf.Lerp(0, baseHealth, s / 10f);
+            yield return null;
         }
     }
 

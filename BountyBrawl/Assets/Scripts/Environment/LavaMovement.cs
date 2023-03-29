@@ -14,10 +14,11 @@ public class LavaMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.right * scrollSpeed * Time.deltaTime);
-        if(transform.position.x > 270.9395f)
+        transform.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
+        if(transform.position.y > 153.3526)
         {
             transform.position = StartPosition;
         }
+        
     }
 }

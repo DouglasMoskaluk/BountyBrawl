@@ -522,9 +522,9 @@ public class PlayerBody : MonoBehaviour
 
     public void EndAttack()
     {
-        headSprite.gameObject.SetActive(true);
         animator.SetBool("Attacking", false);
         animator.SetTrigger("Idle");
+        headSprite.gameObject.SetActive(true);
     }
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)

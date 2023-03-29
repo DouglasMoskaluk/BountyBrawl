@@ -88,16 +88,16 @@ public class EventManager : MonoBehaviour
             else
             {
                 enemyTimer = tempTimer;
-                SpawnEnemies();
 
                 if (numSpawn >= miniboss) //If the eater will become a miniboss
                 {
+                    currEater.gameObject.SetActive(true);
                     currEater.IsMiniboss();
                     minibossInUse = true;
                 }
                 else
                 {
-                    currEater.gameObject.SetActive(false); //Turn off eater
+                    SpawnEnemies();
                 }
             }
         }
@@ -117,7 +117,16 @@ public class EventManager : MonoBehaviour
 
             currEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
             currEater.gameObject.SetActive(true);  //Turn on eater
-            currEater.IsNotTeleporting();
+
+            //Determines whether to spawn in the white filling bar for when eater will become boss
+            if (numSpawn >= miniboss)
+            {
+                currEater.IsNotTeleporting(true);
+            }
+            else
+            {
+                currEater.IsNotTeleporting(false);
+            }
         }
 
         if (boxTimer < 0)
@@ -179,17 +188,11 @@ public class EventManager : MonoBehaviour
     private void SpawnEnemies()
     {
 
-        //Spawns the number of enemies as declared as numEnemies
-        for(int i = 0; i <= numEnemies - 1 + numSpawn; i++)
+        if (currEater.SpawnHarbringer())
         {
-            //gets the position for enemy spawn and makes sure enemies aren't stuck on eachother
-            Vector3 spawn = new Vector3(enemySP[tempSp].position.x + i/1.2f, enemySP[tempSp].position.y - i/ 1.2f, 0f);
-            TheLost minion = ObjectPooler.Instance.SpawnFromPool("Lost", spawn, Quaternion.identity).GetComponent<TheLost>();
-
-            //Increases the losts damage and health each time they are spawned
-            minion.AddDamage(enemyDamageIncrease * numSpawn);
-            minion.AddHealth(enemyHealthIncrease * numSpawn);
+            currEater.gameObject.SetActive(false);
         }
+
         canSpawn = true; //Can spawn the eater for the next event
         teleport = true; //Eater can teleport for the next event
         numSpawn++; //Adds 1 to number of spawns each time enemies are spawned
@@ -209,7 +212,11 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void MinibossDead() { minibossInUse = false; }
+    public void MinibossDead() { 
+        minibossInUse = false;
+        canSpawn = true;
+        teleport = true;
+    }
 
     public float GetDamageIncrease() { return (numSpawn * enemyDamageIncrease); }
     public float GetHealthIncrease() { return (numSpawn * enemyHealthIncrease); }

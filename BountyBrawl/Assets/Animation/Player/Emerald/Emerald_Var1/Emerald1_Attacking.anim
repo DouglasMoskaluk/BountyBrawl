@@ -261,6 +261,13 @@ AnimationClip:
     path: Slam
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0.7
+      value: {fileID: 6721463133285890452, guid: cb0879c9faf074b4b931230cbc91e9be, type: 3}
+    attribute: m_Sprite
+    path: PlayerHead
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
@@ -310,6 +317,13 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2027291307
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -2065494072308807748, guid: 9f69b179c771fe44fb0e44e3907d876b, type: 3}
     - {fileID: 4952707865594012875, guid: 9f69b179c771fe44fb0e44e3907d876b, type: 3}
@@ -325,12 +339,13 @@ AnimationClip:
     - {fileID: -1620978887422420441, guid: 6603395d65473154d8b5f708e2cef20a, type: 3}
     - {fileID: 9093743483842867810, guid: 6603395d65473154d8b5f708e2cef20a, type: 3}
     - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+    - {fileID: 6721463133285890452, guid: cb0879c9faf074b4b931230cbc91e9be, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.65000004
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

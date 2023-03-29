@@ -122,6 +122,8 @@ public class Crossbow : MonoBehaviour
                 animator.enabled = true;
                 canShoot = true;
                 crossbowHead.SetActive(false);
+
+                beam.gameObject.SetActive(false);
             }
         }
 
