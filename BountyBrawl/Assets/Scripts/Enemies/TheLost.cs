@@ -96,6 +96,8 @@ public class TheLost : MonoBehaviour
     private bool glued;
     private bool wet;
 
+    private int moneyChecker;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
@@ -123,6 +125,7 @@ public class TheLost : MonoBehaviour
         dead = false;
         glued = false;
         wet = false;
+        moneyChecker = 1;
 
         int lostType = (int) Random.Range(0f, types.Count);
 
@@ -536,8 +539,9 @@ public class TheLost : MonoBehaviour
         currHealth -= damage;
         StartCoroutine(HitColor());
 
-        if (currHealth <= 0)
+        if (currHealth <= 0 && moneyChecker == 1)
         {
+            moneyChecker--;
             poison = null;
             spriteRenderer.color = Color.white;
             player.gameObject.GetComponent<StatTracker>().IncreaseLostKills();

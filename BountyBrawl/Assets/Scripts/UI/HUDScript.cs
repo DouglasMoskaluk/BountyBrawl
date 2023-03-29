@@ -37,6 +37,7 @@ public class HUDScript : MonoBehaviour
 
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
+    [SerializeField] private GameObject heart3;
 
     [SerializeField] private Slider healthSlider;
     [SerializeField] private GameObject health;
@@ -48,20 +49,39 @@ public class HUDScript : MonoBehaviour
     [SerializeField] private Slider ammoSlider;
     [SerializeField] private GameObject ammo;
 
+    //Get more lives 
+    [SerializeField] private float goldUISize = 0.5f;
+    [SerializeField] private int goldRequired = 100; //Amount of gold required to get a new life
+    [SerializeField] private GameObject coinsUI;
+    [SerializeField] private Sprite fullHeart;
+    [SerializeField] private Sprite emptyHeart;
+
     public TMP_Text moneyText;
 
     private bool check;
     private bool found;
+    private bool gotHearts;
+
+    private Slider heartSlider1;
+    private Slider heartSlider2;
+    private Slider heartSlider3;
+
+    private Image heartImage1;
+    private Image heartImage2;
+    private Image heartImage3;
+
 
     // Start is called before the first frame update
     void Start()
     {
         check = true; //Tell to check for players
         found = false; //When players are found stop checking and don't set player stuff
-
+        coinsUI.transform.localScale *= goldUISize;
+        gotHearts = false;
+        FindCharacters();
     }
 
-    private void LateUpdate()
+    public void FindCharacters()
     {
         if (check && !found)
         {
@@ -175,23 +195,75 @@ public class HUDScript : MonoBehaviour
     {
         if (playerLives == 3)
         {
-            heart1.SetActive(true);
-            heart2.SetActive(true);
+            coinsUI.SetActive(false);
+
+            //Do this at the start of the game
+            if (!gotHearts)
+            {
+                gotHearts = true;
+
+                heartSlider1 = heart1.GetComponentInChildren<Slider>();
+                heartSlider2 = heart2.GetComponentInChildren<Slider>();
+                heartSlider3 = heart3.GetComponentInChildren<Slider>();
+
+                heartSlider1.maxValue = goldRequired;
+                heartSlider2.maxValue = goldRequired;
+                heartSlider3.maxValue = goldRequired;
+
+                heartImage1 = heart1.GetComponentInChildren<Image>();
+                heartImage2 = heart2.GetComponentInChildren<Image>();
+                heartImage3 = heart3.GetComponentInChildren<Image>();
+
+                heartImage1.sprite = fullHeart;
+                heartImage2.sprite = fullHeart;
+                heartImage3.sprite = fullHeart;
+
+                heartSlider1.value = 0;
+                heartSlider2.value = 0;
+                heartSlider3.value = 0;
+            }
+
         }
         if (playerLives == 2)
         {
-            heart1.SetActive(true);
-            heart2.SetActive(false);
+            coinsUI.transform.position = heart3.transform.position;
+            coinsUI.SetActive(true);
+            heartImage3.sprite = emptyHeart;
+
+            heartSlider3.value = playerMoney;
+
+            if(playerMoney >= goldRequired)
+            {
+                playerCharacter.GetComponent<PlayerBody>().IncreaseMoney(-goldRequired);
+                playerCharacter.GetComponent<PlayerBody>().IncreaseLives();
+                heartSlider3.value = 0;
+                heartImage3.sprite = fullHeart;
+            }
         }
         if (playerLives == 1)
         {
-            heart1.SetActive(false);
-            heart2.SetActive(false);
+            coinsUI.transform.position = heart2.transform.position;
+            heartImage2.sprite = emptyHeart;
+            coinsUI.SetActive(true);
+
+            heart3.GetComponent<Slider>().value = 0;
+
+            heart2.GetComponent<Slider>().value = playerMoney;
+
+            if (playerMoney >= goldRequired)
+            {
+                playerCharacter.GetComponent<PlayerBody>().IncreaseLives();
+                playerCharacter.GetComponent<PlayerBody>().IncreaseMoney(-goldRequired);
+                heartSlider2.value = 0;
+                heartImage2.sprite = fullHeart;
+            }
         }
         if (playerLives == 0)
         {
+            coinsUI.SetActive(false);
             heart1.SetActive(false);
             heart2.SetActive(false);
+            heart3.SetActive(false);
 
         }
     }

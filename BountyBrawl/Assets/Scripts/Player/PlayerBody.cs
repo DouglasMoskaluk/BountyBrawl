@@ -74,7 +74,6 @@ public class PlayerBody : MonoBehaviour
 
     //Stat Tracking
     private StatTracker statTracker;
-    [SerializeField] private float startMoney = 50f;
 
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
@@ -128,13 +127,6 @@ public class PlayerBody : MonoBehaviour
        GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
 
         transform.position = spawnPoint.position; //Moves player to the spawnpoint
-    }
-
-    private void Start()
-    {
-        IncreaseMoney(startMoney);
-
-       
     }
 
     private void Update()
@@ -412,12 +404,12 @@ public class PlayerBody : MonoBehaviour
             {
                 boxCollider.enabled = false;
                 dead = true;
-                int tempMoney = (int) (money * (moneyLost / 100));
-                IncreaseMoney(-tempMoney);
+                //int tempMoney = (int) (money * (moneyLost / 100));
+                //IncreaseMoney(-tempMoney);
 
                 if (player != null)
                 {
-                    player.IncreaseMoney(tempMoney);
+                    //player.IncreaseMoney(tempMoney);
                     player.gameObject.GetComponent<StatTracker>().IncreasePlayerKills();
                 }
                 StartCoroutine(Death());
@@ -538,13 +530,16 @@ public class PlayerBody : MonoBehaviour
     public Coroutine IsPoisoned() { return poison; }
 
     public void IncreaseMoney(float income) {
-        statTracker.IncreaseCurrMoney(income);
-
-        if (income > 0)
+        if (lives < 3)
         {
-            statTracker.IncreaseTotalMoney(income);
+            statTracker.IncreaseCurrMoney(income);
+
+            if (income > 0)
+            {
+                statTracker.IncreaseTotalMoney(income);
+            }
+            money += income;
         }
-        money += income; 
     }
 
     public void UsingRailgun(bool rail) { railgun = rail; }
@@ -575,6 +570,8 @@ public class PlayerBody : MonoBehaviour
     public float getHealth() { return health; }
 
     public int getLives() { return lives; }
+
+    public void IncreaseLives() { lives++; }
 
     public Vector2 getLastFacing() { return lastFacing; }
 

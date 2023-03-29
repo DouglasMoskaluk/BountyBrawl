@@ -99,5 +99,15 @@ public class WeaponBox : MonoBehaviour
 
     public void IncreaseWeaponBox() { numSpawn++; }
 
-    public float GetMoney() { return moneyGiven; }
+    public float GetMoney() {
+        if (hit == 0)
+        { 
+            return moneyGiven;
+        }
+        else
+        {
+            return 0;
+        }
+
+    }
 }

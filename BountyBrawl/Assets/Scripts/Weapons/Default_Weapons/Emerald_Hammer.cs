@@ -120,6 +120,11 @@ public class Emerald_Hammer : MonoBehaviour
         {
             other.GetComponent<TheEater>().DamageEnemy(damage, player);
         }
+        if (other.tag == "Box")
+        {
+            WeaponBox box = other.GetComponent<WeaponBox>();
+            player.IncreaseMoney(box.GetMoney());
+        }
     }
 
 }

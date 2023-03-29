@@ -89,6 +89,8 @@ public class TheEater : MonoBehaviour
     private Animator animator;
     [SerializeField] private ParticleSystem goldDrop;
 
+    private int moneyChecker;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>(); //Get players
@@ -133,6 +135,7 @@ public class TheEater : MonoBehaviour
         glued = false;
         wet = false;
         teleporting = true;
+        moneyChecker = 1;
 
         //Adds the eater to the camera list 
         if (cam != null)
@@ -503,8 +506,9 @@ public class TheEater : MonoBehaviour
             currHealth -= damage;
             StartCoroutine(HitColor());
 
-            if(currHealth <= 0)
+            if(currHealth <= 0 && moneyChecker == 1)
             {
+                moneyChecker--;
                 StopAllCoroutines();
                 currSprite.color = Color.white;
                 player.gameObject.GetComponent<StatTracker>().IncreaseEaterKills();

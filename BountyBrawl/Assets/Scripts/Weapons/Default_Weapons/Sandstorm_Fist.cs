@@ -138,6 +138,10 @@ public class Sandstorm_Fist : MonoBehaviour
             player.UsingDefault(false);
             player.ChangeMove(true);
             attack.enabled = false;
+
+            WeaponBox box = other.GetComponent<WeaponBox>();
+            player.IncreaseMoney(box.GetMoney());
+            
         }
     }
 }
