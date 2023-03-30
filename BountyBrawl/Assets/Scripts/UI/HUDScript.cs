@@ -37,7 +37,6 @@ public class HUDScript : MonoBehaviour
 
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
-    [SerializeField] private GameObject heart3;
 
     [SerializeField] private Slider healthSlider;
     [SerializeField] private GameObject health;
@@ -64,11 +63,9 @@ public class HUDScript : MonoBehaviour
 
     private Slider heartSlider1;
     private Slider heartSlider2;
-    private Slider heartSlider3;
 
     private Image heartImage1;
     private Image heartImage2;
-    private Image heartImage3;
 
 
     // Start is called before the first frame update
@@ -204,58 +201,53 @@ public class HUDScript : MonoBehaviour
 
                 heartSlider1 = heart1.GetComponentInChildren<Slider>();
                 heartSlider2 = heart2.GetComponentInChildren<Slider>();
-                heartSlider3 = heart3.GetComponentInChildren<Slider>();
 
                 heartSlider1.maxValue = goldRequired;
                 heartSlider2.maxValue = goldRequired;
-                heartSlider3.maxValue = goldRequired;
 
                 heartImage1 = heart1.GetComponentInChildren<Image>();
                 heartImage2 = heart2.GetComponentInChildren<Image>();
-                heartImage3 = heart3.GetComponentInChildren<Image>();
 
                 heartImage1.sprite = fullHeart;
                 heartImage2.sprite = fullHeart;
-                heartImage3.sprite = fullHeart;
 
                 heartSlider1.value = 0;
                 heartSlider2.value = 0;
-                heartSlider3.value = 0;
             }
 
         }
         if (playerLives == 2)
         {
-            coinsUI.transform.position = heart3.transform.position;
+            coinsUI.transform.position = heart2.transform.position;
             coinsUI.SetActive(true);
-            heartImage3.sprite = emptyHeart;
+            heartImage2.sprite = emptyHeart;
 
-            heartSlider3.value = playerMoney;
+            heartSlider2.value = playerMoney;
 
             if(playerMoney >= goldRequired)
             {
                 playerCharacter.GetComponent<PlayerBody>().IncreaseMoney(-goldRequired);
                 playerCharacter.GetComponent<PlayerBody>().IncreaseLives();
-                heartSlider3.value = 0;
-                heartImage3.sprite = fullHeart;
+                heartSlider2.value = 0;
+                heartImage2.sprite = fullHeart;
             }
         }
         if (playerLives == 1)
         {
-            coinsUI.transform.position = heart2.transform.position;
-            heartImage2.sprite = emptyHeart;
+            coinsUI.transform.position = heart1.transform.position;
+            heartImage1.sprite = emptyHeart;
             coinsUI.SetActive(true);
 
-            heart3.GetComponent<Slider>().value = 0;
+            heartSlider2.value = 0;
 
-            heart2.GetComponent<Slider>().value = playerMoney;
+            heartSlider1.value = playerMoney;
 
             if (playerMoney >= goldRequired)
             {
                 playerCharacter.GetComponent<PlayerBody>().IncreaseLives();
                 playerCharacter.GetComponent<PlayerBody>().IncreaseMoney(-goldRequired);
-                heartSlider2.value = 0;
-                heartImage2.sprite = fullHeart;
+                heartSlider1.value = 0;
+                heartImage1.sprite = fullHeart;
             }
         }
         if (playerLives == 0)
@@ -263,7 +255,6 @@ public class HUDScript : MonoBehaviour
             coinsUI.SetActive(false);
             heart1.SetActive(false);
             heart2.SetActive(false);
-            heart3.SetActive(false);
 
         }
     }

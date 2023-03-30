@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7675826452862742069
 Transform:
   m_ObjectHideFlags: 0
@@ -279,7 +279,6 @@ MonoBehaviour:
   maxHealth: 70
   dashTime: 1
   dash: {fileID: 21300000, guid: 3ba05279ba7d2114d974ef87909e17a7, type: 3}
-  aura: {fileID: 0}
   moneyEarn: 5
   nextWayPointDistance: 3
   currDamage: 0

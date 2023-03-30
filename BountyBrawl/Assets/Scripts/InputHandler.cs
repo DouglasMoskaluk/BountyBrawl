@@ -92,9 +92,5 @@ public class InputHandler : MonoBehaviour
 
     public void ActivateEvent(CallbackContext context)
     {
-        if (player != null)
-        {
-            player.ActivateEvent(context.ReadValue<float>());
-        }
     }
 }

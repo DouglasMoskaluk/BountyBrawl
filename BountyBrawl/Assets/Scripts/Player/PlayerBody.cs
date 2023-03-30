@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
-    [SerializeField] private GameObject eventManager;
     private Transform spawnPoint;
     GameObject UIPauseMenu; //Pause menu on canvas
 
@@ -80,8 +79,10 @@ public class PlayerBody : MonoBehaviour
 
     private BoxCollider2D boxCollider;
 
-    //Gold drop particle
+    //Particles
     [SerializeField] private ParticleSystem goldDrop;
+    [SerializeField] private ParticleSystem livesGot;
+    [SerializeField] private ParticleSystem waterSplash;
 
     [SerializeField] AudioSource playerDamage;
 
@@ -97,6 +98,9 @@ public class PlayerBody : MonoBehaviour
     private bool wet;
 
     private AnimatorOverrideController animatorOverrideController;
+
+    [SerializeField] private float moneyGive = 50f;
+    private int moneyChecker;
 
     private void Awake()
     {
@@ -118,6 +122,7 @@ public class PlayerBody : MonoBehaviour
         railgun = false;
         glued = false;
         wet = false;
+        moneyChecker = 1;
 
         //Gets the spawnpoint of the player based on player index
         GameObject[] spawnPoints;
@@ -194,11 +199,21 @@ public class PlayerBody : MonoBehaviour
                 if (inputVector.magnitude != 0)
                 {
                     animator.SetFloat("Run", Mathf.Abs(inputVector.magnitude * runSpeed));
+
+                    if (wet && !waterSplash.isPlaying)
+                    {
+                        waterSplash.Play();
+                    }
                 }
                 else
                 {
                     animator.SetFloat("Run", 0f);
                     animator.SetTrigger("Idle");
+
+                    if (wet)
+                    {
+                        waterSplash.Stop(true);
+                    }
                 }
             }
 
@@ -384,6 +399,7 @@ public class PlayerBody : MonoBehaviour
         {
             wet = false;
             runSpeed += slowness;
+            waterSplash.Stop(false);
         }
     }
 
@@ -400,16 +416,15 @@ public class PlayerBody : MonoBehaviour
                 player.gameObject.GetComponent<StatTracker>().IncreasePlayerDamage(damage);
             }
 
-            if(health <= 0 && weaponHolder.gameObject.activeSelf)
+            if(health <= 0 && weaponHolder.gameObject.activeSelf && moneyChecker == 1)
             {
+                moneyChecker--;
                 boxCollider.enabled = false;
                 dead = true;
-                //int tempMoney = (int) (money * (moneyLost / 100));
-                //IncreaseMoney(-tempMoney);
 
                 if (player != null)
                 {
-                    //player.IncreaseMoney(tempMoney);
+                    player.IncreaseMoney(moneyGive);
                     player.gameObject.GetComponent<StatTracker>().IncreasePlayerKills();
                 }
                 StartCoroutine(Death());
@@ -500,6 +515,7 @@ public class PlayerBody : MonoBehaviour
         hammer = false;
         weaponIndex = 0;
         health = 100;
+        moneyChecker = 1;
     }
 
     public void StartAttack()
@@ -571,7 +587,9 @@ public class PlayerBody : MonoBehaviour
 
     public int getLives() { return lives; }
 
-    public void IncreaseLives() { lives++; }
+    public void IncreaseLives() {
+        livesGot.Play();
+        lives++; }
 
     public Vector2 getLastFacing() { return lastFacing; }
 
@@ -625,17 +643,6 @@ public class PlayerBody : MonoBehaviour
     public void Respawn(float left)
     {
         respawn = left;
-    }
-
-    public void ActivateEvent(float activateEvent){
-        if (!eventManager.activeSelf)
-        {
-            eventManager.SetActive(true);
-        }
-        else
-        {
-            eventManager.SetActive(false);
-        }
     }
 
     public int GetPlayerIndex()

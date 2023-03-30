@@ -31,7 +31,7 @@ public class TheEater : MonoBehaviour
 
     [SerializeField] float speedOfPoisonGrowth = 0.5f;
 
-    [SerializeField] private float moneyEarn = 100;
+    [SerializeField] private float moneyEarn = 50;
 
     [SerializeField] private Transform[] lostSpawnPoints;
 
