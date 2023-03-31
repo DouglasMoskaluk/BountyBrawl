@@ -49,7 +49,7 @@ public class CharSelected : MonoBehaviour
     }
     public void Update()
     {
-        Debug.Log(playerColour);
+        //Debug.Log(playerColour);
     }
 
 }

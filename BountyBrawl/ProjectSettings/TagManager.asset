@@ -17,6 +17,9 @@ TagManager:
   - Box
   - EaterHealth
   - SpawnPoints
+  - P1 Char
+  - P2 Char
+  - P1 Info
   layers:
   - Default
   - TransparentFX
