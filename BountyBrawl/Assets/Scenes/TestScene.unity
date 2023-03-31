@@ -7492,6 +7492,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1536720589}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 214306380}
   maxAmmo: 0
   currAmmo: 0
@@ -7821,6 +7822,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 2024095211}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 215662078}
   maxAmmo: 0
   currAmmo: 0
@@ -9572,6 +9574,7 @@ MonoBehaviour:
   avoidBox: {fileID: 1348374373}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &307826650
 Rigidbody2D:
   serializedVersion: 4
@@ -15772,6 +15775,7 @@ MonoBehaviour:
   avoidBox: {fileID: 672428228}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &348327234
 Rigidbody2D:
   serializedVersion: 4
@@ -16810,6 +16814,7 @@ MonoBehaviour:
   avoidBox: {fileID: 1570055442}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &387846028
 Rigidbody2D:
   serializedVersion: 4
@@ -20571,6 +20576,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 658904996}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 634500265}
   maxAmmo: 0
   currAmmo: 0
@@ -26470,6 +26476,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 580632361}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 680989701}
   maxAmmo: 0
   currAmmo: 0
@@ -29202,6 +29209,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1628224957}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 862510071}
   maxAmmo: 0
   currAmmo: 0
@@ -36237,6 +36245,7 @@ MonoBehaviour:
   avoidBox: {fileID: 1682086141}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &1088766956
 Rigidbody2D:
   serializedVersion: 4
@@ -36535,6 +36544,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1823006498}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1119714875}
   maxAmmo: 0
   currAmmo: 0
@@ -38362,6 +38372,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 15131297}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1260589274}
   maxAmmo: 0
   currAmmo: 0
@@ -38848,6 +38859,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 528013073}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1273390316}
   maxAmmo: 0
   currAmmo: 0
@@ -40534,6 +40546,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1897504025}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1399625659}
   maxAmmo: 0
   currAmmo: 0
@@ -41353,6 +41366,7 @@ MonoBehaviour:
   avoidBox: {fileID: 2087547296}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &1430843028
 Rigidbody2D:
   serializedVersion: 4
@@ -46637,6 +46651,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1178242560}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1463079497}
   maxAmmo: 0
   currAmmo: 0
@@ -53798,6 +53813,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1737994163}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1572577039}
   maxAmmo: 0
   currAmmo: 0
@@ -60462,6 +60478,7 @@ MonoBehaviour:
   avoidBox: {fileID: 983783460}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &1685204472
 Rigidbody2D:
   serializedVersion: 4
@@ -60918,6 +60935,7 @@ MonoBehaviour:
   avoidBox: {fileID: 1472251977}
   poisoned: {r: 0.105882354, g: 0.65882355, b: 0, a: 1}
   hit: {r: 1, g: 0.20392156, b: 0.2667996, a: 0.5803922}
+  waterSplash: {fileID: 0}
 --- !u!50 &1724550112
 Rigidbody2D:
   serializedVersion: 4
@@ -61897,6 +61915,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 867209043}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1820784248}
   maxAmmo: 0
   currAmmo: 0
@@ -62334,6 +62353,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 516596481}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1827937146}
   maxAmmo: 0
   currAmmo: 0
@@ -63890,6 +63910,7 @@ MonoBehaviour:
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1760045088}
   livesGot: {fileID: 0}
+  waterSplash: {fileID: 0}
   playerDamage: {fileID: 1937221859}
   maxAmmo: 0
   currAmmo: 0
@@ -66051,6 +66072,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3624055640845905921, guid: e34f90efbcd63d34483dd6e9df5903a4, type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624055640845905921, guid: e34f90efbcd63d34483dd6e9df5903a4, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624055640845905921, guid: e34f90efbcd63d34483dd6e9df5903a4, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624055640845905921, guid: e34f90efbcd63d34483dd6e9df5903a4, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34f90efbcd63d34483dd6e9df5903a4, type: 3}
 --- !u!1001 &4533593584268559590
@@ -66060,6 +66097,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 246973510}
     m_Modifications:
+    - target: {fileID: 21783918566090938, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 21783918566090938, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21783918566090938, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 21783918566090938, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21783918566090939, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 21783918566090939, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4533593584580382536, guid: 3abee8636d81d664da6d1fbf2cd5e5de, type: 3}
       propertyPath: m_RootOrder
       value: 5
