@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2457904639184425401}
   - component: {fileID: 2457904639184425402}
   m_Layer: 0
-  m_Name: WaterSplash
+  m_Name: WaterSplashLost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.6745098}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.96
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -744,7 +744,7 @@ ParticleSystem:
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 0
     sphericalDirectionAmount: 0
-    randomPositionAmount: 0.27
+    randomPositionAmount: 0.36
     radius:
       value: 1.56
       mode: 0
@@ -805,7 +805,7 @@ ParticleSystem:
     arc:
       value: 360
       mode: 0
-      spread: 0
+      spread: 0.57
       speed:
         serializedVersion: 2
         minMaxState: 0

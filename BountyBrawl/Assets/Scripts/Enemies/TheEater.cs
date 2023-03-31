@@ -91,6 +91,11 @@ public class TheEater : MonoBehaviour
 
     private int moneyChecker;
 
+    [SerializeField] private ParticleSystem aura;
+    [SerializeField] private ParticleSystem waterSplash;
+
+    private bool dead;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>(); //Get players
@@ -124,7 +129,10 @@ public class TheEater : MonoBehaviour
 
     private void OnEnable()
     {
-        currSprite.color = Color.white;
+        Color tempColor = Color.white;
+        tempColor.a = 0.5f;
+        currSprite.color = tempColor;
+
         poisonStartSize = tempPoisonStart;
         poisonEndSize = tempPoisonEnd;
         poisonArea.localScale = tempPoisonStart;
@@ -136,6 +144,7 @@ public class TheEater : MonoBehaviour
         wet = false;
         teleporting = true;
         moneyChecker = 1;
+        dead = false;
 
         //Adds the eater to the camera list 
         if (cam != null)
@@ -248,7 +257,7 @@ public class TheEater : MonoBehaviour
                 }
             }
 
-            if (poison != null)
+            if (poison != null && currSprite.color != hit)
             {
                 currSprite.color = poisoned;
             }
@@ -256,6 +265,9 @@ public class TheEater : MonoBehaviour
             //Death
             if (currHealth <= 0f)
             {
+                dead = true;
+                waterSplash.Stop(true);
+                aura.Stop(true);
                 goldDrop.Play();
                 body.enabled = false;
                 rb.velocity = Vector2.zero;
@@ -396,7 +408,8 @@ public class TheEater : MonoBehaviour
 
     public void IsMiniboss(){
         animator.SetTrigger("IsBoss");
-
+        aura.Play();
+        currSprite.color = Color.white;
     } //If the eater is now a miniboss
 
     public void DoneBoss()
@@ -487,6 +500,10 @@ public class TheEater : MonoBehaviour
         {
             wet = true;
             enemySpeed -= slowness;
+            if (!dead)
+            {
+                waterSplash.Play();
+            }
         }
     }
     public void ExitWater(float slowness)
@@ -495,6 +512,7 @@ public class TheEater : MonoBehaviour
         {
             wet = false;
             enemySpeed += slowness;
+            waterSplash.Stop(true);
         }
     }
 

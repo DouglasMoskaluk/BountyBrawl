@@ -98,6 +98,8 @@ public class TheLost : MonoBehaviour
 
     private int moneyChecker;
 
+    [SerializeField] private ParticleSystem waterSplash;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>();
@@ -216,12 +218,13 @@ public class TheLost : MonoBehaviour
             {
                 poison = null;
                 dead = true;
+                waterSplash.Stop(true);
                 spriteRenderer.color = Color.white;
                 StartCoroutine(Particles());
             }
         }
 
-        if (poison != null)
+        if (poison != null && spriteRenderer.color != hit)
         {
             spriteRenderer.color = poisoned;
         }
@@ -492,6 +495,10 @@ public class TheLost : MonoBehaviour
     {
         if (!wet)
         {
+            if (!dead)
+            {
+                waterSplash.Play();
+            }
             wet = true;
             enemyDefaultSpeed -= slowness;
         }
@@ -500,6 +507,7 @@ public class TheLost : MonoBehaviour
     {
         if (wet)
         {
+            waterSplash.Stop(true);
             wet = false;
             enemyDefaultSpeed += slowness;
         }
