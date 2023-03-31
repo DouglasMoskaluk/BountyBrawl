@@ -200,7 +200,7 @@ public class PlayerBody : MonoBehaviour
                 {
                     animator.SetFloat("Run", Mathf.Abs(inputVector.magnitude * runSpeed));
 
-                    if (wet && !waterSplash.isPlaying)
+                    if (wet && !waterSplash.isPlaying && !dead)
                     {
                         waterSplash.Play();
                     }
@@ -210,7 +210,7 @@ public class PlayerBody : MonoBehaviour
                     animator.SetFloat("Run", 0f);
                     animator.SetTrigger("Idle");
 
-                    if (wet)
+                    if (wet || dead)
                     {
                         waterSplash.Stop(true);
                     }
