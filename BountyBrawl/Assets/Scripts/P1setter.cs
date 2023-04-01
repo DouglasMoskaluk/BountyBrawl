@@ -23,8 +23,7 @@ public class P1setter : MonoBehaviour
     {
 
         loader = GameObject.Find("MainSceneLoader");
-        p1colour = loader.GetComponent<SceneLoader>().GetP1Colour();
-        p1char = loader.GetComponent<SceneLoader>().GetP1Char();
+
 
         Debug.Log(p1colour);
         Debug.Log(p1char);

@@ -20,14 +20,7 @@ public class SetPlayers : MonoBehaviour
     {
         loader = GameObject.Find("MainSceneLoader");
 
-        p1char = loader.GetComponent<SceneLoader>().GetP1Char();
-        p2char = loader.GetComponent<SceneLoader>().GetP1Char();
-        p3char = loader.GetComponent<SceneLoader>().GetP1Char();
-        p4char = loader.GetComponent<SceneLoader>().GetP1Char();
-        p1colour = loader.GetComponent<SceneLoader>().GetP1Colour();
-        p2colour = loader.GetComponent<SceneLoader>().GetP2Colour();
-        p3colour = loader.GetComponent<SceneLoader>().GetP3Colour();
-        p4colour = loader.GetComponent<SceneLoader>().GetP4Colour();
+    
 
 
 

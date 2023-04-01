@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P1 : MonoBehaviour
+public class P3 : MonoBehaviour
 {
     [SerializeField]
     InputActionReference square, triangle;
-    GameObject P1Char;
+    GameObject P3Char;
     bool squarePressed;
     bool trianglePressed;
     bool confirmed;
@@ -16,52 +16,52 @@ public class P1 : MonoBehaviour
     [SerializeField]
     GameObject infoSand, infoNag, infoEmr, infoGreed;
 
-    int P1CharSelect;
-    int P1SkinSelect;
+    int P3CharSelect;
+    int P3SkinSelect;
 
     public void Awake()
     {
-        
+
         DontDestroyOnLoad(transform.gameObject);
-        
+
     }
     public void Start()
     {
         squarePressed = false;
         confirmed = false;
-        
+
 
     }
     // Update is called once per frame
     void Update()
     {
-        P1Char = GameObject.FindGameObjectWithTag("P1 Char");
+        P3Char = GameObject.FindGameObjectWithTag("P3 Char");
         if (squarePressed == true)
         {
-            if (P1Char.GetComponent<PlayerBody>().playerSkin < 3)
+            if (P3Char.GetComponent<PlayerBody>().playerSkin < 3)
             {
                 squarePressed = false;
-                P1Char.GetComponent<PlayerBody>().playerSkin++;
-                P1Char.GetComponent<PlayerBody>().ChangeSkin();
+                P3Char.GetComponent<PlayerBody>().playerSkin++;
+                P3Char.GetComponent<PlayerBody>().ChangeSkin();
             }
             else
             {
-                P1Char.GetComponent<PlayerBody>().playerSkin = 0;
-                P1Char.GetComponent<PlayerBody>().ChangeSkin();
+                P3Char.GetComponent<PlayerBody>().playerSkin = 0;
+                P3Char.GetComponent<PlayerBody>().ChangeSkin();
                 squarePressed = false;
             }
         }
-        
-        if(trianglePressed == true)
+
+        if (trianglePressed == true)
         {
             infoSand.SetActive(true);
             infoNag.SetActive(true);
             infoEmr.SetActive(true);
             infoGreed.SetActive(true);
 
-            
+
         }
-        if(trianglePressed == false)
+        if (trianglePressed == false)
         {
             infoSand.SetActive(false);
             infoNag.SetActive(false);
@@ -87,7 +87,7 @@ public class P1 : MonoBehaviour
     private void ShowInfo(InputAction.CallbackContext obj)
     {
         trianglePressed = true;
-        
+
 
     }
 
@@ -108,21 +108,21 @@ public class P1 : MonoBehaviour
 
     public void SetSkin()
     {
-        P1SkinSelect = P1Char.GetComponent<PlayerBody>().playerSkin;
+        P3SkinSelect = P3Char.GetComponent<PlayerBody>().playerSkin;
     }
     public int GetSkin()
     {
-        return P1SkinSelect;
+        return P3SkinSelect;
     }
 
     public void SetChar()
     {
-        P1CharSelect = P1Char.GetComponent<PlayerBody>().getCharacter();
+        P3CharSelect = P3Char.GetComponent<PlayerBody>().getCharacter();
     }
 
     public int GetChar()
     {
-        return P1CharSelect;
+        return P3CharSelect;
     }
 
     public void Confirmed()

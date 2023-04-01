@@ -30,21 +30,7 @@ public class SceneLoader : MonoBehaviour
     int players;
     int confirms;
 
-    [SerializeField]
-    GameObject P1;
 
-    GameObject P2;
-    GameObject P3;
-    GameObject P4;
-
-    public int P1Char;
-    public int P1Colour;
-    public int P2Char;
-    public int P2Colour;
-    public int P3Char;
-    public int P3Colour;
-    public int P4Char;
-    public int P4Colour;
 
     public void Awake()
     {
@@ -73,25 +59,6 @@ public class SceneLoader : MonoBehaviour
                 map1 = false;
                 map2 = false;
 
-                //P1 = GameObject.Find("P1");
-                P2 = GameObject.Find("P2");
-                P3 = GameObject.Find("P3");
-                P4 = GameObject.Find("P4");
-
-
-                P1Char = P1.GetComponent<CharSelected>().GetPlayerChar();
-                P1Colour = P1.GetComponent<CharSelected>().GetPlayerColour();
-
-                Debug.Log(P1Char);
-                Debug.Log(P1Colour);
-
-                //P2Char = P2.GetComponent<CharSelected>().GetPlayerChar();
-                //P2Colour = P2.GetComponent<CharSelected>().GetPlayerColour();
-                //P3Char = P3.GetComponent<CharSelected>().GetPlayerChar();
-                //P3Colour = P3.GetComponent<CharSelected>().GetPlayerColour();
-                //P4Char = P4.GetComponent<CharSelected>().GetPlayerChar();
-                //P4Colour = P4.GetComponent<CharSelected>().GetPlayerColour();
-
                 StartCoroutine(TheAssEater5000(1));
             }
             if (map2 == true)
@@ -101,21 +68,6 @@ public class SceneLoader : MonoBehaviour
                 map1 = false;
                 map2 = false;
 
-                P1 = GameObject.Find("P1");
-                P2 = GameObject.Find("P2");
-                P3 = GameObject.Find("P3");
-                P4 = GameObject.Find("P4");
-
-                P1Char = P1.GetComponent<CharSelected>().GetPlayerChar();
-                P1Colour = P1.GetComponent<CharSelected>().GetPlayerColour();
-                P2Char = P2.GetComponent<CharSelected>().GetPlayerChar();
-                P2Colour = P2.GetComponent<CharSelected>().GetPlayerColour();
-                P3Char = P3.GetComponent<CharSelected>().GetPlayerChar();
-                P3Colour = P3.GetComponent<CharSelected>().GetPlayerColour();
-                P4Char = P4.GetComponent<CharSelected>().GetPlayerChar();
-                P4Colour = P4.GetComponent<CharSelected>().GetPlayerColour();
-
-
                 StartCoroutine(TheAssEater5000(2));
             }
         }
@@ -123,38 +75,7 @@ public class SceneLoader : MonoBehaviour
         
     }
 
-    public int GetP1Char()
-    {
-        return P1Char;
-    }
-    public int GetP2Char()
-    {
-        return P2Char;
-    }
-    public int GetP3Char()
-    {
-        return P3Char;
-    }
-    public int GetP4Char()
-    {
-        return P4Char;
-    }
-    public int GetP1Colour()
-    {
-        return P1Colour;
-    }
-    public int GetP2Colour()
-    {
-        return P2Colour;
-    }
-    public int GetP3Colour()
-    {
-        return P3Colour;
-    }
-    public int GetP4Colour()
-    {
-        return P4Colour;
-    }
+   
 
     public void SetWinner(int number)
     {
@@ -202,6 +123,11 @@ public class SceneLoader : MonoBehaviour
     public void Players4()
     {
         players = 4;
+    }
+
+    public int GetPlayers()
+    {
+        return players;
     }
 
 
@@ -266,5 +192,10 @@ public class SceneLoader : MonoBehaviour
     public void TestScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Podium()
+    {
+        SceneManager.LoadScene(3);
     }
 }

@@ -7,15 +7,17 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class InputHandler : MonoBehaviour
 {
+    [SerializeField]
     private PlayerInput playerInput;
+    [SerializeField]
     private PlayerBody player;
 
-    private void Awake()
+    public void FindPlayer()
     {
-        playerInput = GetComponent<PlayerInput>();
-        var players = FindObjectsOfType<PlayerBody>();
-        var index = playerInput.playerIndex;
-        player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
+       playerInput = GetComponent<PlayerInput>();
+       var players = FindObjectsOfType<PlayerBody>();
+       var index = playerInput.playerIndex;
+       player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
     }
 
     public void OnMove(CallbackContext context)
@@ -54,6 +56,7 @@ public class InputHandler : MonoBehaviour
     {
         if(player != null)
         {
+            Debug.Log("yoter");
             player.Throw(context.ReadValue<float>());
         }
     }
@@ -93,4 +96,6 @@ public class InputHandler : MonoBehaviour
     public void ActivateEvent(CallbackContext context)
     {
     }
+
+   
 }
