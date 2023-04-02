@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SakuraTestScene.unity
     guid: b7053fe9d23a2c549be990d4ec624cae
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Podium.unity
     guid: 6de58c26595394749bd313287ce5357e
   m_configObjects:

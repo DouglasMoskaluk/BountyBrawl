@@ -13324,7 +13324,7 @@ MonoBehaviour:
   health: {fileID: 330183605}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 23
+  sliderXOffset: 25
   ammoSlider: {fileID: 329316982}
   ammo: {fileID: 277131106}
   goldUISize: 0.5
@@ -22360,7 +22360,7 @@ MonoBehaviour:
   health: {fileID: 1530146311}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 23
+  sliderXOffset: 25
   ammoSlider: {fileID: 542984456}
   ammo: {fileID: 299865609}
   goldUISize: 0.5
@@ -23135,7 +23135,7 @@ MonoBehaviour:
   health: {fileID: 1652306378}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 23
+  sliderXOffset: 25
   ammoSlider: {fileID: 731965720}
   ammo: {fileID: 732903846}
   goldUISize: 0.5
@@ -31167,7 +31167,7 @@ MonoBehaviour:
   health: {fileID: 1898054038}
   sliderHeight: 5
   sliderSize: 0.17
-  sliderXOffset: 23
+  sliderXOffset: 25
   ammoSlider: {fileID: 1704482170}
   ammo: {fileID: 1023981131}
   goldUISize: 0.5
