@@ -152,9 +152,8 @@ MonoBehaviour:
   weaponHolder: {fileID: 4533593583351975730}
   banging: {fileID: 4533593583536349667}
   soundClips:
-  - {fileID: 8300000, guid: a6aa371173ba7ed4eb68fa80b50e89e9, type: 3}
-  - {fileID: 8300000, guid: e703d1bee1a22c64e84933410ac43fd6, type: 3}
-  - {fileID: 8300000, guid: 6ab14bcdc451e5247a3699bd948fe33f, type: 3}
+  - {fileID: 8300000, guid: 2c7e34beb7528d849a6e97558667599a, type: 3}
+  - {fileID: 8300000, guid: 1413a45200bc01f458fe6dcd41a799d4, type: 3}
 --- !u!58 &4533593583536349665
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -528,9 +527,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 41453917417e75e438d9eb6d22d35556, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f14371e02c1424d468b439911b63d922, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.532
   m_Pitch: 1
   Loop: 0
   Mute: 0
