@@ -429,8 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fistTime: 2
-  dashTime: 1
-  dashSpeed: 60
+  dashTime: 0.45
+  dashSpeed: 100
   dashCurve:
     serializedVersion: 2
     m_Curve: []

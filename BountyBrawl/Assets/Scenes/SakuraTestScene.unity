@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterEaterSlowness: 200
   waterLostSlowness: 150
-  waterPlayerSlowness: 20
+  waterPlayerSlowness: 10
 --- !u!60 &140609201
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5038,7 +5038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterEaterSlowness: 200
   waterLostSlowness: 150
-  waterPlayerSlowness: 20
+  waterPlayerSlowness: 10
 --- !u!60 &404430919
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -19223,7 +19223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterEaterSlowness: 200
   waterLostSlowness: 150
-  waterPlayerSlowness: 20
+  waterPlayerSlowness: 10
 --- !u!60 &1981322515
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -19650,7 +19650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterEaterSlowness: 200
   waterLostSlowness: 150
-  waterPlayerSlowness: 20
+  waterPlayerSlowness: 10
 --- !u!1 &2065560611
 GameObject:
   m_ObjectHideFlags: 0
