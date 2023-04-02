@@ -28,8 +28,15 @@ public class CameraMovement_Big : MonoBehaviour
     private float newX;
     private float newY;
 
+    private bool gotten;
+
+    private void Awake()
+    {
+        gotten = false;
+    }
+
     // Start is called before the first frame update
-    void Start()
+    public void GetPlayers()
     {
         players = new List<GameObject>();
 
@@ -44,42 +51,47 @@ public class CameraMovement_Big : MonoBehaviour
 
         cam = GetComponent<Camera>();
         currDist = transform.position.z;
+
+        gotten = true;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (!locking)
+        if (gotten)
         {
-            Vector3 centerPoint = GetCenterPoint();
-            Vector3 newPosiion = centerPoint;
-
-            newX = Mathf.Lerp(transform.position.x, newPosiion.x, 0.5f);
-            newY = Mathf.Lerp(transform.position.y, newPosiion.y, 0.5f);
-
-            //Move Y
-            if (newY > -cameraYLock && newY < cameraYLock)
+            if (!locking)
             {
-                transform.position = new Vector3(transform.position.x, newY, 0f) + new Vector3(0f, 0f, currDist);
+                Vector3 centerPoint = GetCenterPoint();
+                Vector3 newPosiion = centerPoint;
+
+                newX = Mathf.Lerp(transform.position.x, newPosiion.x, 0.5f);
+                newY = Mathf.Lerp(transform.position.y, newPosiion.y, 0.5f);
+
+                //Move Y
+                if (newY > -cameraYLock && newY < cameraYLock)
+                {
+                    transform.position = new Vector3(transform.position.x, newY, 0f) + new Vector3(0f, 0f, currDist);
+                }
+                //Move X
+                if (newX > -cameraXLock && newX < cameraXLock)
+                {
+                    transform.position = new Vector3(newX, transform.position.y, 0f) + new Vector3(0f, 0f, currDist);
+                }
+
+                float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
             }
-            //Move X
-            if (newX > -cameraXLock && newX < cameraXLock)
+            else
             {
-                transform.position = new Vector3(newX, transform.position.y, 0f) + new Vector3(0f, 0f, currDist);
+                float newZoom = Mathf.Lerp(max, min, eaterTeleportLockFOV);
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+
+                float xTravel = Mathf.Lerp(transform.position.x, 0f, 0.5f);
+                float yTravel = Mathf.Lerp(transform.position.y, 0f, 0.5f);
+
+                transform.position = new Vector3(xTravel, yTravel, currDist);
             }
-
-            float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
-        }
-        else
-        {
-            float newZoom = Mathf.Lerp(max, min, eaterTeleportLockFOV);
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
-
-            float xTravel = Mathf.Lerp(transform.position.x, 0f, 0.5f);
-            float yTravel = Mathf.Lerp(transform.position.y, 0f, 0.5f);
-
-            transform.position = new Vector3(xTravel, yTravel, currDist);
         }
     }
 

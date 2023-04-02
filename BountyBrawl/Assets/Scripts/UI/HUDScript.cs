@@ -75,11 +75,11 @@ public class HUDScript : MonoBehaviour
         found = false; //When players are found stop checking and don't set player stuff
         coinsUI.transform.localScale *= goldUISize;
         gotHearts = false;
-        FindCharacters();
     }
 
     public void FindCharacters()
     {
+
         if (check && !found)
         {
             if(FindObjectsOfType<PlayerBody>() != null)

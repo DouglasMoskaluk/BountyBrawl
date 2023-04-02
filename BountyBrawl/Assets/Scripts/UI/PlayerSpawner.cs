@@ -21,6 +21,25 @@ public class PlayerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(FindSceneObjects());
+    }
+
+    private IEnumerator FindSceneObjects()
+    {
+        yield return StartCoroutine(CreatePlayers());
+
+        HUDScript[] playerHuds = FindObjectsOfType<HUDScript>();
+
+        foreach (HUDScript h in playerHuds)
+        {
+            h.FindCharacters();
+        }
+
+        FindObjectOfType<CameraMovement_Big>().GetPlayers();
+    }
+
+    private IEnumerator CreatePlayers()
+    {
         players = GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().GetPlayers();
         numDead = 0;
         P1Dead = false;
@@ -88,6 +107,9 @@ public class PlayerSpawner : MonoBehaviour
             P4Inst.GetComponent<PlayerBody>().SetPlayerIndex(3);
             P4.GetComponent<InputHandler>().FindPlayer();
         }
+
+        yield return null;
+
     }
 
     // Update is called once per frame

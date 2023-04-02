@@ -15044,7 +15044,7 @@ MonoBehaviour:
     m_ActionId: b1ee67b0-b812-4f9e-aff5-0b2b9e3ce042
     m_ActionName: PlayerMovement/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
