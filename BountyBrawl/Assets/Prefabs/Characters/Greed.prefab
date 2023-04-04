@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3537978249783534592}
   - component: {fileID: 5758176713260289129}
+  - component: {fileID: 420081067154468746}
   m_Layer: 0
   m_Name: Knife2
   m_TagString: Special Bullet
@@ -82,6 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &420081067154468746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296480827666688339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0
 --- !u!1 &4736355976444233487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8471162709805261861}
   - component: {fileID: 6037050812853763133}
+  - component: {fileID: 5336893412453397823}
   m_Layer: 0
   m_Name: Knife4
   m_TagString: Special Bullet
@@ -1208,6 +1225,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5336893412453397823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651682614375284114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0
 --- !u!1 &8799824466852769658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6191355479706526557}
   - component: {fileID: 7962906974083430433}
+  - component: {fileID: 4359808522159825965}
   m_Layer: 0
   m_Name: Knife3
   m_TagString: Special Bullet
@@ -1290,6 +1323,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4359808522159825965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799824466852769658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0
 --- !u!1001 &1602265193836981750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1485,14 +1533,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dbb02f6b485fa747a76e2d5d261d4b0, type: 3}
---- !u!4 &1926473118292751586 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2457904639184425403, guid: 3dbb02f6b485fa747a76e2d5d261d4b0, type: 3}
-  m_PrefabInstance: {fileID: 4080276823927350617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1926473118292751584 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2457904639184425401, guid: 3dbb02f6b485fa747a76e2d5d261d4b0, type: 3}
+  m_PrefabInstance: {fileID: 4080276823927350617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1926473118292751586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2457904639184425403, guid: 3dbb02f6b485fa747a76e2d5d261d4b0, type: 3}
   m_PrefabInstance: {fileID: 4080276823927350617}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4736355977821524298

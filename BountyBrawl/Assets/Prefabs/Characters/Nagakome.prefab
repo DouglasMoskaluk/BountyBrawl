@@ -954,10 +954,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoison
       objectReference: {fileID: 0}
-    - target: {fileID: 3454771180420816442, guid: 14d0492cf5970ab4fbca81672a16ec68, type: 3}
-      propertyPath: SizeModule.separateAxes
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8501217900436868811, guid: 14d0492cf5970ab4fbca81672a16ec68, type: 3}
       propertyPath: m_RootOrder
       value: 5
