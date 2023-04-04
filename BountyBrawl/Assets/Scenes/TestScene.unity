@@ -13339,6 +13339,7 @@ MonoBehaviour:
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
   moneyText: {fileID: 280300616}
+  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
 --- !u!1 &357593228
 GameObject:
   m_ObjectHideFlags: 0
@@ -22870,6 +22871,7 @@ MonoBehaviour:
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
   moneyText: {fileID: 205313044}
+  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
 --- !u!1 &698999202
 GameObject:
   m_ObjectHideFlags: 0
@@ -23645,6 +23647,7 @@ MonoBehaviour:
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
   moneyText: {fileID: 1369320700}
+  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
 --- !u!1 &742726366
 GameObject:
   m_ObjectHideFlags: 0
@@ -31752,6 +31755,7 @@ MonoBehaviour:
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
   moneyText: {fileID: 2142576686}
+  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
 --- !u!1 &1268345294
 GameObject:
   m_ObjectHideFlags: 0

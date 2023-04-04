@@ -37,6 +37,7 @@ public class Railgun : MonoBehaviour
 
     private CameraShake cameraShaking;
     [SerializeField] private AudioSource normFire;
+    [SerializeField] private AudioSource looping;
     [SerializeField] private AudioSource throwing;
 
 
@@ -75,6 +76,11 @@ public class Railgun : MonoBehaviour
 
             if (player.getFire1() != 0 && timer > 0 && !thrown && canShoot || used && timer > 0)
             {
+                if (!used)
+                {
+                    normFire.Play();
+                }
+
                 animator.SetBool("Fire1", true);
                 player.UsingRailgun(true);
                 used = true;
@@ -82,6 +88,7 @@ public class Railgun : MonoBehaviour
             else
             {
                 normFire.Stop();
+                looping.Stop();
                 beam.Deactivation(true);
                 player.UsingRailgun(false);
                 Reload();
@@ -104,6 +111,7 @@ public class Railgun : MonoBehaviour
             if(player.getHealth() <= 0)
             {
                 normFire.Stop();
+                looping.Stop();
                 cameraShaking.setShake(false);
                 player.ExitRailgun(playerSlowness);
                 player.UsingRailgun(false);
@@ -149,7 +157,7 @@ public class Railgun : MonoBehaviour
 
     public void DoneCharging()
     {
-        normFire.Play();
+        looping.Play();
         beam.Deactivation(false);
         beam.gameObject.SetActive(true);
         firing = true;
@@ -168,6 +176,7 @@ public class Railgun : MonoBehaviour
     {
         animator.SetBool("Reload", true);
         animator.SetBool("Fire1", false);
+        looping.Stop();
     }
 
     public void FinishReload()
@@ -231,6 +240,7 @@ public class Railgun : MonoBehaviour
         if (canThrow)
         {
             normFire.Stop();
+            looping.Stop();
             throwing.Play();
             player.ExitRailgun(playerSlowness);
             player.UsingRailgun(false);

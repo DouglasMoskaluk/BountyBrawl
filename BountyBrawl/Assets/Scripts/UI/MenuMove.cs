@@ -15,7 +15,7 @@ public class MenuMove : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
-        if (transform.position.x <= -1007.99f)
+        if (transform.position.x <= -28.6f)
         {
             transform.position = StartPosition;
         }

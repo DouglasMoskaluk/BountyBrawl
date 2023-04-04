@@ -83,8 +83,10 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private ParticleSystem goldDrop;
     [SerializeField] private ParticleSystem livesGot;
     [SerializeField] private ParticleSystem waterSplash;
+    [SerializeField] private ParticleSystem poisonEffect;
 
     [SerializeField] AudioSource playerDamage;
+    [SerializeField] AudioSource playerSteps;
 
     [HideInInspector] public float maxAmmo; //For the ammo slider to determine the max value of the slider
     [HideInInspector] public float currAmmo; //For the ammo slider to determine the current value of the slider
@@ -101,6 +103,9 @@ public class PlayerBody : MonoBehaviour
 
     [SerializeField] private float moneyGive = 50f;
     private int moneyChecker;
+
+    [SerializeField] private AudioClip normalWalking;
+    [SerializeField] private AudioClip walkingWater;
 
     private void Awake()
     {
@@ -124,12 +129,17 @@ public class PlayerBody : MonoBehaviour
         wet = false;
         moneyChecker = 1;
 
+       GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
+
+        playerSteps.clip = normalWalking;
+    }
+
+    private void Start()
+    {
         //Gets the spawnpoint of the player based on player index
         GameObject[] spawnPoints;
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoints");
         spawnPoint = spawnPoints[playerIndex].transform;
-
-       GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
 
         transform.position = spawnPoint.position; //Moves player to the spawnpoint
     }
@@ -196,19 +206,25 @@ public class PlayerBody : MonoBehaviour
 
             if (animator != null)
             {
-                if (inputVector.magnitude != 0)
+                if (inputVector.magnitude != 0 && !dead)
                 {
                     animator.SetFloat("Run", Mathf.Abs(inputVector.magnitude * runSpeed));
 
                     if (wet && !waterSplash.isPlaying && !dead)
                     {
                         waterSplash.Play();
+                        playerSteps.clip = walkingWater;
+                        playerSteps.Play();
+                    }else if(!wet && !dead && !playerSteps.isPlaying)
+                    {
+                        playerSteps.Play();
                     }
                 }
                 else
                 {
                     animator.SetFloat("Run", 0f);
                     animator.SetTrigger("Idle");
+                    playerSteps.Stop();
 
                     if (wet || dead)
                     {
@@ -325,6 +341,7 @@ public class PlayerBody : MonoBehaviour
     {
         sprite.material.color = poisoned;
         headSprite.material.color = poisoned;
+        poisonEffect.Play();
         yield return new WaitForSeconds(interval);
 
         //Goes through each amount of poison and damages the player
@@ -336,6 +353,7 @@ public class PlayerBody : MonoBehaviour
 
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
+        poisonEffect.Stop();
 
         poison = null;
 
@@ -397,6 +415,7 @@ public class PlayerBody : MonoBehaviour
     {
         if (wet)
         {
+            playerSteps.clip = normalWalking;
             wet = false;
             runSpeed += slowness;
             waterSplash.Stop(false);
@@ -421,6 +440,7 @@ public class PlayerBody : MonoBehaviour
                 moneyChecker--;
                 boxCollider.enabled = false;
                 dead = true;
+                poisonEffect.Stop();
 
                 if (player != null)
                 {
@@ -508,6 +528,7 @@ public class PlayerBody : MonoBehaviour
         transform.position = spawnPoint.position;
         runSpeed = tempSpeed;
         poison = null;
+        poisonEffect.Stop();
         knockbacked = false;
         weapon = false;
         useDefault = false;

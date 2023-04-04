@@ -67,6 +67,11 @@ public class HUDScript : MonoBehaviour
     private Image heartImage1;
     private Image heartImage2;
 
+    private Image healthBar;
+    private Color normalColor;
+    [SerializeField] private Color poisonColor;
+
+    private PlayerBody player;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +80,9 @@ public class HUDScript : MonoBehaviour
         found = false; //When players are found stop checking and don't set player stuff
         coinsUI.transform.localScale *= goldUISize;
         gotHearts = false;
+
+        healthBar = health.GetComponentInChildren<Image>();
+        normalColor = healthBar.color;
     }
 
     public void FindCharacters()
@@ -119,6 +127,7 @@ public class HUDScript : MonoBehaviour
                             health.transform.localScale *= sliderSize;
                             ammo.transform.localScale *= sliderSize;
                         }
+                        player = playerCharacter.GetComponent<PlayerBody>();
                         check = false;
                         found = true;
                         break;
@@ -139,9 +148,9 @@ public class HUDScript : MonoBehaviour
         if (found)
         {
             //weaponNum = playerCharacter.GetComponent<PlayerBody>().getWeaponIndex();
-            playerHealth = playerCharacter.GetComponent<PlayerBody>().getHealth();
-            playerLives = playerCharacter.GetComponent<PlayerBody>().getLives();
-            playerMoney = playerCharacter.GetComponent<PlayerBody>().getMoney();
+            playerHealth = player.getHealth();
+            playerLives = player.getLives();
+            playerMoney = player.getMoney();
             //WeaponIcon();
             Hearts();
             HealthBar();
@@ -152,8 +161,8 @@ public class HUDScript : MonoBehaviour
                 if (playerCharacter.activeSelf)
                 {
 
-                    ammoSlider.maxValue = playerCharacter.GetComponent<PlayerBody>().maxAmmo;
-                    ammoSlider.value = playerCharacter.GetComponent<PlayerBody>().currAmmo;
+                    ammoSlider.maxValue = player.maxAmmo;
+                    ammoSlider.value = player.currAmmo;
 
                     Vector2 playerPos = playerCharacter.transform.position;
 
@@ -161,6 +170,15 @@ public class HUDScript : MonoBehaviour
                     health.transform.position -= new Vector3(sliderXOffset, 0, 0);
                     ammo.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + sliderHeight));
                     ammo.transform.position += new Vector3(sliderXOffset, 0, 0);
+
+                    if(player.IsPoisoned() == null)
+                    {
+                        healthBar.color = normalColor;
+                    }
+                    else
+                    {
+                        healthBar.color = poisonColor;
+                    }
                 }
                 else
                 {

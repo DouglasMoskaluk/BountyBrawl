@@ -35,6 +35,7 @@ public class Crossbow : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private AudioSource normFire;
+    [SerializeField] private AudioSource looping;
     [SerializeField] private AudioSource throwing;
 
     private void Awake()
@@ -106,6 +107,8 @@ public class Crossbow : MonoBehaviour
             //Drops weapon if player dies
             if (player.getHealth() <= 0)
             {
+                normFire.Stop();
+                looping.Stop();
                 player.ChangeWeapon(false); //Set player back to default weapon
                 player = null; //sets the player to null to wait for next player
                 //beam.Deactivation(true);
@@ -156,6 +159,8 @@ public class Crossbow : MonoBehaviour
         beam.gameObject.SetActive(true);
         animator.SetBool("Fire1", false);
         animator.SetBool("Fire2", true);
+        normFire.Stop();
+        looping.Play();
     }
 
     public void Idle()
@@ -166,7 +171,7 @@ public class Crossbow : MonoBehaviour
         animator.SetBool("Reload", false);
         animator.SetTrigger("Idle");
         animator.enabled = false;
-        normFire.Stop();
+        looping.Stop();
 
         if (!thrown)
         {
@@ -238,6 +243,7 @@ public class Crossbow : MonoBehaviour
         {
             crossbowHead.SetActive(false);
             normFire.Stop();
+            looping.Stop();
             throwing.Play();
             canThrow = false;
             gameObject.GetComponent<SpriteRenderer>().sprite = sprite; //Reset the sprite
