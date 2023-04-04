@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LavaMovement : MonoBehaviour
+public class MenuMove : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed = 8f;
     private Vector3 StartPosition;
@@ -14,11 +14,10 @@ public class LavaMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.right * scrollSpeed * Time.deltaTime);
-        if (transform.position.x > 270.9395f)
+        transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
+        if (transform.position.x <= -1007.99f)
         {
             transform.position = StartPosition;
         }
-        
     }
 }
