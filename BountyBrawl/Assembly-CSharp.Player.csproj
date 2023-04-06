@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\WaitIntro.cs" />
     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponBox.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Crossbow.cs" />
     <Compile Include="Assets\Scripts\P1setter.cs" />
-    <Compile Include="Assets\Scripts\WaitIntro.cs" />
+    <Compile Include="Assets\Scripts\BattleCountdown.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

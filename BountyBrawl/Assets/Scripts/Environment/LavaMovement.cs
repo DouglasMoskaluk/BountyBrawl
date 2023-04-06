@@ -15,7 +15,7 @@ public class LavaMovement : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.right * scrollSpeed * Time.deltaTime);
-        if (transform.position.x > 270.9395f)
+        if (transform.position.x > 273.7181f)
         {
             transform.position = StartPosition;
         }

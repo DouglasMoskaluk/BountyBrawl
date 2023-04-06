@@ -404,7 +404,7 @@ MonoBehaviour:
   character: 3
   animator: {fileID: 4533593584580382551}
   moneyLost: 20
-  poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
+  poisoned: {r: 0.8627451, g: 1, b: 0.8784314, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 7820320784673873294}
   livesGot: {fileID: 21783918566090938}
@@ -423,6 +423,7 @@ MonoBehaviour:
   moneyGive: 50
   normalWalking: {fileID: 8300000, guid: a48aef1756cfbea41934b40726337034, type: 3}
   walkingWater: {fileID: 8300000, guid: a6aa371173ba7ed4eb68fa80b50e89e9, type: 3}
+  canPause: 0
 --- !u!50 &4533593584580382547
 Rigidbody2D:
   serializedVersion: 4

@@ -107,8 +107,12 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private AudioClip normalWalking;
     [SerializeField] private AudioClip walkingWater;
 
+
+    [HideInInspector] public bool canPause;
+
     private void Awake()
     {
+        canPause = false;
         UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
         playerRB = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -166,6 +170,7 @@ public class PlayerBody : MonoBehaviour
         if (dead)
         {
             canMove = false;
+            playerRB.velocity = Vector2.zero;
         }
 
 
@@ -244,7 +249,7 @@ public class PlayerBody : MonoBehaviour
 
 
 
-        if (getPause() == true && UIPauseMenu != null)
+        if (getPause() == true && UIPauseMenu != null && canPause)
         {
             UIPauseMenu.GetComponent<PauseScript>().PressedPause();
         } //checks if player has pressed the pause menu button and toggles it
