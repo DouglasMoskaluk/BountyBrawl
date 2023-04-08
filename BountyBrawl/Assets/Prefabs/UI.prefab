@@ -2401,6 +2401,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783792934057458666}
+  - component: {fileID: 6758464380393537150}
+  - component: {fileID: 377661133139720235}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2423,6 +2425,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6758464380393537150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783792934057458667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4c3f9edca69fa499b5d64424d10552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPauseMenu: {fileID: 0}
+--- !u!114 &377661133139720235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783792934057458667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4f5e33b79e8174b832304243e33888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 2783792935122989405}
 --- !u!1 &2783792934088023207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3756,9 +3784,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.10369992, g: 1, b: 0, a: 1}
-    m_PressedColor: {r: 0.10093096, g: 0.4811321, b: 0, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0.56314373, a: 0.29803923}
+    m_HighlightedColor: {r: 1, g: 0.95686275, b: 0.4745098, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 0.95686275, b: 0.4745098, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3848,7 +3876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.59607846}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4836,7 +4864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.59607846}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7623,19 +7651,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2783792935038668812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2783792935122989404}
-        m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
-        m_MethodName: ResumeGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2783792935048861750
 GameObject:
   m_ObjectHideFlags: 0
@@ -8256,7 +8272,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2783792935122989410}
   - component: {fileID: 2783792935122989411}
-  - component: {fileID: 2783792935122989404}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: PauseMenu
@@ -8301,19 +8316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryButton: {fileID: 2783792935038668813}
---- !u!114 &2783792935122989404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2783792935122989405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4f5e33b79e8174b832304243e33888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 2783792935122989405}
 --- !u!1 &2783792935155839894
 GameObject:
   m_ObjectHideFlags: 0

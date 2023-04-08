@@ -30,11 +30,29 @@ public class SceneLoader : MonoBehaviour
     int players;
     int confirms;
 
+    int deadPlayers;
+
+    int Index4th;
+    int Char4th;
+    int colour4th;
+
+    int Index3rd;
+    int Char3rd;
+    int colour3rd;
+
+    int Index2nd;
+    int Char2nd;
+    int colour2nd;
+
+    int Index1st;
+    int Char1st;
+    int colour1st;
 
 
     public void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+        
     }
 
     public void Start()
@@ -44,7 +62,9 @@ public class SceneLoader : MonoBehaviour
         players = 0;
         confirms = 0;
 
-        
+        deadPlayers = 0;
+
+
     }
 
     public void Update()
@@ -75,38 +95,69 @@ public class SceneLoader : MonoBehaviour
         
     }
 
-   
 
-    public void SetWinner(int number)
+    public void DeadPlayer(int index)
     {
-        if (winner == 0)
+        if (deadPlayers == 0)
         {
+            Index4th = index;
+           
+            deadPlayers = 1;
+        }
+        if (deadPlayers == 1)
+        {
+            Index3rd = index;
+          
+            deadPlayers = 2;
+        }
+        if (deadPlayers == 2)
+        {
+            Index2nd = index;
             
+            deadPlayers = 3;
         }
-
-        if (winner == 1)
+        
+    }
+    public void CheckAmountRemaining()
+    {
+        if(deadPlayers >= players - 1)
         {
-            podJap.SetActive(true);
-        }
-
-        if (winner == 2)
-        {
-            podEmr.SetActive(true);
-        }
-
-        if (winner == 3)
-        {
-            podGreek.SetActive(true);
-        }
-
-        if (winner == 4)
-        {
-            podSand.SetActive(true);
+            Podium();
         }
     }
 
+    public int Get4th()
+    {
+        return Index4th;
+    }
+    public int Get3rd()
+    {
+        return Index3rd;
+    }
+    public int Get2nd() 
+    { 
+        return Index2nd;
+    }
 
-   
+
+    public void PodiumAmount()
+    {
+        if(players < 4)
+        {
+            GameObject.Find("Poster 4").SetActive(false);
+        }
+        if (players < 3)
+        {
+            GameObject.Find("Poster 3").SetActive(false);
+        }
+        if (players < 2)
+        {
+            GameObject.Find("Poster 2").SetActive(false);
+        }
+
+    }
+
+
 
     public void Players1()
     {
@@ -171,14 +222,16 @@ public class SceneLoader : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        int current = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.UnloadSceneAsync(current);
+        SceneManager.LoadScene(current);
         pauseMenu.GetComponent<PauseScript>().ResumeGame();
         Debug.Log("Restart");
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1f;
         PauseScript.isPaused = false;
     }
@@ -196,6 +249,8 @@ public class SceneLoader : MonoBehaviour
 
     public void Podium()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
+        PodiumAmount();
+
     }
 }

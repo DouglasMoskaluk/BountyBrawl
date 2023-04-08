@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
     private Transform spawnPoint;
-    GameObject UIPauseMenu; //Pause menu on canvas
 
     //Player info
     [SerializeField]
@@ -100,6 +99,7 @@ public class PlayerBody : MonoBehaviour
     private bool wet;
 
     private AnimatorOverrideController animatorOverrideController;
+    //private AnimatorOverrideController animatorOverrideController;
 
     [SerializeField] private float moneyGive = 50f;
     private int moneyChecker;
@@ -112,8 +112,8 @@ public class PlayerBody : MonoBehaviour
 
     private void Awake()
     {
-        canPause = false;
-        UIPauseMenu = GameObject.FindGameObjectWithTag("PauseMenu"); //finds pause menu ui
+        
+        canPause = true;
         playerRB = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         headSprite = playerHead.GetComponent<SpriteRenderer>();
@@ -146,11 +146,13 @@ public class PlayerBody : MonoBehaviour
         spawnPoint = spawnPoints[playerIndex].transform;
 
         transform.position = spawnPoint.position; //Moves player to the spawnpoint
+
+        
     }
 
     private void Update()
     {
-
+        
         //Switch with default weapon instead of hand
         if (weapon == false)
         {
@@ -247,11 +249,12 @@ public class PlayerBody : MonoBehaviour
             playerRB.velocity = knockbackDir.normalized * knockbackStrength;
         }
 
+        //GameObject.Find("UI").GetComponent<FindPause>().GetPauseMenu() != null
 
-
-        if (getPause() == true && UIPauseMenu != null && canPause)
+        if (pause == true)
         {
-            UIPauseMenu.GetComponent<PauseScript>().PressedPause();
+            Debug.Log("pause");
+            GameObject.Find("UI").GetComponent<PauseScript>().PressedPause();
         } //checks if player has pressed the pause menu button and toggles it
 
     }
@@ -516,6 +519,8 @@ public class PlayerBody : MonoBehaviour
         }
         else
         {
+            GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().DeadPlayer(playerIndex);
+            GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().CheckAmountRemaining();
             gameObject.SetActive(false);
         }
     }
@@ -656,7 +661,10 @@ public class PlayerBody : MonoBehaviour
     }
     public void Pause(bool start)
     {
+        
         pause = start;
+        Debug.Log(pause);
+        
     }
     public void RemoveHealth(float down)
     {

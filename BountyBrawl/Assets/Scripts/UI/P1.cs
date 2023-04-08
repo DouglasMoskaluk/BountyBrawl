@@ -9,8 +9,8 @@ public class P1 : MonoBehaviour
     [SerializeField]
     InputActionReference square, triangle;
     GameObject P1Char;
-    bool squarePressed;
-    bool trianglePressed;
+    private bool squarePressed;
+    private bool trianglePressed;
     bool confirmed;
 
     [SerializeField]

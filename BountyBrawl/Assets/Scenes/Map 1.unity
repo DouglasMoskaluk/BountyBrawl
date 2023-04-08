@@ -642,6 +642,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreenobj: {fileID: 0}
   pauseMenu: {fileID: 0}
+  podSand: {fileID: 0}
+  podJap: {fileID: 0}
+  podEmr: {fileID: 0}
+  podGreek: {fileID: 0}
 --- !u!4 &201868712
 Transform:
   m_ObjectHideFlags: 0
