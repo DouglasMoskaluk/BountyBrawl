@@ -138,8 +138,8 @@ MonoBehaviour:
   - {fileID: 22100000, guid: cad5924e479ee134f9ca311eacafbef7, type: 2}
   - {fileID: 22100000, guid: 0c807545c3f07f444b5eef4dd1dd7bd1, type: 2}
   moneyGive: 50
-  normalWalking: {fileID: 8300000, guid: 95641190b9322c241a51ecf5b3553a92, type: 3}
-  walkingWater: {fileID: 8300000, guid: a48aef1756cfbea41934b40726337034, type: 3}
+  normalWalking: {fileID: 8300000, guid: ffbb9378875f33046866215d9be0a321, type: 3}
+  walkingWater: {fileID: 8300000, guid: ade4830127e19694bb8fa80a6f958639, type: 3}
   canPause: 0
 --- !u!50 &2335221661627857176
 Rigidbody2D:
@@ -251,7 +251,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f14371e02c1424d468b439911b63d922, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 27cd962f27158d44a99a554e30e71866, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -594,9 +594,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 15513af8b2b805544ac4e8c7f44f7963, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4077477205eaa3246babec0e5bbdd9b7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.509
   m_Pitch: 1
   Loop: 0
   Mute: 0
