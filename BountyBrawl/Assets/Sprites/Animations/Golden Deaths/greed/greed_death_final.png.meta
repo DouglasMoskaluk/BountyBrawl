@@ -1,7 +1,82 @@
 fileFormatVersion: 2
 guid: 288194a616a80054382a73e15c0e175a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1906026119752978669
+    second: greed_death_final_0
+  - first:
+      213: 6917763021737786197
+    second: greed_death_final_1
+  - first:
+      213: -6952510808841924811
+    second: greed_death_final_2
+  - first:
+      213: 343920072029694400
+    second: greed_death_final_3
+  - first:
+      213: -2854771695018554521
+    second: greed_death_final_4
+  - first:
+      213: 3569562519273837876
+    second: greed_death_final_5
+  - first:
+      213: -5915071039068128676
+    second: greed_death_final_6
+  - first:
+      213: -3784835486430738633
+    second: greed_death_final_7
+  - first:
+      213: -2293449821713557493
+    second: greed_death_final_8
+  - first:
+      213: -6330697643383669121
+    second: greed_death_final_9
+  - first:
+      213: -2217245158091050267
+    second: greed_death_final_10
+  - first:
+      213: -4432359449195344203
+    second: greed_death_final_11
+  - first:
+      213: -2209332465648382946
+    second: greed_death_final_12
+  - first:
+      213: -3487425814593145584
+    second: greed_death_final_13
+  - first:
+      213: -3529937348312580997
+    second: greed_death_final_14
+  - first:
+      213: 3770283132686153746
+    second: greed_death_final_15
+  - first:
+      213: 2601434815346099901
+    second: greed_death_final_16
+  - first:
+      213: -5588053983517321778
+    second: greed_death_final_17
+  - first:
+      213: 5400260177604731974
+    second: greed_death_final_18
+  - first:
+      213: -7955525849078677511
+    second: greed_death_final_19
+  - first:
+      213: -6495650675496593637
+    second: greed_death_final_20
+  - first:
+      213: -829873714310238561
+    second: greed_death_final_21
+  - first:
+      213: 9110380519912097227
+    second: greed_death_final_22
+  - first:
+      213: 4475878245150395477
+    second: greed_death_final_23
+  - first:
+      213: 7996278390014251384
+    second: greed_death_final_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +107,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +116,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 3
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -68,7 +143,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +176,532 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: greed_death_final_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31fe187b75f6c85e0800000000000000
+      internalID: -1906026119752978669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b730ff0d4d00060800000000000000
+      internalID: 6917763021737786197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fc9ed5148b38f90800000000000000
+      internalID: -6952510808841924811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9e47cbb79d5c400800000000000000
+      internalID: 343920072029694400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b4493c440d168d0800000000000000
+      internalID: -2854771695018554521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_5
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4359ddce232a98130800000000000000
+      internalID: 3569562519273837876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_6
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ab427ba3279eda0800000000000000
+      internalID: -5915071039068128676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_7
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737c0029d20997bc0800000000000000
+      internalID: -3784835486430738633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_8
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b089492d9870c20e0800000000000000
+      internalID: -2293449821713557493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_9
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7eb6b9e808d428a0800000000000000
+      internalID: -6330697643383669121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_10
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e23704b643ca31e0800000000000000
+      internalID: -2217245158091050267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_11
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be8dd980981d72c0800000000000000
+      internalID: -4432359449195344203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_12
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c4a4af3dfd651e0800000000000000
+      internalID: -2209332465648382946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_13
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015f5a4e2bc2a9fc0800000000000000
+      internalID: -3487425814593145584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_14
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7cb1722fa4230fc0800000000000000
+      internalID: -3529937348312580997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_15
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218b76a888cb25430800000000000000
+      internalID: 3770283132686153746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_16
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6c90b7e272a1420800000000000000
+      internalID: 2601434815346099901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_17
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec55ebe328e3372b0800000000000000
+      internalID: -5588053983517321778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_18
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64461dc050491fa40800000000000000
+      internalID: 5400260177604731974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_19
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff3a34f36b489190800000000000000
+      internalID: -7955525849078677511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_20
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17dff54020dad5a0800000000000000
+      internalID: -6495650675496593637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_21
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9eaa12f042bb74f0800000000000000
+      internalID: -829873714310238561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_22
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5cff160d29e6e70800000000000000
+      internalID: 9110380519912097227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_23
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c861cbc838d1e30800000000000000
+      internalID: 4475878245150395477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greed_death_final_24
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8719ee164dc78fe60800000000000000
+      internalID: 7996278390014251384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,7 +1,82 @@
 fileFormatVersion: 2
 guid: f0c987cb5c4ce1d409c8f78b594b5cb2
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5683746836125051972
+    second: nagakome_v3_death_final_0
+  - first:
+      213: -4517150699772497566
+    second: nagakome_v3_death_final_1
+  - first:
+      213: 1147501573847860498
+    second: nagakome_v3_death_final_2
+  - first:
+      213: 6590270567927903913
+    second: nagakome_v3_death_final_3
+  - first:
+      213: -1148580882737038126
+    second: nagakome_v3_death_final_4
+  - first:
+      213: 3562105122788531457
+    second: nagakome_v3_death_final_5
+  - first:
+      213: -3374568268456375017
+    second: nagakome_v3_death_final_6
+  - first:
+      213: 7674045743114759423
+    second: nagakome_v3_death_final_7
+  - first:
+      213: -5810905024019096237
+    second: nagakome_v3_death_final_8
+  - first:
+      213: 2915667002965236651
+    second: nagakome_v3_death_final_9
+  - first:
+      213: -106309043499695032
+    second: nagakome_v3_death_final_10
+  - first:
+      213: 6772622201218685076
+    second: nagakome_v3_death_final_11
+  - first:
+      213: -6292982147718933708
+    second: nagakome_v3_death_final_12
+  - first:
+      213: 1420068539712649529
+    second: nagakome_v3_death_final_13
+  - first:
+      213: -5482140648915360009
+    second: nagakome_v3_death_final_14
+  - first:
+      213: 4127629160935897835
+    second: nagakome_v3_death_final_15
+  - first:
+      213: -8138667090552333353
+    second: nagakome_v3_death_final_16
+  - first:
+      213: 4824888377034180733
+    second: nagakome_v3_death_final_17
+  - first:
+      213: -2485194968395377589
+    second: nagakome_v3_death_final_18
+  - first:
+      213: 2791859902778434645
+    second: nagakome_v3_death_final_19
+  - first:
+      213: 2367763295077619247
+    second: nagakome_v3_death_final_20
+  - first:
+      213: -3765925791957923111
+    second: nagakome_v3_death_final_21
+  - first:
+      213: -512528104609929201
+    second: nagakome_v3_death_final_22
+  - first:
+      213: 6385842230088336963
+    second: nagakome_v3_death_final_23
+  - first:
+      213: 4438250501510186285
+    second: nagakome_v3_death_final_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +107,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +116,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 3
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -68,7 +143,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +176,532 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb31487cd564f11b0800000000000000
+      internalID: -5683746836125051972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26137271f5bdf41c0800000000000000
+      internalID: -4517150699772497566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21547680a9ebcef00800000000000000
+      internalID: 1147501573847860498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6fd0f2a28557b50800000000000000
+      internalID: 6590270567927903913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc77a8c5cb6f00f0800000000000000
+      internalID: -1148580882737038126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_5
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10dd8608cb32f6130800000000000000
+      internalID: 3562105122788531457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_6
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d4a500a002b21d0800000000000000
+      internalID: -3374568268456375017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_7
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc247cc1ffaf7a60800000000000000
+      internalID: 7674045743114759423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_8
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d1fcb0ba48b5fa0800000000000000
+      internalID: -5810905024019096237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_9
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab121bf0b7867820800000000000000
+      internalID: 2915667002965236651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_10
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8440ac9fc70568ef0800000000000000
+      internalID: -106309043499695032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_11
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 498509552003dfd50800000000000000
+      internalID: 6772622201218685076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_12
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433965b0416daa8a0800000000000000
+      internalID: -6292982147718933708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_13
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939b74220d815b310800000000000000
+      internalID: 1420068539712649529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_14
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6abac10268be3b0800000000000000
+      internalID: -5482140648915360009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_15
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beab02e4ad8484930800000000000000
+      internalID: 4127629160935897835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_16
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db5772d665ad0f80800000000000000
+      internalID: -8138667090552333353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_17
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7888026a6275f240800000000000000
+      internalID: 4824888377034180733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_18
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b449437e750d28dd0800000000000000
+      internalID: -2485194968395377589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_19
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 554e3c72acdaeb620800000000000000
+      internalID: 2791859902778434645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_20
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f265f430c2cfbd020800000000000000
+      internalID: 2367763295077619247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_21
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dacdd7e17ebcbbc0800000000000000
+      internalID: -3765925791957923111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_22
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f082253876223e8f0800000000000000
+      internalID: -512528104609929201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_23
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3468a14bca11f9850800000000000000
+      internalID: 6385842230088336963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nagakome_v3_death_final_24
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25c6b6f055d79d30800000000000000
+      internalID: 4438250501510186285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

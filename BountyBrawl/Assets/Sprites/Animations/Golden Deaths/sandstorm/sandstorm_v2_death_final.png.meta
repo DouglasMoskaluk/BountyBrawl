@@ -1,7 +1,82 @@
 fileFormatVersion: 2
 guid: 1c06535b87cbe7a419ad683e3618852e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3088047190216792901
+    second: sandstorm_v2_death_final_0
+  - first:
+      213: -4374738577714074266
+    second: sandstorm_v2_death_final_1
+  - first:
+      213: 5772428430721534325
+    second: sandstorm_v2_death_final_2
+  - first:
+      213: -7182892340980559660
+    second: sandstorm_v2_death_final_3
+  - first:
+      213: 3480259658573190795
+    second: sandstorm_v2_death_final_4
+  - first:
+      213: -4901246781941968208
+    second: sandstorm_v2_death_final_5
+  - first:
+      213: 3641541720507000734
+    second: sandstorm_v2_death_final_6
+  - first:
+      213: -1678127461595348279
+    second: sandstorm_v2_death_final_7
+  - first:
+      213: 943722389199631618
+    second: sandstorm_v2_death_final_8
+  - first:
+      213: 8190863269604924974
+    second: sandstorm_v2_death_final_9
+  - first:
+      213: 4352077967685512346
+    second: sandstorm_v2_death_final_10
+  - first:
+      213: -6855612625663126526
+    second: sandstorm_v2_death_final_11
+  - first:
+      213: -6454469652810843112
+    second: sandstorm_v2_death_final_12
+  - first:
+      213: -436489766924446993
+    second: sandstorm_v2_death_final_13
+  - first:
+      213: 8197252635411501325
+    second: sandstorm_v2_death_final_14
+  - first:
+      213: 2675486596661482788
+    second: sandstorm_v2_death_final_15
+  - first:
+      213: 4614438731066961481
+    second: sandstorm_v2_death_final_16
+  - first:
+      213: 8742972437551787016
+    second: sandstorm_v2_death_final_17
+  - first:
+      213: -8320980987366840057
+    second: sandstorm_v2_death_final_18
+  - first:
+      213: -2613245104016513559
+    second: sandstorm_v2_death_final_19
+  - first:
+      213: 6572542112637960702
+    second: sandstorm_v2_death_final_20
+  - first:
+      213: -8278973721050346751
+    second: sandstorm_v2_death_final_21
+  - first:
+      213: -2885212819685027504
+    second: sandstorm_v2_death_final_22
+  - first:
+      213: -3088927600679607056
+    second: sandstorm_v2_death_final_23
+  - first:
+      213: -3831443222839902628
+    second: sandstorm_v2_death_final_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +107,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +116,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 3
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -68,7 +143,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,7 +176,532 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bd38eee82fada20800000000000000
+      internalID: 3088047190216792901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66da722217ec943c0800000000000000
+      internalID: -4374738577714074266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579c588f219cb1050800000000000000
+      internalID: 5772428430721534325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0daf3f87d315c90800000000000000
+      internalID: -7182892340980559660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86906368bd5c4030800000000000000
+      internalID: 3480259658573190795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_5
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b292dd05064bfbb0800000000000000
+      internalID: -4901246781941968208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_6
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97a59da6ea598230800000000000000
+      internalID: 3641541720507000734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_7
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c208cbf6f716b8e0800000000000000
+      internalID: -1678127461595348279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_8
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205b3de4386c81d00800000000000000
+      internalID: 943722389199631618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_9
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e98942fbacba170800000000000000
+      internalID: 8190863269604924974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_10
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ce2b27adfa56c30800000000000000
+      internalID: 4352077967685512346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_11
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2049aa9b3a8fbd0a0800000000000000
+      internalID: -6855612625663126526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_12
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81cbbaa4c0e1d66a0800000000000000
+      internalID: -6454469652810843112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_13
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2106e9ed641f9f0800000000000000
+      internalID: -436489766924446993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_14
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0156db47dd72c170800000000000000
+      internalID: 8197252635411501325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_15
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425935362ec312520800000000000000
+      internalID: 2675486596661482788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_16
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94eec0bd397c90040800000000000000
+      internalID: 4614438731066961481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_17
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c2e451c17455970800000000000000
+      internalID: 8742972437551787016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_18
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7096831e0efe58c80800000000000000
+      internalID: -8320980987366840057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_19
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e521186c63ebbbd0800000000000000
+      internalID: -2613245104016513559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_20
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1c4178a3c563b50800000000000000
+      internalID: 6572542112637960702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_21
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b000cb34d2b1d80800000000000000
+      internalID: -8278973721050346751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_22
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051554d1a3aa5f7d0800000000000000
+      internalID: -2885212819685027504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_23
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4a79886bce125d0800000000000000
+      internalID: -3088927600679607056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandstorm_v2_death_final_24
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ebc8d40baf3dac0800000000000000
+      internalID: -3831443222839902628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

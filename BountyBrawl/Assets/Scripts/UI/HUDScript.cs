@@ -31,9 +31,16 @@ public class HUDScript : MonoBehaviour
     // [SerializeField] private GameObject shuriken; //3
 
     [SerializeField] private GameObject sandstorm; //0
+    [SerializeField] private Sprite[] sandstormVar;
+
     [SerializeField] private GameObject nagakome; //1
+    [SerializeField] private Sprite[] nagakomeVar;
+
     [SerializeField] private GameObject greed; //2
+    [SerializeField] private Sprite[] greedVar;
+
     [SerializeField] private GameObject emerald; //3
+    [SerializeField] private Sprite[] emeraldVar;
 
     [SerializeField] private GameObject heart1;
     [SerializeField] private GameObject heart2;
@@ -83,6 +90,8 @@ public class HUDScript : MonoBehaviour
 
         healthBar = health.GetComponentInChildren<Image>();
         normalColor = healthBar.color;
+
+        coinsUI.SetActive(false);
     }
 
     public void FindCharacters()
@@ -104,21 +113,25 @@ public class HUDScript : MonoBehaviour
                         if (characterNum == 0)
                         {
                             sandstorm.SetActive(true);
+                            sandstorm.GetComponent<Image>().sprite = sandstormVar[p.playerSkin];
                             //fist.SetActive(true);
                         }
                         if (characterNum == 1)
                         {
                             nagakome.SetActive(true);
+                            nagakome.GetComponent<Image>().sprite = nagakomeVar[p.playerSkin];
                             //katana.SetActive(true);
                         }
                         if (characterNum == 2)
                         {
                             greed.SetActive(true);
+                            greed.GetComponent<Image>().sprite = greedVar[p.playerSkin];
                             //knife.SetActive(true);
                         }
                         if (characterNum == 3)
                         {
                             emerald.SetActive(true);
+                            emerald.GetComponent<Image>().sprite = emeraldVar[p.playerSkin];
                             //hammer.SetActive(true);
                         }
 
@@ -210,7 +223,7 @@ public class HUDScript : MonoBehaviour
     {
         if (playerLives == 3)
         {
-            coinsUI.SetActive(false);
+            //coinsUI.SetActive(false);
 
             //Do this at the start of the game
             if (!gotHearts)
@@ -236,8 +249,8 @@ public class HUDScript : MonoBehaviour
         }
         if (playerLives == 2)
         {
-            coinsUI.transform.position = heart2.transform.position;
-            coinsUI.SetActive(true);
+            //coinsUI.transform.position = heart2.transform.position;
+            //coinsUI.SetActive(true);
             heartImage2.sprite = emptyHeart;
 
             heartSlider2.value = playerMoney;
@@ -252,9 +265,9 @@ public class HUDScript : MonoBehaviour
         }
         if (playerLives == 1)
         {
-            coinsUI.transform.position = heart1.transform.position;
+            //coinsUI.transform.position = heart1.transform.position;
             heartImage1.sprite = emptyHeart;
-            coinsUI.SetActive(true);
+            //coinsUI.SetActive(true);
 
             heartSlider2.value = 0;
 
@@ -270,7 +283,7 @@ public class HUDScript : MonoBehaviour
         }
         if (playerLives == 0)
         {
-            coinsUI.SetActive(false);
+            //coinsUI.SetActive(false);
             heart1.SetActive(false);
             heart2.SetActive(false);
 

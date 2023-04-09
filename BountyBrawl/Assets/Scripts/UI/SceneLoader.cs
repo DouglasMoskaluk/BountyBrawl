@@ -48,6 +48,7 @@ public class SceneLoader : MonoBehaviour
     int Char1st;
     int colour1st;
 
+    private bool AllDead;
 
     public void Awake()
     {
@@ -57,6 +58,7 @@ public class SceneLoader : MonoBehaviour
 
     public void Start()
     {
+        AllDead = false;
         map1 = false;
         map2 = false;
         players = 0;
@@ -120,10 +122,17 @@ public class SceneLoader : MonoBehaviour
     }
     public void CheckAmountRemaining()
     {
-        if(deadPlayers >= players - 1)
+        if(deadPlayers >= players - 1 && !AllDead)
         {
-            Podium();
+            AllDead = true;
+            StartCoroutine(WaitPodium());
         }
+    }
+
+    private IEnumerator WaitPodium()
+    {
+        yield return new WaitForSeconds(2f);
+        Podium();
     }
 
     public int Get4th()
@@ -227,6 +236,14 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(current);
         pauseMenu.GetComponent<PauseScript>().ResumeGame();
         Debug.Log("Restart");
+
+        AllDead = false;
+        map1 = false;
+        map2 = false;
+        players = 0;
+        confirms = 0;
+
+        deadPlayers = 0;
     }
 
     public void MainMenu()
@@ -234,6 +251,14 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
         PauseScript.isPaused = false;
+
+        AllDead = false;
+        map1 = false;
+        map2 = false;
+        players = 0;
+        confirms = 0;
+
+        deadPlayers = 0;
     }
 
     public void QuitGame()

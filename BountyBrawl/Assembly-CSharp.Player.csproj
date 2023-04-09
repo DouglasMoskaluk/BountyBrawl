@@ -56,11 +56,13 @@
     <Compile Include="Assets\Scripts\WaitIntro.cs" />
     <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponBox.cs" />
+    <Compile Include="Assets\Scripts\BattleCountdown.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Enemies\TheEater.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\WyldsnagShotgun.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\DeathwhisperShuriken.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBody.cs" />
+    <Compile Include="Assets\Scripts\UI\PodiumMoneyText.cs" />
     <Compile Include="Assets\Scripts\Bullets\SnakeBiteRevolver_Bullet.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\SnakeBiteRevolver.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Assets\Scripts\UI\MenuMove.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Bullets\Ch_ChingRifle_ClusBullet.cs" />
+    <Compile Include="Assets\Scripts\UI\FindPause.cs" />
     <Compile Include="Assets\Scripts\Enemies\PoisonArea.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement_Small.cs" />
     <Compile Include="Assets\Scripts\Bullets\WyldsnagShotgun_GlueBullet.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Assets\Scripts\Bullets\WyldsnagShotgun_Bullet.cs" />
     <Compile Include="Assets\Scripts\Demo.cs" />
     <Compile Include="Assets\Scripts\SpriteRendering.cs" />
+    <Compile Include="Assets\Scripts\UI\BustPicker.cs" />
     <Compile Include="Assets\Scripts\Weapons\Default_Weapons\Sandstorm_Fist.cs" />
     <Compile Include="Assets\Scripts\UI\SetPlayerIndex.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonHighlight.cs" />
@@ -111,7 +115,6 @@
     <Compile Include="Assets\Scripts\UI\Fullscreen.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Crossbow.cs" />
     <Compile Include="Assets\Scripts\P1setter.cs" />
-    <Compile Include="Assets\Scripts\BattleCountdown.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

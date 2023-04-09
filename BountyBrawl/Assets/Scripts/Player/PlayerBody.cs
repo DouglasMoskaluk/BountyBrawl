@@ -455,12 +455,14 @@ public class PlayerBody : MonoBehaviour
                     player.IncreaseMoney(moneyGive);
                     player.gameObject.GetComponent<StatTracker>().IncreasePlayerKills();
                 }
-                StartCoroutine(Death());
+
 
                 if (cursed)
                 {
                     lives--;
                 }
+
+                StartCoroutine(Death());
 
             }
         }
@@ -474,7 +476,15 @@ public class PlayerBody : MonoBehaviour
         playerRB.velocity = Vector2.zero;
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
-        animator.SetTrigger("Death");
+
+        if (lives > 0)
+        {
+            animator.SetTrigger("Death");
+        }
+        else
+        {
+            animator.SetTrigger("TrueDeath");
+        }
         animator.SetBool("Attacking", false);
         weaponHolder.gameObject.SetActive(false);
         headSprite.gameObject.SetActive(false);
