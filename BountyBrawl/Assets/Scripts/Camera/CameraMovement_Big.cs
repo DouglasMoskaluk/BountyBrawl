@@ -30,6 +30,9 @@ public class CameraMovement_Big : MonoBehaviour
 
     private bool gotten;
 
+    private GameObject[] allPlayers;
+    private bool enoughtPlayers;
+
     private void Awake()
     {
         gotten = false;
@@ -39,10 +42,11 @@ public class CameraMovement_Big : MonoBehaviour
     public void GetPlayers()
     {
         players = new List<GameObject>();
+        enoughtPlayers = true;
 
         locking = false;
 
-        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+        allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
         foreach(GameObject p in allPlayers)
         {
@@ -60,6 +64,24 @@ public class CameraMovement_Big : MonoBehaviour
     {
         if (gotten)
         {
+            if (enoughtPlayers)
+            {
+                int playersAlive = 0;
+                foreach (GameObject p in allPlayers)
+                {
+                    if (p.activeSelf)
+                    {
+                        playersAlive++;
+                    }
+                }
+
+                if(playersAlive <= 1)
+                {
+                    enoughtPlayers = false;
+                }
+            }
+
+
             if (!locking)
             {
                 Vector3 centerPoint = GetCenterPoint();
@@ -68,15 +90,22 @@ public class CameraMovement_Big : MonoBehaviour
                 newX = Mathf.Lerp(transform.position.x, newPosiion.x, 0.5f);
                 newY = Mathf.Lerp(transform.position.y, newPosiion.y, 0.5f);
 
-                //Move Y
-                if (newY > -cameraYLock && newY < cameraYLock)
+                if (enoughtPlayers)
                 {
-                    transform.position = new Vector3(transform.position.x, newY, 0f) + new Vector3(0f, 0f, currDist);
+                    //Move Y
+                    if (newY > -cameraYLock && newY < cameraYLock)
+                    {
+                        transform.position = new Vector3(transform.position.x, newY, 0f) + new Vector3(0f, 0f, currDist);
+                    }
+                    //Move X
+                    if (newX > -cameraXLock && newX < cameraXLock)
+                    {
+                        transform.position = new Vector3(newX, transform.position.y, 0f) + new Vector3(0f, 0f, currDist);
+                    }
                 }
-                //Move X
-                if (newX > -cameraXLock && newX < cameraXLock)
+                else
                 {
-                    transform.position = new Vector3(newX, transform.position.y, 0f) + new Vector3(0f, 0f, currDist);
+                    transform.position = new Vector3(newX, newY, 0f) + new Vector3(0f, 0f, currDist);
                 }
 
                 float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);

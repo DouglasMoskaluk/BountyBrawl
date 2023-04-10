@@ -62,7 +62,7 @@ public class HUDScript : MonoBehaviour
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
 
-    public TMP_Text moneyText;
+    //public TMP_Text moneyText;
 
     private bool check;
     private bool found;
@@ -90,8 +90,6 @@ public class HUDScript : MonoBehaviour
 
         healthBar = health.GetComponentInChildren<Image>();
         normalColor = healthBar.color;
-
-        coinsUI.SetActive(false);
     }
 
     public void FindCharacters()
@@ -167,7 +165,7 @@ public class HUDScript : MonoBehaviour
             //WeaponIcon();
             Hearts();
             HealthBar();
-            Money();
+            //Money();
 
             if (health != null && ammo != null)
             {
@@ -204,7 +202,7 @@ public class HUDScript : MonoBehaviour
 
     private void Money()
     {
-        moneyText.text = playerMoney.ToString();
+        //moneyText.text = playerMoney.ToString();
     }
 
     private void HealthBar()
@@ -223,7 +221,7 @@ public class HUDScript : MonoBehaviour
     {
         if (playerLives == 3)
         {
-            //coinsUI.SetActive(false);
+            coinsUI.SetActive(false);
 
             //Do this at the start of the game
             if (!gotHearts)
@@ -249,8 +247,8 @@ public class HUDScript : MonoBehaviour
         }
         if (playerLives == 2)
         {
-            //coinsUI.transform.position = heart2.transform.position;
-            //coinsUI.SetActive(true);
+            coinsUI.transform.position = heart2.transform.position;
+            coinsUI.SetActive(true);
             heartImage2.sprite = emptyHeart;
 
             heartSlider2.value = playerMoney;
@@ -265,9 +263,9 @@ public class HUDScript : MonoBehaviour
         }
         if (playerLives == 1)
         {
-            //coinsUI.transform.position = heart1.transform.position;
+            coinsUI.transform.position = heart1.transform.position;
             heartImage1.sprite = emptyHeart;
-            //coinsUI.SetActive(true);
+            coinsUI.SetActive(true);
 
             heartSlider2.value = 0;
 
@@ -283,7 +281,7 @@ public class HUDScript : MonoBehaviour
         }
         if (playerLives == 0)
         {
-            //coinsUI.SetActive(false);
+            coinsUI.SetActive(false);
             heart1.SetActive(false);
             heart2.SetActive(false);
 

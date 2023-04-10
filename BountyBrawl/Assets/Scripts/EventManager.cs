@@ -111,9 +111,9 @@ public class EventManager : MonoBehaviour
 
         if (Mathf.Round(enemyTimer) <= 10 && canSpawn) //Spawns the eater at the enemy spawn position as harbringer
         {
-            canSpawn = false;
 
             StopAllCoroutines();
+            canSpawn = false;
 
             currEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[tempSp].position, Quaternion.identity).GetComponent<TheEater>();
             currEater.gameObject.SetActive(true);  //Turn on eater
@@ -205,7 +205,8 @@ public class EventManager : MonoBehaviour
             int teleportLoc = (int)Random.Range(0f, enemySP.Length - 1);
             teleportEater = ObjectPooler.Instance.SpawnFromPool("Eater", enemySP[teleportLoc].position, Quaternion.identity).GetComponent<TheEater>();
             teleportEater.IsTeleporting();
-            yield return new WaitForSeconds(0.5f);
+
+            yield return new WaitForSeconds(1f);
             teleportEater.gameObject.SetActive(false);
 
             yield return new WaitForSeconds(1f);

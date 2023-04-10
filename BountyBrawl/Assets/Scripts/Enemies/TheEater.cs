@@ -166,7 +166,6 @@ public class TheEater : MonoBehaviour
         minionSpawn = tempTimer;
 
         animator.SetBool("Dead", false);
-        animator.SetTrigger("Spawn");
     }
 
     //Replace with onDisable later on
@@ -544,9 +543,10 @@ public class TheEater : MonoBehaviour
 
     public void IsTeleporting() 
     {
-        if(bigCam != null)
+        if (bigCam != null)
         {
             bigCam.EaterIsTeleporting();
+            animator.SetTrigger("Teleporting");
         }
     }
 
@@ -555,6 +555,7 @@ public class TheEater : MonoBehaviour
         if (bigCam != null)
         {
             bigCam.EaterIsNotTeleporting();
+            animator.SetTrigger("Spawn");
         }
         if (soonBoss)
         {
@@ -564,6 +565,7 @@ public class TheEater : MonoBehaviour
 
             StartCoroutine(GrowSlider());
         }
+
 
     }
 
