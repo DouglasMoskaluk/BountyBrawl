@@ -66,4 +66,12 @@ public class StatTracker : MonoBehaviour
     {
         enemyDamage += inEnemyDam;
     }
+
+    public float GetMoney() { return totalMoney; }
+    public int GetKills() { return playerKills; }
+    public int GetLost() { return LostKills; }
+    public int GetEater() { return EaterKills; }
+    public float GetDamage() { return playerDamage; }
+    public float GetLostDamage() { return enemyDamage; }
+
 }

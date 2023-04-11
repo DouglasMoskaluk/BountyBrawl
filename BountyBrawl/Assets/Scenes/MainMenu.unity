@@ -469,6 +469,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 955297543}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9247286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,6 +819,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1142639160}
         m_TargetAssemblyTypeName: P3, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1142639159}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1836,6 +1860,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &56352859
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3576,6 +3601,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &119264478
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5055,6 +5081,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1821631963}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &158004595
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5758,6 +5796,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1142639160}
         m_TargetAssemblyTypeName: P3, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1142639159}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7352,6 +7402,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &255436623
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8361,7 +8412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &278423988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10132,10 +10183,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.504, g: 0.504, b: 0.504, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.33189142, g: 0.7924528, b: 0.31025273, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11272,6 +11323,18 @@ MonoBehaviour:
       - m_Target: {fileID: 322336264}
         m_TargetAssemblyTypeName: P1, Assembly-CSharp
         m_MethodName: Confirmed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 322336265}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13523,10 +13586,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.504, g: 0.504, b: 0.504, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.33189142, g: 0.7924528, b: 0.31025273, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15924,6 +15987,18 @@ MonoBehaviour:
       - m_Target: {fileID: 322336264}
         m_TargetAssemblyTypeName: P1, Assembly-CSharp
         m_MethodName: Confirmed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 322336265}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19536,6 +19611,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &654843927
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22358,6 +22434,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1821631963}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &762440483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22986,6 +23074,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &810646091
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23453,6 +23542,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &819876544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25049,6 +25139,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &856392895
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27394,6 +27485,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &926279095
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29476,6 +29568,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1142639160}
         m_TargetAssemblyTypeName: P3, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1142639159}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32312,6 +32416,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1108057397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32761,6 +32866,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1821631964}
         m_TargetAssemblyTypeName: P4, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1821631963}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33221,6 +33338,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1130740263
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34423,6 +34541,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1147347075
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35406,10 +35525,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.504, g: 0.504, b: 0.504, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.33189142, g: 0.7924528, b: 0.31025273, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -37983,6 +38102,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1821631963}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1272645806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38184,6 +38315,18 @@ MonoBehaviour:
       - m_Target: {fileID: 322336264}
         m_TargetAssemblyTypeName: P1, Assembly-CSharp
         m_MethodName: Confirmed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 322336265}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42883,6 +43026,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 955297543}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1415234842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46104,6 +46259,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 322336265}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1505193085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48921,6 +49088,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1614615996
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51843,6 +52011,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1740026760
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53448,6 +53617,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1770351589
 AudioSource:
   m_ObjectHideFlags: 0
@@ -55490,6 +55660,18 @@ MonoBehaviour:
       - m_Target: {fileID: 955297542}
         m_TargetAssemblyTypeName: P2, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 955297543}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59720,10 +59902,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.504, g: 0.504, b: 0.504, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.33189142, g: 0.7924528, b: 0.31025273, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9607843, b: 0.47843137, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -61126,6 +61308,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &1985983941
 AudioSource:
   m_ObjectHideFlags: 0
@@ -62377,6 +62560,18 @@ MonoBehaviour:
       - m_Target: {fileID: 955297542}
         m_TargetAssemblyTypeName: P2, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 955297543}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -63967,6 +64162,7 @@ MonoBehaviour:
   normalWalking: {fileID: 0}
   walkingWater: {fileID: 0}
   canPause: 0
+  spawnImmunity: 0
 --- !u!82 &2067311786
 AudioSource:
   m_ObjectHideFlags: 0
@@ -64985,6 +65181,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1142639160}
         m_TargetAssemblyTypeName: P3, Assembly-CSharp
         m_MethodName: SetSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1142639159}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: NotMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

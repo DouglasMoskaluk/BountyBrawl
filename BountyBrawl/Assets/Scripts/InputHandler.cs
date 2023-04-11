@@ -64,7 +64,7 @@ public class InputHandler : MonoBehaviour
     {
         if(player != null)
         {
-            Debug.Log("yoter");
+            
             player.Throw(context.ReadValue<float>());
         }
     }
@@ -119,20 +119,23 @@ public class InputHandler : MonoBehaviour
 
     public void Triangle(CallbackContext context)
     {
-        if (mainMenu == true)
-        {
+        
+        
             FindPlayer();
             if (player != null)
             {
                 player.Triangle(context.performed);
             }
-        }
+        
     }
 
     public void NotMainMenu()
     {
         mainMenu = false;
     }
-
+    public void IsMainMenu()
+    {
+        mainMenu = true;
+    }
 
 }

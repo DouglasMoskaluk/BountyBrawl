@@ -43,7 +43,10 @@ public class SceneLoader : MonoBehaviour
     public void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
-        
+        Index2nd = 5;
+        Index3rd = 5;
+        Index4th = 5;
+
     }
 
     public void Start()
@@ -55,7 +58,6 @@ public class SceneLoader : MonoBehaviour
         confirms = 0;
 
         deadPlayers = 0;
-
 
     }
 
@@ -99,25 +101,27 @@ public class SceneLoader : MonoBehaviour
 
     public void DeadPlayer(int index)
     {
-        if (deadPlayers == 0)
-        {
-            Index4th = index;
-           
-            deadPlayers = 1;
-        }
-        if (deadPlayers == 1)
-        {
-            Index3rd = index;
-          
-            deadPlayers = 2;
-        }
+        
         if (deadPlayers == 2)
         {
             Index2nd = index;
             
             deadPlayers = 3;
         }
-        
+        if (deadPlayers == 1)
+        {
+            Index3rd = index;
+
+            deadPlayers = 2;
+        }
+        if (deadPlayers == 0)
+        {
+            Index4th = index;
+
+            deadPlayers = 1;
+            Debug.Log(Index4th);
+        }
+
     }
     public void CheckAmountRemaining()
     {
@@ -136,6 +140,7 @@ public class SceneLoader : MonoBehaviour
 
     public int Get4th()
     {
+        Debug.Log(Index4th);
         return Index4th;
     }
     public int Get3rd()
@@ -148,22 +153,6 @@ public class SceneLoader : MonoBehaviour
     }
 
 
-    public void PodiumAmount()
-    {
-        if(players < 4)
-        {
-            GameObject.Find("Poster 4").SetActive(false);
-        }
-        if (players < 3)
-        {
-            GameObject.Find("Poster 3").SetActive(false);
-        }
-        if (players < 2)
-        {
-            GameObject.Find("Poster 2").SetActive(false);
-        }
-
-    }
 
 
 
@@ -258,6 +247,11 @@ public class SceneLoader : MonoBehaviour
         confirms = 0;
 
         deadPlayers = 0;
+
+        GameObject.FindGameObjectWithTag("P1").GetComponent<InputHandler>().IsMainMenu();
+        GameObject.FindGameObjectWithTag("P2").GetComponent<InputHandler>().IsMainMenu();
+        GameObject.FindGameObjectWithTag("P3").GetComponent<InputHandler>().IsMainMenu();
+        GameObject.FindGameObjectWithTag("P4").GetComponent<InputHandler>().IsMainMenu();
     }
 
     public void QuitGame()
@@ -274,7 +268,6 @@ public class SceneLoader : MonoBehaviour
     public void Podium()
     {
         SceneManager.LoadScene(4);
-        PodiumAmount();
 
     }
 }

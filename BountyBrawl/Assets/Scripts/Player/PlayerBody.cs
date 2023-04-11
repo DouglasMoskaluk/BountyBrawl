@@ -112,6 +112,7 @@ public class PlayerBody : MonoBehaviour
 
     [HideInInspector] public bool canPause;
 
+
     [HideInInspector] public bool spawnImmunity;
 
     private void Awake()
@@ -540,6 +541,7 @@ public class PlayerBody : MonoBehaviour
         }
         else
         {
+            
             GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().DeadPlayer(playerIndex);
             GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().CheckAmountRemaining();
             gameObject.SetActive(false);
