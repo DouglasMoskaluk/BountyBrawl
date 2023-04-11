@@ -96,6 +96,8 @@ public class TheEater : MonoBehaviour
 
     private bool dead;
 
+    [SerializeField] private bool demo;
+
     private void Awake()
     {
         players = FindObjectsOfType<PlayerBody>(); //Get players
@@ -125,6 +127,12 @@ public class TheEater : MonoBehaviour
 
         //Finds closest player to chase
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        if (demo)
+        {
+            enemySpeed = 0;
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -188,6 +196,13 @@ public class TheEater : MonoBehaviour
         {
             health.SetActive(false);
         }
+    }
+
+    public IEnumerator ChangeSpawnin()
+    {
+        animator.SetTrigger("Teleporting");
+        yield return new WaitForSeconds(3f);
+        animator.SetTrigger("Spawn");
     }
 
     void UpdatePath()

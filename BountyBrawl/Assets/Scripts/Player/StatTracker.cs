@@ -28,6 +28,7 @@ public class StatTracker : MonoBehaviour
         EaterKills = 0;
         playerDamage = 0;
         enemyDamage = 0;
+        player = null;
     }
 
     public void SetPlayer(PlayerBody p)

@@ -12,19 +12,23 @@ public class WeaponBox : MonoBehaviour
     public int weapon; //The weapon to be spawned
 
     private WeaponBox[] weaponBoxes;
+    private Animator animator;
 
     private int hit;
+    private bool canBreak;
 
     private void Awake()
     {
         numSpawn = 0;
         weaponBoxes = FindObjectsOfType<WeaponBox>();
+        animator = GetComponent<Animator>();
         hit = 1;
     }
 
     private void OnEnable()
     {
         hit = 1;
+        canBreak = false;
 
         //Increase number of weapon spawns for each weapon box
         foreach (WeaponBox p in weaponBoxes)
@@ -54,40 +58,9 @@ public class WeaponBox : MonoBehaviour
     {
         if (collision.tag == "Bullet" || collision.tag == "Special Bullet")
         {
-                hit--;
-
-            if (hit == 0)
+            if (canBreak)
             {
-                if (weapon == 0) //Spawn common weapon 1
-                {
-                    ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver", transform.position, transform.rotation);
-                    gameObject.SetActive(false);
-                }
-                else if (weapon == 1) //Spawn common weapon 2
-                {
-                    ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun", transform.position, transform.rotation);
-                    gameObject.SetActive(false);
-                }
-                else if (weapon == 2)//Spawn common weapon 3
-                {
-                    ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle", transform.position, transform.rotation);
-                    gameObject.SetActive(false);
-                }
-                else if (weapon == 3) //Spawn rare weapon 1
-                {
-                    ObjectPooler.Instance.SpawnFromPool("DeathWhisperShuriken", transform.position, transform.rotation);
-                    gameObject.SetActive(false);
-                }
-                else if (weapon == 4) //Spawn rare weapon 2
-                {
-                    ObjectPooler.Instance.SpawnFromPool("Crossbow", transform.position, transform.rotation);
-                    gameObject.SetActive(false);
-                }
-                else //Spawn rare weapon 3
-                {
-                    ObjectPooler.Instance.SpawnFromPool("Railgun", transform.position, transform.rotation);
-                    gameObject.SetActive(false);
-                }
+                animator.SetTrigger("Broken");
 
                 if (collision.tag != "Special Bullet")
                 {
@@ -96,6 +69,47 @@ public class WeaponBox : MonoBehaviour
             }
         }
     }
+
+    public void DropWeapon()
+    {
+        hit--;
+
+        if (hit == 0)
+        {
+            if (weapon == 0) //Spawn common weapon 1
+            {
+                ObjectPooler.Instance.SpawnFromPool("SnakeBiteRevolver", transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            else if (weapon == 1) //Spawn common weapon 2
+            {
+                ObjectPooler.Instance.SpawnFromPool("WyldsnagShotgun", transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            else if (weapon == 2)//Spawn common weapon 3
+            {
+                ObjectPooler.Instance.SpawnFromPool("Ch-ChingRifle", transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            else if (weapon == 3) //Spawn rare weapon 1
+            {
+                ObjectPooler.Instance.SpawnFromPool("DeathWhisperShuriken", transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            else if (weapon == 4) //Spawn rare weapon 2
+            {
+                ObjectPooler.Instance.SpawnFromPool("Crossbow", transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            else //Spawn rare weapon 3
+            {
+                ObjectPooler.Instance.SpawnFromPool("Railgun", transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void CanBreak() { canBreak = true; }
 
     public void IncreaseWeaponBox() { numSpawn++; }
 

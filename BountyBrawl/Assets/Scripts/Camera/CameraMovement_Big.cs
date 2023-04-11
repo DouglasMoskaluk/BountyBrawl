@@ -31,7 +31,7 @@ public class CameraMovement_Big : MonoBehaviour
     private bool gotten;
 
     private GameObject[] allPlayers;
-    private bool enoughtPlayers;
+    private bool enoughPlayers;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class CameraMovement_Big : MonoBehaviour
     public void GetPlayers()
     {
         players = new List<GameObject>();
-        enoughtPlayers = true;
+        enoughPlayers = true;
 
         locking = false;
 
@@ -64,7 +64,7 @@ public class CameraMovement_Big : MonoBehaviour
     {
         if (gotten)
         {
-            if (enoughtPlayers)
+            if (enoughPlayers)
             {
                 int playersAlive = 0;
                 foreach (GameObject p in allPlayers)
@@ -77,7 +77,7 @@ public class CameraMovement_Big : MonoBehaviour
 
                 if(playersAlive <= 1)
                 {
-                    enoughtPlayers = false;
+                    enoughPlayers = false;
                 }
             }
 
@@ -90,7 +90,7 @@ public class CameraMovement_Big : MonoBehaviour
                 newX = Mathf.Lerp(transform.position.x, newPosiion.x, 0.5f);
                 newY = Mathf.Lerp(transform.position.y, newPosiion.y, 0.5f);
 
-                if (enoughtPlayers)
+                if (enoughPlayers)
                 {
                     //Move Y
                     if (newY > -cameraYLock && newY < cameraYLock)
@@ -110,6 +110,7 @@ public class CameraMovement_Big : MonoBehaviour
 
                 float newZoom = Mathf.Lerp(max, min, (GetGreatestXDistance() / 2 + GetGreatestYDistance() / 2) / zoomSpeed);
                 cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+
             }
             else
             {

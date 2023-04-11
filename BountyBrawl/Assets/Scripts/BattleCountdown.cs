@@ -52,6 +52,8 @@ public class BattleCountdown : MonoBehaviour
             p.canPause = true;
         }
 
+        Camera.main.GetComponent<AudioSource>().Play();
+
         gameObject.SetActive(false);
 
     }

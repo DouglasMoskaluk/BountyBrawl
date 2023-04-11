@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\UI\MenuController.cs" />
     <Compile Include="Assets\Scripts\Weapons\Throw.cs" />
     <Compile Include="Assets\Scripts\Weapons\Pickup_Weapons\Railgun.cs" />
+    <Compile Include="Assets\Scripts\UI\PodiumSetup.cs" />
     <Compile Include="Assets\Scripts\UI\ColourSelect.cs" />
     <Compile Include="Assets\Scripts\UI\P1.cs" />
     <Compile Include="Assets\Scripts\UI\CharSelected.cs" />

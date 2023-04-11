@@ -224,4 +224,5 @@ public class EventManager : MonoBehaviour
 
     public void IncreaseNumspawn() { numSpawn++; }
 
+    public void Quicken() { cursedTime = 2.0f; }
 }

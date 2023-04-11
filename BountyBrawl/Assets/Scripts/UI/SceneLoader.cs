@@ -182,6 +182,13 @@ public class SceneLoader : MonoBehaviour
     ////////////////////////////
     public void PlayGame()
     {
+        StatTracker[] statTrackers = FindObjectsOfType<StatTracker>();
+
+        foreach(StatTracker s in statTrackers)
+        {
+            s.Reset();
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

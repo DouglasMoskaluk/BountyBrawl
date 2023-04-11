@@ -8,20 +8,25 @@ public class Demo : MonoBehaviour
     [SerializeField] private GameObject demoWeaponBox;
     [SerializeField] private GameObject demoWeapons;
     [SerializeField] private GameObject demoEnemies;
+    [SerializeField] private GameObject demoCluster;
     [SerializeField] private GameObject eventManager;
-    private GameObject eater;
+    [SerializeField] private GameObject eater;
 
+    private Transform[] losts;
+
+    private void Awake()
+    {
+
+        losts = demoCluster.GetComponentsInChildren<Transform>();
+
+        demoCluster.SetActive(false);
+
+    }
     // Update is called once per frame
     void Update()
     {
-        
-        if(FindObjectOfType<TheEater>() != null && eater == null)
-        {
-            eater = GameObject.FindGameObjectWithTag("Eater");
-        }
 
-
-        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
         {
             if (demoWeaponBox.activeSelf)
             {
@@ -32,7 +37,7 @@ public class Demo : MonoBehaviour
                 demoWeaponBox.SetActive(true);
             }
         }
-        else if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        else if (Keyboard.current.digit4Key.wasPressedThisFrame)
         {
             if (demoWeapons.activeSelf)
             {
@@ -41,6 +46,22 @@ public class Demo : MonoBehaviour
             else
             {
                 demoWeapons.SetActive(true);
+            }
+        }
+        else if (Keyboard.current.digit5Key.wasPressedThisFrame)
+        {
+            if (demoCluster.activeSelf)
+            {
+                demoCluster.SetActive(false);
+            }
+            else
+            {
+                demoCluster.SetActive(true);
+
+                foreach(Transform l in losts)
+                {
+                    l.gameObject.SetActive(true);
+                }
             }
         }
         else if (Keyboard.current.digit3Key.wasPressedThisFrame)
@@ -53,25 +74,7 @@ public class Demo : MonoBehaviour
             {
                 demoEnemies.SetActive(true);
             }
-        }
-        else if (Keyboard.current.digit4Key.wasPressedThisFrame)
-        {
-            PlayerBody[] players = FindObjectsOfType<PlayerBody>();
-
-            foreach (PlayerBody p in players)
-            {
-                if (p.playerSkin < 3)
-                {
-                    p.playerSkin++;
-                    p.ChangeSkin();
-                }
-                else
-                {
-                    p.playerSkin = 0;
-                    p.ChangeSkin();
-                }
-            }
-        }else if (Keyboard.current.digit5Key.wasPressedThisFrame)
+        }else if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             if (eventManager.activeSelf)
             {
@@ -80,6 +83,7 @@ public class Demo : MonoBehaviour
             else
             {
                 eventManager.SetActive(true);
+                eventManager.GetComponent<EventManager>().Quicken();
             }
         }
         else if (Keyboard.current.digit6Key.wasPressedThisFrame)
@@ -91,10 +95,18 @@ public class Demo : MonoBehaviour
             else
             {
                 eater.SetActive(true);
+                StartCoroutine(eater.GetComponent<TheEater>().ChangeSpawnin());
             }
         }else if (Keyboard.current.digit7Key.wasPressedThisFrame)
         {
-            eater.GetComponent<TheEater>().IsMiniboss();
+            eater.GetComponent<TheEater>().IsNotTeleporting(true);
+            StartCoroutine(IsMiniboss());
         }
+    }
+
+    private IEnumerator IsMiniboss()
+    {
+        yield return new WaitForSeconds(10);
+        eater.GetComponent<TheEater>().IsMiniboss();
     }
 }
