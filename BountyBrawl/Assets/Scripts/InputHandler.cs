@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.SceneManagement;
 
 public class InputHandler : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class InputHandler : MonoBehaviour
     private PlayerBody player;
 
     private bool mainMenu;
+
+    [SerializeField] private GameObject characterAmount;
+    //[SerializeField] private GameObject PlayerAmount;
 
     public void Start()
     {
@@ -26,6 +30,12 @@ public class InputHandler : MonoBehaviour
        var index = playerInput.playerIndex;
        player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
 
+    }
+
+    public void Reset()
+    {
+        playerInput = null;
+        player = null;
     }
 
     public void OnMove(CallbackContext context)
@@ -127,6 +137,16 @@ public class InputHandler : MonoBehaviour
                 player.Triangle(context.performed);
             }
         
+    }
+
+    public void Circle(CallbackContext context)
+    {
+
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().Restart();
+        }
+
     }
 
     public void NotMainMenu()

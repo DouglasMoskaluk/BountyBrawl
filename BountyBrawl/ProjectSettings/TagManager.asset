@@ -30,6 +30,10 @@ TagManager:
   - P3 Char
   - P4 Char
   - SceneLoader
+  - Players
+  - StartScreen
+  - MapSelect
+  - PlayerAmount
   layers:
   - Default
   - TransparentFX

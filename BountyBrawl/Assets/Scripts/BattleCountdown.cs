@@ -10,6 +10,7 @@ public class BattleCountdown : MonoBehaviour
     [SerializeField] private GameObject countdownNumbers;
 
     [SerializeField] private float countdownSpeed = 0.5f;
+    [SerializeField] private float brawlStay = 1f;
 
     private Image numberDisplayer;
     private Animator numberAnimator;
@@ -42,7 +43,7 @@ public class BattleCountdown : MonoBehaviour
         yield return new WaitForSecondsRealtime(countdownSpeed);
         countdownNumbers.SetActive(false);
         countdownEnd.SetActive(true);
-        yield return new WaitForSecondsRealtime(countdownSpeed);
+        yield return new WaitForSecondsRealtime(brawlStay);
         Time.timeScale = 1f;
 
         PlayerBody[] players = FindObjectsOfType<PlayerBody>();

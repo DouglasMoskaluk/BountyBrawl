@@ -230,7 +230,7 @@ public class SceneLoader : MonoBehaviour
         SceneManager.UnloadSceneAsync(current);
         SceneManager.LoadScene(current);
         pauseMenu.GetComponent<PauseScript>().ResumeGame();
-        Debug.Log("Restart");
+
 
         AllDead = false;
         map1 = false;

@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 373}
+  m_AnchoredPosition: {x: -10, y: 1}
   m_SizeDelta: {x: 935.6533, y: 311.8844}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1184338496533974436
@@ -11490,7 +11490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 373}
+  m_AnchoredPosition: {x: -10, y: 1}
   m_SizeDelta: {x: 207.923, y: 207.923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2761123519567302988
@@ -11647,3 +11647,4 @@ MonoBehaviour:
   countdownEnd: {fileID: 1863616373537946715}
   countdownNumbers: {fileID: 5343021578258982068}
   countdownSpeed: 0.5
+  brawlStay: 0.7
