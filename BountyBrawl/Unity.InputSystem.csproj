@@ -351,10 +351,10 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Editor\Internal\GUIHelpers.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Plugins\XR\Devices\Oculus.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\InputSystem.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Editor\Debugger\InputDeviceDebuggerWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Utilities\StringHelpers.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Devices\Commands\RequestResetCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Utilities\PrimitiveValue.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Editor\Debugger\InputDeviceDebuggerWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\InputSystemObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Editor\InputParameterEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.2.0\InputSystem\Plugins\iOS\iOSSupport.cs" />

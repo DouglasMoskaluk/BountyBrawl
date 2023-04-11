@@ -186,8 +186,8 @@
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\TestRunner\Utils\EditorCompilationInterfaceProxy.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\TestRun\Tasks\FileCleanupVerifierTaskBase.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\Api\TestAdaptorFactory.cs" />
-    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\GUI\AssetsDatabaseHelper.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\GUI\Views\TestListGUIBase.cs" />
+    <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\GUI\AssetsDatabaseHelper.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\CommandLineParser\CommandLineOption.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\CommandLineParser\ICommandLineOption.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.29\UnityEditor.TestRunner\UnityTestProtocol\TestState.cs" />

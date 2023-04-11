@@ -110,8 +110,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\AssetUpgrade\AnimationTrackUpgrade.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\DiscreteTime.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\Playables\TimeNotificationBehaviour.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\AssetUpgrade\TimelineUpgrade.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\Attributes\TrackColorAttribute.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\AssetUpgrade\TimelineUpgrade.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\AssetUpgrade\ClipUpgrade.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\Playables\ActivationControlPlayable.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Runtime\Evaluation\ScheduleRuntimeClip.cs" />

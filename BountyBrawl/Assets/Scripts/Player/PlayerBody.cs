@@ -155,7 +155,8 @@ public class PlayerBody : MonoBehaviour
 
         //Get the stat tracker
         StatTracker[] statTrackers = FindObjectsOfType<StatTracker>();
-        statTracker = statTrackers[3 - playerIndex];
+        statTracker = statTrackers[playerIndex];
+        statTracker.Reset();
         statTracker.SetPlayer(this.GetComponent<PlayerBody>());
        
     }
