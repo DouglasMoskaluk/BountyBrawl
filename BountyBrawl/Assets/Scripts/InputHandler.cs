@@ -12,6 +12,13 @@ public class InputHandler : MonoBehaviour
     [SerializeField]
     private PlayerBody player;
 
+    private bool mainMenu;
+
+    public void Start()
+    {
+        mainMenu = true;
+    }
+
     public void FindPlayer()
     {
        playerInput = GetComponent<PlayerInput>();
@@ -98,5 +105,34 @@ public class InputHandler : MonoBehaviour
     {
     }
 
-   
+    public void Square(CallbackContext context)
+    {
+        if (mainMenu == true) 
+        {
+            FindPlayer();
+            if (player != null)
+            {
+                player.Square(context.performed);
+            }
+        }
+    }
+
+    public void Triangle(CallbackContext context)
+    {
+        if (mainMenu == true)
+        {
+            FindPlayer();
+            if (player != null)
+            {
+                player.Triangle(context.performed);
+            }
+        }
+    }
+
+    public void NotMainMenu()
+    {
+        mainMenu = false;
+    }
+
+
 }

@@ -30,6 +30,8 @@ public class PlayerBody : MonoBehaviour
     private float removeHealth = 0f;
     private float addHealth = 0f;
     private float respawn = 0f;
+    private bool square = false;
+    private bool triangle = false;
 
     //Serializables
     [SerializeField] private Transform weaponHolder; //The thing holding the weapon
@@ -198,6 +200,7 @@ public class PlayerBody : MonoBehaviour
         {
             lives = lives - 1;
         }
+
 
         if (dead)
         {
@@ -625,6 +628,8 @@ public class PlayerBody : MonoBehaviour
 
     public bool getPause() {return pause; } //Gets when the player inputs the pause button
 
+    public bool getSquare() { return square; }
+
     public int getCharacter() { return character; }
 
     public void setWeaponIndex(int setWeaponIndex) { weaponIndex = setWeaponIndex; }
@@ -657,6 +662,7 @@ public class PlayerBody : MonoBehaviour
     } //For the left stick representing the direction of movement
     public void SetFacingVector(Vector2 face)
     {
+    
         facingVector = face;
         if (facingVector != Vector2.zero)
         {
@@ -679,10 +685,8 @@ public class PlayerBody : MonoBehaviour
     }
     public void Pause(bool start)
     {
-        
         pause = start;
         Debug.Log(pause);
-        
     }
     public void RemoveHealth(float down)
     {
@@ -696,6 +700,57 @@ public class PlayerBody : MonoBehaviour
     {
         respawn = left;
     }
+
+    public void Square(bool squareButton)
+    {
+        square = squareButton;
+        if (square == true)
+        {
+            if (playerSkin < 3)
+            {
+                
+                playerSkin++;
+                ChangeSkin();
+            }
+            else
+            {
+                playerSkin = 0;
+                ChangeSkin();
+            }
+        }
+    }
+
+    public void Triangle(bool triangleButton)
+    {
+        triangle = triangleButton;
+        if (triangle == true)
+        {
+            if (playerIndex == 0)
+            {
+                GameObject.FindGameObjectWithTag("P1").GetComponent<P1>().TriangleTrue();
+            }
+            if (playerIndex == 1)
+            {
+                GameObject.FindGameObjectWithTag("P2").GetComponent<P1>().TriangleTrue();
+            }
+            if (playerIndex == 2)
+            {
+                GameObject.FindGameObjectWithTag("P3").GetComponent<P1>().TriangleTrue();
+            }
+            if (playerIndex == 3)
+            {
+                GameObject.FindGameObjectWithTag("P4").GetComponent<P1>().TriangleTrue();
+            }
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("P1").GetComponent<P1>().TriangleFalse();
+            GameObject.FindGameObjectWithTag("P2").GetComponent<P1>().TriangleFalse();
+            GameObject.FindGameObjectWithTag("P3").GetComponent<P1>().TriangleFalse();
+            GameObject.FindGameObjectWithTag("P4").GetComponent<P1>().TriangleFalse();
+        }
+    }
+
 
     public int GetPlayerIndex()
     {

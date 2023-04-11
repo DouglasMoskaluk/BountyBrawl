@@ -9611,11 +9611,35 @@ MonoBehaviour:
     m_ActionId: 7661531c-df54-4f23-86ed-922b03df9f12
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 322336265}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Triangle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 039b23e9-d432-4c5f-9b25-c5c4689fd3e4
     m_ActionName: PlayerMovement/Triangle[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 322336265}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Square
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: beaf5618-cbad-4688-bd0a-08a8e2cc7012
     m_ActionName: PlayerMovement/Square[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
@@ -9705,8 +9729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a17579a7e4e714d8af97484939ce63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  square: {fileID: -3673947474080039127, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
-  triangle: {fileID: 1618663484962689311, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
   infoSand: {fileID: 951443312}
   infoNag: {fileID: 972370973}
   infoEmr: {fileID: 1953130528}
@@ -28275,11 +28297,35 @@ MonoBehaviour:
     m_ActionId: 7661531c-df54-4f23-86ed-922b03df9f12
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955297543}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Triangle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 039b23e9-d432-4c5f-9b25-c5c4689fd3e4
     m_ActionName: PlayerMovement/Triangle[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955297543}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Square
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: beaf5618-cbad-4688-bd0a-08a8e2cc7012
     m_ActionName: PlayerMovement/Square[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
@@ -28369,8 +28415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08301f619760c5488a0d54f935c872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  square: {fileID: -3673947474080039127, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
-  triangle: {fileID: 1618663484962689311, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
   infoSand: {fileID: 653422372}
   infoNag: {fileID: 1520326813}
   infoEmr: {fileID: 616175927}
@@ -34099,11 +34143,35 @@ MonoBehaviour:
     m_ActionId: 7661531c-df54-4f23-86ed-922b03df9f12
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1142639159}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Triangle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 039b23e9-d432-4c5f-9b25-c5c4689fd3e4
     m_ActionName: PlayerMovement/Triangle[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1142639159}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Square
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: beaf5618-cbad-4688-bd0a-08a8e2cc7012
     m_ActionName: PlayerMovement/Square[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
@@ -34207,8 +34275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c4953167ee92245baf4ff622b0cda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  square: {fileID: -3673947474080039127, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
-  triangle: {fileID: 1618663484962689311, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
   infoSand: {fileID: 1964918253}
   infoNag: {fileID: 856502084}
   infoEmr: {fileID: 808949879}
@@ -55719,11 +55785,35 @@ MonoBehaviour:
     m_ActionId: 7661531c-df54-4f23-86ed-922b03df9f12
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1821631963}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Triangle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 039b23e9-d432-4c5f-9b25-c5c4689fd3e4
     m_ActionName: PlayerMovement/Triangle[/DualShock4GamepadHID/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1821631963}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Square
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: beaf5618-cbad-4688-bd0a-08a8e2cc7012
     m_ActionName: PlayerMovement/Square[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
@@ -55827,8 +55917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f08c6edfcc06e44b0fb2ad855b6697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  square: {fileID: -3673947474080039127, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
-  triangle: {fileID: 1618663484962689311, guid: 5c5b82b44dda12c41a65f65f212c62a3, type: 3}
   infoSand: {fileID: 1408410911}
   infoNag: {fileID: 1545290905}
   infoEmr: {fileID: 2143591791}

@@ -10,14 +10,15 @@ public class PodiumMoneyText : MonoBehaviour
 
 
     public TMP_Text MoneyText;
-    void Start()
+    void OnEnable()
     {
-       // index = GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().
+        WinnerMoney();
+        
     }
 
     public void WinnerMoney()
     {
-
+        
 
         if (index == GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().Get4th())
         {

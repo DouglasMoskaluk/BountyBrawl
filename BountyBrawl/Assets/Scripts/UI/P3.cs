@@ -6,11 +6,9 @@ using UnityEngine.InputSystem;
 
 public class P3 : MonoBehaviour
 {
-    [SerializeField]
-    InputActionReference square, triangle;
+
     GameObject P3Char;
-    bool squarePressed;
-    bool trianglePressed;
+
     bool confirmed;
 
     [SerializeField]
@@ -27,7 +25,7 @@ public class P3 : MonoBehaviour
     }
     public void Start()
     {
-        squarePressed = false;
+
         confirmed = false;
 
 
@@ -36,74 +34,24 @@ public class P3 : MonoBehaviour
     void Update()
     {
         P3Char = GameObject.FindGameObjectWithTag("P3 Char");
-        if (squarePressed == true)
-        {
-            if (P3Char.GetComponent<PlayerBody>().playerSkin < 3)
-            {
-                squarePressed = false;
-                P3Char.GetComponent<PlayerBody>().playerSkin++;
-                P3Char.GetComponent<PlayerBody>().ChangeSkin();
-            }
-            else
-            {
-                P3Char.GetComponent<PlayerBody>().playerSkin = 0;
-                P3Char.GetComponent<PlayerBody>().ChangeSkin();
-                squarePressed = false;
-            }
-        }
-
-        if (trianglePressed == true)
-        {
-            infoSand.SetActive(true);
-            infoNag.SetActive(true);
-            infoEmr.SetActive(true);
-            infoGreed.SetActive(true);
-
-
-        }
-        if (trianglePressed == false)
-        {
-            infoSand.SetActive(false);
-            infoNag.SetActive(false);
-            infoEmr.SetActive(false);
-            infoGreed.SetActive(false);
-        }
-
-    }
-
-    private void OnEnable()
-    {
-        square.action.performed += SwapSkin;
-        triangle.action.started += ShowInfo;
-        triangle.action.canceled += HideInfo;
-    }
-
-    private void HideInfo(InputAction.CallbackContext obj)
-    {
-
-        trianglePressed = false;
-    }
-
-    private void ShowInfo(InputAction.CallbackContext obj)
-    {
-        trianglePressed = true;
 
 
     }
 
-    private void SwapSkin(InputAction.CallbackContext obj)
+    public void TriangleTrue()
     {
-        if (confirmed == false)
-        {
-            squarePressed = true;
-        }
+        infoSand.SetActive(true);
+        infoNag.SetActive(true);
+        infoEmr.SetActive(true);
+        infoGreed.SetActive(true);
     }
 
-    private void OnDisable()
+    public void TriangleFalse()
     {
-        square.action.performed -= SwapSkin;
-        triangle.action.started -= ShowInfo;
-        triangle.action.canceled -= HideInfo;
+        infoSand.SetActive(false);
+        infoNag.SetActive(false);
+        infoEmr.SetActive(false);
+        infoGreed.SetActive(false);
     }
 
     public void SetSkin()

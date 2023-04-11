@@ -33,20 +33,10 @@ public class SceneLoader : MonoBehaviour
     int deadPlayers;
 
     int Index4th;
-    int Char4th;
-    int colour4th;
 
     int Index3rd;
-    int Char3rd;
-    int colour3rd;
 
     int Index2nd;
-    int Char2nd;
-    int colour2nd;
-
-    int Index1st;
-    int Char1st;
-    int colour1st;
 
     private bool AllDead;
 
@@ -80,6 +70,10 @@ public class SceneLoader : MonoBehaviour
                 confirms = 0;
                 map1 = false;
                 map2 = false;
+                GameObject.FindGameObjectWithTag("P1").GetComponent<InputHandler>().NotMainMenu();
+                GameObject.FindGameObjectWithTag("P2").GetComponent<InputHandler>().NotMainMenu();
+                GameObject.FindGameObjectWithTag("P3").GetComponent<InputHandler>().NotMainMenu();
+                GameObject.FindGameObjectWithTag("P4").GetComponent<InputHandler>().NotMainMenu();
 
                 StartCoroutine(TheAssEater5000(1));
             }
@@ -89,6 +83,11 @@ public class SceneLoader : MonoBehaviour
                 confirms = 0;
                 map1 = false;
                 map2 = false;
+
+                GameObject.FindGameObjectWithTag("P1").GetComponent<InputHandler>().NotMainMenu();
+                GameObject.FindGameObjectWithTag("P2").GetComponent<InputHandler>().NotMainMenu();
+                GameObject.FindGameObjectWithTag("P3").GetComponent<InputHandler>().NotMainMenu();
+                GameObject.FindGameObjectWithTag("P4").GetComponent<InputHandler>().NotMainMenu();
 
                 StartCoroutine(TheAssEater5000(2));
             }
