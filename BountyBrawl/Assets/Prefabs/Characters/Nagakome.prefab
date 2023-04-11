@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 6032657851593509939}
   - component: {fileID: 6032657851593509938}
   - component: {fileID: 6032657851593509951}
-  - component: {fileID: 6032657851593509949}
   - component: {fileID: 6032657851593509948}
   - component: {fileID: 6032657851593509950}
   - component: {fileID: 7016611065470594795}
@@ -474,25 +473,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6032657851593509949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6032657851593509947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currMoney: 0
-  totalMoney: 0
-  playerKills: 0
-  LostKills: 0
-  EaterKills: 0
-  playerDamage: 0
-  enemyDamage: 0
 --- !u!114 &6032657851593509948
 MonoBehaviour:
   m_ObjectHideFlags: 0

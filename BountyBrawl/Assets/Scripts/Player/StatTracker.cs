@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class StatTracker : MonoBehaviour
 {
-    PlayerBody player;
+    private PlayerBody player;
+    private int playerCharacter;
+    private int playerSkin;
 
-    [SerializeField] private float currMoney; //Holds the current money of the player
     [SerializeField] private float totalMoney; //Holds the total amount of money player made
     [SerializeField] private int playerKills; //Holds the total amount of enemy player kills
     [SerializeField] private int LostKills; //Holds the total amount of lost kills
@@ -16,7 +17,11 @@ public class StatTracker : MonoBehaviour
 
     private void Awake()
     {
-        currMoney = 0;
+        Reset();
+    }
+
+    public void Reset()
+    {
         totalMoney = 0;
         playerKills = 0;
         LostKills = 0;
@@ -25,9 +30,11 @@ public class StatTracker : MonoBehaviour
         enemyDamage = 0;
     }
 
-    public void IncreaseCurrMoney(float moola)
+    public void SetPlayer(PlayerBody p)
     {
-        currMoney += moola;
+        player = p;
+        playerCharacter = p.getCharacter();
+        playerSkin = p.playerSkin;
     }
     
     public void IncreaseTotalMoney(float moola)
@@ -58,10 +65,5 @@ public class StatTracker : MonoBehaviour
     public void IncreaseEnemyDamage(float inEnemyDam)
     {
         enemyDamage += inEnemyDam;
-    }
-
-    public float GetCurrMoney()
-    {
-        return currMoney;
     }
 }

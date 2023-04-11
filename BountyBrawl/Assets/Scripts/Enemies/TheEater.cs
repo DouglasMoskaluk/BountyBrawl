@@ -196,7 +196,7 @@ public class TheEater : MonoBehaviour
 
         foreach (var player in players)
         {
-            if (player.isActiveAndEnabled)
+            if (player.isActiveAndEnabled && !player.spawnImmunity)
             {
                 float dist = Vector3.Distance(player.transform.position, transform.position);
 
@@ -233,7 +233,7 @@ public class TheEater : MonoBehaviour
             {
                 float dist = Vector3.Distance(player.transform.position, transform.position);
 
-                if (dist < distance)
+                if (dist < distance && !player.spawnImmunity)
                 {
                     distance = dist;
                     target = player.gameObject;
@@ -519,7 +519,7 @@ public class TheEater : MonoBehaviour
     { 
         if (isMiniboss) 
         {
-            player.gameObject.GetComponent<StatTracker>().IncreaseEnemyDamage(damage);
+            player.statTracker.IncreaseEnemyDamage(damage);
             currHealth -= damage;
             StartCoroutine(HitColor());
 
@@ -528,7 +528,7 @@ public class TheEater : MonoBehaviour
                 moneyChecker--;
                 StopAllCoroutines();
                 currSprite.color = Color.white;
-                player.gameObject.GetComponent<StatTracker>().IncreaseEaterKills();
+                player.statTracker.IncreaseEaterKills();
                 player.IncreaseMoney(moneyEarn);
             }
         } 

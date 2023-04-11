@@ -71,7 +71,7 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private float moneyLost = 20;
 
     //Stat Tracking
-    private StatTracker statTracker;
+    [HideInInspector] public StatTracker statTracker;
 
     [SerializeField] private Color poisoned;
     [SerializeField] private Color hit;
@@ -110,6 +110,8 @@ public class PlayerBody : MonoBehaviour
 
     [HideInInspector] public bool canPause;
 
+    [HideInInspector] public bool spawnImmunity;
+
     private void Awake()
     {
         
@@ -117,7 +119,6 @@ public class PlayerBody : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         headSprite = playerHead.GetComponent<SpriteRenderer>();
-        statTracker = GetComponent<StatTracker>();
         boxCollider = GetComponent<BoxCollider2D>();
         weapon = false;
         useDefault = false;
@@ -132,10 +133,12 @@ public class PlayerBody : MonoBehaviour
         glued = false;
         wet = false;
         moneyChecker = 1;
+        spawnImmunity = false;
 
        GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
 
         playerSteps.clip = normalWalking;
+        
     }
 
     private void Start()
@@ -147,7 +150,11 @@ public class PlayerBody : MonoBehaviour
 
         transform.position = spawnPoint.position; //Moves player to the spawnpoint
 
-        
+        //Get the stat tracker
+        StatTracker[] statTrackers = FindObjectsOfType<StatTracker>();
+        statTracker = statTrackers[3 - playerIndex];
+        statTracker.SetPlayer(this.GetComponent<PlayerBody>());
+       
     }
 
     private void Update()
@@ -440,7 +447,7 @@ public class PlayerBody : MonoBehaviour
 
             if (player != null)
             {
-                player.gameObject.GetComponent<StatTracker>().IncreasePlayerDamage(damage);
+                player.statTracker.IncreasePlayerDamage(damage);
             }
 
             if(health <= 0 && weaponHolder.gameObject.activeSelf && moneyChecker == 1)
@@ -449,11 +456,12 @@ public class PlayerBody : MonoBehaviour
                 boxCollider.enabled = false;
                 dead = true;
                 poisonEffect.Stop();
+                spawnImmunity = true;
 
                 if (player != null)
                 {
                     player.IncreaseMoney(moneyGive);
-                    player.gameObject.GetComponent<StatTracker>().IncreasePlayerKills();
+                    player.statTracker.IncreasePlayerKills();
                 }
 
 
@@ -539,6 +547,7 @@ public class PlayerBody : MonoBehaviour
     private void Respawn()
     {
         dead = false;
+        spawnImmunity = false;
         boxCollider.enabled = true;
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
@@ -589,7 +598,6 @@ public class PlayerBody : MonoBehaviour
     public void IncreaseMoney(float income) {
         if (lives < 3)
         {
-            statTracker.IncreaseCurrMoney(income);
 
             if (income > 0)
             {

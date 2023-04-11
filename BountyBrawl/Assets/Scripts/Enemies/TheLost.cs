@@ -166,7 +166,7 @@ public class TheLost : MonoBehaviour
 
         foreach (var player in players)
         {
-            if (player.isActiveAndEnabled)
+            if (player.isActiveAndEnabled && !player.spawnImmunity)
             {
                 float dist = Vector3.Distance(player.transform.position, transform.position);
 
@@ -187,7 +187,7 @@ public class TheLost : MonoBehaviour
 
         foreach(var player in players)
         {
-            if (player.isActiveAndEnabled)
+            if (player.isActiveAndEnabled && !player.spawnImmunity)
             {
                 float dist = Vector3.Distance(player.transform.position, transform.position);
 
@@ -542,7 +542,7 @@ public class TheLost : MonoBehaviour
 
     public void DamageEnemy(float damage, PlayerBody player) 
     {
-        player.gameObject.GetComponent<StatTracker>().IncreaseEnemyDamage(damage);
+        player.statTracker.IncreaseEnemyDamage(damage);
 
         currHealth -= damage;
         StartCoroutine(HitColor());
@@ -552,7 +552,7 @@ public class TheLost : MonoBehaviour
             moneyChecker--;
             poison = null;
             spriteRenderer.color = Color.white;
-            player.gameObject.GetComponent<StatTracker>().IncreaseLostKills();
+            player.statTracker.IncreaseLostKills();
             player.IncreaseMoney(moneyEarn);
         }
     }

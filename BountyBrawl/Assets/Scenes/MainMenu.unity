@@ -1815,6 +1815,7 @@ MonoBehaviour:
   character: 2
   animator: {fileID: 56352860}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1593403847}
@@ -1962,7 +1963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -3555,6 +3555,7 @@ MonoBehaviour:
   character: 2
   animator: {fileID: 119264479}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 943000062}
@@ -3702,7 +3703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -7331,6 +7331,7 @@ MonoBehaviour:
   character: 0
   animator: {fileID: 255436624}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1458380663}
@@ -7478,7 +7479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -9377,6 +9377,7 @@ GameObject:
   - component: {fileID: 322336260}
   - component: {fileID: 322336264}
   - component: {fileID: 322336265}
+  - component: {fileID: 322336266}
   m_Layer: 0
   m_Name: MultiEventSystemP1
   m_TagString: P1
@@ -9724,6 +9725,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &322336266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322336259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &326117537
 GameObject:
   m_ObjectHideFlags: 0
@@ -19474,6 +19493,7 @@ MonoBehaviour:
   character: 1
   animator: {fileID: 654843928}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 725181083}
@@ -19636,7 +19656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -22924,6 +22943,7 @@ MonoBehaviour:
   character: 2
   animator: {fileID: 810646092}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 629549264}
@@ -23071,7 +23091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -23391,6 +23410,7 @@ MonoBehaviour:
   character: 0
   animator: {fileID: 819876545}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1470831574}
@@ -23538,7 +23558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -24987,6 +25006,7 @@ MonoBehaviour:
   character: 1
   animator: {fileID: 856392896}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 939589948}
@@ -25149,7 +25169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -27332,6 +27351,7 @@ MonoBehaviour:
   character: 3
   animator: {fileID: 926279096}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1138164839}
@@ -27479,7 +27499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -28022,6 +28041,7 @@ GameObject:
   - component: {fileID: 955297538}
   - component: {fileID: 955297542}
   - component: {fileID: 955297543}
+  - component: {fileID: 955297544}
   m_Layer: 0
   m_Name: MultiEventSystemP2
   m_TagString: P2
@@ -28369,6 +28389,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &955297544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955297537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &955419968
 GameObject:
   m_ObjectHideFlags: 0
@@ -32209,6 +32247,7 @@ MonoBehaviour:
   character: 0
   animator: {fileID: 1108057398}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1468119340}
@@ -32356,7 +32395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -33118,6 +33156,7 @@ MonoBehaviour:
   character: 2
   animator: {fileID: 1130740264}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1367989546}
@@ -33265,7 +33304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -33827,6 +33865,7 @@ GameObject:
   - component: {fileID: 1142639155}
   - component: {fileID: 1142639160}
   - component: {fileID: 1142639159}
+  - component: {fileID: 1142639161}
   m_Layer: 0
   m_Name: MultiEventSystemP3
   m_TagString: P3
@@ -34174,6 +34213,24 @@ MonoBehaviour:
   infoNag: {fileID: 856502084}
   infoEmr: {fileID: 808949879}
   infoGreed: {fileID: 1150463359}
+--- !u!114 &1142639161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142639154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &1145891061
 GameObject:
   m_ObjectHideFlags: 0
@@ -34279,6 +34336,7 @@ MonoBehaviour:
   character: 1
   animator: {fileID: 1147347076}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 318835099}
@@ -34441,7 +34499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -48777,6 +48834,7 @@ MonoBehaviour:
   character: 3
   animator: {fileID: 1614615997}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 599117179}
@@ -48924,7 +48982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -51699,6 +51756,7 @@ MonoBehaviour:
   character: 3
   animator: {fileID: 1740026761}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1415037980}
@@ -51846,7 +51904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -53304,6 +53361,7 @@ MonoBehaviour:
   character: 0
   animator: {fileID: 1770351590}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 60712252}
@@ -53451,7 +53509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -55428,6 +55485,7 @@ GameObject:
   - component: {fileID: 1821631959}
   - component: {fileID: 1821631964}
   - component: {fileID: 1821631963}
+  - component: {fileID: 1821631965}
   m_Layer: 0
   m_Name: MultiEventSystemP4
   m_TagString: P4
@@ -55775,6 +55833,24 @@ MonoBehaviour:
   infoNag: {fileID: 1545290905}
   infoEmr: {fileID: 2143591791}
   infoGreed: {fileID: 909729281}
+--- !u!114 &1821631965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821631958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: 0
+  playerKills: 0
+  LostKills: 0
+  EaterKills: 0
+  playerDamage: 0
+  enemyDamage: 0
 --- !u!1 &1826711302
 GameObject:
   m_ObjectHideFlags: 0
@@ -60941,6 +61017,7 @@ MonoBehaviour:
   character: 1
   animator: {fileID: 1985983942}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 1539998008}
@@ -61103,7 +61180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
@@ -63782,6 +63858,7 @@ MonoBehaviour:
   character: 3
   animator: {fileID: 2067311787}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.39215687, g: 1, b: 0.45882353, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 407134828}
@@ -63929,7 +64006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83bba2e8df4dcc4896fca50c1226c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMoney: 0
   totalMoney: 0
   playerKills: 0
   LostKills: 0
