@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayerID: -458581169
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 507b745fe41de69459f4bedfdeb8207b, type: 3}
+  m_Sprite: {fileID: 1604626632385477861, guid: e55eb1fcb8ddce945b19fc67948646e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5333,6 +5333,8 @@ MonoBehaviour:
   Mixer: {fileID: 24100000, guid: 036952a424480274cb155a2635e0b50b, type: 2}
   AudioSource: {fileID: 389255390}
   MixMode: 2
+  volumeValue: 0
+  volumeSlider: {fileID: 0}
 --- !u!1001 &963251701
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,37 +1,25 @@
 fileFormatVersion: 2
-guid: 5360c57c48cb90047ba3693e3a9f7d0b
+guid: e55eb1fcb8ddce945b19fc67948646e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6201658248183396961
-    second: Lava Bubble_0
+      213: 1604626632385477861
+    second: New_Forest_BG_0
   - first:
-      213: 7358482371223572345
-    second: Lava Bubble_1
+      213: -7489614335846110057
+    second: New_Forest_BG_1
   - first:
-      213: -8518445105583639575
-    second: Lava Bubble_2
+      213: 9012616243898320027
+    second: New_Forest_BG_2
   - first:
-      213: 1426941487623088037
-    second: Lava Bubble_3
+      213: 864567693688456846
+    second: New_Forest_BG_3
   - first:
-      213: -2581184647559946005
-    second: Lava Bubble_4
+      213: -1608960098275495452
+    second: New_Forest_BG_4
   - first:
-      213: -6072614077149662027
-    second: Lava Bubble_5
-  - first:
-      213: -5201350488866054370
-    second: Lava Bubble_6
-  - first:
-      213: 7418723240170458097
-    second: Lava Bubble_7
-  - first:
-      213: -169837139245467903
-    second: Lava Bubble_8
-  - first:
-      213: 3688540900090548392
-    second: Lava Bubble_9
+      213: 1335281551674581015
+    second: New_Forest_BG_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -76,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 3.5
+  spritePixelsToUnits: 3
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +83,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -107,7 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 16384
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -121,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lava Bubble_0
+      name: New_Forest_BG_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1626
+        y: 962
         width: 962
-        height: 542
+        height: 962
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ab755a157b01650800000000000000
-      internalID: 6201658248183396961
+      spriteID: 5ecb774ab67c44610800000000000000
+      internalID: 1604626632385477861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_1
+      name: New_Forest_BG_1
       rect:
         serializedVersion: 2
         x: 962
-        y: 1626
+        y: 962
         width: 962
-        height: 542
+        height: 962
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97f41cecab49e1660800000000000000
-      internalID: 7358482371223572345
+      spriteID: 79c2837717b8f0890800000000000000
+      internalID: -7489614335846110057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_2
+      name: New_Forest_BG_2
       rect:
         serializedVersion: 2
         x: 1924
-        y: 1626
+        y: 962
         width: 962
-        height: 542
+        height: 962
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,125 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e3b5032f4768c980800000000000000
-      internalID: -8518445105583639575
+      spriteID: b94897219be331d70800000000000000
+      internalID: 9012616243898320027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1084
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a7aa0509b38dc310800000000000000
-      internalID: 1426941487623088037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_4
-      rect:
-        serializedVersion: 2
-        x: 962
-        y: 1084
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be06f7e1d3acd2cd0800000000000000
-      internalID: -2581184647559946005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_5
-      rect:
-        serializedVersion: 2
-        x: 1924
-        y: 1084
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b43571cbadb9bba0800000000000000
-      internalID: -6072614077149662027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 542
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1f95dec94711d7b0800000000000000
-      internalID: -5201350488866054370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_7
-      rect:
-        serializedVersion: 2
-        x: 962
-        y: 542
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fb8b491b7994f660800000000000000
-      internalID: 7418723240170458097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_8
+      name: New_Forest_BG_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 962
-        height: 542
+        height: 962
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 107fa9d850e94adf0800000000000000
-      internalID: -169837139245467903
+      spriteID: e86449a9cbf8ffb00800000000000000
+      internalID: 864567693688456846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_9
+      name: New_Forest_BG_4
       rect:
         serializedVersion: 2
         x: 962
         y: 0
         width: 962
-        height: 542
+        height: 962
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,8 +207,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a09569e764503330800000000000000
-      internalID: 3688540900090548392
+      spriteID: 4e1f284b053dba9e0800000000000000
+      internalID: -1608960098275495452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New_Forest_BG_5
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 0
+        width: 962
+        height: 962
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71022b22f7fd78210800000000000000
+      internalID: 1335281551674581015
       vertices: []
       indices: 
       edges: []

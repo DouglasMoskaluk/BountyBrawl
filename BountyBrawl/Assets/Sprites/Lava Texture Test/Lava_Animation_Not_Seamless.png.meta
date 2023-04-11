@@ -1,37 +1,34 @@
 fileFormatVersion: 2
-guid: 5360c57c48cb90047ba3693e3a9f7d0b
+guid: df5ec3e75ccf54e4ca5e42948298c53d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6201658248183396961
-    second: Lava Bubble_0
+      213: -5076716318510937923
+    second: Lava_Animation_Not_Seamless_0
   - first:
-      213: 7358482371223572345
-    second: Lava Bubble_1
+      213: 133167443287068801
+    second: Lava_Animation_Not_Seamless_1
   - first:
-      213: -8518445105583639575
-    second: Lava Bubble_2
+      213: 394536136635655363
+    second: Lava_Animation_Not_Seamless_2
   - first:
-      213: 1426941487623088037
-    second: Lava Bubble_3
+      213: 7011162436136733839
+    second: Lava_Animation_Not_Seamless_3
   - first:
-      213: -2581184647559946005
-    second: Lava Bubble_4
+      213: -2263689700805265564
+    second: Lava_Animation_Not_Seamless_4
   - first:
-      213: -6072614077149662027
-    second: Lava Bubble_5
+      213: -393990823983783733
+    second: Lava_Animation_Not_Seamless_5
   - first:
-      213: -5201350488866054370
-    second: Lava Bubble_6
+      213: 465949598665292433
+    second: Lava_Animation_Not_Seamless_6
   - first:
-      213: 7418723240170458097
-    second: Lava Bubble_7
+      213: 248702755728274930
+    second: Lava_Animation_Not_Seamless_7
   - first:
-      213: -169837139245467903
-    second: Lava Bubble_8
-  - first:
-      213: 3688540900090548392
-    second: Lava Bubble_9
+      213: 7557606508111721764
+    second: Lava_Animation_Not_Seamless_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,70 +118,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lava Bubble_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1626
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16ab755a157b01650800000000000000
-      internalID: 6201658248183396961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_1
-      rect:
-        serializedVersion: 2
-        x: 962
-        y: 1626
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97f41cecab49e1660800000000000000
-      internalID: 7358482371223572345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_2
-      rect:
-        serializedVersion: 2
-        x: 1924
-        y: 1626
-        width: 962
-        height: 542
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e3b5032f4768c980800000000000000
-      internalID: -8518445105583639575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lava Bubble_3
+      name: Lava_Animation_Not_Seamless_0
       rect:
         serializedVersion: 2
         x: 0
@@ -198,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a7aa0509b38dc310800000000000000
-      internalID: 1426941487623088037
+      spriteID: db80ab9e761eb89b0800000000000000
+      internalID: -5076716318510937923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_4
+      name: Lava_Animation_Not_Seamless_1
       rect:
         serializedVersion: 2
         x: 962
@@ -219,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be06f7e1d3acd2cd0800000000000000
-      internalID: -2581184647559946005
+      spriteID: 180d5c8851b19d100800000000000000
+      internalID: 133167443287068801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_5
+      name: Lava_Animation_Not_Seamless_2
       rect:
         serializedVersion: 2
         x: 1924
@@ -240,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b43571cbadb9bba0800000000000000
-      internalID: -6072614077149662027
+      spriteID: 3c42933a68ca97500800000000000000
+      internalID: 394536136635655363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_6
+      name: Lava_Animation_Not_Seamless_3
       rect:
         serializedVersion: 2
         x: 0
@@ -261,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1f95dec94711d7b0800000000000000
-      internalID: -5201350488866054370
+      spriteID: f8c0e74c617ac4160800000000000000
+      internalID: 7011162436136733839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_7
+      name: Lava_Animation_Not_Seamless_4
       rect:
         serializedVersion: 2
         x: 962
@@ -282,14 +216,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fb8b491b7994f660800000000000000
-      internalID: 7418723240170458097
+      spriteID: 467bacde532c590e0800000000000000
+      internalID: -2263689700805265564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_8
+      name: Lava_Animation_Not_Seamless_5
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 542
+        width: 962
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0eeabde63488af0800000000000000
+      internalID: -393990823983783733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lava_Animation_Not_Seamless_6
       rect:
         serializedVersion: 2
         x: 0
@@ -303,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 107fa9d850e94adf0800000000000000
-      internalID: -169837139245467903
+      spriteID: 19a3ea7f0b2677600800000000000000
+      internalID: 465949598665292433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lava Bubble_9
+      name: Lava_Animation_Not_Seamless_7
       rect:
         serializedVersion: 2
         x: 962
@@ -324,8 +279,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a09569e764503330800000000000000
-      internalID: 3688540900090548392
+      spriteID: 2f538d1b6d1937300800000000000000
+      internalID: 248702755728274930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lava_Animation_Not_Seamless_8
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 0
+        width: 962
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425fd24c31302e860800000000000000
+      internalID: 7557606508111721764
       vertices: []
       indices: 
       edges: []
