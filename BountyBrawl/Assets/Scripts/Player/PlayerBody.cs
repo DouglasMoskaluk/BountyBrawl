@@ -734,15 +734,15 @@ public class PlayerBody : MonoBehaviour
             }
             if (playerIndex == 1)
             {
-                GameObject.FindGameObjectWithTag("P2").GetComponent<P1>().TriangleTrue();
+                GameObject.FindGameObjectWithTag("P2").GetComponent<P2>().TriangleTrue();
             }
             if (playerIndex == 2)
             {
-                GameObject.FindGameObjectWithTag("P3").GetComponent<P1>().TriangleTrue();
+                GameObject.FindGameObjectWithTag("P3").GetComponent<P3>().TriangleTrue();
             }
             if (playerIndex == 3)
             {
-                GameObject.FindGameObjectWithTag("P4").GetComponent<P1>().TriangleTrue();
+                GameObject.FindGameObjectWithTag("P4").GetComponent<P4>().TriangleTrue();
             }
         }
         else
