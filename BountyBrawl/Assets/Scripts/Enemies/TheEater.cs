@@ -111,12 +111,15 @@ public class TheEater : MonoBehaviour
         harbringer = currSprite.sprite;
         teleporting = true;
 
-        //Deals with eater health
-        health = GameObject.FindGameObjectWithTag("EaterHealth");
-        slider = health.GetComponentInChildren<Slider>();
-        health.SetActive(false);
-        health.transform.position = Vector3.zero;
-        health.transform.localScale *= healthSize;
+        if (!demo)
+        {
+            //Deals with eater health
+            health = GameObject.FindGameObjectWithTag("EaterHealth");
+            slider = health.GetComponentInChildren<Slider>();
+            health.SetActive(false);
+            health.transform.position = Vector3.zero;
+            health.transform.localScale *= healthSize;
+        }
 
         isMiniboss = false;
         tempTimer = minionSpawn; //Saves default time for minion spawn
@@ -155,7 +158,7 @@ public class TheEater : MonoBehaviour
         dead = false;
 
         //Adds the eater to the camera list 
-        if (cam != null)
+        if (cam != null && !demo)
         {
             if (cam.GetComponent<CameraMovement_Big>().isActiveAndEnabled)
             {
@@ -174,6 +177,16 @@ public class TheEater : MonoBehaviour
         minionSpawn = tempTimer;
 
         animator.SetBool("Dead", false);
+
+        if (demo)
+        {
+            //Deals with eater health
+            health = GameObject.FindGameObjectWithTag("EaterHealth");
+            slider = health.GetComponentInChildren<Slider>();
+            health.SetActive(false);
+            health.transform.position = Vector3.zero;
+            health.transform.localScale *= healthSize;
+        }
     }
 
     //Replace with onDisable later on

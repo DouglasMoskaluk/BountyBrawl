@@ -243,6 +243,14 @@ public class SceneLoader : MonoBehaviour
 
     public void MainMenu()
     {
+
+        InputHandler[] handlers = FindObjectsOfType<InputHandler>();
+
+        foreach (InputHandler i in handlers)
+        {
+            Destroy(i.gameObject);
+        }
+
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
         PauseScript.isPaused = false;

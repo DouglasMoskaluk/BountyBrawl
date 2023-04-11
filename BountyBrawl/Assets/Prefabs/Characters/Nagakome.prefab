@@ -387,6 +387,7 @@ MonoBehaviour:
   character: 1
   animator: {fileID: 6032657851593509951}
   moneyLost: 20
+  statTracker: {fileID: 0}
   poisoned: {r: 0.8627451, g: 1, b: 0.8784314, a: 1}
   hit: {r: 1, g: 0.31764707, b: 0.31764707, a: 1}
   goldDrop: {fileID: 132184745828417760}
@@ -405,8 +406,9 @@ MonoBehaviour:
   - {fileID: 22100000, guid: c87d536d280aae54d89110e0f9e0630b, type: 2}
   moneyGive: 50
   normalWalking: {fileID: 0}
-  walkingWater: {fileID: 8300000, guid: ade4830127e19694bb8fa80a6f958639, type: 3}
+  walkingWater: {fileID: 8300000, guid: c5a70518cbed73a4a90342b62023d253, type: 3}
   canPause: 0
+  spawnImmunity: 0
 --- !u!50 &6032657851593509939
 Rigidbody2D:
   serializedVersion: 4
@@ -498,7 +500,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 27cd962f27158d44a99a554e30e71866, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 07a1b365485947846a512f163b946679, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.491
   m_Pitch: 1

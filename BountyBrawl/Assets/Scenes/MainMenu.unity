@@ -3437,7 +3437,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon text goes here
+  m_text: "An assault rifle with high recoil useful for long-range engagements. Greed's
+    proficiency allows him to fire golden pellets in a cone around him, dealing high
+    damage compared to the usual silver.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 966cf6279d1c0cf42b32616b548f2a73, type: 2}
   m_sharedMaterial: {fileID: 6201628765344956317, guid: 966cf6279d1c0cf42b32616b548f2a73, type: 2}
@@ -5304,7 +5306,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon text goes here
+  m_text: 'Small shuriken with the ability to return to their thrower, these are
+    best used to set up in tight locations around the map. Nagakome''s proficiency
+    allows her shuriken to deal much more damage on the return strike. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 966cf6279d1c0cf42b32616b548f2a73, type: 2}
   m_sharedMaterial: {fileID: 6201628765344956317, guid: 966cf6279d1c0cf42b32616b548f2a73, type: 2}
@@ -29154,7 +29158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &972370974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31603,7 +31607,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon text goes here
+  m_text: A deadly bio-weapon that eats away at targets with vines and flora best
+    utilized up close and personal. Emerald's proficiency with the weapon allows
+    the bio-glue created from it to be highly corrosive.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 966cf6279d1c0cf42b32616b548f2a73, type: 2}
   m_sharedMaterial: {fileID: 6201628765344956317, guid: 966cf6279d1c0cf42b32616b548f2a73, type: 2}
