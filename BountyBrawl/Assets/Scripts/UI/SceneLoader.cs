@@ -243,15 +243,6 @@ public class SceneLoader : MonoBehaviour
 
     public void MainMenu()
     {
-
-        InputHandler[] handlers = FindObjectsOfType<InputHandler>();
-
-        foreach (InputHandler i in handlers)
-        {
-            Destroy(i.gameObject);
-        }
-
-        SceneManager.LoadScene(1);
         Time.timeScale = 1f;
         PauseScript.isPaused = false;
 
@@ -267,6 +258,18 @@ public class SceneLoader : MonoBehaviour
         GameObject.FindGameObjectWithTag("P2").GetComponent<InputHandler>().IsMainMenu();
         GameObject.FindGameObjectWithTag("P3").GetComponent<InputHandler>().IsMainMenu();
         GameObject.FindGameObjectWithTag("P4").GetComponent<InputHandler>().IsMainMenu();
+
+        InputHandler[] handlers = FindObjectsOfType<InputHandler>();
+
+        foreach (InputHandler i in handlers)
+        {
+            Destroy(i.gameObject);
+        }
+
+        Destroy(this.gameObject);
+
+        SceneManager.LoadScene(1);
+       
     }
 
     public void QuitGame()

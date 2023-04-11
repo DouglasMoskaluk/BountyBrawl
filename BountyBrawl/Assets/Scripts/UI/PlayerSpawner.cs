@@ -115,22 +115,22 @@ public class PlayerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (P1Inst.GetComponent<PlayerBody>().getDead() == true && P1Dead == false)
+        if (P1Inst.GetComponent<PlayerBody>().trueDeath == true && P1Dead == false)
         {
             numDead++;
             P1Dead = true;
         }
-        if (P2Inst.GetComponent<PlayerBody>().getDead() == true && P2Dead == false)
+        if (P2Inst.GetComponent<PlayerBody>().trueDeath == true && P2Dead == false)
         {
             numDead++;
             P2Dead = true;
         }
-        if (P3Inst.GetComponent<PlayerBody>().getDead() == true && P3Dead == false)
+        if (P3Inst.GetComponent<PlayerBody>().trueDeath == true && P3Dead == false)
         {
             numDead++;
             P3Dead = true;
         }
-        if (P4Inst.GetComponent<PlayerBody>().getDead() == true && P4Dead == false)
+        if (P4Inst.GetComponent<PlayerBody>().trueDeath == true && P4Dead == false)
         {
             numDead++;
             P4Dead = true;

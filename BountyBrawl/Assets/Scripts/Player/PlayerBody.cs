@@ -115,6 +115,8 @@ public class PlayerBody : MonoBehaviour
 
     [HideInInspector] public bool spawnImmunity;
 
+    [HideInInspector] public bool trueDeath;
+
     private void Awake()
     {
         
@@ -141,7 +143,10 @@ public class PlayerBody : MonoBehaviour
        GetComponent<Animator>().runtimeAnimatorController = skins[playerSkin];
 
         playerSteps.clip = normalWalking;
-        
+
+        trueDeath = false;
+
+
     }
 
     private void Start()
@@ -545,6 +550,7 @@ public class PlayerBody : MonoBehaviour
             
             GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().DeadPlayer(playerIndex);
             GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().CheckAmountRemaining();
+            trueDeath = true;
             gameObject.SetActive(false);
         }
     }
@@ -748,9 +754,9 @@ public class PlayerBody : MonoBehaviour
         else
         {
             GameObject.FindGameObjectWithTag("P1").GetComponent<P1>().TriangleFalse();
-            GameObject.FindGameObjectWithTag("P2").GetComponent<P1>().TriangleFalse();
-            GameObject.FindGameObjectWithTag("P3").GetComponent<P1>().TriangleFalse();
-            GameObject.FindGameObjectWithTag("P4").GetComponent<P1>().TriangleFalse();
+            GameObject.FindGameObjectWithTag("P2").GetComponent<P2>().TriangleFalse();
+            GameObject.FindGameObjectWithTag("P3").GetComponent<P3>().TriangleFalse();
+            GameObject.FindGameObjectWithTag("P4").GetComponent<P4>().TriangleFalse();
         }
     }
 
