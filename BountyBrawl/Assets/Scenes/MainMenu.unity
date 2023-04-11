@@ -8017,9 +8017,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.10369992, g: 1, b: 0, a: 1}
-    m_PressedColor: {r: 0.10093096, g: 0.4811321, b: 0, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0.56314373, a: 0.29803923}
+    m_HighlightedColor: {r: 1, g: 0.95686275, b: 0.4745098, a: 1}
+    m_PressedColor: {r: 0.62352943, g: 0.59607846, b: 0.27450982, a: 1}
+    m_SelectedColor: {r: 1, g: 0.95686275, b: 0.4745098, a: 0.29803923}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10134,7 +10134,7 @@ AudioSource:
   m_GameObject: {fileID: 343442712}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 036952a424480274cb155a2635e0b50b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2a491d9de03961043a81344d20581747, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.6666667
@@ -12579,7 +12579,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2.4475098, y: -6.1764994}
   m_SizeDelta: {x: 5, y: -12.353}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -33091,7 +33091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.24705882}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -40291,7 +40291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -43987,8 +43987,8 @@ RectTransform:
   m_Father: {fileID: 1849255017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45599,8 +45599,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1479367629}
   - component: {fileID: 1479367630}
+  - component: {fileID: 1479367631}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: AudioSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45676,22 +45677,39 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1484694587}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1479367631}
+        m_TargetAssemblyTypeName: Sound, Assembly-CSharp
+        m_MethodName: OnChangeSlider
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1479367631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479367628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4e8ea488a86164fad6b385c7db16fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mixer: {fileID: 24100000, guid: 036952a424480274cb155a2635e0b50b, type: 2}
+  AudioSource: {fileID: 343442716}
+  MixMode: 2
+  volumeValue: 0
+  volumeSlider: {fileID: 1479367630}
 --- !u!1 &1484694587
 GameObject:
   m_ObjectHideFlags: 0

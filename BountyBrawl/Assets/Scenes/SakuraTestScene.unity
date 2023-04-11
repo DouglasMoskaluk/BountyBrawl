@@ -2216,7 +2216,7 @@ AudioSource:
   m_GameObject: {fileID: 389255383}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 036952a424480274cb155a2635e0b50b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4a5d6a80663c7e749a1571b89de8e15c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6666667
@@ -5275,6 +5275,34 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783792935451247341, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783792935451247341, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783792935451247341, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 943184868}
+    - target: {fileID: 2783792935451247341, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnChangeSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783792935451247341, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Sound, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783792935451247341, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783792935451247343, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+      propertyPath: m_Name
+      value: AudioSlider
+      objectReference: {fileID: 0}
     - target: {fileID: 2783792935602732283, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5285,6 +5313,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+--- !u!1 &943184867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2783792935451247343, guid: 1ee1ba0259fde6945a4df4a356b63e17, type: 3}
+  m_PrefabInstance: {fileID: 943184866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &943184868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943184867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4e8ea488a86164fad6b385c7db16fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mixer: {fileID: 24100000, guid: 036952a424480274cb155a2635e0b50b, type: 2}
+  AudioSource: {fileID: 389255390}
+  MixMode: 2
 --- !u!1001 &963251701
 PrefabInstance:
   m_ObjectHideFlags: 0
