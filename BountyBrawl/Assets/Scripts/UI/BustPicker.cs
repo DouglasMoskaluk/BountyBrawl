@@ -31,22 +31,22 @@ public class BustPicker : MonoBehaviour
         }
         if (poster == 2)
         {
-            character = GameObject.Find("MultiEventSystemP2").GetComponent<P1>().GetChar();
-            skin = GameObject.Find("MultiEventSystemP2").GetComponent<P1>().GetSkin();
+            character = GameObject.Find("MultiEventSystemP2").GetComponent<P2>().GetChar();
+            skin = GameObject.Find("MultiEventSystemP2").GetComponent<P2>().GetSkin();
             FindCombo();
             baseImage.sprite = newImage;
         }
         if (poster == 3)
         {
-            character = GameObject.Find("MultiEventSystemP3").GetComponent<P1>().GetChar();
-            skin = GameObject.Find("MultiEventSystemP3").GetComponent<P1>().GetSkin();
+            character = GameObject.Find("MultiEventSystemP3").GetComponent<P3>().GetChar();
+            skin = GameObject.Find("MultiEventSystemP3").GetComponent<P3>().GetSkin();
             FindCombo();
             baseImage.sprite = newImage;
         }
         if (poster == 4)
         {
-            character = GameObject.Find("MultiEventSystemP4").GetComponent<P1>().GetChar();
-            skin = GameObject.Find("MultiEventSystemP4").GetComponent<P1>().GetSkin();
+            character = GameObject.Find("MultiEventSystemP4").GetComponent<P4>().GetChar();
+            skin = GameObject.Find("MultiEventSystemP4").GetComponent<P4>().GetSkin();
             FindCombo();
             baseImage.sprite = newImage;
         }

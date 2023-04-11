@@ -266,10 +266,11 @@ public class SceneLoader : MonoBehaviour
             Destroy(i.gameObject);
         }
 
-        Destroy(this.gameObject);
-
         SceneManager.LoadScene(1);
-       
+
+        GameObject sceneLoader = GameObject.FindGameObjectWithTag("SceneLoader");
+        Destroy(sceneLoader);
+
     }
 
     public void QuitGame()

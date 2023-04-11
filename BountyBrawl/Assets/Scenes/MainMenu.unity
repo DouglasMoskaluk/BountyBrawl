@@ -13517,7 +13517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fistTime: 1.5
   dashTime: 0.4
-  dashSpeed: 90
+  dashSpeed: 0
   dashCurve:
     serializedVersion: 2
     m_Curve: []
@@ -13914,7 +13914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fistTime: 1.5
   dashTime: 0.4
-  dashSpeed: 90
+  dashSpeed: 0
   dashCurve:
     serializedVersion: 2
     m_Curve: []
@@ -16057,7 +16057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fistTime: 1.5
   dashTime: 0.4
-  dashSpeed: 90
+  dashSpeed: 0
   dashCurve:
     serializedVersion: 2
     m_Curve: []
@@ -16461,7 +16461,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lead Gameplay Designer
 
-    Character Designer
+    Character/Weapons Designer
 
     UI Artist
 
@@ -16528,7 +16528,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -180.17194}
+  m_margin: {x: -29.506592, y: 0, z: -42.62085, w: -180.17194}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -21997,7 +21997,7 @@ GameObject:
   - component: {fileID: 731833628}
   m_Layer: 0
   m_Name: MainSceneLoader
-  m_TagString: Untagged
+  m_TagString: SceneLoader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28580,7 +28580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoSand: {fileID: 674935735}
-  infoNag: {fileID: 1869411371}
+  infoNag: {fileID: 329985058}
   infoEmr: {fileID: 616175927}
   infoGreed: {fileID: 1888005223}
 --- !u!114 &955297543
@@ -36896,7 +36896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fistTime: 1.5
   dashTime: 0.4
-  dashSpeed: 90
+  dashSpeed: 0
   dashCurve:
     serializedVersion: 2
     m_Curve: []
@@ -43653,6 +43653,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'UI/UX Programmer
 
+    Professional Sunglass Wearer
+
     Gameplay Designer
 
 '
@@ -43718,7 +43720,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -104.161865}
+  m_margin: {x: -26.228271, y: 0, z: -39.342163, w: -153.3476}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

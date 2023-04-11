@@ -11,6 +11,8 @@ public class PodiumMoneyText : MonoBehaviour
 
     public TMP_Text BountyText, MoneyText, KillText, LostText, EaterText, PlayerDamageText, LostDamageText;
 
+    [SerializeField] private Transform[] posterPositions;
+
     void Start()
     {
         
@@ -23,18 +25,22 @@ public class PodiumMoneyText : MonoBehaviour
         Debug.Log(index);
 
         BountyText.text = "$1,849,000";
+        transform.position = posterPositions[0].position;
 
         if (index == GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().Get4th())
         {
             BountyText.text = "$6";
+            transform.position = posterPositions[3].position;
         }
         if (index == GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().Get3rd())
         {
             BountyText.text = "$46,000";
+            transform.position = posterPositions[2].position;
         }
         if (index == GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().Get2nd())
         {
             BountyText.text = "$275,000";
+            transform.position = posterPositions[1].position;
         }
       
         

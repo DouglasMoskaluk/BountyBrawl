@@ -5,8 +5,8 @@ using UnityEngine;
 public class StatTracker : MonoBehaviour
 {
     private PlayerBody player;
-    private int playerCharacter;
-    private int playerSkin;
+    [HideInInspector] public int playerCharacter;
+    [HideInInspector] public int playerSkin;
 
     [SerializeField] private float totalMoney; //Holds the total amount of money player made
     [SerializeField] private int playerKills; //Holds the total amount of enemy player kills

@@ -29,6 +29,7 @@ TagManager:
   - P4 Info
   - P3 Char
   - P4 Char
+  - SceneLoader
   layers:
   - Default
   - TransparentFX
