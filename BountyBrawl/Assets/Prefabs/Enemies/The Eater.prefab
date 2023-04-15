@@ -247,6 +247,7 @@ MonoBehaviour:
   goldDrop: {fileID: 8427337285872618808}
   aura: {fileID: 6518275612252950717}
   waterSplash: {fileID: 5118364648308066950}
+  demo: 0
 --- !u!50 &-412707967287723565
 Rigidbody2D:
   serializedVersion: 4
@@ -573,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 5000
-  offset: 659
+  offset: 1
   runOnlyOnce: 0
 --- !u!1 &3701501892049776577
 GameObject:

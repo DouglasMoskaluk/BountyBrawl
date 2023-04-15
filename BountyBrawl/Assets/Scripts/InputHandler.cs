@@ -89,26 +89,32 @@ public class InputHandler : MonoBehaviour
 
     public void RemoveHealth(CallbackContext context)
     {
+        /*
         if (player != null)
         {
             player.RemoveHealth(context.ReadValue<float>());
         }
+        */
     }
 
     public void AddHealth(CallbackContext context)
     {
+        /*
         if (player != null)
         {
             player.AddHealth(context.ReadValue<float>());
         }
+        */
     }
 
     public void Respawn(CallbackContext context)
     {
+        /*
         if (player != null)
         {
             player.Respawn(context.ReadValue<float>());
         }
+        */
     }
 
     public void ActivateEvent(CallbackContext context)
@@ -144,7 +150,7 @@ public class InputHandler : MonoBehaviour
 
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().Restart();
+            GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>().MainMenu();
         }
 
     }
