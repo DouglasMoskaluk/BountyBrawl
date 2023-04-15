@@ -1300,7 +1300,7 @@ GameObject:
   - component: {fileID: 51587437}
   - component: {fileID: 51587436}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17962,7 +17962,7 @@ GameObject:
   - component: {fileID: 558930301}
   - component: {fileID: 558930300}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19076,7 +19076,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 1
   character: 3
   animator: {fileID: 581544515}
   moneyLost: 20
@@ -22169,7 +22169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &678332938
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22947,7 +22947,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 1
   character: 1
   animator: {fileID: 718614291}
   moneyLost: 20
@@ -33123,7 +33123,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 1
   character: 0
   animator: {fileID: 1024908380}
   moneyLost: 20
@@ -34334,7 +34334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1068148813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34368,7 +34368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482c8e6da4eecf64b80f32f68ee366db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryButton: {fileID: 0}
+  primaryButton: {fileID: 1185227496}
 --- !u!1 &1072133256
 GameObject:
   m_ObjectHideFlags: 0
@@ -34715,7 +34715,7 @@ MonoBehaviour:
   downAngle: -30
   upAngle: 20
   weaponIndex: 0
-  playerIndex: 0
+  playerIndex: 1
   character: 2
   animator: {fileID: 1079070475}
   moneyLost: 20
@@ -51854,7 +51854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1593170788
 Transform:
   m_ObjectHideFlags: 0
