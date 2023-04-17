@@ -787,7 +787,7 @@ public class PlayerBody : MonoBehaviour
             }
             else if (playerIndex == 3)
             {
-                GameObject.FindGameObjectWithTag("P4").GetComponent<P4>().TriasngleFalse();
+                GameObject.FindGameObjectWithTag("P4").GetComponent<P4>().TriangleFalse();
             }
         }
     }
