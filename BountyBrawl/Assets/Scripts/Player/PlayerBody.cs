@@ -149,6 +149,23 @@ public class PlayerBody : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        PlayerBody[] players = FindObjectsOfType<PlayerBody>();
+        if (players.Length != 0)
+        {
+            //Debug.Log("Player Length where not 0" + players.Length);
+            statTracker.placement = players.Length + 1;
+            statTracker.playerIndex = playerIndex;
+        }
+        else
+        {
+            //Debug.Log("Player Length where is 0" + players.Length);
+            statTracker.placement = 1;
+            statTracker.playerIndex = playerIndex;
+        }
+    }
+
     private void Start()
     {
         //Gets the spawnpoint of the player based on player index
@@ -189,6 +206,7 @@ public class PlayerBody : MonoBehaviour
         {
             canMove = false;
             playerRB.velocity = Vector2.zero;
+            playerRB.angularVelocity = 0;
         }
 
 
@@ -212,6 +230,7 @@ public class PlayerBody : MonoBehaviour
         if (dead)
         {
             playerRB.velocity = Vector2.zero;
+            playerRB.angularVelocity = 0;
         }
 
 
@@ -502,6 +521,7 @@ public class PlayerBody : MonoBehaviour
         else
         {
             animator.SetTrigger("TrueDeath");
+
         }
         animator.SetBool("Attacking", false);
         weaponHolder.gameObject.SetActive(false);
@@ -547,7 +567,7 @@ public class PlayerBody : MonoBehaviour
         }
         else
         {
-            
+
             GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().DeadPlayer(playerIndex);
             GameObject.Find("MainSceneLoader").GetComponent<SceneLoader>().CheckAmountRemaining();
             trueDeath = true;
@@ -599,7 +619,7 @@ public class PlayerBody : MonoBehaviour
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)
     {
-        if (!dead)
+        if (!dead && poison == null)
         {
             poison = StartCoroutine(Poison(dam, interval, amount, player));
         }
@@ -753,10 +773,22 @@ public class PlayerBody : MonoBehaviour
         }
         else
         {
-            GameObject.FindGameObjectWithTag("P1").GetComponent<P1>().TriangleFalse();
-            GameObject.FindGameObjectWithTag("P2").GetComponent<P2>().TriangleFalse();
-            GameObject.FindGameObjectWithTag("P3").GetComponent<P3>().TriangleFalse();
-            GameObject.FindGameObjectWithTag("P4").GetComponent<P4>().TriangleFalse();
+            if(playerIndex == 0)
+            {
+                GameObject.FindGameObjectWithTag("P1").GetComponent<P1>().TriangleFalse();
+            }
+            else if (playerIndex == 1)
+            {
+                GameObject.FindGameObjectWithTag("P2").GetComponent<P2>().TriangleFalse();
+            }
+            else if (playerIndex == 2)
+            {
+                GameObject.FindGameObjectWithTag("P3").GetComponent<P3>().TriangleFalse();
+            }
+            else if (playerIndex == 3)
+            {
+                GameObject.FindGameObjectWithTag("P4").GetComponent<P4>().TriasngleFalse();
+            }
         }
     }
 

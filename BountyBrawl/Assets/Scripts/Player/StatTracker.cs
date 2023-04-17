@@ -15,6 +15,9 @@ public class StatTracker : MonoBehaviour
     [SerializeField] private float playerDamage; //Holds the total amount of enemy player damage made
     [SerializeField] private float enemyDamage; //Holds the total amount of enemy damage made
 
+    public int placement; //For the podium
+    public int playerIndex; //for podium
+
     private void Awake()
     {
         Reset();
@@ -74,5 +77,7 @@ public class StatTracker : MonoBehaviour
     public int GetEater() { return EaterKills; }
     public float GetDamage() { return playerDamage; }
     public float GetLostDamage() { return enemyDamage; }
+
+    public int getPlayerIndex() { return player.GetPlayerIndex(); }
 
 }

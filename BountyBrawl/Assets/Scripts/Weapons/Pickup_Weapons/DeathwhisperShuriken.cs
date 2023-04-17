@@ -97,6 +97,11 @@ public class DeathwhisperShuriken : MonoBehaviour
                 player = null; //sets the player to null to wait for next player
                 canUse = true; //Weapon is back to being pickupable
                 weaponBody.isTrigger = true;
+
+                foreach (GameObject p in thrownShurikens)
+                {
+                    p.GetComponent<Deathwhisper_ShurikenBullet>().Thrown();
+                }
             }
         }
 

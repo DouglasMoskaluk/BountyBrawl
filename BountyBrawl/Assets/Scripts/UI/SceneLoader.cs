@@ -61,6 +61,11 @@ public class SceneLoader : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Update()
     {
         
@@ -119,7 +124,6 @@ public class SceneLoader : MonoBehaviour
             Index4th = index;
 
             deadPlayers = 1;
-            Debug.Log(Index4th);
         }
 
     }
@@ -265,8 +269,6 @@ public class SceneLoader : MonoBehaviour
         {
             Destroy(i.gameObject);
         }
-
-        SceneManager.LoadScene(1);
 
         GameObject sceneLoader = GameObject.FindGameObjectWithTag("SceneLoader");
         Destroy(sceneLoader);
