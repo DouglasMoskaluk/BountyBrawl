@@ -40,12 +40,17 @@ public class SceneLoader : MonoBehaviour
 
     private bool AllDead;
 
+    private float MusicVolume;
+    private float SFXvolume;
+
     public void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
         Index2nd = 5;
         Index3rd = 5;
         Index4th = 5;
+        MusicVolume = 1.0f;
+        SFXvolume = 1.0f;
 
     }
 
@@ -103,6 +108,19 @@ public class SceneLoader : MonoBehaviour
         
     }
 
+    public void SetMusicVolume(float volume)
+    {
+        MusicVolume = volume;
+    }
+
+    public float GetMusicVolume() { return MusicVolume; }
+
+    public void SetSFXVolume(float volume)
+    {
+        SFXvolume = volume;
+    }
+
+    public float GetSFXVolume() { return SFXvolume; }
 
     public void DeadPlayer(int index)
     {

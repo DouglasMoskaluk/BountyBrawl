@@ -180,7 +180,7 @@ AudioSource:
   m_GameObject: {fileID: 6032657851575588163}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 07a266c54146896489880839baaca772, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -409,6 +409,7 @@ MonoBehaviour:
   walkingWater: {fileID: 8300000, guid: c5a70518cbed73a4a90342b62023d253, type: 3}
   canPause: 0
   spawnImmunity: 0
+  trueDeath: 0
 --- !u!50 &6032657851593509939
 Rigidbody2D:
   serializedVersion: 4
@@ -499,7 +500,7 @@ AudioSource:
   m_GameObject: {fileID: 6032657851593509947}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 07a266c54146896489880839baaca772, type: 2}
   m_audioClip: {fileID: 8300000, guid: 07a1b365485947846a512f163b946679, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.491
@@ -595,7 +596,7 @@ AudioSource:
   m_GameObject: {fileID: 6032657851593509947}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 07a266c54146896489880839baaca772, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
