@@ -226,6 +226,11 @@ public class PlayerBody : MonoBehaviour
             lives = lives - 1;
         }
 
+        if(runSpeed > 20)
+        {
+            runSpeed = 20;
+        }
+
 
         if (dead)
         {
@@ -511,6 +516,7 @@ public class PlayerBody : MonoBehaviour
         StopAllCoroutines();
         canMove = false;
         playerRB.velocity = Vector2.zero;
+        playerRB.angularVelocity = 0;
         sprite.material.color = Color.white;
         headSprite.material.color = Color.white;
 
@@ -598,6 +604,7 @@ public class PlayerBody : MonoBehaviour
         weaponIndex = 0;
         health = 100;
         moneyChecker = 1;
+        wet = false;
     }
 
     public void StartAttack()
@@ -619,7 +626,7 @@ public class PlayerBody : MonoBehaviour
 
     public void PoisonPlayer(float dam, float interval, float amount, PlayerBody player)
     {
-        if (!dead && poison == null)
+        if (!dead)
         {
             poison = StartCoroutine(Poison(dam, interval, amount, player));
         }

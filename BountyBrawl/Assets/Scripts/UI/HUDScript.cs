@@ -181,8 +181,8 @@ public class HUDScript : MonoBehaviour
                     health.transform.position -= new Vector3(sliderXOffset, 0, 0);
                     ammo.transform.position = Camera.main.WorldToScreenPoint(new Vector2(playerPos.x, playerPos.y + sliderHeight));
                     ammo.transform.position += new Vector3(sliderXOffset, 0, 0);
-
-                    if(player.IsPoisoned() == null)
+                    
+                    if (player.IsPoisoned() == null)
                     {
                         healthBar.color = normalColor;
                     }

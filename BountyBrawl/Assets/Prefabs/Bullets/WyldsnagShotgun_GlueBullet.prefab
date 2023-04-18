@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ebb9947d9c4c7948b6b996cbd309f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTickTime: 1.5
+  damageTickTime: 0.25
   speed: 50
   bulletLifeTime: 1
   glueShotSP: {fileID: 21300000, guid: d6ceef77910a5844f830f44811d54b4a, type: 3}
@@ -168,7 +168,7 @@ MonoBehaviour:
   baseDamage: 10
   stunLength: 1
   glueTime: 5
-  glueDamage: 3
+  glueDamage: 5
   gluePlayerSlowness: 5
   glueSize: {x: 2, y: 2, z: 1}
   glueGrowSpeed: 10

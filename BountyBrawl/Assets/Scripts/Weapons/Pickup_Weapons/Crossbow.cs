@@ -186,9 +186,9 @@ public class Crossbow : MonoBehaviour
         animator.SetBool("Reload", true);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "WeaponHolder" && canUse)
+        if (collision.tag == "WeaponHolder" && canUse && !thrown)
         {
             PlayerBody checker = collision.transform.parent.GetComponent<PlayerBody>();
             //If player is not using a weapon
@@ -233,9 +233,15 @@ public class Crossbow : MonoBehaviour
                 transform.rotation = collision.transform.rotation;
                 transform.parent = collision.GetComponentInChildren<CircleCollider2D>().transform;
 
-                canThrow = true;
+                StartCoroutine(CanThrow());
             }
         }
+    }
+
+    IEnumerator CanThrow()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canThrow = true;
     }
     IEnumerator Throw()
     {

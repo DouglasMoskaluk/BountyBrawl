@@ -388,7 +388,7 @@ MonoBehaviour:
   coinsUI: {fileID: 2783792933854746361}
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
-  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
+  poisonColor: {r: 0, g: 1, b: 0.00980401, a: 1}
 --- !u!1 &2783792933573427789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.88212055, g: 0.72075474, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5970,7 +5970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.7778448, b: 0.7348345, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6974,7 +6974,7 @@ MonoBehaviour:
   coinsUI: {fileID: 2783792934711165462}
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
-  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
+  poisonColor: {r: 0, g: 1, b: 0.00980401, a: 1}
 --- !u!1 &2783792934995675369
 GameObject:
   m_ObjectHideFlags: 0
@@ -8558,7 +8558,7 @@ MonoBehaviour:
   coinsUI: {fileID: 2783792934979417368}
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
-  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
+  poisonColor: {r: 0, g: 1, b: 0.00980401, a: 1}
 --- !u!1 &2783792935183143461
 GameObject:
   m_ObjectHideFlags: 0
@@ -9205,7 +9205,7 @@ MonoBehaviour:
   coinsUI: {fileID: 2783792934013185138}
   fullHeart: {fileID: 7531559001034984907, guid: 4cf4c63f66230d34abc134e71c25d4ee, type: 3}
   emptyHeart: {fileID: 5889279666071446287, guid: df98f6ed7cfb0164383db372acf69243, type: 3}
-  poisonColor: {r: 0, g: 1, b: 0.011764706, a: 0.3529412}
+  poisonColor: {r: 0, g: 1, b: 0.00980401, a: 1}
 --- !u!1 &2783792935233734757
 GameObject:
   m_ObjectHideFlags: 0
@@ -9891,7 +9891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8356958, g: 1, b: 0.71132076, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11438,7 +11438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.75686276, g: 0.90507543, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

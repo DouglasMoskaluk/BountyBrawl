@@ -72,7 +72,7 @@ public class WyldsnagShotgun : MonoBehaviour
             {
                     Shoot1(); //shoot gun if there is ammo and if player is holding the tringger
             }
-            if (player.getFire2() != 0 && ammo >= 2 && !thrown)
+            if (player.getFire2() != 0 && ammo >= 5 && !thrown)
             {
                     Shoot2();
                     //shoot gun if there is ammo and if player is holding the tringger
@@ -139,7 +139,7 @@ public class WyldsnagShotgun : MonoBehaviour
         if (canFire)
         {
             altFire.Play();
-            ammo -= 2;
+            ammo -= 5;
             canFire = false;
             animator.SetBool("Fire2", true);
 
@@ -170,9 +170,9 @@ public class WyldsnagShotgun : MonoBehaviour
         animator.applyRootMotion = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "WeaponHolder" && canUse)
+        if (collision.tag == "WeaponHolder" && canUse && !thrown)
         {
             PlayerBody checker = collision.transform.parent.GetComponent<PlayerBody>();
             //If player is not using a weapon
@@ -213,7 +213,7 @@ public class WyldsnagShotgun : MonoBehaviour
                 transform.rotation = collision.transform.rotation;
                 transform.parent = collision.GetComponentInChildren<CircleCollider2D>().transform;
 
-                canThrow = true;
+                StartCoroutine(CanThrow());
             }
         }
     }
@@ -221,6 +221,12 @@ public class WyldsnagShotgun : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         canFire = true;
+    }
+
+    IEnumerator CanThrow()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canThrow = true;
     }
     IEnumerator Throw()
     {

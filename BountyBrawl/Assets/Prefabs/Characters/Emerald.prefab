@@ -425,6 +425,7 @@ MonoBehaviour:
   walkingWater: {fileID: 8300000, guid: c5a70518cbed73a4a90342b62023d253, type: 3}
   canPause: 0
   spawnImmunity: 0
+  trueDeath: 0
 --- !u!50 &4533593584580382547
 Rigidbody2D:
   serializedVersion: 4
@@ -867,7 +868,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71463237
   m_SortingLayer: 3
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3268c209b7b590b41a2ec5727fe9a795, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

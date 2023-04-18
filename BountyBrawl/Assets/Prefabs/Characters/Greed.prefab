@@ -804,6 +804,7 @@ MonoBehaviour:
   walkingWater: {fileID: 8300000, guid: c5a70518cbed73a4a90342b62023d253, type: 3}
   canPause: 0
   spawnImmunity: 0
+  trueDeath: 0
 --- !u!50 &4736355978082995622
 Rigidbody2D:
   serializedVersion: 4

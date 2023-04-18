@@ -36,7 +36,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     //Weaponry
     [SerializeField] private float baseDamage = 10f; //The base damage of the weapon without poison
     [SerializeField] private float stunLength = 1f; //The length of stun for players hit
-    [SerializeField] private float glueTime = 5f; //The amount of time glue will stay in the level
+    [SerializeField] public float glueTime = 5f; //The amount of time glue will stay in the level
     [SerializeField] private float glueDamage = 3f; //Amount of damage glue gives if player is emerald
     [SerializeField] private float gluePlayerSlowness = 5f; //How slow the glue will make players
     [SerializeField] private Vector3 glueSize = new Vector3(2f, 2f, 1f);
@@ -45,7 +45,7 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     [SerializeField] private float glueEaterSlowness = 400f;
     private List<GameObject> enemies;
 
-    private bool glue;
+    [HideInInspector] public bool glue;
     private BoxCollider2D bullet; //The bullets hitbox
     private CircleCollider2D glueZone; //The glue hitbox
     private TrailRenderer trailRenderer;
@@ -197,6 +197,15 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
     {
         direction = dir; //assigns given direction to direction variable.
         player = play; //If the player is profficient
+
+        if(player.getCharacter() == 3)
+        {
+            glueRD.sprite = acidShotSP;
+        }
+        else
+        {
+            glueRD.sprite = glueShotSP;
+        }
     }
 
 
@@ -359,6 +368,18 @@ public class WyldsnagShotgun_GlueBullet : MonoBehaviour
                 else if (collision.gameObject.tag == "Eater")
                 {
                     collision.GetComponent<TheEater>().Slow(glueEaterSlowness);
+                }
+            }
+
+            if (collision.tag == "Bullet")
+            {
+                if (collision.GetComponent<WyldsnagShotgun_GlueBullet>() != null)
+                {
+                    WyldsnagShotgun_GlueBullet hit = collision.GetComponent<WyldsnagShotgun_GlueBullet>();
+                    if (hit.glue && this.glueTime > hit.glueTime)
+                    {
+                        Destroy(collision.gameObject);
+                    }
                 }
             }
         }
