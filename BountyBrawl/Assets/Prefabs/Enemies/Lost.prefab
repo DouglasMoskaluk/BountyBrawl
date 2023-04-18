@@ -277,7 +277,7 @@ MonoBehaviour:
   dashDistance: 15
   baseDamage: 5
   baseHealth: 10
-  maxHealth: 70
+  maxHealth: 20
   dashTime: 1
   dash: {fileID: 21300000, guid: 3ba05279ba7d2114d974ef87909e17a7, type: 3}
   moneyEarn: 5

@@ -513,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746005044465814917}
   - component: {fileID: 5526977855845441620}
+  - component: {fileID: 60503481563335684}
   m_Layer: 2
   m_Name: CrossbowHead
   m_TagString: Special Bullet
@@ -573,7 +574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71463237
   m_SortingLayer: 3
-  m_SortingOrder: 32767
+  m_SortingOrder: 0
   m_Sprite: {fileID: -3408124144869501929, guid: 1e9ba57ff24950e4d8c312b211ba0bf7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -585,6 +586,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &60503481563335684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3326416648787809919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0
 --- !u!1 &7126240261183809160
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +614,7 @@ GameObject:
   - component: {fileID: 7517173053920193301}
   - component: {fileID: 7142501891528062306}
   - component: {fileID: 8767469399246866537}
+  - component: {fileID: 1695296902992589847}
   m_Layer: 2
   m_Name: Lightning_Bullet
   m_TagString: Special Bullet
@@ -658,7 +675,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 71463237
   m_SortingLayer: 3
-  m_SortingOrder: 32767
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2448028049422185561, guid: d0032c167acf5924bb2ccc412fd0bb6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -733,3 +750,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1695296902992589847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126240261183809160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb555bf1d7b09409977deeab00a831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 5000
+  offset: -2
+  runOnlyOnce: 0

@@ -127,7 +127,7 @@ MonoBehaviour:
   baseDamage: 10
   poisonDistance: 30
   poisonDamage: 5
-  poisonInterval: 3
+  poisonInterval: 1
   poisonAmount: 3
   nonProfBulletTrail:
     serializedVersion: 2

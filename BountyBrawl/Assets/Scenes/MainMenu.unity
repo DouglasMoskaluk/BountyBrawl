@@ -9482,6 +9482,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!1 &323547506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10665,6 +10667,42 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 678332937}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1789407501}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 413512198}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2065984825}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -12584,15 +12622,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0fb4d9274318a5b4085629da89aa0be4, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -15640,6 +15678,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &507876716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18624,6 +18664,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &581544517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19613,6 +19655,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!61 &623215888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21563,6 +21607,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &668962022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23058,6 +23104,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!61 &718614294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24781,6 +24829,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!61 &769394198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25948,6 +25998,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &810646094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27061,6 +27113,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &819876547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28533,6 +28587,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &871271776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30449,6 +30505,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &926279098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31149,6 +31207,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!1 &972370973
 GameObject:
   m_ObjectHideFlags: 0
@@ -33333,6 +33393,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &1024908382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35217,6 +35279,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &1079070477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35554,6 +35618,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &1080175023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36540,7 +36606,7 @@ GameObject:
   - component: {fileID: 1112477885}
   m_Layer: 0
   m_Name: Emerald
-  m_TagString: P3 Info
+  m_TagString: P3 Char
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36746,6 +36812,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &1112477888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37858,6 +37926,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!1 &1145776753
 GameObject:
   m_ObjectHideFlags: 0
@@ -57176,6 +57246,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!114 &1736897897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59756,15 +59828,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e4224682a851d7d49b4fdb56c6b3b570, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -61026,6 +61098,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!1 &1833655452
 GameObject:
   m_ObjectHideFlags: 0
@@ -66549,6 +66623,8 @@ MonoBehaviour:
   EaterKills: 0
   playerDamage: 0
   enemyDamage: 0
+  placement: 0
+  playerIndex: 0
 --- !u!61 &1985983945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69069,15 +69145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f41fb42c8db11dc49a2ee95a457eaf9e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
