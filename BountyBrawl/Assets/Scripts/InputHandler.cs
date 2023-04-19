@@ -32,6 +32,21 @@ public class InputHandler : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Keyboard.current.digit6Key.wasPressedThisFrame)
+        {
+            if (SceneManager.GetActiveScene().buildIndex != 5)
+            {
+                SceneManager.LoadScene(5);
+            }
+            else
+            {
+                FindObjectOfType<SceneLoader>().MainMenu();
+            }
+        }
+    }
+
     public void Reset()
     {
         playerInput = null;

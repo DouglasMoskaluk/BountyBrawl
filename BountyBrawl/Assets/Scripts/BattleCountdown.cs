@@ -15,8 +15,7 @@ public class BattleCountdown : MonoBehaviour
     private Image numberDisplayer;
     private Animator numberAnimator;
 
-    [SerializeField] private AudioSource numberDown;
-    [SerializeField] private AudioSource brawlNoise;
+    [SerializeField] private AudioSource countdown;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +32,9 @@ public class BattleCountdown : MonoBehaviour
 
     private IEnumerator CountDown()
     {
+        Debug.Log("Player");
         int countdownLength = numbers.Length;
-        //numberDown.Play();
+        countdown.Play();
 
         for (int i = 1; i < countdownLength; i++)
         {
@@ -47,7 +47,6 @@ public class BattleCountdown : MonoBehaviour
         yield return new WaitForSecondsRealtime(countdownSpeed);
         countdownNumbers.SetActive(false);
         countdownEnd.SetActive(true);
-        //brawlNoise.Play();
         yield return new WaitForSecondsRealtime(brawlStay);
         Time.timeScale = 1f;
 

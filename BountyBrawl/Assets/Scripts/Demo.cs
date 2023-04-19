@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Demo : MonoBehaviour
 {
@@ -86,7 +87,7 @@ public class Demo : MonoBehaviour
                 eventManager.GetComponent<EventManager>().Quicken();
             }
         }
-        else if (Keyboard.current.digit6Key.wasPressedThisFrame)
+        /*else if (Keyboard.current.digit6Key.wasPressedThisFrame)
         {
             if (eater.activeSelf)
             {
@@ -97,7 +98,9 @@ public class Demo : MonoBehaviour
                 eater.SetActive(true);
                 StartCoroutine(eater.GetComponent<TheEater>().ChangeSpawnin());
             }
-        }else if (Keyboard.current.digit7Key.wasPressedThisFrame)
+        }
+                */
+        else if (Keyboard.current.digit7Key.wasPressedThisFrame)
         {
             eater.GetComponent<TheEater>().IsNotTeleporting(true);
             StartCoroutine(IsMiniboss());

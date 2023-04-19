@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Podium.unity
     guid: 6de58c26595394749bd313287ce5357e
+  - enabled: 1
+    path: Assets/Scenes/Trailer.unity
+    guid: e38076074cc223140ad1ce0059e1e50c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ddc991a85dc493b4f98cfb36a462446b, type: 2}
