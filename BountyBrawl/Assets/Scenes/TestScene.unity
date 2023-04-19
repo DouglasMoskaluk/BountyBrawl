@@ -35072,7 +35072,7 @@ MonoBehaviour:
   - {fileID: 58111403}
   - {fileID: 1588764867}
   graphScanUpdate: 0.5
-  cursedTime: 45
+  cursedTime: 20
 --- !u!1 &1570055440
 GameObject:
   m_ObjectHideFlags: 0
